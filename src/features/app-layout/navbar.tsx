@@ -3,8 +3,8 @@ import SearchInput from "@shared/ui/searchInput/searchInput";
 import { BiCategory } from "react-icons/bi";
 import { IoCloseSharp, IoChevronDown, IoChevronUp } from "react-icons/io5";
 import { useState } from "react";
-import { Menu, Popover } from "@mantine/core";
-import { NavbarS, MenubarS, MenuItems, ProductMenuListTrigger, ProductMenuTrigger, CustomMenuItem, MenuButton, MenuListItem, MenuButtonContainer } from "./styles";
+import { Container, Menu, Popover } from "@mantine/core";
+import { NavbarS, MenubarS, MenuItems, ProductMenuListTrigger, ProductMenuTrigger, CustomMenuItem, MenuButton, MenuListItem, MenuButtonContainer, VerticalLine } from "./styles";
 import { productLinks } from "./constants";
 
 
@@ -79,7 +79,7 @@ const Navbar = () => {
         </Popover.Target>
         <Popover.Dropdown>
           <SearchInput showSearch={true} />
-          <MenuListItem to={'/'} onClick={() => setShowMenu(false)}>Home</MenuListItem>
+          <MenuListItem to={'/'} onClick={() => setShowMenu(false)} style={{marginTop: '1px'}}>Home</MenuListItem>
           <MenuListItem to={'/about'} onClick={() => setShowMenu(false)}>About Us</MenuListItem>
           <Menu
             width={250}
@@ -118,6 +118,12 @@ const Navbar = () => {
             </Menu.Dropdown>
           </Menu>
           <MenuListItem to={'/contact'} onClick={() => setShowMenu(false)}>Contact Us</MenuListItem>
+          <VerticalLine opacity={20} style={{marginBlock: '10px'}} />
+          
+           <Container  p='10px' >
+                          <img src="/lotus logo.png" alt="lotus logo" width={104} />
+            </Container>
+
         </Popover.Dropdown>
       </Popover>
     </NavbarS>
