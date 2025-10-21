@@ -25,8 +25,8 @@ const Container = styled(MantineFlex)<FlexProps>`
   padding: ${({ p }) => p || '0'};
   max-width: ${({ mw }) => mw || 'auto'};
   min-width: ${({ minw }) => minw || 'auto'};
-
-
+  
+  
 `;
 
 export default Container;

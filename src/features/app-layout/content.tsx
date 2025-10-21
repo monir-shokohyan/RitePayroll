@@ -1,12 +1,17 @@
+import { Flex, FlexProps } from '@mantine/core'
 import { Outlet } from 'react-router-dom'
-
+import styled from 'styled-components'
+const Wrapper = styled(Flex)<FlexProps>`
+  padding: 10px 40px;
+  width: 100vw;
+`
 export const Content = () => {
   return (
     <main
     >
-      <div className="h-full p-2">
+      <Wrapper direction="column" gap={30} >
         <Outlet />
-      </div>
+      </Wrapper>
     </main>
   )
 }

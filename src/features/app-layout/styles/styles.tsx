@@ -13,6 +13,7 @@ const NavbarS = styled.nav`
   align-items: center;
   justify-content: space-between;
   background-color: ${SavedColors.PrimaryWhite};
+  z-index: 4;
 `;
 
 const MenubarS = styled.div`
