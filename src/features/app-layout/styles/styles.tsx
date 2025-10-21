@@ -1,4 +1,4 @@
-import { Menu } from "@mantine/core";
+import { Flex, FlexProps, Menu } from "@mantine/core";
 import { SavedColors } from "@shared/constants";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -214,4 +214,34 @@ const FooterContainer = styled.footer`
 
 `
 
-export {FooterContainer, VerticalLine, UtilityContainer, CustomMenuItem, ProductMenuListTrigger, ProductMenuTrigger, MenuButtonContainer, MenuButton, MenuListItem, NavbarS, MenubarS, MenuItems}
+const FooterFirstContainer = styled(Flex)<FlexProps>`
+padding: 10px;
+width: 55%;
+@media (max-width:710px){
+    width: 100%;
+}
+
+`
+const FooterSecondContainer = styled(Flex)<FlexProps>`
+padding: 10px;
+width: 40%;
+@media (max-width:710px){
+    width: 100%;
+}
+`
+export {
+  FooterFirstContainer,
+   FooterSecondContainer,
+    FooterContainer,
+     VerticalLine,
+      UtilityContainer,
+       CustomMenuItem,
+        ProductMenuListTrigger,
+         ProductMenuTrigger,
+          MenuButtonContainer,
+           MenuButton,
+            MenuListItem,
+             NavbarS,
+              MenubarS,
+               MenuItems
+              }

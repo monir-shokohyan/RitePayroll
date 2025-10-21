@@ -1,4 +1,4 @@
-import { Flex, FlexProps } from '@mantine/core'
+import { Flex } from '@mantine/core'
 import { SavedColors } from '@shared/constants'
 import Container from '@shared/ui/Container'
 import { NavLinkS, TextWithFamily } from '@shared/ui/Typography'
@@ -7,28 +7,10 @@ import IconWithText from '@shared/ui/IconWithText'
 import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaPhoneAlt } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
 import { FaLocationDot } from "react-icons/fa6";
-import { FooterContainer, VerticalLine } from './styles'
-import styled from 'styled-components'
-
-
-const FooterFirstContainer = styled(Flex)<FlexProps>`
-padding: 10px;
-width: 55%;
-@media (max-width:710px){
-    width: 100%;
-}
-
-`
-const FooterSecondContainer = styled(Flex)<FlexProps>`
-padding: 10px;
-width: 40%;
-@media (max-width:710px){
-    width: 100%;
-}
+import { FooterContainer, FooterFirstContainer, FooterSecondContainer, VerticalLine } from './styles'
 
 
 
-`
 
 const Footer = () => {
     return (
@@ -38,10 +20,10 @@ const Footer = () => {
             </Container>
 
 
-            <Container p='10px' gap={10} justify="start" wrap="wrap" style={{ border: '1px solid red', width: '100%' }}>
-                <FooterFirstContainer gap={10} wrap="wrap" style={{ border: '1px solid yellow' }}>
+            <Container p='10px' gap={10} justify="start" wrap="wrap" >
+                <FooterFirstContainer gap={10} wrap="wrap" >
 
-                    <Container wrap="wrap" style={{border: '1px solid pink'}}>
+                    <Container wrap="wrap" >
                         <Container p='10px' gap={10} direction="column" minw='150px' w="50%">
                             <Container h='35' w='100%'>
                                 <TextWithFamily font="Nunito" fontWeight='600' fontSize='20px' color={SavedColors.PrimaryWhite}>
@@ -93,7 +75,7 @@ const Footer = () => {
 
                 </FooterFirstContainer>
 
-                <FooterSecondContainer p='15px' gap={16} justify="start" direction="column" style={{ border: '1px solid green' }}>
+                <FooterSecondContainer p='15px' gap={16} justify="start" direction="column" >
                     <TextWithFamily color={SavedColors.PrimaryWhite} fontSize='20px' font="Nunito">Lotus Soft Technologies Ltd.</TextWithFamily>
                     <VerticalLine opacity={20} />
                     <TextWithFamily color={SavedColors.DarkWhite} fontSize='16px' font="Roboto">
