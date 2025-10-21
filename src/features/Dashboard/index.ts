@@ -1,1 +1,1 @@
-export * from './ui'
+export {Ui as Dashboard} from './ui'

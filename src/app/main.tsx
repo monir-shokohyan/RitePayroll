@@ -4,9 +4,9 @@ import { createRoot } from 'react-dom/client'
 import { Providers } from '@app/providers'
 
 import { AppRouter } from './router'
-
+import { MantineProvider } from '@mantine/core'
 import './main.css'
-
+import '@mantine/core/styles.css';
 const container = document.querySelector('#root')
 
 if (!container) {
@@ -14,9 +14,11 @@ if (!container) {
 }
 
 createRoot(container).render(
-  // <StrictMode>
+  <StrictMode>
     <Providers>
-      <AppRouter />
+      <MantineProvider>
+        <AppRouter />
+      </MantineProvider>
     </Providers>
-  // </StrictMode>,
+  </StrictMode>,
 )

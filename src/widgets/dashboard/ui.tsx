@@ -1,13 +1,12 @@
 import { Dashboard } from '@features/Dashboard'
-import { Flex } from 'antd'
 
 const Ui = () => {
   return (
-    <Flex
+    <div
       className='h-full w-full'
     >
       <Dashboard />
-    </Flex>
+    </div>
   )
 }
 
