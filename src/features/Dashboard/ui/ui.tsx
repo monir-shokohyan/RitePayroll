@@ -13,8 +13,7 @@ function Ui() {
       w="100%"
       h={{ base: 'auto', sm: 'auto', md: 'auto', lg: '100vh' }}
       justify="center"
-      align={{ base: 'flex-start', lg: 'flex-start' }}
-      style={{ border: '1px solid red' }}
+      align="start"
     >
       <ResContainer 
         direction="column" 
@@ -23,7 +22,6 @@ function Ui() {
         gap={20}
         style={{ 
           position: 'relative', 
-          border: '1px solid yellow',
           padding: '20px 0'
         }} 
         justify="center"
@@ -63,6 +61,7 @@ function Ui() {
           <HoveredButtonWithBorder 
             radius="md" 
             size="md" 
+            w={{ base: '100%',sm: 'auto',md: 'auto', lg: 'auto'}}
             color={SavedColors.Primaryblue}
           >
             Request a demo
@@ -71,6 +70,7 @@ function Ui() {
           <HoveredButtonWithoutBorder 
             radius={20} 
             size="md" 
+            w={{ base: '100%',sm: 'auto',md: 'auto', lg: 'auto'}}
             color={SavedColors.Primaryblue} 
             variant="transparent"
           >
@@ -84,7 +84,6 @@ function Ui() {
         h={{ base: 'auto', lg: '70vh' }}  
         justify="center" 
         align="center" 
-        style={{ border: '1px solid blue' }}
         p={{ base: 'md', lg: "0" }}
       >
         <Image 
