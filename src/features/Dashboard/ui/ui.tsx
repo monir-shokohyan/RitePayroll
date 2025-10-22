@@ -12,6 +12,7 @@ function Ui() {
       bg="url('/landing bg.svg')"
       w="100%"
       h={{ base: 'auto', sm: 'auto', md: 'auto', lg: '100vh' }}
+      p={{ base: '10px 16px', sm: '10px 24px', md: '10px 32px', lg: '10px 40px' }}
       justify="center"
       align="start"
     >
