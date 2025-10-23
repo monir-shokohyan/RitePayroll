@@ -1,7 +1,7 @@
 import { horWrapperType } from '@shared/types/horWrapper'
 import { BgFlex } from '@shared/ui/BgFlex'
 
-const horWrapper = ({ children,rightSection,bgImage,isReverseWrap,leftWidth = '55%', rightWidth = '45%', fullHeight = true}:horWrapperType) => {
+const horWrapper = ({RSJustify='flex-start', children,rightSection,bgImage,isReverseWrap,leftWidth = '55%', rightWidth = '45%', fullHeight = true}:horWrapperType) => {
   return (
     <>
     <BgFlex 
@@ -35,9 +35,9 @@ const horWrapper = ({ children,rightSection,bgImage,isReverseWrap,leftWidth = '5
       <BgFlex  
         w={{ base: '100%', lg: rightWidth }}
         h="100%"  
-        justify="start" 
+        justify={RSJustify} 
         align="center" 
-        p={{ base: 'md', lg: "0" }}
+        p={{ base: '0px', lg: "0" }}
         
       >
        {rightSection}

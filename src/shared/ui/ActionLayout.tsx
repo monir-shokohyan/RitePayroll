@@ -22,6 +22,9 @@ interface ActionLayoutProps {
   textSize? : string,
   titleSize?: string,
   gap?:number
+  descriptionSecond?: string
+  descriptionThird?: string
+  descriptionForth?: string
 }
 
 const ActionIconWrapper = styled.div<{ 
@@ -91,6 +94,10 @@ const ActionLayout = ({
   gap = 3,
   titleNormal,
   descriptionNormal,
+  descriptionSecond,
+  descriptionThird,
+  descriptionForth,
+
 }: ActionLayoutProps) => {
   return (
     <Flex gap={gap} justify={justify} align={align} direction="column" w={{ base: '100%', lg: currentWidth }}>
@@ -112,6 +119,14 @@ const ActionLayout = ({
       <>
       <TextResponsive textAlign={textAlign} font='Nunito' fontSize={titleSize} fontWeight="600">{title}</TextResponsive>
       <TextResponsive textAlign={textAlign} font='Roboto' fontSize={textSize} >{description}</TextResponsive>
+      {
+        <>
+        <TextResponsive textAlign={textAlign} font='Roboto' fontSize={textSize} >{descriptionSecond}</TextResponsive>
+        <br/>
+        <TextResponsive textAlign={textAlign} font='Roboto' fontSize={textSize} >{descriptionThird}</TextResponsive>
+        <TextResponsive textAlign={textAlign} font='Roboto' fontSize={textSize} >{descriptionForth}</TextResponsive>
+        </>
+        }
       </>
       : null}
       {titleNormal && descriptionNormal ?

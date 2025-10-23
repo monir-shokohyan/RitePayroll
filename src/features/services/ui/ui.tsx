@@ -4,9 +4,11 @@ import ServicesGroup from "./srvicesGroup";
 
 function Ui() {
   return (
+      <section id="services">
     <VerWrapper sectionTitle="Services" title="What We Offer">
        <ServicesGroup />
     </VerWrapper>
+      </section>
   );
 }
 

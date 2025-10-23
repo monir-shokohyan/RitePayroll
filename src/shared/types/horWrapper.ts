@@ -8,5 +8,7 @@ export interface horWrapperType {
     fullHeight?: boolean,
     sectionTitle?: string,
     title?: string,
+    RSJustify?: 'flex-start' | 'center' | 'flex-end',
+
 
 }

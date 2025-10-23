@@ -14,6 +14,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@hookform/resolvers": "^3.3.4",
     "@mantine/core": "^8.3.5",
     "@mantine/hooks": "^8.3.5",
@@ -24,11 +25,13 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-error-boundary": "^5.0.0",
+    "react-helmet": "^6.1.0",
     "react-hook-form": "^7.49.3",
     "react-icons": "^5.5.0",
     "react-router-dom": "^7.9.3",
     "react-tooltip": "^5.28.0",
-    "styled-components": "^6.1.8"
+    "styled-components": "^6.1.8",
+    "zod": "^4.1.12"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.6.1",
@@ -37,6 +40,7 @@
     "@types/react": "^18.2.43",
     "@types/react-beautiful-dnd": "^13.1.8",
     "@types/react-dom": "^18.2.17",
+    "@types/react-helmet": "^6.1.11",
     "@typescript-eslint/eslint-plugin": "^6.14.0",
     "@typescript-eslint/parser": "^6.14.0",
     "@vitejs/plugin-basic-ssl": "^1.1.0",
