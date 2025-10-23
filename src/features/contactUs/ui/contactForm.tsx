@@ -69,6 +69,7 @@ export const ContactForm: React.FC = () => {
       message: '',
     },
   });
+console.log('');
 
   const sendEmail = async (data: ContactFormData) => {
     
