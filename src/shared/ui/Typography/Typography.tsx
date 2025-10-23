@@ -69,26 +69,26 @@ const TextResponsive = styled.h1<StyledTextProps>`
     
     return `
       // Mobile (base)
-      font-size: ${baseSize * 0.9}${unit};
+      font-size: ${baseSize*0.8}${unit};
       
       // Small tablets
       @media (min-width: 480px) {
-        font-size: ${baseSize}${unit};
+        font-size: ${baseSize*0.85}${unit};
       }
       
       // Tablets
       @media (min-width: 768px) {
-        font-size: ${baseSize * 1.1}${unit};
+        font-size: ${baseSize * 0.9}${unit};
       }
       
       // Small desktop
       @media (min-width: 1024px) {
-        font-size: ${baseSize * 1.25}${unit};
+        font-size: ${baseSize * 0.95}${unit};
       }
       
       // Large desktop
       @media (min-width: 1440px) {
-        font-size: ${baseSize * 1.5}${unit};
+        font-size: ${baseSize}${unit};
       }
     `;
   }}

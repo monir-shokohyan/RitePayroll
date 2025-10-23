@@ -22,7 +22,7 @@ function Ui() {
       leftWidth="60%"
       rightWidth="40%"
     >
-      <TextResponsive color={SavedColors.Primaryblue} fontSize="14px" fontWeight="600">Contact Us</TextResponsive>
+      <TextResponsive color={SavedColors.Primaryblue} fontSize="18px" fontWeight="600">Contact Us</TextResponsive>
       <TitleWithFamily font="Nunito" fontSize="48px" fontWeight="800">Get in Touch with Lotus Soft Technologies Ltd.</TitleWithFamily>
       <VerticalLine opacity={20} />
         
@@ -38,7 +38,7 @@ function Ui() {
         
       </Flex>
 
-      <TextResponsive font="Roboto" fontSize="12px">We’re here to assist you with any inquiries about our products, services, or custom solutions. Reach out to us through the contact form below or use the provided information to connect with our team directly.</TextResponsive>
+      <TextResponsive font="Roboto" fontSize="18px">We’re here to assist you with any inquiries about our products, services, or custom solutions. Reach out to us through the contact form below or use the provided information to connect with our team directly.</TextResponsive>
 
        <ActionLayout 
       title="Open Hours"

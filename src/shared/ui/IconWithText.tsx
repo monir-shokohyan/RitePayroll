@@ -42,7 +42,7 @@ const IconWithText = ({ icon: Icon,
     iconSize = 20, 
     padding = '10px',
     hoverActive = true,
-    fontSize = '16px',
+    fontSize = '24px',
     fontWeight = '400',
     }: IconWithTextProps) => {
         return (

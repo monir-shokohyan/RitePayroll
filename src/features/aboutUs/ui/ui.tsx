@@ -44,9 +44,9 @@ function Ui() {
         </Flex>
         
       </Flex>
-        <TextResponsive font="Roboto" fontSize="12px">Lotus Soft Technologies Ltd. has been a trusted name in Uganda’s software industry for over 25 years. Founded by Mr. Nikhil Shah, Lotus has consistently delivered innovative business software solutions, helping organizations simplify processes, improve productivity, and ensure compliance with evolving market standards.</TextResponsive>  
+        <TextResponsive font="Roboto" fontSize="18px">Lotus Soft Technologies Ltd. has been a trusted name in Uganda’s software industry for over 25 years. Founded by Mr. Nikhil Shah, Lotus has consistently delivered innovative business software solutions, helping organizations simplify processes, improve productivity, and ensure compliance with evolving market standards.</TextResponsive>  
       
-        <TextResponsive font="Roboto" fontSize="12px">Co-Director Mrs. Shital Shah plays a pivotal role in the strategic direction and market expansion of Lotus Soft Technologies. Leveraging her deep knowledge in Accounting and Finance, she has been instrumental in bridging business needs with software innovation, leading successful product positioning and marketing strategies across Uganda and beyond. She stands as a symbol of women’s empowerment in technology and leadership, inspiring others to drive change through innovation.</TextResponsive>
+        <TextResponsive font="Roboto" fontSize="18px">Co-Director Mrs. Shital Shah plays a pivotal role in the strategic direction and market expansion of Lotus Soft Technologies. Leveraging her deep knowledge in Accounting and Finance, she has been instrumental in bridging business needs with software innovation, leading successful product positioning and marketing strategies across Uganda and beyond. She stands as a symbol of women’s empowerment in technology and leadership, inspiring others to drive change through innovation.</TextResponsive>
    
    
    <Flex wrap="wrap" gap={20}>

@@ -23,12 +23,12 @@ function Ui() {
       leftWidth="60%"
       rightWidth="40%"
     >
-      <TextResponsive color={SavedColors.Primaryblue} fontSize="14px" fontWeight="600">Why Choose Us</TextResponsive>
+      <TextResponsive color={SavedColors.Primaryblue} fontSize="18px" fontWeight="600">Why Choose Us</TextResponsive>
       <TitleWithFamily font="Nunito" fontSize="48px" fontWeight="800">We Are Pioneers In Business
         Software Solutions</TitleWithFamily>
       <VerticalLine opacity={20} />
 
-      <TextResponsive font="Roboto" fontSize="12px">Lotus Soft Technologies Ltd. has been at the forefront of software innovation in Uganda for over 25 years. Founded with the mission to simplify business operations, our company, led by Mr. Nikhil Shah, has developed a comprehensive range of software solutions. Our expertise spans Accounting, Inventory, POS, and Customer Loyalty Management, with a strong focus on integrating with local systems like URA EFRIS and providing customized solutions for diverse business needs.</TextResponsive>
+      <TextResponsive font="Roboto" fontSize="18px">Lotus Soft Technologies Ltd. has been at the forefront of software innovation in Uganda for over 25 years. Founded with the mission to simplify business operations, our company, led by Mr. Nikhil Shah, has developed a comprehensive range of software solutions. Our expertise spans Accounting, Inventory, POS, and Customer Loyalty Management, with a strong focus on integrating with local systems like URA EFRIS and providing customized solutions for diverse business needs.</TextResponsive>
 
 
 

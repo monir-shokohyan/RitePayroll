@@ -22,7 +22,7 @@ const ProductGroup = () => {
         return (
            <Card onMouseEnter={()=>setId(product.title)} onMouseLeave={() => setId('')} bgColor={id===product.title ? product.color : '#fff'}>
         <Image height={74} src={product.imgUrl} width="auto" fit="contain" />
-        <TextWithFamily color={id===product.title ? SavedColors.PrimaryWhite :SavedColors.TextColor} textAlign='center' fontWeight='600' font="Nunito" fontSize='12px'>{product.description}</TextWithFamily>
+        <TextWithFamily color={id===product.title ? SavedColors.PrimaryWhite :SavedColors.TextColor} textAlign='center' fontWeight='600' font="Nunito" fontSize='14px'>{product.description}</TextWithFamily>
 
         <Flex direction="column" gap={10}>
           {
@@ -31,7 +31,7 @@ const ProductGroup = () => {
                   <IconWithText
                   text={feature}
                   icon={ImCheckmark}
-                  fontSize='12px'
+                  fontSize='14px'
                   hoverActive={false}
                   padding='0px'
                   textColor={id===product.title ? SavedColors.PrimaryWhite :SavedColors.TextColor}

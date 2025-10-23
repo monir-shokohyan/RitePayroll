@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 import {
   TextInput,
   Button,
@@ -23,11 +23,13 @@ import { CiMail } from "react-icons/ci";
 import emailjs from '@emailjs/browser';
 import { SavedColors } from '@shared/constants';
 import styled from 'styled-components';
+
 interface ExtendedButtonProps
   extends ButtonProps,
     Omit<React.ComponentProps<'button'>, 'color'|'style'> {
   type?: 'submit' | 'button' | 'reset';
 }
+
 const HoveredButton = styled(Button)<ExtendedButtonProps>`
     color: ${SavedColors.PrimaryWhite};
     border: 1px solid ${SavedColors.PrimaryWhite};
@@ -40,14 +42,14 @@ const HoveredButton = styled(Button)<ExtendedButtonProps>`
     }
 `
 
-const contactFormSchema = z.object({
-  name: z.string().min(2, { message: 'Name must be at least 2 characters' }),
-  email: z.string().email({ message: 'Please enter a valid email address' }),
-  phone: z.string().min(10, { message: 'Please enter a valid phone number' }),
-  message: z.string().min(10, { message: 'Message must be at least 10 characters' }),
+const contactFormSchema = yup.object({
+  name: yup.string().min(2, 'Name must be at least 2 characters').required('Name is required'),
+  email: yup.string().email('Please enter a valid email address').required('Email is required'),
+  phone: yup.string().min(10, 'Please enter a valid phone number').required('Phone number is required'),
+  message: yup.string().min(10, 'Message must be at least 10 characters').required('Message is required'),
 });
 
-type ContactFormData = z.infer<typeof contactFormSchema>;
+type ContactFormData = yup.InferType<typeof contactFormSchema>;
 
 export const ContactForm: React.FC = () => {
   const [showSuccess, setShowSuccess] = React.useState(false);
@@ -59,9 +61,8 @@ export const ContactForm: React.FC = () => {
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
-    
   } = useForm<ContactFormData>({
-    resolver: zodResolver(contactFormSchema),
+    resolver: yupResolver(contactFormSchema),
     defaultValues: {
       name: '',
       email: '',
@@ -69,10 +70,8 @@ export const ContactForm: React.FC = () => {
       message: '',
     },
   });
-console.log('');
 
   const sendEmail = async (data: ContactFormData) => {
-    
     try {
       const templateParams = {
         name: data.name,
@@ -83,12 +82,12 @@ console.log('');
         reply_to: data.email,
       };
 
-                const result = await emailjs.send(
-                import.meta.env.VITE_EMAILJS_SERVICE_ID,
-                import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-                templateParams,
-                import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-                );
+      const result = await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        templateParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
 
       return result;
     } catch (error) {
@@ -98,7 +97,6 @@ console.log('');
   };
 
   const onSubmit = async (data: ContactFormData) => {
-    
     try {
       await sendEmail(data);
       
@@ -119,9 +117,15 @@ console.log('');
     }
   };
 
+  // Handle form validation errors
+  const onInvalid = () => {
+    console.log('Form has validation errors');
+    // Yup validation errors will be automatically displayed in the form
+  };
+
   return (
     <Flex p={{base:'20px',lg:'20px'}} w={{base:'100%',lg:'80%'}} bg={SavedColors.Primaryblue} style={{ borderRadius: '5px' }}>
-      <Box component="form" w="100%" onSubmit={handleSubmit(onSubmit)}>
+      <Box component="form" w="100%" onSubmit={handleSubmit(onSubmit, onInvalid)}>
         <VisuallyHidden>
           <label htmlFor="name">Your Name</label>
           <label htmlFor="email">Your Email</label>

@@ -5,9 +5,9 @@ export const productsMap = [
       title: "RITEBOOKS",
       description: "A robust ERP solution combining accounting, inventory, POS, and manufacturing features to manage every aspect of business operations.",
       features: [
-        "Complete Accounting with Trial Balance, P&L, and Balance Sheet",
-        "Inventory & Stock Management with Batch/Serial Control",
-        "Multi-Branch and Multi-Currency Support"
+        "POS with URA EFRIS Integration",
+        "User Role Permissions & Audit Trails",
+        " Manufacturing & Assembly Modules"
       ],
       color: SavedColors.productBlue,
       imgUrl: '/products/Ritebooks.png'
