@@ -67,9 +67,9 @@ const Footer = () => {
                                 Get In Touch
                             </TextWithFamily>
                         </Container>
-                        <IconWithText icon={FaPhoneAlt} text='+256 755 818183' padding='0px' hoverActive={false} />
-                        <IconWithText icon={MdEmail} text='sales@lotus.co.ug' padding='0px' hoverActive={false} />
-                        <IconWithText icon={FaLocationDot} text='Office No. F6, First Floor, Plot 7/9 2nd Street Industrial Area, Kampala, Uganda.' padding='0px' hoverActive={false} />
+                        <IconWithText fontSize='14px' icon={FaPhoneAlt} text='+256 755 818183' padding='0px' hoverActive={false} />
+                        <IconWithText fontSize='14px' icon={MdEmail} text='sales@lotus.co.ug' padding='0px' hoverActive={false} />
+                        <IconWithText fontSize='14px' icon={FaLocationDot} text='Office No. F6, First Floor, Plot 7/9 2nd Street Industrial Area, Kampala, Uganda.' padding='0px' hoverActive={false} />
 
                     </Container>
 

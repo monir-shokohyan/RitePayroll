@@ -9,17 +9,20 @@ const UtilityBar = () => {
   return (
     <UtilityContainer>
         <Flex gap={10}>
-            <IconWithText 
+            <IconWithText
+                fontSize='14px' 
                 text='+256 755 818183' 
                 icon={FaPhoneAlt} 
                 handleClick={() => window.location.href = 'tel:+256755818183'}
             />
             <IconWithText 
+                fontSize='14px'
                 text='sales@lotus.co.ug' 
                 icon={MdEmail} 
                 handleClick={() => window.location.href = 'mailto:sales@lotus.co.ug'}
             />
             <IconWithText 
+                fontSize='14px'
                 text='www.lotus.co.ug' 
                 icon={LuGlobe} 
                 handleClick={() => window.open('https://www.lotus.co.ug', '_blank')}
