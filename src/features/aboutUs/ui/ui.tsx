@@ -66,7 +66,7 @@ function Ui() {
          <HoveredButtonWithBorder
             radius="sm" 
             size="md" 
-            w={{ base: '100%',sm: 'auto',md: 'auto', lg: 'auto'}}
+            w={{ base: '100%',sm: 'auto',md: 'auto', lg: 'fit-content'}}
             color={SavedColors.Primaryblue}
           >
             Explore Our Journey and Values

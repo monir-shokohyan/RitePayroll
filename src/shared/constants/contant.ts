@@ -13,6 +13,7 @@ export const enum SavedColors {
   productPink = "#F3268C",
   productRedBrown = "#A0616A",
   productBrown = "#AC7F5E",
+  lightBlue = "#E8F8FC"
 
 
 }

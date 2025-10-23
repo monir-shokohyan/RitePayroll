@@ -13,7 +13,13 @@ interface ActionLayoutProps {
   title: string,
   description: string,
   justify?: 'flex-start' | 'center' | 'flex-end'
-  Icon: IconType
+  align?: 'flex-start' | 'center' | 'flex-end'
+  Icon: IconType | string,
+  currentWidth?: string
+  textAlign?: 'left' | 'center' | 'right' | 'justify'
+  textSize? : string,
+  titleSize?: string,
+  gap?:number
 }
 
 const ActionIconWrapper = styled.div<{ 
@@ -74,10 +80,16 @@ const ActionLayout = ({
   justify = "flex-start",
   title,
   description,
-  Icon
+  Icon,
+  currentWidth = "48%",
+  align = 'flex-start',
+  textAlign = 'left',
+  textSize = '12px',
+  titleSize = '20px',
+  gap = 3
 }: ActionLayoutProps) => {
   return (
-    <Flex gap={3} justify={justify} direction="column" w={{ base: '100%', lg: '48%' }}>
+    <Flex gap={gap} justify={justify} align={align} direction="column" w={{ base: '100%', lg: currentWidth }}>
       <ActionIconWrapper 
         $isButton={IsButton}
         $rotate={rotate}
@@ -92,8 +104,8 @@ const ActionLayout = ({
           </IconContainer>
         </ActionIcon>
       </ActionIconWrapper>
-      <TextResponsive font='Nunito' fontSize='24px' fontWeight="600">{title}</TextResponsive>
-      <TextResponsive font='Roboto' fontSize='12px'>{description}</TextResponsive>
+      <TextResponsive textAlign={textAlign} font='Nunito' fontSize={titleSize} fontWeight="600">{title}</TextResponsive>
+      <TextResponsive textAlign={textAlign} font='Roboto' fontSize={textSize} >{description}</TextResponsive>
     </Flex>
   )
 }
