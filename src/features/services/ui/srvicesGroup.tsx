@@ -21,10 +21,6 @@ const Card = styled.div`
   box-shadow: 2px 2px 8px #00000020;
   position: relative;
   overflow: hidden;
-
-  @media (max-width: 480px) {
-    padding: 5px;
-  }
 `;
 
 const ContactButton = styled(Button) <ButtonProps>`
@@ -55,16 +51,16 @@ const ServicesGroup = () => {
             <CardContainer key={service.title}>
               <Card>
                 <ActionLayout
-                  title={service.title}
-                  description={service.description}
+                  titleNormal={service.title}
+                  descriptionNormal={service.description}
                   Icon={service.icon}
                   currentWidth='100%'
                   align='center'
                   textAlign='center'
                   rotate={45}
-                  gap={10}
-                  titleSize='16px'
-                  textSize='10px'
+                  gap={20}
+                  titleSize='24px'
+                  textSize='16px'
                 />
               </Card>
               <ContactButton

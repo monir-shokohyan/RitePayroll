@@ -2,7 +2,7 @@ import { ActionIcon, Flex } from '@mantine/core'
 import { SavedColors } from '@shared/constants'
 import { MdRemoveRedEye } from 'react-icons/md'
 import styled from 'styled-components'
-import { TextResponsive } from './Typography'
+import { TextResponsive, TextWithFamily } from './Typography'
 import { IconType } from 'react-icons'
 
 interface ActionLayoutProps {
@@ -10,8 +10,10 @@ interface ActionLayoutProps {
   rotate?: number
   iconSize?: number
   buttonSize?: number | string
-  title: string,
-  description: string,
+  title?: string,
+  titleNormal?: string,
+  description?: string,
+  descriptionNormal?: string,
   justify?: 'flex-start' | 'center' | 'flex-end'
   align?: 'flex-start' | 'center' | 'flex-end'
   Icon: IconType | string,
@@ -86,7 +88,9 @@ const ActionLayout = ({
   textAlign = 'left',
   textSize = '12px',
   titleSize = '20px',
-  gap = 3
+  gap = 3,
+  titleNormal,
+  descriptionNormal,
 }: ActionLayoutProps) => {
   return (
     <Flex gap={gap} justify={justify} align={align} direction="column" w={{ base: '100%', lg: currentWidth }}>
@@ -104,8 +108,18 @@ const ActionLayout = ({
           </IconContainer>
         </ActionIcon>
       </ActionIconWrapper>
+      {title && description ?
+      <>
       <TextResponsive textAlign={textAlign} font='Nunito' fontSize={titleSize} fontWeight="600">{title}</TextResponsive>
       <TextResponsive textAlign={textAlign} font='Roboto' fontSize={textSize} >{description}</TextResponsive>
+      </>
+      : null}
+      {titleNormal && descriptionNormal ?
+      <>
+      <TextWithFamily textAlign={textAlign} font='Nunito' fontSize={titleSize} fontWeight="600">{titleNormal}</TextWithFamily>
+      <TextWithFamily textAlign={textAlign} font='Roboto' fontSize={textSize} >{descriptionNormal}</TextWithFamily>
+      </>
+      : null}
     </Flex>
   )
 }
