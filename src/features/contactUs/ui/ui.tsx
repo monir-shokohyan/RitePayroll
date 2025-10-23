@@ -5,10 +5,14 @@ import Wrapper from "@shared/ui/horWrapper";
 import { SavedColors } from "@shared/constants";
 import ActionLayout from "@shared/ui/ActionLayout";
 import IconWithText from "@shared/ui/IconWithText";
-import { MdOutlineReply } from "react-icons/md";
+import { MdEmail, MdOutlineReply, MdRemoveRedEye } from "react-icons/md";
 import { BsTelephoneFill } from "react-icons/bs";
 import { IoIosTime } from "react-icons/io";
 import ContactForm from "./contactForm";
+import { BgFlex } from "@shared/ui/BgFlex";
+import { FaLocationDot } from "react-icons/fa6";
+import { FaPhoneAlt } from "react-icons/fa";
+import { LuGlobe } from "react-icons/lu";
 
 function Ui() {
   return (
@@ -29,7 +33,7 @@ function Ui() {
           Get in Touch with Lotus Soft Technologies Ltd.
         </TitleWithFamily>
         <VerticalLine opacity={20} />
-        
+
         <Flex wrap="wrap">
           <Flex direction="column" w={{ base: "100%", lg: "50%" }}>
             <IconWithText
@@ -73,13 +77,55 @@ function Ui() {
         <Flex wrap="wrap" gap={20}></Flex>
       </Wrapper>
 
-      <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, overflow: "hidden", maxWidth: "100%" }}>
+      <div style={{ position: "relative", height: '50vh', overflow: "hidden", maxWidth: "100%" }}>
+
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d997.4388992642018!2d32.602187269648496!3d0.321274341063542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMMKwMTknMTYuNiJOIDMywrAzNicxMC4yIkU!5e0!3m2!1sen!2sug!4v1761226756063!5m2!1sen!2sug"
           style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: 0 }}
           loading="lazy"
-        ></iframe>
+        >
+        </iframe>
+
       </div>
+      <BgFlex
+        bg={SavedColors.lightBlue}
+        w="100%"
+        h={{ base: 'auto', sm: 'auto', md: 'auto', lg: '30vh' }}
+        p={{ base: '10px 16px', sm: '10px 24px', md: '10px 32px', lg: '20px 40px' }}
+        justify="center"
+        align="flex-start"
+        gap={20}
+        wrap="wrap"
+        style={{overflow: 'hidden'}}
+        
+      >
+
+        <Image src="/bgNet.png" style={{position: 'absolute'}} />
+            <ActionLayout
+              title="Address"
+              description="Office No. F6, First Floor, Plot 7/9 2nd Street Industrial Area, Kampala, Uganda."
+              Icon={FaLocationDot}
+              currentWidth="20%"
+              />
+            <ActionLayout
+              title="Phone"
+              description="+256 755 818183"
+              Icon={FaPhoneAlt}
+              currentWidth="20%"
+              />
+            <ActionLayout
+              title="Email"
+              description="sales@lotus.co.ug"
+              Icon={MdEmail}
+              currentWidth="20%"
+              />
+            <ActionLayout
+              title="Website"
+              description="www.lotus.co.ug"
+              Icon={LuGlobe}
+              currentWidth="20%"
+            />
+      </BgFlex>
     </>
   );
 }

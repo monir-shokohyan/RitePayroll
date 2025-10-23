@@ -25,6 +25,7 @@ interface ActionLayoutProps {
   descriptionSecond?: string
   descriptionThird?: string
   descriptionForth?: string
+  handleClick?: () => void
 }
 
 const ActionIconWrapper = styled.div<{ 
@@ -97,6 +98,7 @@ const ActionLayout = ({
   descriptionSecond,
   descriptionThird,
   descriptionForth,
+  handleClick,
 
 }: ActionLayoutProps) => {
   return (
@@ -109,6 +111,7 @@ const ActionLayout = ({
         <ActionIcon 
           size={buttonSize}   
           disabled={!IsButton}
+          onClick={handleClick}
         >
           <IconContainer $rotate={rotate}>
             <Icon size={iconSize} className="icon-svg" />

@@ -4,6 +4,7 @@ import styled from "styled-components";
 interface BgFlexProps extends FlexProps {
   bg?: string;
   opacity?: number;
+  bgc?: string
 }
 
 export const BgFlex = styled(Flex)<BgFlexProps>`
@@ -18,6 +19,7 @@ export const BgFlex = styled(Flex)<BgFlexProps>`
     bottom: 0;
     background-image: ${({ bg }) => (bg ? `url(${bg})` : "none")};
     background-size: cover;
+    background-color: ${({bgc}) => bgc ? bgc : 'transparent'} ;
     background-position: center;
     background-repeat: no-repeat;
     opacity: ${({ opacity = 0.5 }) => opacity};

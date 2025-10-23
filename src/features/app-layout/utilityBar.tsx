@@ -1,6 +1,6 @@
 import { UtilityContainer } from './styles'
 import { Flex } from '@mantine/core'
-import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaPhone, FaPhoneAlt } from "react-icons/fa";
+import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaPhoneAlt } from "react-icons/fa";
 import IconWithText from '@shared/ui/IconWithText'
 import { MdEmail } from "react-icons/md";
 import { LuGlobe } from "react-icons/lu";

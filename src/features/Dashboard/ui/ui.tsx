@@ -4,6 +4,7 @@ import { ProductSection } from "@features/products";
 import { ServicesSection } from "@features/services";
 import { WhyUsSection } from "@features/WhyChooseUs";
 import { ContactUsSection } from "@features/contactUs";
+import { TestimonialSection } from "@features/testimonial";
 
 function Ui() {
   return (
@@ -14,6 +15,7 @@ function Ui() {
     <ServicesSection />
     <WhyUsSection />
     <ContactUsSection />
+    <TestimonialSection />
     </>
   );
 }

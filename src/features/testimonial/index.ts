@@ -1,0 +1,1 @@
+export {Ui as TestimonialSection} from './ui'
