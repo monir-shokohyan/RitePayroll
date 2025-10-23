@@ -20,6 +20,7 @@ const textStyles = css<StyledTextProps>`
   color: ${({ color }) => color || SavedColors.TextColor};
   text-align: ${({ textAlign }) => textAlign || 'left'};
   text-decoration: none;
+  transition: all 0.3s ease-in-out;
 
 `;
 

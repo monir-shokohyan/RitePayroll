@@ -50,11 +50,11 @@ const IconWithText = ({ icon: Icon,
             <Flex gap={10} align="center" style={{padding}} onClick={handleClick} >
 
               <ContainerS h='25px' w='25px' justify="center" align="center">
-                <Icon color={iconColor} size={iconSize} />
+                <Icon color={iconColor} size={iconSize} style={{transition:'all 0.3s ease-in-out'}}/>
               </ContainerS>
 
             {
-            allowText && <TextWithFamily font={font} color={textColor}>
+            allowText && <TextWithFamily font={font} color={textColor} fontSize={fontSize}>
                 {text}
             </TextWithFamily>
             }

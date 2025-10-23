@@ -1,35 +1,58 @@
-import { Flex } from '@mantine/core';
-import styled from 'styled-components';
-
-const Card = styled.div`
-  width: 345px;
-  height: 426px;
-  background: #fff;
-  border: 1px solid #ddd;
-  padding: 10px;
-  box-sizing: border-box;
-  box-shadow: 2px 2px 8px #00000020;
+import { Button, Flex, Image } from '@mantine/core';
+import IconWithText from '@shared/ui/IconWithText';
+import {  TextWithFamily } from '@shared/ui/Typography';
+import { ImCheckmark } from "react-icons/im";
+import { FaArrowRight } from "react-icons/fa6";
+import { SavedColors } from '@shared/constants';
+import { useState } from 'react';
+import { Card } from '../styles/styles';
+import { productsMap } from '../constant/Contant';
 
 
-  @media (max-width: 480px) {
-    padding: 5px;
-  }
-`;
+ 
+
+
 
 const ProductGroup = () => {
+  const [id, setId] = useState('')
   return (
 
-   <Flex wrap="wrap" w="100%" justify="center" gap={20}>
-       <Card>1</Card>
-       <Card>2</Card>
-       <Card>3</Card>
-       <Card>4</Card>
-       <Card>5</Card>
-       <Card>6</Card>
-       <Card>7</Card>
-       <Card>8</Card>
-   </Flex>
-    
+    <Flex wrap="wrap" w="100%" justify="center" gap={20}>
+      {productsMap.map((product) => {
+        return (
+           <Card onMouseEnter={()=>setId(product.title)} onMouseLeave={() => setId('')} bgColor={id===product.title ? product.color : '#fff'}>
+        <Image height={74} src={product.imgUrl} width="auto" fit="contain" />
+        <TextWithFamily color={id===product.title ? SavedColors.PrimaryWhite :SavedColors.TextColor} textAlign='center' fontWeight='600' font="Nunito" fontSize='12px'>{product.description}</TextWithFamily>
+
+        <Flex direction="column" gap={10}>
+          {
+            product.features.map((feature) => {
+              return (
+                  <IconWithText
+                  text={feature}
+                  icon={ImCheckmark}
+                  fontSize='12px'
+                  hoverActive={false}
+                  padding='0px'
+                  textColor={id===product.title ? SavedColors.PrimaryWhite :SavedColors.TextColor}
+                  iconColor={id===product.title ? SavedColors.PrimaryWhite :SavedColors.Primaryblue}
+                  />
+              )
+            })
+          }
+          <Button variant="transparent" mt={40} rightSection={<FaArrowRight color={id===product.title ? SavedColors.PrimaryWhite :product.color} style={{transition: 'all 0.5s ease-in-out'}}/>}>
+            <TextWithFamily color={id===product.title ? SavedColors.PrimaryWhite : product.color}>
+              Read More
+            </TextWithFamily>
+          </Button>
+        </Flex>
+      </Card>
+        )
+      })
+      }
+
+    </Flex>
+
   );
 };
 
