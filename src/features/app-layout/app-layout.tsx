@@ -10,6 +10,7 @@ export const AppLayout = () => {
       <UtilityBar />
       <Navbar />
         <Content />
+        
       <Footer />
     </div>
   );
