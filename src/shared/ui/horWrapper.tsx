@@ -1,14 +1,14 @@
 import { horWrapperType } from '@shared/types/horWrapper'
 import { BgFlex } from '@shared/ui/BgFlex'
 
-const horWrapper = ({RSJustify='flex-start', children,rightSection,bgImage,isReverseWrap,leftWidth = '55%', rightWidth = '45%', fullHeight = true}:horWrapperType) => {
+const horWrapper = ({isBgColor = false,RSJustify='flex-start', children,rightSection,bgImage,isReverseWrap,leftWidth = '55%', rightWidth = '45%', fullHeight = true}:horWrapperType) => {
   return (
     <>
     <BgFlex 
       wrap={isReverseWrap ? "wrap-reverse" : 'wrap' }
-      bg={`'${bgImage}'`}
+      bg={isBgColor ? `${bgImage}`:`'${bgImage}'`}
       w="100%"
-      h={{ base: 'auto', sm: 'auto', md: 'auto', lg: fullHeight ? '90vh' : 'auto' }}
+      h={{ base: 'auto', sm: 'auto', md: 'auto', lg:isBgColor? '60vh' : fullHeight ? '90vh' : 'auto' }}
       p={{ base: '10px 16px', sm: '10px 24px', md: '10px 32px', lg: '10px 40px' }}
       justify="center"
       align="center"
