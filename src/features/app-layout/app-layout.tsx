@@ -1,3 +1,4 @@
+import { ChatBot } from '@features/chatBot';
 import { Content } from './content';
 import Footer from './footer';
 import Navbar from './navbar';
@@ -10,7 +11,7 @@ export const AppLayout = () => {
       <UtilityBar />
       <Navbar />
         <Content />
-        
+        <ChatBot />
       <Footer />
     </div>
   );
