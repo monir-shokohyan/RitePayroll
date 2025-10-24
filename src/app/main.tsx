@@ -7,6 +7,7 @@ import { AppRouter } from './router'
 import { MantineProvider } from '@mantine/core'
 import './main.css'
 import '@mantine/core/styles.css';
+
 const container = document.querySelector('#root')
 
 if (!container) {

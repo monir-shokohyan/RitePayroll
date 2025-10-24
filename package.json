@@ -16,8 +16,10 @@
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@hookform/resolvers": "^3.3.4",
+    "@mantine/carousel": "^8.3.5",
     "@mantine/core": "^8.3.5",
     "@mantine/hooks": "^8.3.5",
+    "embla-carousel-autoplay": "^8.5.2",
     "npm": "^11.0.0",
     "postcss": "^8.5.6",
     "postcss-preset-mantine": "^1.18.0",
