@@ -4,6 +4,7 @@ import { ErrorSuspense } from '@shared/ui/error-suspense'
 
 import { routes } from '../config/routes'
 import { Layout } from './layout'
+import { NotFoundPage } from '@pages/notfound'
 
 export const AppRouter = () => {
   return (
@@ -23,6 +24,14 @@ export const AppRouter = () => {
           />
         ))}
       </Route>
+      <Route
+        path="*"
+        element={
+          <ErrorSuspense suspenseKey="/not-found">
+            <NotFoundPage />
+          </ErrorSuspense>
+        }
+      />
     </Routes>
   )
 }

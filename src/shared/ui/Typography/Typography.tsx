@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { Link, NavLink } from 'react-router-dom';
 import { SavedColors } from '@shared/constants';
 
-interface StyledTextProps {
+export interface StyledTextProps {
   font?: 'Barlow' | 'Roboto' | 'Nunito';
   fontSize?: string;
   fontWeight?: '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900';

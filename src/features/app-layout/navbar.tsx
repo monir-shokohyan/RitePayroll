@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SearchInput from "@shared/ui/searchInput/searchInput";
 import { IoChevronDown, IoChevronUp } from "react-icons/io5";
 import { useState } from "react";
@@ -7,6 +7,7 @@ import { NavbarS, MenubarS, MenuItems, ProductMenuListTrigger, ProductMenuTrigge
 import { productLinks } from "./constants";
 import { useDisclosure } from "@mantine/hooks";
 import { SavedColors } from "@shared/constants";
+import useNavigationScroll from "@shared/hooks/useNavigationScroll";
 
 
 
@@ -14,13 +15,14 @@ const Navbar = () => {
   const [desktopProductsOpen, setDesktopProductsOpen] = useState(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
   const [opened, { toggle, close }] = useDisclosure();
-
+  const { navigateAndScroll } = useNavigationScroll()
   return (
     <NavbarS>
       <MenubarS>
         <Image src="/lotus logo.png" alt="lotus logo" w={{ base: '110px', lg: '162px' }} />
-        <MenuItems to={'/'} onClick={() => document.getElementById('dashboard-welcome-section')?.scrollIntoView({ behavior: 'smooth' })}>Home</MenuItems>
-        <MenuItems to={'#'} onClick={() => document.getElementById('dashboard-about-section')?.scrollIntoView({ behavior: 'smooth' })}>About Us</MenuItems>
+        <MenuItems to={'/'}  onClick={() => navigateAndScroll('/', 'dashboard-welcome-section')} >Home</MenuItems>
+
+        <MenuItems to={'/'} onClick={() => navigateAndScroll('/', 'dashboard-about-section')}>About Us</MenuItems>
         <Menu
           width={200}
           position="bottom"
@@ -53,7 +55,7 @@ const Navbar = () => {
             ))}
           </Menu.Dropdown>
         </Menu>
-        <MenuItems to="#" onClick={() => document.getElementById('dashboard-contact-section')?.scrollIntoView({ behavior: 'smooth' })}>Contact Us</MenuItems>
+        <MenuItems to="/" onClick={() => navigateAndScroll('/', 'dashboard-contact-section')}>Contact Us</MenuItems>
       </MenubarS>
       <SearchInput showSearch={false} />
 
@@ -74,10 +76,10 @@ const Navbar = () => {
           <SearchInput showSearch={true} />
           <MenuListItem to={'/'} onClick={() => {
             toggle()
-            document.getElementById('dashboard-welcome-section')?.scrollIntoView({ behavior: 'smooth' })
+            navigateAndScroll('/', 'dashboard-welcome-section')
           }} style={{ marginTop: '1px' }}>Home</MenuListItem>
-          <MenuListItem to={'#'} onClick={() => {
-            document.getElementById('dashboard-about-section')?.scrollIntoView({ behavior: 'smooth' })
+          <MenuListItem to={'/'} onClick={() => {
+            navigateAndScroll('/', 'dashboard-about-section')
             toggle()
           }}>About Us</MenuListItem>
           <Menu
@@ -116,9 +118,10 @@ const Navbar = () => {
               ))}
             </Menu.Dropdown>
           </Menu>
-          <MenuListItem to={'#'} onClick={() => {
+          <MenuListItem to={'/'} onClick={() => {
             toggle()
-            document.getElementById('dashboard-contact-section')?.scrollIntoView({ behavior: 'smooth' })
+            navigateAndScroll('/', 'dashboard-contact-section')
+
           }}>Contact Us</MenuListItem>
           <VerticalLine opacity={20} style={{ marginBlock: '10px' }} />
 

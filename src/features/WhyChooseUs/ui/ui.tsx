@@ -9,6 +9,7 @@ import { WhyMap } from "../constant/Contant";
 
 function Ui() {
   return (
+        <section id="dashboard-whyus-section">
     <Wrapper bgImage="/bgNet.png" isReverseWrap={false}
       fullHeight={false}
       rightSection={
@@ -48,7 +49,9 @@ function Ui() {
   
 
     </Wrapper>
+    </section>
   );
+
 }
 
 export { Ui };

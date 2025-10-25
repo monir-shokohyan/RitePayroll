@@ -4,7 +4,7 @@ import ServicesGroup from "./srvicesGroup";
 
 function Ui() {
   return (
-      <section id="services">
+      <section id="dashboard-services-section">
     <VerWrapper sectionTitle="Services" title="What We Offer">
        <ServicesGroup />
     </VerWrapper>

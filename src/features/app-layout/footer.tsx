@@ -8,11 +8,14 @@ import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaPhoneAlt } from 'react
 import { MdEmail } from 'react-icons/md'
 import { FaLocationDot } from "react-icons/fa6";
 import { FooterContainer, FooterFirstContainer, FooterSecondContainer, VerticalLine } from './styles'
+import useNavigationScroll from '@shared/hooks/useNavigationScroll'
 
 
 
 
 const Footer = () => {
+  const { navigateAndScroll } = useNavigationScroll()
+
     return (
         <FooterContainer>
             <Container h='92px' p='10px' justify="center" >
@@ -33,7 +36,7 @@ const Footer = () => {
 
                             {NavigationLinks.map((menu) => {
                                 return (
-                                    <NavLinkS font="Nunito" fontWeight='600' fontSize='15px' color={SavedColors.DarkWhite} to={menu.to}>
+                                    <NavLinkS font="Nunito" fontWeight='600' fontSize='15px' color={SavedColors.DarkWhite} to="/" onClick={() => navigateAndScroll('/',menu.scrollToSection as string)}>
                                         {menu.label}
                                     </NavLinkS>
                                 )

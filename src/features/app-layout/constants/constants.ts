@@ -10,9 +10,11 @@ export const productLinks = [
 ];
 
 export const NavigationLinks = [
-  { to: "/", label: "Home" },
-  { to: "/about", label: "About Us" },
-  { to: "/products", label: "Products" },
-  { to: "/contact", label: "Contact Us" },
-  { to: "/additional", label: "Additional" },
+  { to: "/", label: "Home", scrollToSection:"dashboard-welcome-section" },
+  { to: "/", label: "About Us" , scrollToSection:"dashboard-about-section"},
+  { to: "/", label: "Products" , scrollToSection:"dashboard-products-section"},
+  { to: "/", label: "Services" , scrollToSection:"dashboard-services-section"},
+  { to: "/", label: "Why us" , scrollToSection:"dashboard-whyus-section"},
+  { to: "/", label: "Contact Us" , scrollToSection:"dashboard-contact-section"},
+  { to: "/", label: "testimonial" , scrollToSection:"dashboard-testimonial-section"},
 ];

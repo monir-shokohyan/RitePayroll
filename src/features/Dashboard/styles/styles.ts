@@ -1,9 +1,11 @@
 import { Button, ButtonProps, PolymorphicComponentProps } from "@mantine/core"
 import { SavedColors } from "@shared/constants"
+import { fadeIn } from "@shared/styles/animation"
 import { TextWithFamily } from "@shared/ui/Typography"
 import styled from "styled-components"
 
 const WelcomeText = styled(TextWithFamily)`
+animation: ${fadeIn} 1s ease-out 0.8s both;
 font-size: 1.3rem;
 @media (max-width:1000px){
     font-size: 1rem;
@@ -11,6 +13,7 @@ font-size: 1.3rem;
 
 `
 const WelcomeTitle = styled(TextWithFamily)`
+animation: ${fadeIn} 1s ease-out 0.5s both;
 font-size: 3.2rem;
 @media (max-width:1000px){
     font-size: 1.5rem;
@@ -19,6 +22,7 @@ font-size: 3.2rem;
 `
 
 const HoveredButtonWithBorder = styled(Button)<PolymorphicComponentProps<'button', ButtonProps>>`
+  animation: ${fadeIn} 1s ease-out 0.8s both;
 &:hover{
   border: 1px solid ${SavedColors.Primaryblue};
   color: ${SavedColors.Primaryblue};
@@ -27,6 +31,8 @@ const HoveredButtonWithBorder = styled(Button)<PolymorphicComponentProps<'button
 }
 `
 const HoveredButtonWithoutBorder = styled(Button)<PolymorphicComponentProps<'button', ButtonProps>>`
+  animation: ${fadeIn} 1s ease-out 0.8s both;
+
 &:hover{
   color: ${SavedColors.Primaryblue};
   opacity: 60%;
@@ -34,6 +40,7 @@ const HoveredButtonWithoutBorder = styled(Button)<PolymorphicComponentProps<'but
   transition: all 0.3s ease-in;
 }
 `
+
 
 export {
     HoveredButtonWithBorder,

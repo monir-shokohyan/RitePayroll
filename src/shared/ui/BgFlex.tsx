@@ -1,4 +1,5 @@
 import { Flex, FlexProps } from "@mantine/core";
+import { fadeIn } from "@shared/styles/animation";
 import styled from "styled-components";
 
 interface BgFlexProps extends FlexProps {
@@ -9,7 +10,7 @@ interface BgFlexProps extends FlexProps {
 
 export const BgFlex = styled(Flex)<BgFlexProps>`
   position: relative;
-  
+  animation: ${fadeIn} 1s ease-out 0.2s both;
   &::before {
     content: '';
     position: absolute;
