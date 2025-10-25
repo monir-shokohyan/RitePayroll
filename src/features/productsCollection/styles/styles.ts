@@ -1,6 +1,7 @@
 import { Button, ButtonProps } from "@mantine/core"
 import { SavedColors } from "@shared/constants"
 import { TextWithFamily } from "@shared/ui/Typography"
+import { Link, LinkProps, LinksProps } from "react-router-dom"
 import styled from "styled-components"
 
 const WelcomeText = styled(TextWithFamily)`
@@ -40,3 +41,61 @@ export {
     WelcomeText,
     WelcomeTitle
 }
+
+export const StyledProductMenu = styled.div`
+  position: relative;
+  width: 350px;
+`;
+
+export const MenuContainer = styled.div`
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
+`;
+
+export const MenuTitle = styled.div`
+  font-family: 'Nunito';
+  padding: 12px 16px;
+  font-size: 18px;
+  font-weight: 600;
+  color: ${SavedColors.PrimaryWhite};
+  background-color: ${SavedColors.Primaryblue};
+  border-bottom: 1px solid #e9ecef;
+`;
+
+export const MenuList = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+interface StyledLinkProps extends LinkProps {
+  $isActive: boolean;
+}
+export const MenuItemOnly = styled(Link)<StyledLinkProps>`
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 16px 12px 30px;
+  text-decoration: none;
+  color: ${SavedColors.TextColor};
+  background-color: ${props => props.$isActive ? '#e7f5ff' : 'transparent'};
+  border-bottom: 1px solid ${SavedColors.lightBlue};
+  font-size: 16px;
+  font-family: 'Roboto';
+  transition: all 0.2s ease;
+  cursor: pointer;
+  
+  &:last-child {
+    border-bottom: none;
+  }
+  
+  &:hover {
+    background-color: '#e7f5ff';
+    color:  ${SavedColors.Primaryblue};
+  }
+  
+  &:active {
+    background-color: e7f5ff;
+    transform: translateY(0);
+  }
+`;

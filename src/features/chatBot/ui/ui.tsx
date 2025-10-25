@@ -17,7 +17,7 @@ export function Ui() {
                 <FaComment size={24} color={SavedColors.Primaryblue} />
               </Paper>
               <div>
-                <Text fw={700} size="lg">Lotus AI Assistant</Text>
+                <Text fw={700} size="lg">Lotus Assistant</Text>
                 <Group gap={4}>
                   <StatusIndicator />
                   <Text size="xs" c="blue.1">Online • Ready to help</Text>

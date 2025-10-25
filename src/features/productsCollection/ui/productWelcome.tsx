@@ -64,7 +64,7 @@ const ProductWelcome = ({page}:{page:ProductsType}) => {
             color={SavedColors.Primaryblue} 
             variant="transparent"
           >
-            Talk to Our Experts on WhatsApp
+            Download product brochure
           </HoveredButtonWithoutBorder>
         </Container>
     </Wrapper>

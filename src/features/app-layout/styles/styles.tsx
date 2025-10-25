@@ -18,7 +18,7 @@ const NavbarS = styled.nav`
 
 const MenubarS = styled.div`
   display: flex;
-  justify-content: start;
+  justify-content: center;
   height: 100%;
   width: 60%;
   gap: 20px;
@@ -84,8 +84,6 @@ const MenuButton = styled.div`
 `;
 
 const MenuButtonContainer = styled.div`
-  height: 50px;
-  width: 50px;
   display: flex;
   justify-content: center;
   align-items: center;

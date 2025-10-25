@@ -63,6 +63,9 @@ const Welcome = () => {
             w={{ base: '100%',sm: 'auto',md: 'auto', lg: 'auto'}}
             color={SavedColors.Primaryblue} 
             variant="transparent"
+            onClick={()=>{
+              window.location.href="https://wa.me/+256755818183"
+            }}
           >
             Talk to Our Experts on WhatsApp
           </HoveredButtonWithoutBorder>

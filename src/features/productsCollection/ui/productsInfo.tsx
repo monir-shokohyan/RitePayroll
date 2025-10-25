@@ -8,10 +8,9 @@ import { SavedColors } from "@shared/constants";
 import ActionLayout from "@shared/ui/ActionLayout";
 import { MdRemoveRedEye } from 'react-icons/md'
 import { TbTargetArrow } from "react-icons/tb";
-import { HoveredButtonWithBorder } from "@features/Dashboard/styles/styles";
 import { productsMap } from "../constant/Contant";
 import { ProductsType } from "../types";
-import ProductsMenu from "./productsMenu";
+import { ProductsTableOfContent } from "./productsMenu";
 
 
 function ProductsInfo({page}:{page:ProductsType}) {
@@ -19,10 +18,11 @@ function ProductsInfo({page}:{page:ProductsType}) {
     <Wrapper bgImage="/texture.png" isReverseWrap={false}
       fullHeight={false}
       rightSection={
-        <ProductsMenu />
+        <ProductsTableOfContent />
       }
       leftWidth="60%"
       rightWidth="40%"
+      RSJustify="center"
     >
       <TextResponsive color={SavedColors.Primaryblue} fontSize="14px" fontWeight="600">About Product</TextResponsive>
       <TitleWithFamily font="Nunito" fontSize="48px" fontWeight="800">{productsMap?.[page]?.name}</TitleWithFamily>
@@ -33,7 +33,7 @@ function ProductsInfo({page}:{page:ProductsType}) {
           {
             productsMap?.[page].features.map((feature) => {
                 return (
-                  <IconWithText fontWeight="600" hoverActive={false} iconSize={25} icon={ImCheckmark} allowTextRes textRes={feature} textColor={SavedColors.TextColor}></IconWithText>
+                  <IconWithText fontWeight="600" fontSize="18px" hoverActive={false} iconSize={25} icon={ImCheckmark} allowTextRes textRes={feature} textColor={SavedColors.TextColor}></IconWithText>
                 )
             })
 

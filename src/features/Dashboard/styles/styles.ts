@@ -1,4 +1,4 @@
-import { Button, ButtonProps } from "@mantine/core"
+import { Button, ButtonProps, PolymorphicComponentProps } from "@mantine/core"
 import { SavedColors } from "@shared/constants"
 import { TextWithFamily } from "@shared/ui/Typography"
 import styled from "styled-components"
@@ -17,7 +17,8 @@ font-size: 3.2rem;
 }
 
 `
-const HoveredButtonWithBorder = styled(Button)<ButtonProps>`
+
+const HoveredButtonWithBorder = styled(Button)<PolymorphicComponentProps<'button', ButtonProps>>`
 &:hover{
   border: 1px solid ${SavedColors.Primaryblue};
   color: ${SavedColors.Primaryblue};
@@ -25,7 +26,7 @@ const HoveredButtonWithBorder = styled(Button)<ButtonProps>`
   transition: all 0.3s ease-in;
 }
 `
-const HoveredButtonWithoutBorder = styled(Button)<ButtonProps>`
+const HoveredButtonWithoutBorder = styled(Button)<PolymorphicComponentProps<'button', ButtonProps>>`
 &:hover{
   color: ${SavedColors.Primaryblue};
   opacity: 60%;

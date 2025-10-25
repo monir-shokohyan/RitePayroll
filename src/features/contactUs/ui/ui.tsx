@@ -13,10 +13,17 @@ import { BgFlex } from "@shared/ui/BgFlex";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaPhoneAlt } from "react-icons/fa";
 import { LuGlobe } from "react-icons/lu";
+import { ScrollContext } from "@app/providers/scroll-provider";
+import { useContext } from "react";
 
 function Ui() {
+   const context = useContext(ScrollContext);
+  if (!context) throw new Error('ScrollSection must be used within ScrollProvider');
+
+  const { section1Ref } = context;
+
   return (
-    <>
+    <div ref={section1Ref} id="contactUS">
       <Wrapper
         bgImage="/bgNet.png"
         isReverseWrap={false}
@@ -126,7 +133,7 @@ function Ui() {
               currentWidth="20%"
             />
       </BgFlex>
-    </>
+    </div>
   );
 }
 

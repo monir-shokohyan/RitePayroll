@@ -1,26 +1,27 @@
 import { Link } from "react-router-dom";
 import SearchInput from "@shared/ui/searchInput/searchInput";
 import { IoChevronDown, IoChevronUp } from "react-icons/io5";
-import { useState } from "react";
-import { Burger, Container, Menu, Popover } from "@mantine/core";
+import { useContext, useState } from "react";
+import { Burger, Container, Image, Menu, Popover } from "@mantine/core";
 import { NavbarS, MenubarS, MenuItems, ProductMenuListTrigger, ProductMenuTrigger, CustomMenuItem, MenuButton, MenuListItem, MenuButtonContainer, VerticalLine } from "./styles";
 import { productLinks } from "./constants";
 import { useDisclosure } from "@mantine/hooks";
 import { SavedColors } from "@shared/constants";
+import { ScrollContext } from "@app/providers/scroll-provider";
 
 
 
 const Navbar = () => {
   const [desktopProductsOpen, setDesktopProductsOpen] = useState(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
-   const [opened, { toggle }] = useDisclosure();
-
-
-
+   const [opened, { toggle,close }] = useDisclosure();
+  const context = useContext(ScrollContext)
+    if (!context) throw new Error('ScrollButton must be used within ScrollProvider');
+     const { scrollToSection1 } = context;
   return (
     <NavbarS>
       <MenubarS>
-        <img src="/lotus logo.png" alt="lotus logo" width={164} />
+        <Image src="/lotus logo.png" alt="lotus logo" w={{base: '110px' , lg: '132px'}}/>
         <MenuItems to={'/'}>Home</MenuItems>
         <MenuItems to={'/about'}>About Us</MenuItems>
         <Menu
@@ -55,7 +56,7 @@ const Navbar = () => {
             ))}
           </Menu.Dropdown>
         </Menu>
-        <MenuItems to={'/contact'}>Contact Us</MenuItems>
+        <MenuItems to="#" onClick={() => document.getElementById('contactUS')?.scrollIntoView({behavior: 'smooth'})}>Contact Us</MenuItems>
       </MenubarS>
       <SearchInput showSearch={false} />
 
@@ -69,7 +70,7 @@ const Navbar = () => {
       >
         <Popover.Target>
           <MenuButtonContainer>
-           <Burger lineSize={2} size="lg" color={SavedColors.Primaryblue} opened={opened} onClick={toggle} aria-label="Toggle navigation" />
+           <Burger lineSize={2} size="md"  color={SavedColors.Primaryblue} opened={opened} onClick={toggle} aria-label="Toggle navigation" />
           </MenuButtonContainer>
         </Popover.Target>
         <Popover.Dropdown>
@@ -104,7 +105,7 @@ const Navbar = () => {
                   to={link.to}
                   onClick={() => {
                     setMobileProductsOpen(false);
-                    toggle();
+                    close();
                   }}
                 >
                   {link.label}
@@ -112,7 +113,10 @@ const Navbar = () => {
               ))}
             </Menu.Dropdown>
           </Menu>
-          <MenuListItem to={'/contact'} onClick={() => toggle()}>Contact Us</MenuListItem>
+          <MenuListItem to={'/contact'} onClick={() =>{
+             toggle()
+            scrollToSection1({alignment: 'start'})
+             }}>Contact Us</MenuListItem>
           <VerticalLine opacity={20} style={{marginBlock: '10px'}} />
           
            <Container  p='10px' >
