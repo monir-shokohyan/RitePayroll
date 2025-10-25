@@ -13,6 +13,7 @@ import { HoveredButtonWithBorder } from "@features/Dashboard/styles/styles";
 
 function Ui() {
   return (
+    <section id="dashboard-about-section">
     <Wrapper bgImage="/texture.png" isReverseWrap={false}
       fullHeight={false}
       rightSection={
@@ -27,20 +28,20 @@ function Ui() {
       leftWidth="60%"
       rightWidth="40%"
     >
-      <TextResponsive color={SavedColors.Primaryblue} fontSize="14px" fontWeight="600">About Us</TextResponsive>
+      <TextResponsive color={SavedColors.Primaryblue} fontSize="18px" fontWeight="600">About Us</TextResponsive>
       <TitleWithFamily font="Nunito" fontSize="48px" fontWeight="800">Pioneers in Business Software Solutions</TitleWithFamily>
       <VerticalLine opacity={20} />
       <Flex wrap="wrap">
 
         <Flex direction="column" w={{ base: '100%', lg: '50%' }}>
-          <IconWithText fontWeight="600" hoverActive={false} iconSize={25} icon={ImCheckmark} allowTextRes textRes="Innovation" textColor={SavedColors.TextColor}></IconWithText>
-          <IconWithText fontWeight="600" hoverActive={false} iconSize={25} icon={ImCheckmark} allowTextRes textRes="Customer Success" textColor={SavedColors.TextColor}></IconWithText>
-          <IconWithText fontWeight="600" hoverActive={false} iconSize={25} icon={ImCheckmark} allowTextRes textRes="Continuous Improvement" textColor={SavedColors.TextColor}></IconWithText>
+          <IconWithText hoverActive={false} icon={ImCheckmark} allowTextRes textRes="Innovation" textColor={SavedColors.TextColor}></IconWithText>
+          <IconWithText hoverActive={false} icon={ImCheckmark} allowTextRes textRes="Customer Success" textColor={SavedColors.TextColor}></IconWithText>
+          <IconWithText hoverActive={false} icon={ImCheckmark} allowTextRes textRes="Continuous Improvement" textColor={SavedColors.TextColor}></IconWithText>
         </Flex>
 
         <Flex direction="column" w={{ base: '100%', lg: '50%' }}>
-          <IconWithText fontWeight="600" hoverActive={false} iconSize={25} icon={ImCheckmark} allowTextRes textRes="Integrity" textColor={SavedColors.TextColor}></IconWithText>
-          <IconWithText fontWeight="600" hoverActive={false} iconSize={25} icon={ImCheckmark} allowTextRes textRes="Collaboration" textColor={SavedColors.TextColor}></IconWithText>
+          <IconWithText hoverActive={false} icon={ImCheckmark} allowTextRes textRes="Integrity" textColor={SavedColors.TextColor}></IconWithText>
+          <IconWithText hoverActive={false} icon={ImCheckmark} allowTextRes textRes="Collaboration" textColor={SavedColors.TextColor}></IconWithText>
         </Flex>
         
       </Flex>
@@ -72,6 +73,7 @@ function Ui() {
             Explore Our Journey and Values
           </HoveredButtonWithBorder>
     </Wrapper>
+    </section>
   );
 }
 

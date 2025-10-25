@@ -1,9 +1,10 @@
-
+import {Flex, Loader as Loading} from '@mantine/core'
+import { SavedColors } from '@shared/constants'
 const Loader = () => {
   return (
-     <div className="flex h-full w-full items-center justify-center">
-          loading ...
-        </div>
+        <Flex w="100%" justify="center" align="center" h="80vh">
+          <Loading color={SavedColors.Primaryblue} size="md"/>
+        </Flex>
   )
 }
 

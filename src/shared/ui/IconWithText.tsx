@@ -42,8 +42,8 @@ const IconWithText = ({ icon: Icon,
     iconSize = 20, 
     padding = '10px',
     hoverActive = true,
-    fontSize = '24px',
-    fontWeight = '400',
+    fontSize = '18px',
+    fontWeight = '600',
     }: IconWithTextProps) => {
         return (
             <Container hoverActive={hoverActive}>

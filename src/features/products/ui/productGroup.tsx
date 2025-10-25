@@ -7,6 +7,7 @@ import { SavedColors } from '@shared/constants';
 import { useState } from 'react';
 import { Card } from '../styles/styles';
 import { productsMap } from '../constant/Contant';
+import { useNavigate } from 'react-router-dom';
 
 
  
@@ -15,16 +16,17 @@ import { productsMap } from '../constant/Contant';
 
 const ProductGroup = () => {
   const [id, setId] = useState('')
+  const navigate = useNavigate()
   return (
 
     <Flex wrap="wrap" w="100%" justify="center" gap={20}>
       {productsMap.map((product) => {
         return (
-           <Card onMouseEnter={()=>setId(product.title)} onMouseLeave={() => setId('')} bgColor={id===product.title ? product.color : '#fff'}>
+           <Card onMouseEnter={()=>setId(product.title)} onMouseLeave={() => setId('')} bgColor={id===product.title ? product.color : '#fff'} onClick={() => navigate(product.to) }>
         <Image height={74} src={product.imgUrl} width="auto" fit="contain" />
         <TextWithFamily color={id===product.title ? SavedColors.PrimaryWhite :SavedColors.TextColor} textAlign='center' fontWeight='600' font="Nunito" fontSize='14px'>{product.description}</TextWithFamily>
 
-        <Flex direction="column" gap={10}>
+        <Flex direction="column" gap={10} >
           {
             product.features.map((feature) => {
               return (

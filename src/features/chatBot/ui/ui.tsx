@@ -1,7 +1,7 @@
 import { FaComment, FaTimes, FaPaperPlane, FaCompress, FaPhone, FaEnvelope, FaWhatsapp } from 'react-icons/fa';
 import { Button, TextInput, Text, Group, Paper, ActionIcon } from '@mantine/core';
 import { SavedColors } from '@shared/constants';
-import { ChatContainer, ContactBar, Header, InputContainer, MessageBubble, MessagesContainer, StatusIndicator, ToggleButton, ToggleIndicator, TypingDot } from '../styles';
+import { ChatContainer, ContactBar, Header, InputContainer, MessageBubble, MessagesContainer, StatusIndicator, ToggleButton, TypingDot } from '../styles';
 import useManageChatBot from '../modal/useManageChatBot';
 
 export function Ui() {
@@ -127,16 +127,15 @@ export function Ui() {
 
       <ToggleButton
         onClick={() => setIsOpen(!isOpen)}
-        size="xl"
+        size="sm"
         variant="gradient"
         gradient={{ from: 'blue', to: 'indigo' }}
       >
         {isOpen ? (
-          <FaTimes size={28} />
+          <FaTimes size={22} />
         ) : (
           <>
-            <FaComment size={28} className="group-hover:animate-bounce" />
-            <ToggleIndicator />
+            <FaComment size={22} className="group-hover:animate-bounce" />
           </>
         )}
       </ToggleButton>

@@ -21,6 +21,6 @@ export const Card = styled(Flex)<FlexProps & {bgColor: string}>`
 
 
   @media (max-width: 480px) {
-    padding: 5px;
+    padding: 20px 30px;
   }
 `;

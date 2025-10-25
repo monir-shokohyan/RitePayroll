@@ -18,13 +18,11 @@ const NavbarS = styled.nav`
 
 const MenubarS = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: start;
+  align-items: center;
   height: 100%;
   width: 60%;
   gap: 20px;
-  @media (max-width: 1024px) {
-    flex-direction: column;
-  }
 `;
 
 const MenuItems = styled(Link)`

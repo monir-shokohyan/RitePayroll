@@ -73,9 +73,10 @@ export const ToggleButton = styled(ActionIcon)<StyledActionIconProps>`
   position: fixed;
   bottom: 24px;
   right: 24px;
-  width: 64px;
-  height: 64px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
+  opacity: 80%;
   background: ${SavedColors.Primaryblue};
   color: white;
   box-shadow: 0 4px 6px rgba(0,0,0,0.2);
@@ -93,7 +94,7 @@ export const ToggleButton = styled(ActionIcon)<StyledActionIconProps>`
 export const StatusIndicator = styled.div`
   width: 8px;
   height: 8px;
-  background-color: #34D399; /* green-400 */
+  background-color: #34D399;
   border-radius: 9999px;
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 
@@ -121,27 +122,6 @@ export const TypingDot = styled.div<{delay:string}>`
     }
     40% {
       transform: scale(1);
-    }
-  }
-`;
-
-export const ToggleIndicator = styled.div`
-  position: absolute;
-  top: -4px;
-  right: -4px;
-  width: 16px;
-  height: 16px;
-  background-color: #22C55E;
-  border: 2px solid #FFFFFF;
-  border-radius: 9999px;
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-
-  @keyframes pulse {
-    0%, 100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.5;
     }
   }
 `;

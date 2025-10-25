@@ -1,6 +1,14 @@
 import { SavedColors } from "@shared/constants";
 
-export const productsMap = [
+interface ProductsMapType {
+  title: string,
+  description: string,
+  features: string[],
+  color: string,
+  imgUrl: string,
+  to: string
+}
+export const productsMap: ProductsMapType[] = [
     {
       title: "RITEBOOKS",
       description: "A robust ERP solution combining accounting, inventory, POS, and manufacturing features to manage every aspect of business operations.",
@@ -10,7 +18,8 @@ export const productsMap = [
         " Manufacturing & Assembly Modules"
       ],
       color: SavedColors.productBlue,
-      imgUrl: '/products/Ritebooks.png'
+      imgUrl: '/products/Ritebooks.png',
+      to: '/products/ritebooks',
     },
     {
       title: "JustPay",
@@ -21,7 +30,8 @@ export const productsMap = [
         "Multi-Branch and Multi-Currency Support"
       ],
       color: SavedColors.productOrange,
-      imgUrl: '/products/Just-pay.png'
+      imgUrl: '/products/Just-pay.png',
+      to: '/products/justpay',
     },
     {
       title: "RITEPAYROLL",
@@ -32,7 +42,8 @@ export const productsMap = [
         "Loan & Advance Management"
       ],
       color: SavedColors.productGreen,
-      imgUrl: '/products/Rite-payroll.png'
+      imgUrl: '/products/Rite-payroll.png',
+      to: '/products/rite-payroll',
     },
     {
       title: "RITEBOOKS POCKET",
@@ -43,7 +54,8 @@ export const productsMap = [
         "POS Billing & Receipt Printing"
       ],
       color: SavedColors.productRedBrown,
-      imgUrl: '/products/Ritebooks-pocket.png'
+      imgUrl: '/products/Ritebooks-pocket.png',
+      to: '/products/ritebooks-pocket',
     },
     {
       title: "RITEEATS",
@@ -54,7 +66,8 @@ export const productsMap = [
         "Recipe & Cost Control"
       ],
       color: SavedColors.productRed,
-      imgUrl: '/products/Rite-eats.png'
+      imgUrl: '/products/Rite-eats.png',
+      to: '/products/riteeats',
     },
     {
       title: "RITEROUTES",
@@ -65,7 +78,8 @@ export const productsMap = [
         "Order Booking & Delivery Confirmation"
       ],
       color: SavedColors.productViolet,
-      imgUrl: '/products/Rite-routes.png'
+      imgUrl: '/products/Rite-routes.png',
+      to: '/products/riteroutes',
     },
     {
       title: "RITEBOOKS EXPRESS",
@@ -76,7 +90,8 @@ export const productsMap = [
         "POS Billing with Barcode Scanning"
       ],
       color: SavedColors.productBrown,
-      imgUrl: '/products/Ritebooks-express.png'
+      imgUrl: '/products/Ritebooks-express.png',
+      to: '/products/ritebooks-express',
     },
     {
       title: "TallyPrime",
@@ -87,6 +102,7 @@ export const productsMap = [
         "Multi-Currency & Cost Centre Reporting"
       ],
       color: SavedColors.productPink,
-      imgUrl: '/products/Tally-prime.png'
+      imgUrl: '/products/Tally-prime.png',
+      to: '/products/tally-prime',
     }
-  ];
+];

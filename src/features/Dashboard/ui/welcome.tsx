@@ -7,6 +7,7 @@ import Wrapper from '@shared/ui/horWrapper'
 
 const Welcome = () => {
   return (
+    <section id='dashboard-welcome-section'>
     <Wrapper rightSection={
         <Image 
           src="/welcome.svg" 
@@ -71,6 +72,7 @@ const Welcome = () => {
           </HoveredButtonWithoutBorder>
         </Container>
     </Wrapper>
+    </section>
   )
 }
 

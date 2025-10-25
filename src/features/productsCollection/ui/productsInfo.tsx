@@ -24,7 +24,7 @@ function ProductsInfo({page}:{page:ProductsType}) {
       rightWidth="40%"
       RSJustify="center"
     >
-      <TextResponsive color={SavedColors.Primaryblue} fontSize="14px" fontWeight="600">About Product</TextResponsive>
+      <TextResponsive color={SavedColors.Primaryblue} fontSize="18px" fontWeight="600">About Product</TextResponsive>
       <TitleWithFamily font="Nunito" fontSize="48px" fontWeight="800">{productsMap?.[page]?.name}</TitleWithFamily>
       <VerticalLine opacity={20} />
       <Flex direction="column">

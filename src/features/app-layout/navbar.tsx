@@ -1,29 +1,26 @@
 import { Link } from "react-router-dom";
 import SearchInput from "@shared/ui/searchInput/searchInput";
 import { IoChevronDown, IoChevronUp } from "react-icons/io5";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { Burger, Container, Image, Menu, Popover } from "@mantine/core";
 import { NavbarS, MenubarS, MenuItems, ProductMenuListTrigger, ProductMenuTrigger, CustomMenuItem, MenuButton, MenuListItem, MenuButtonContainer, VerticalLine } from "./styles";
 import { productLinks } from "./constants";
 import { useDisclosure } from "@mantine/hooks";
 import { SavedColors } from "@shared/constants";
-import { ScrollContext } from "@app/providers/scroll-provider";
 
 
 
 const Navbar = () => {
   const [desktopProductsOpen, setDesktopProductsOpen] = useState(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
-   const [opened, { toggle,close }] = useDisclosure();
-  const context = useContext(ScrollContext)
-    if (!context) throw new Error('ScrollButton must be used within ScrollProvider');
-     const { scrollToSection1 } = context;
+  const [opened, { toggle, close }] = useDisclosure();
+
   return (
     <NavbarS>
       <MenubarS>
-        <Image src="/lotus logo.png" alt="lotus logo" w={{base: '110px' , lg: '132px'}}/>
-        <MenuItems to={'/'}>Home</MenuItems>
-        <MenuItems to={'/about'}>About Us</MenuItems>
+        <Image src="/lotus logo.png" alt="lotus logo" w={{ base: '110px', lg: '162px' }} />
+        <MenuItems to={'/'} onClick={() => document.getElementById('dashboard-welcome-section')?.scrollIntoView({ behavior: 'smooth' })}>Home</MenuItems>
+        <MenuItems to={'#'} onClick={() => document.getElementById('dashboard-about-section')?.scrollIntoView({ behavior: 'smooth' })}>About Us</MenuItems>
         <Menu
           width={200}
           position="bottom"
@@ -35,7 +32,7 @@ const Navbar = () => {
         >
           <Menu.Target>
             <ProductMenuTrigger>
-              Products 
+              Products
               {desktopProductsOpen ? (
                 <IoChevronUp style={{ marginLeft: "5px" }} />
               ) : (
@@ -45,9 +42,9 @@ const Navbar = () => {
           </Menu.Target>
           <Menu.Dropdown>
             {productLinks.map((link) => (
-              <CustomMenuItem 
-                key={link.to} 
-                component={Link} 
+              <CustomMenuItem
+                key={link.to}
+                component={Link}
                 to={link.to}
                 onClick={() => setDesktopProductsOpen(false)}
               >
@@ -56,7 +53,7 @@ const Navbar = () => {
             ))}
           </Menu.Dropdown>
         </Menu>
-        <MenuItems to="#" onClick={() => document.getElementById('contactUS')?.scrollIntoView({behavior: 'smooth'})}>Contact Us</MenuItems>
+        <MenuItems to="#" onClick={() => document.getElementById('dashboard-contact-section')?.scrollIntoView({ behavior: 'smooth' })}>Contact Us</MenuItems>
       </MenubarS>
       <SearchInput showSearch={false} />
 
@@ -70,13 +67,19 @@ const Navbar = () => {
       >
         <Popover.Target>
           <MenuButtonContainer>
-           <Burger lineSize={2} size="md"  color={SavedColors.Primaryblue} opened={opened} onClick={toggle} aria-label="Toggle navigation" />
+            <Burger lineSize={2} size="md" color={SavedColors.Primaryblue} opened={opened} onClick={toggle} aria-label="Toggle navigation" />
           </MenuButtonContainer>
         </Popover.Target>
         <Popover.Dropdown>
           <SearchInput showSearch={true} />
-          <MenuListItem to={'/'} onClick={() => toggle()} style={{marginTop: '1px'}}>Home</MenuListItem>
-          <MenuListItem to={'/about'} onClick={() => toggle()}>About Us</MenuListItem>
+          <MenuListItem to={'/'} onClick={() => {
+            toggle()
+            document.getElementById('dashboard-welcome-section')?.scrollIntoView({ behavior: 'smooth' })
+          }} style={{ marginTop: '1px' }}>Home</MenuListItem>
+          <MenuListItem to={'#'} onClick={() => {
+            document.getElementById('dashboard-about-section')?.scrollIntoView({ behavior: 'smooth' })
+            toggle()
+          }}>About Us</MenuListItem>
           <Menu
             width={250}
             position="bottom"
@@ -89,7 +92,7 @@ const Navbar = () => {
           >
             <Menu.Target>
               <ProductMenuListTrigger>
-                Products 
+                Products
                 {mobileProductsOpen ? (
                   <IoChevronUp style={{ marginLeft: "5px" }} />
                 ) : (
@@ -113,15 +116,15 @@ const Navbar = () => {
               ))}
             </Menu.Dropdown>
           </Menu>
-          <MenuListItem to={'/contact'} onClick={() =>{
-             toggle()
-            scrollToSection1({alignment: 'start'})
-             }}>Contact Us</MenuListItem>
-          <VerticalLine opacity={20} style={{marginBlock: '10px'}} />
-          
-           <Container  p='10px' >
-                          <img src="/lotus logo.png" alt="lotus logo" width={104} />
-            </Container>
+          <MenuListItem to={'#'} onClick={() => {
+            toggle()
+            document.getElementById('dashboard-contact-section')?.scrollIntoView({ behavior: 'smooth' })
+          }}>Contact Us</MenuListItem>
+          <VerticalLine opacity={20} style={{ marginBlock: '10px' }} />
+
+          <Container p='10px' >
+            <Image src="/lotus logo.png" alt="lotus logo" width={104} />
+          </Container>
 
         </Popover.Dropdown>
       </Popover>

@@ -5,7 +5,7 @@ import Wrapper from "@shared/ui/horWrapper";
 import { SavedColors } from "@shared/constants";
 import ActionLayout from "@shared/ui/ActionLayout";
 import IconWithText from "@shared/ui/IconWithText";
-import { MdEmail, MdOutlineReply, MdRemoveRedEye } from "react-icons/md";
+import { MdEmail } from "react-icons/md";
 import { BsTelephoneFill } from "react-icons/bs";
 import { IoIosTime } from "react-icons/io";
 import ContactForm from "./contactForm";
@@ -13,17 +13,12 @@ import { BgFlex } from "@shared/ui/BgFlex";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaPhoneAlt } from "react-icons/fa";
 import { LuGlobe } from "react-icons/lu";
-import { ScrollContext } from "@app/providers/scroll-provider";
-import { useContext } from "react";
+import { FaReply } from "react-icons/fa";
 
 function Ui() {
-   const context = useContext(ScrollContext);
-  if (!context) throw new Error('ScrollSection must be used within ScrollProvider');
-
-  const { section1Ref } = context;
 
   return (
-    <div ref={section1Ref} id="contactUS">
+    <div id="dashboard-contact-section">
       <Wrapper
         bgImage="/bgNet.png"
         isReverseWrap={false}
@@ -46,8 +41,7 @@ function Ui() {
             <IconWithText
               fontWeight="600"
               hoverActive={false}
-              iconSize={25}
-              icon={MdOutlineReply}
+              icon={FaReply}
               allowTextRes
               textRes="Reply within 24 hrs"
               textColor={SavedColors.TextColor}
@@ -58,7 +52,6 @@ function Ui() {
             <IconWithText
               fontWeight="600"
               hoverActive={false}
-              iconSize={25}
               icon={BsTelephoneFill}
               allowTextRes
               textRes="Telephone support"
