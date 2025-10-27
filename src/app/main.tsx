@@ -7,6 +7,7 @@ import { AppRouter } from './router'
 import { MantineProvider } from '@mantine/core'
 import './main.css'
 import '@mantine/core/styles.css';
+import ReactGA from 'react-ga4';
 
 const container = document.querySelector('#root')
 
@@ -14,6 +15,7 @@ if (!container) {
   throw new Error('Container was not found')
 }
 
+ReactGA.initialize('G-8XF7WF2WNT');
 createRoot(container).render(
   <StrictMode>
     <Providers>
