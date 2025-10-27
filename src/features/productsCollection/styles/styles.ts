@@ -1,3 +1,4 @@
+import { ButtonType } from "@features/notfound/types"
 import { Button, ButtonProps } from "@mantine/core"
 import { SavedColors } from "@shared/constants"
 import { TextWithFamily } from "@shared/ui/Typography"
@@ -18,7 +19,7 @@ font-size: 3.2rem;
 }
 
 `
-const HoveredButtonWithBorder = styled(Button)<ButtonProps>`
+const HoveredButtonWithBorder = styled(Button)<ButtonType>`
 &:hover{
   border: 1px solid ${SavedColors.Primaryblue};
   color: ${SavedColors.Primaryblue};

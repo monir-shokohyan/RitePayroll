@@ -6,8 +6,10 @@ import Container from '@shared/ui/Container'
 import Wrapper from '@shared/ui/horWrapper'
 import { ProductsType } from '../types'
 import { productsMap } from '../constant/Contant'
+import useNavigationScroll from '@shared/hooks/useNavigationScroll'
 
 const ProductWelcome = ({page}:{page:ProductsType}) => {
+  const { navigateAndScroll } = useNavigationScroll()
   return (
     <Wrapper rightSection={
         <Image 
@@ -53,6 +55,7 @@ const ProductWelcome = ({page}:{page:ProductsType}) => {
             size="md" 
             w={{ base: '100%',sm: 'auto',md: 'auto', lg: 'auto'}}
             color={SavedColors.Primaryblue}
+            onClick={() => navigateAndScroll('/', 'dashboard-contact-section')}
           >
             Request a demo
           </HoveredButtonWithBorder>

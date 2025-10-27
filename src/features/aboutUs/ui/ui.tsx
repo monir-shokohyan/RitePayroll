@@ -9,9 +9,12 @@ import ActionLayout from "@shared/ui/ActionLayout";
 import { MdRemoveRedEye } from 'react-icons/md'
 import { TbTargetArrow } from "react-icons/tb";
 import { HoveredButtonWithBorder } from "@features/Dashboard/styles/styles";
+import useNavigationScroll from "@shared/hooks/useNavigationScroll";
 
 
 function Ui() {
+    const { navigateAndScroll } = useNavigationScroll()
+
   return (
     <section id="dashboard-about-section">
     <Wrapper bgImage="/texture.png" isReverseWrap={false}
@@ -69,6 +72,8 @@ function Ui() {
             size="md" 
             w={{ base: '100%',sm: 'auto',md: 'auto', lg: 'fit-content'}}
             color={SavedColors.Primaryblue}
+            onClick={() => navigateAndScroll('/', 'dashboard-contact-section')}
+
           >
             Explore Our Journey and Values
           </HoveredButtonWithBorder>

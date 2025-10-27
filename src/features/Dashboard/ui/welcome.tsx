@@ -4,8 +4,10 @@ import CTC from '@shared/ui/changeTextColor'
 import { SavedColors } from '@shared/constants'
 import Container from '@shared/ui/Container'
 import Wrapper from '@shared/ui/horWrapper'
+import useNavigationScroll from '@shared/hooks/useNavigationScroll'
 
 const Welcome = () => {
+  const { navigateAndScroll } = useNavigationScroll()
   return (
     <section id='dashboard-welcome-section'>
     <Wrapper rightSection={
@@ -54,6 +56,7 @@ const Welcome = () => {
             size="md" 
             w={{ base: '100%',sm: 'auto',md: 'auto', lg: 'auto'}}
             color={SavedColors.Primaryblue}
+             onClick={() => navigateAndScroll('/', 'dashboard-contact-section')}
           >
             Request a demo
           </HoveredButtonWithBorder>

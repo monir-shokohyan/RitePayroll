@@ -47,6 +47,10 @@ const MenuItems = styled(Link)`
   @media (max-width: 1024px) {
     display: none;
   }
+  &.active {
+  border-bottom: 3px solid ${SavedColors.Primaryblue};
+  color: ${SavedColors.Primaryblue};
+}
 `;
 
 const MenuListItem = styled(Link)`
@@ -69,6 +73,11 @@ const MenuListItem = styled(Link)`
     background: ${SavedColors.Primaryblue};
     color: ${SavedColors.PrimaryWhite};
   }
+  &.active {
+  background-color: ${SavedColors.Primaryblue}10;
+  color: ${SavedColors.Primaryblue};
+  font-weight: 600;
+}
 `;
 
 const MenuButton = styled.div`
@@ -119,6 +128,10 @@ const ProductMenuTrigger = styled.div`
   @media (max-width: 1024px) {
     display: none;
   }
+  &.active {
+  color: ${SavedColors.Primaryblue};
+  font-weight: 600;
+}
 `;
 
 const ProductMenuListTrigger = styled.div`
@@ -154,6 +167,11 @@ const CustomMenuItem = styled(Menu.Item)<any>`
     background-color: ${SavedColors.Primaryblue} !important;
     color: white !important;
   }
+  &.active {
+  background-color: ${SavedColors.Primaryblue}10;
+  color: ${SavedColors.Primaryblue};
+  font-weight: 600;
+}
 `;
 
 
