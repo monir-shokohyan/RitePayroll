@@ -219,7 +219,7 @@ const FooterContainer = styled.footer`
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('/bgNet.png');
+    background-image: url('/bgNet.webp');
     background-size: cover;
     background-position: center;
     opacity: 0.2;

@@ -25,7 +25,7 @@ const ProductWelcome = ({page}:{page:ProductsType}) => {
     isBgColor
     >
              <Image 
-          src="/bgNet.png" 
+          src="/bgNet.webp" 
           alt="net background image" 
           style={{
             position: 'absolute',

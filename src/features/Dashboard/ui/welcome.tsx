@@ -23,7 +23,7 @@ const Welcome = memo(() => {
     isReverseWrap={true}
     >
              <Image 
-          src="/bgNet.png" 
+          src="/bgNet.webp" 
           alt="background image" 
           style={{
             position: 'absolute',

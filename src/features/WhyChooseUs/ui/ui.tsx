@@ -11,7 +11,7 @@ import { memo } from "react";
 const Ui = memo(() => {
   return (
         <section id="dashboard-whyus-section">
-    <Wrapper bgImage="/bgNet.png" isReverseWrap={false}
+    <Wrapper bgImage="/bgNet.webp" isReverseWrap={false}
       fullHeight={false}
       rightSection={
         <Image

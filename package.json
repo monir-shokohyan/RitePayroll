@@ -19,6 +19,7 @@
     "@mantine/carousel": "^8.3.5",
     "@mantine/core": "^8.3.5",
     "@mantine/hooks": "^8.3.5",
+    "@react-google-maps/api": "^2.20.7",
     "embla-carousel-autoplay": "^8.5.2",
     "framer-motion": "^12.23.24",
     "npm": "^11.0.0",
