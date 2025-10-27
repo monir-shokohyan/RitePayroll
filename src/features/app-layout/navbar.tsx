@@ -57,7 +57,7 @@ const Navbar = () => {
         </Menu>
         <MenuItems to="/" onClick={() => navigateAndScroll('/', 'dashboard-contact-section')}>Contact Us</MenuItems>
       </MenubarS>
-      <SearchInput showSearch={false} />
+      <SearchInput showSearch={false} deActiveMenu={() => close()}/>
 
       <Popover
         width={300}
@@ -73,7 +73,7 @@ const Navbar = () => {
           </MenuButtonContainer>
         </Popover.Target>
         <Popover.Dropdown>
-          <SearchInput showSearch={true} />
+          <SearchInput showSearch={true} deActiveMenu={() => close()}/>
           <MenuListItem to={'/'} onClick={() => {
             toggle()
             navigateAndScroll('/', 'dashboard-welcome-section')

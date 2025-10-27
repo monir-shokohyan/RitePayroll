@@ -84,7 +84,7 @@ const Highlight = styled.span`
   color: ${SavedColors.Primaryblue};
 `;
 
-const SearchInput = ({ showSearch }: { showSearch: boolean }) => {
+const SearchInput = ({ showSearch, deActiveMenu }: { showSearch: boolean, deActiveMenu:() => void }) => {
   const [value, setValue] = useState('');
   const [results, setResults] = useState<any[]>([]);
 
@@ -199,6 +199,7 @@ const SearchInput = ({ showSearch }: { showSearch: boolean }) => {
               key={index}
               to={result.target}
               onClick={() => {
+                deActiveMenu()
                 setResults([]);
                 if (!result.section) return;
                 navigateAndScroll('/', result.section ?? 'dashboard-welcome-section');
