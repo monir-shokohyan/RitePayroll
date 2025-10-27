@@ -23,7 +23,7 @@ const ProductGroup = () => {
       {productsMap.map((product) => {
         return (
            <Card onMouseEnter={()=>setId(product.title)} onMouseLeave={() => setId('')} bgColor={id===product.title ? product.color : '#fff'} onClick={() => navigate(product.to) }>
-        <Image height={74} src={product.imgUrl} width="auto" fit="contain" />
+        <Image height={74} src={product.imgUrl} width="auto" fit="contain" alt={product.alt}/>
         <TextWithFamily color={id===product.title ? SavedColors.PrimaryWhite :SavedColors.TextColor} textAlign='center' fontWeight='600' font="Nunito" fontSize='14px'>{product.description}</TextWithFamily>
 
         <Flex direction="column" gap={10} >

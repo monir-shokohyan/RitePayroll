@@ -14,7 +14,7 @@ const Welcome = memo(() => {
     <Wrapper rightSection={
         <Image 
           src="/welcome.svg" 
-          alt="welcome image" 
+          alt="software employee image" 
           miw={300}
           fetchPriority='high'
         />
@@ -24,7 +24,7 @@ const Welcome = memo(() => {
     >
              <Image 
           src="/bgNet.png" 
-          alt="welcome image" 
+          alt="background image" 
           style={{
             position: 'absolute',
             top: '10%', 

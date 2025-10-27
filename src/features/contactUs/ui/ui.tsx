@@ -73,6 +73,7 @@ const Ui = memo(() => {
           descriptionThird="Sat"
           descriptionForth="9:00AM - 01:00PM "
           Icon={IoIosTime}
+          ariaLabel="open hours icon"
         />
 
         <Flex wrap="wrap" gap={20}></Flex>
@@ -84,6 +85,7 @@ const Ui = memo(() => {
           src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d997.4388992642018!2d32.602187269648496!3d0.321274341063542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMMKwMTknMTYuNiJOIDMywrAzNicxMC4yIkU!5e0!3m2!1sen!2sug!4v1761226756063!5m2!1sen!2sug"
           style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: 0 }}
           loading="lazy"
+          title="Map showing location at coordinates 0°19'16.6'N 32°36'10.2'E in Uganda"
         >
         </iframe>
 
@@ -101,30 +103,34 @@ const Ui = memo(() => {
         
       >
 
-        <Image src="/bgNet.png" style={{position: 'absolute'}} />
+        <Image src="/bgNet.png" style={{position: 'absolute'}} alt="background image"/>
             <ActionLayout
               title="Address"
               description="Office No. F6, First Floor, Plot 7/9 2nd Street Industrial Area, Kampala, Uganda."
               Icon={FaLocationDot}
               currentWidth="20%"
+              ariaLabel="Address details"
               />
             <ActionLayout
               title="Phone"
               description="+256 755 818183"
               Icon={FaPhoneAlt}
               currentWidth="20%"
+              ariaLabel="Phone details"
               />
             <ActionLayout
               title="Email"
               description="sales@lotus.co.ug"
               Icon={MdEmail}
               currentWidth="20%"
+              ariaLabel="email details"
               />
             <ActionLayout
               title="Website"
               description="www.lotus.co.ug"
               Icon={LuGlobe}
               currentWidth="20%"
+              ariaLabel="website details"
             />
       </BgFlex>
     </div>

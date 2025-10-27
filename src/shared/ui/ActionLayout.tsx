@@ -1,31 +1,32 @@
-import { ActionIcon, Flex } from '@mantine/core'
-import { SavedColors } from '@shared/constants'
-import { MdRemoveRedEye } from 'react-icons/md'
-import styled from 'styled-components'
-import { TextResponsive, TextWithFamily } from './Typography'
-import { IconType } from 'react-icons'
+import { ActionIcon, Flex } from '@mantine/core';
+import { SavedColors } from '@shared/constants';
+import { MdRemoveRedEye } from 'react-icons/md';
+import styled from 'styled-components';
+import { TextResponsive, TextWithFamily } from './Typography';
+import { IconType } from 'react-icons';
 
 interface ActionLayoutProps {
-  IsButton?: boolean
-  rotate?: number
-  iconSize?: number
-  buttonSize?: number | string
-  title?: string,
-  titleNormal?: string,
-  description?: string,
-  descriptionNormal?: string,
-  justify?: 'flex-start' | 'center' | 'flex-end'
-  align?: 'flex-start' | 'center' | 'flex-end'
-  Icon: IconType | string,
-  currentWidth?: string
-  textAlign?: 'left' | 'center' | 'right' | 'justify'
-  textSize? : string,
-  titleSize?: string,
-  gap?:number
-  descriptionSecond?: string
-  descriptionThird?: string
-  descriptionForth?: string
-  handleClick?: () => void
+  IsButton?: boolean;
+  rotate?: number;
+  iconSize?: number;
+  buttonSize?: number | string;
+  title?: string;
+  titleNormal?: string;
+  description?: string;
+  descriptionNormal?: string;
+  justify?: 'flex-start' | 'center' | 'flex-end';
+  align?: 'flex-start' | 'center' | 'flex-end';
+  Icon: IconType | string;
+  currentWidth?: string;
+  textAlign?: 'left' | 'center' | 'right' | 'justify';
+  textSize?: string;
+  titleSize?: string;
+  gap?: number;
+  descriptionSecond?: string;
+  descriptionThird?: string;
+  descriptionForth?: string;
+  handleClick?: () => void;
+  ariaLabel?: string; // New prop for accessible name
 }
 
 const ActionIconWrapper = styled.div<{ 
@@ -63,7 +64,7 @@ const ActionIconWrapper = styled.div<{
       }
     `}
   }
-`
+`;
 
 const IconContainer = styled.div<{ $rotate: number }>`
   transform: rotate(${props => -props.$rotate}deg);
@@ -75,14 +76,13 @@ const IconContainer = styled.div<{ $rotate: number }>`
     transition: color 0.2s ease;
     color: ${SavedColors.DemWhite};
   }
+`;
 
-`
-
-const ActionLayout = ({ 
-  IsButton = false, 
-  rotate = 0, 
-  iconSize = 30, 
-  buttonSize = "65px", 
+const ActionLayout = ({
+  IsButton = false,
+  rotate = 0,
+  iconSize = 30,
+  buttonSize = "65px",
   justify = "flex-start",
   title,
   description,
@@ -99,8 +99,11 @@ const ActionLayout = ({
   descriptionThird,
   descriptionForth,
   handleClick,
-
+  ariaLabel, // Use new prop
 }: ActionLayoutProps) => {
+  // Generate a unique ID for aria-labelledby if title is used
+  const titleId = title ? `title-${Math.random().toString(36).substr(2, 9)}` : undefined;
+
   return (
     <Flex gap={gap} justify={justify} align={align} direction="column" w={{ base: '100%', lg: currentWidth }}>
       <ActionIconWrapper 
@@ -112,34 +115,66 @@ const ActionLayout = ({
           size={buttonSize}   
           disabled={!IsButton}
           onClick={handleClick}
+          aria-label={ariaLabel || (IsButton && !title ? 'Action button' : undefined)} // Fallback accessible name
+          aria-labelledby={title && IsButton ? titleId : undefined} // Link to title if available
         >
           <IconContainer $rotate={rotate}>
-            <Icon size={iconSize} className="icon-svg" />
+            <Icon size={iconSize} className="icon-svg" aria-hidden="true" /> {/* Icon is decorative */}
           </IconContainer>
         </ActionIcon>
       </ActionIconWrapper>
-      {title && description ?
-      <>
-      <TextResponsive textAlign={textAlign} font='Nunito' fontSize={titleSize} fontWeight="600">{title}</TextResponsive>
-      <TextResponsive textAlign={textAlign} font='Roboto' fontSize={textSize} >{description}</TextResponsive>
-      {
+      {title && description ? (
         <>
-        <TextResponsive textAlign={textAlign} font='Roboto' fontSize={textSize} >{descriptionSecond}</TextResponsive>
-        <br/>
-        <TextResponsive textAlign={textAlign} font='Roboto' fontSize={textSize} >{descriptionThird}</TextResponsive>
-        <TextResponsive textAlign={textAlign} font='Roboto' fontSize={textSize} >{descriptionForth}</TextResponsive>
+          <TextResponsive 
+            id={titleId} // Assign ID for aria-labelledby
+            textAlign={textAlign} 
+            font='Nunito' 
+            fontSize={titleSize} 
+            fontWeight="600"
+          >
+            {title}
+          </TextResponsive>
+          <TextResponsive textAlign={textAlign} font='Roboto' fontSize={textSize}>
+            {description}
+          </TextResponsive>
+          {descriptionSecond && (
+            <>
+              <TextResponsive textAlign={textAlign} font='Roboto' fontSize={textSize}>
+                {descriptionSecond}
+              </TextResponsive>
+              <br />
+              {descriptionThird && (
+                <TextResponsive textAlign={textAlign} font='Roboto' fontSize={textSize}>
+                  {descriptionThird}
+                </TextResponsive>
+              )}
+              {descriptionForth && (
+                <TextResponsive textAlign={textAlign} font='Roboto' fontSize={textSize}>
+                  {descriptionForth}
+                </TextResponsive>
+              )}
+            </>
+          )}
         </>
-        }
-      </>
-      : null}
-      {titleNormal && descriptionNormal ?
-      <>
-      <TextWithFamily textAlign={textAlign} font='Nunito' fontSize={titleSize} fontWeight="600">{titleNormal}</TextWithFamily>
-      <TextWithFamily textAlign={textAlign} font='Roboto' fontSize={textSize} >{descriptionNormal}</TextWithFamily>
-      </>
-      : null}
+      ) : null}
+      {titleNormal && descriptionNormal ? (
+        <>
+          <TextWithFamily 
+            id={titleId} // Assign ID for aria-labelledby
+            textAlign={textAlign} 
+            font='Nunito' 
+            fontSize={titleSize} 
+            fontWeight="600"
+          >
+            {titleNormal}
+          </TextWithFamily>
+          <TextWithFamily textAlign={textAlign} font='Roboto' fontSize={textSize}>
+            {descriptionNormal}
+          </TextWithFamily>
+        </>
+      ) : null}
     </Flex>
-  )
-}
+  );
+};
 
-export default ActionLayout
+export default ActionLayout;

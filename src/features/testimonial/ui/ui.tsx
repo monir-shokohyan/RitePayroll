@@ -40,7 +40,7 @@ const Ui = memo(() => {
                       <TextResponsive font="Roboto" fontSize="18px">
                         {testim.comment}
                       </TextResponsive>
-                      <Image radius={'50%'} src={`/people/${testim.imageUrl}`} h={90} w={90} />
+                      <Image radius={'50%'} src={`/people/${testim.imageUrl}`} h={90} w={90} alt={`${testim.name} image`} />
                       <TextResponsive font="Roboto" fontSize="24px">
                         {testim.name}
                       </TextResponsive>

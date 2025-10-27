@@ -16,7 +16,7 @@ const Ui = memo(() => {
       rightSection={
         <Image
           src="/why_us.png"
-          alt="pc image"
+          alt="growth image"
           miw={300}
           style={{ objectFit: 'contain' }}
           height="100%"
@@ -42,6 +42,7 @@ const Ui = memo(() => {
               title={section.title}
               description={section.description}
               Icon={section.icon}
+              ariaLabel={section.title}
             />
         )
       })  }

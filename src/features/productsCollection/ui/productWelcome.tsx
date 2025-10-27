@@ -14,7 +14,7 @@ const ProductWelcome = ({page}:{page:ProductsType}) => {
     <Wrapper rightSection={
         <Image 
           src={`/products/${productsMap?.[page].image as any}`} 
-          alt="product image" 
+          alt={productsMap?.[page].name} 
           miw={300}
           h="100%"
           fit="contain"
@@ -26,7 +26,7 @@ const ProductWelcome = ({page}:{page:ProductsType}) => {
     >
              <Image 
           src="/bgNet.png" 
-          alt="welcome image" 
+          alt="net background image" 
           style={{
             position: 'absolute',
             top: '10%', 

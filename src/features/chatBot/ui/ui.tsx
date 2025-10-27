@@ -131,6 +131,7 @@ export const Ui = memo(() => {
         size="sm"
         variant="gradient"
         gradient={{ from: 'blue', to: 'indigo' }}
+        aria-label="toggle-button"
       >
         {isOpen ? (
           <FaTimes size={22} />

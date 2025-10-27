@@ -119,11 +119,15 @@ const ProductMenuTrigger = styled.div`
   font-style: normal;
   border-bottom: 3px solid transparent;
   transition: all 0.3s ease-in;
+  border: 0px;
+  border-bottom: 3px solid transparent;
+  background-color: transparent;
   cursor: pointer;
 
   &:hover {
     border-bottom: 3px solid ${SavedColors.Primaryblue};
     color: ${SavedColors.Primaryblue};
+    transform: scale(100%);
   }
   @media (max-width: 1024px) {
     display: none;

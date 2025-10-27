@@ -52,17 +52,17 @@ const Navbar = memo(() => {
     <NavbarS>
       <MenubarS>
         <Image src="/lotus logo.png" alt="lotus logo" w={{ base: '110px', lg: '162px' }} />
-        
-        <MenuItems 
-          to={'/'} 
+
+        <MenuItems
+          to={'/'}
           onClick={() => navigateAndScroll('/', 'dashboard-welcome-section')}
           className={activeSection === 'dashboard-welcome-section' ? 'active' : ''}
         >
           Home
         </MenuItems>
 
-        <MenuItems 
-          to={'/'} 
+        <MenuItems
+          to={'/'}
           onClick={() => navigateAndScroll('/', 'dashboard-about-section')}
           className={activeSection === 'dashboard-about-section' ? 'active' : ''}
         >
@@ -79,7 +79,15 @@ const Navbar = memo(() => {
           onChange={setDesktopProductsOpen}
         >
           <Menu.Target>
-            <ProductMenuTrigger className={isProductActive ? 'active' : ''}>
+            <ProductMenuTrigger
+              as="button"
+              role="button"
+              className={isProductActive ? 'active' : ''}
+              aria-label="Toggle products menu"
+              aria-haspopup="menu"
+              aria-expanded={desktopProductsOpen}
+              aria-controls="products-menu"
+            >
               Products
               {desktopProductsOpen ? (
                 <IoChevronUp style={{ marginLeft: "5px" }} />
@@ -96,6 +104,7 @@ const Navbar = memo(() => {
                 to={link.to}
                 onClick={() => setDesktopProductsOpen(false)}
                 className={location.pathname === link.to ? 'active' : ''}
+                role="menuitem"
               >
                 {link.label}
               </CustomMenuItem>
@@ -103,8 +112,8 @@ const Navbar = memo(() => {
           </Menu.Dropdown>
         </Menu>
 
-        <MenuItems 
-          to="/" 
+        <MenuItems
+          to="/"
           onClick={() => navigateAndScroll('/', 'dashboard-contact-section')}
           className={activeSection === 'dashboard-contact-section' ? 'active' : ''}
         >
@@ -112,7 +121,7 @@ const Navbar = memo(() => {
         </MenuItems>
       </MenubarS>
 
-      <SearchInput showSearch={false} deActiveMenu={() => close()}/>
+      <SearchInput showSearch={false} deActiveMenu={() => close()} />
 
       <Popover
         width={300}
@@ -124,26 +133,36 @@ const Navbar = memo(() => {
       >
         <Popover.Target>
           <MenuButtonContainer>
-            <Burger lineSize={2} size="md" color={SavedColors.Primaryblue} opened={opened} onClick={toggle} aria-label="Toggle navigation" />
+            <Burger 
+              lineSize={2}
+              size="md"
+              color={SavedColors.Primaryblue}
+              opened={opened}
+              onClick={toggle}
+              aria-label="Toggle navigation"
+              aria-haspopup="menu"
+              aria-expanded={opened}
+              aria-controls="mobile-menu"
+              type="button"  />
           </MenuButtonContainer>
         </Popover.Target>
-        <Popover.Dropdown>
-          <SearchInput showSearch={true} deActiveMenu={() => close()}/>
-          
-          <MenuListItem 
-            to={'/'} 
+        <Popover.Dropdown id="mobile-menu">
+          <SearchInput showSearch={true} deActiveMenu={() => close()} />
+
+          <MenuListItem
+            to={'/'}
             onClick={() => {
               toggle()
               navigateAndScroll('/', 'dashboard-welcome-section')
-            }} 
+            }}
             style={{ marginTop: '1px' }}
             className={activeSection === 'dashboard-welcome-section' ? 'active' : ''}
           >
             Home
           </MenuListItem>
 
-          <MenuListItem 
-            to={'/'} 
+          <MenuListItem
+            to={'/'}
             onClick={() => {
               navigateAndScroll('/', 'dashboard-about-section')
               toggle()
@@ -164,7 +183,15 @@ const Navbar = memo(() => {
             onChange={setMobileProductsOpen}
           >
             <Menu.Target>
-              <ProductMenuListTrigger className={isProductActive ? 'active' : ''}>
+              <ProductMenuListTrigger 
+                as="button"
+                role="button"
+                className={isProductActive ? 'active' : ''}
+                aria-label="Toggle mobile products menu"
+                aria-haspopup="menu"
+                aria-expanded={mobileProductsOpen}
+                aria-controls="mobile-products-menu"
+              >
                 Products
                 {mobileProductsOpen ? (
                   <IoChevronUp style={{ marginLeft: "5px" }} />
@@ -173,7 +200,7 @@ const Navbar = memo(() => {
                 )}
               </ProductMenuListTrigger>
             </Menu.Target>
-            <Menu.Dropdown>
+            <Menu.Dropdown id="mobile-products-menu">
               {productLinks.map((link) => (
                 <CustomMenuItem
                   key={link.to}
@@ -191,8 +218,8 @@ const Navbar = memo(() => {
             </Menu.Dropdown>
           </Menu>
 
-          <MenuListItem 
-            to={'/'} 
+          <MenuListItem
+            to={'/'}
             onClick={() => {
               toggle()
               navigateAndScroll('/', 'dashboard-contact-section')

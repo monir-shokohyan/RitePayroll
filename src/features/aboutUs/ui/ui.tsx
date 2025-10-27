@@ -60,11 +60,13 @@ const Ui = memo(() => {
       title="Vision"
       description="To be the most trusted provider of comprehensive business software and IT solutions across Africa and beyond." 
       Icon={MdRemoveRedEye}
+      ariaLabel="vision"
        />
      <ActionLayout 
       title="Mission"
       description="To simplify, automate, and empower businesses with scalable technology solutions that drive growth and sustainability." 
       Icon={TbTargetArrow}
+      ariaLabel="Mission"
        />
 
    </Flex>

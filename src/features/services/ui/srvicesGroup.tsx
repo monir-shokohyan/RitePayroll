@@ -46,6 +46,7 @@ const ServicesGroup = () => {
                   gap={20}
                   titleSize='24px'
                   textSize='16px'
+                  ariaLabel={service.title}
                 />
               </Card>
               <ContactButton
