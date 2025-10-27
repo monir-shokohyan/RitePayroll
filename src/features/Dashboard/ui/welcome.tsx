@@ -5,8 +5,9 @@ import { SavedColors } from '@shared/constants'
 import Container from '@shared/ui/Container'
 import Wrapper from '@shared/ui/horWrapper'
 import useNavigationScroll from '@shared/hooks/useNavigationScroll'
+import { memo } from 'react'
 
-const Welcome = () => {
+const Welcome = memo(() => {
   const { navigateAndScroll } = useNavigationScroll()
   return (
     <section id='dashboard-welcome-section'>
@@ -77,6 +78,6 @@ const Welcome = () => {
     </Wrapper>
     </section>
   )
-}
+})
 
 export default Welcome

@@ -10,7 +10,7 @@ interface IconWithTextProps {
   textRes?: string;
   iconColor?: string; 
   textColor?: string;
-  font?: 'Barlow' | 'Roboto' | 'Nunito'
+  font?: 'Roboto' | 'Nunito'
   handleClick?: () => void
   allowText?: boolean
   allowTextRes?: boolean

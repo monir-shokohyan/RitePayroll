@@ -14,8 +14,9 @@ import { FaLocationDot } from "react-icons/fa6";
 import { FaPhoneAlt } from "react-icons/fa";
 import { LuGlobe } from "react-icons/lu";
 import { FaReply } from "react-icons/fa";
+import { memo } from "react";
 
-function Ui() {
+const Ui = memo(() => {
 
   return (
     <div id="dashboard-contact-section">
@@ -128,6 +129,6 @@ function Ui() {
       </BgFlex>
     </div>
   );
-}
+})
 
 export { Ui };

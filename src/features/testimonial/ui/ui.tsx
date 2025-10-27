@@ -1,18 +1,15 @@
-import { BackgroundImage, Card, CardProps, Center, Flex, Image, Rating, Text } from "@mantine/core";
+import { Flex, Image, Rating } from "@mantine/core";
 import { TextResponsive } from "@shared/ui/Typography";
 import VerWrapper from "@shared/ui/VerWrapper";
 import { Carousel } from '@mantine/carousel';
 import '@mantine/carousel/styles.css';
-import { useRef } from "react";
+import { memo, useRef } from "react";
 import Autoplay from 'embla-carousel-autoplay';
-import styled from "styled-components";
 import { testimonialMap } from "../constant";
+import { SCard } from "../styles";
 
-const SCard = styled(Card) <CardProps>`
-  box-sizing: border-box;
-  box-shadow: 2px 2px 8px #00000020;
-`
-function Ui() {
+
+const Ui = memo(() => {
   const autoplay = useRef(Autoplay({ delay: 5000 }));
 
   return (
@@ -62,7 +59,7 @@ function Ui() {
       </VerWrapper>
     </section>
   );
-}
+})
 
 export { Ui };
 

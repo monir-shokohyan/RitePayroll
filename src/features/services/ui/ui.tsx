@@ -1,8 +1,9 @@
 import VerWrapper from "@shared/ui/VerWrapper";
 import ServicesGroup from "./srvicesGroup";
+import { memo } from "react";
 
 
-function Ui() {
+const Ui = memo(() => {
   return (
       <section id="dashboard-services-section">
     <VerWrapper sectionTitle="Services" title="What We Offer">
@@ -10,7 +11,7 @@ function Ui() {
     </VerWrapper>
       </section>
   );
-}
+})
 
 export { Ui };
 

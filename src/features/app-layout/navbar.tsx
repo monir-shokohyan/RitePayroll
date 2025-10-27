@@ -1,7 +1,7 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import SearchInput from "@shared/ui/searchInput/searchInput";
 import { IoChevronDown, IoChevronUp } from "react-icons/io5";
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 import { Burger, Container, Image, Menu, Popover } from "@mantine/core";
 import { NavbarS, MenubarS, MenuItems, ProductMenuListTrigger, ProductMenuTrigger, CustomMenuItem, MenuButton, MenuListItem, MenuButtonContainer, VerticalLine } from "./styles";
 import { productLinks } from "./constants";
@@ -9,7 +9,7 @@ import { useDisclosure } from "@mantine/hooks";
 import { SavedColors } from "@shared/constants";
 import useNavigationScroll from "@shared/hooks/useNavigationScroll";
 
-const Navbar = () => {
+const Navbar = memo(() => {
   const [desktopProductsOpen, setDesktopProductsOpen] = useState(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
   const [opened, { toggle, close }] = useDisclosure();
@@ -211,6 +211,6 @@ const Navbar = () => {
       </Popover>
     </NavbarS>
   );
-};
+})
 
 export default Navbar;

@@ -1,5 +1,5 @@
 import { VerticalLine } from "@features/app-layout/styles";
-import { ActionIcon, Flex, Image } from "@mantine/core";
+import { Flex, Image } from "@mantine/core";
 import IconWithText from "@shared/ui/IconWithText";
 import { TextResponsive, TitleWithFamily } from "@shared/ui/Typography";
 import Wrapper from "@shared/ui/horWrapper";
@@ -10,9 +10,10 @@ import { MdRemoveRedEye } from 'react-icons/md'
 import { TbTargetArrow } from "react-icons/tb";
 import { HoveredButtonWithBorder } from "@features/Dashboard/styles/styles";
 import useNavigationScroll from "@shared/hooks/useNavigationScroll";
+import { memo } from "react";
 
 
-function Ui() {
+const Ui = memo(() => {
     const { navigateAndScroll } = useNavigationScroll()
 
   return (
@@ -80,6 +81,6 @@ function Ui() {
     </Wrapper>
     </section>
   );
-}
+})
 
 export { Ui };

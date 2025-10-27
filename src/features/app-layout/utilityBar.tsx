@@ -4,8 +4,9 @@ import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaPhoneAlt } from "react
 import IconWithText from '@shared/ui/IconWithText'
 import { MdEmail } from "react-icons/md";
 import { LuGlobe } from "react-icons/lu";
+import { memo } from 'react';
 
-const UtilityBar = () => {
+const UtilityBar = memo(() => {
   return (
     <UtilityContainer>
         <Flex gap={10}>
@@ -40,6 +41,6 @@ const UtilityBar = () => {
         </Flex>
     </UtilityContainer>
   )
-}
+})
 
 export default UtilityBar

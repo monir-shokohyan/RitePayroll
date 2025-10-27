@@ -9,11 +9,9 @@ import { MdEmail } from 'react-icons/md'
 import { FaLocationDot } from "react-icons/fa6";
 import { FooterContainer, FooterFirstContainer, FooterSecondContainer, VerticalLine } from './styles'
 import useNavigationScroll from '@shared/hooks/useNavigationScroll'
+import { memo } from 'react'
 
-
-
-
-const Footer = () => {
+const Footer = memo(() => {
   const { navigateAndScroll } = useNavigationScroll()
 
     return (
@@ -105,6 +103,6 @@ const Footer = () => {
 
         </FooterContainer>
     )
-}
+})
 
 export default Footer

@@ -3,8 +3,9 @@ import { Button, TextInput, Text, Group, Paper, ActionIcon } from '@mantine/core
 import { SavedColors } from '@shared/constants';
 import { ChatContainer, ContactBar, Header, InputContainer, MessageBubble, MessagesContainer, StatusIndicator, ToggleButton, TypingDot } from '../styles';
 import useManageChatBot from '../modal/useManageChatBot';
+import { memo } from 'react';
 
-export function Ui() {
+export const Ui = memo(() => {
   const { isOpen, isMinimized, setIsMinimized, setIsOpen, messages, handleKeyPress, handleSend, isTyping, messagesEndRef, input, setInput, handleQuickAction } = useManageChatBot();
 
   return (
@@ -141,4 +142,4 @@ export function Ui() {
       </ToggleButton>
     </div>
   );
-}
+})

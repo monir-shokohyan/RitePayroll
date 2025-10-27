@@ -33,8 +33,8 @@ const MenuItems = styled(Link)`
   width: 101px;
   text-decoration: none;
   color: #012970;
-  font-size: 18px;
-  font-family: "Barlow", sans-serif;
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
   font-weight: 600;
   font-style: normal;
   border-bottom: 3px solid transparent;
@@ -62,8 +62,8 @@ const MenuListItem = styled(Link)`
   padding-left: 20px;
   text-decoration: none;
   color: #012970;
-  font-size: 16px;
-  font-family: "Barlow", sans-serif;
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
   font-weight: 600;
   font-style: normal;
   border-bottom: 3px solid transparent;
@@ -113,8 +113,8 @@ const ProductMenuTrigger = styled.div`
   width: 101px;
   text-decoration: none;
   color: #012970;
-  font-size: 18px;
-  font-family: "Barlow", sans-serif;
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
   font-weight: 600;
   font-style: normal;
   border-bottom: 3px solid transparent;
@@ -144,7 +144,7 @@ const ProductMenuListTrigger = styled.div`
   text-decoration: none;
   color: #012970;
   font-size: 15px;
-  font-family: "Barlow", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 600;
   font-style: normal;
   border-bottom: 3px solid transparent;
@@ -158,7 +158,7 @@ const ProductMenuListTrigger = styled.div`
 `;
 
 const CustomMenuItem = styled(Menu.Item)<any>`
-  font-family: "Barlow", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 14px;
   color: #012970 !important;

@@ -5,9 +5,10 @@ import Wrapper from "@shared/ui/horWrapper";
 import { SavedColors } from "@shared/constants";
 import ActionLayout from "@shared/ui/ActionLayout";
 import { WhyMap } from "../constant/Contant";
+import { memo } from "react";
 
 
-function Ui() {
+const Ui = memo(() => {
   return (
         <section id="dashboard-whyus-section">
     <Wrapper bgImage="/bgNet.png" isReverseWrap={false}
@@ -52,6 +53,6 @@ function Ui() {
     </section>
   );
 
-}
+})
 
 export { Ui };
