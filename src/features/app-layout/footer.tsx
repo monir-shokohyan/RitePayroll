@@ -1,4 +1,4 @@
-import { Flex } from '@mantine/core'
+import { Flex, Image } from '@mantine/core'
 import { SavedColors } from '@shared/constants'
 import Container from '@shared/ui/Container'
 import { NavLinkS, TextWithFamily } from '@shared/ui/Typography'
@@ -17,7 +17,7 @@ const Footer = memo(() => {
     return (
         <FooterContainer>
             <Container h='92px' p='10px' justify="center" >
-                <img src="/lotus logo.png" alt="lotus logo" width={164} />
+                <Image loading='lazy' src="/lotus logo.png" alt="lotus logo" w={164} />
             </Container>
 
 

@@ -16,6 +16,7 @@ const Welcome = memo(() => {
           src="/welcome.svg" 
           alt="welcome image" 
           miw={300}
+          fetchPriority='high'
         />
     }
     bgImage='/landing bg.svg'
@@ -30,6 +31,7 @@ const Welcome = memo(() => {
             left: '0%', 
             opacity: '40%'
           }}
+          loading='lazy'
         />
         
         <WelcomeText font="Roboto" fontWeight="600">
