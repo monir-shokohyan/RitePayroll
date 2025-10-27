@@ -7,8 +7,6 @@ import { SavedColors } from '@shared/constants';
 import { TotalData, TotalDataItem } from '@shared/constants/allTexts';
 import useNavigationScroll from '@shared/hooks/useNavigationScroll';
 
-
-
 const InputIcon = styled.div`
   border-radius: 50%;
   background-color: ${SavedColors.Primaryblue};
@@ -27,7 +25,7 @@ const InputIcon = styled.div`
   }
 `;
 
-const SearchBox = styled.div<{height?:string, width?:string, showSearch:boolean}>`
+const SearchBox = styled.div<{ height?: string; width?: string; showSearch: boolean }>`
   height: ${(props) => props.height || '40px'};
   width: ${(props) => props.width || '335px'};
   position: relative;
@@ -80,39 +78,92 @@ const ResultDescription = styled.div`
   overflow: hidden;
 `;
 
+const Highlight = styled.span`
+  background-color: #e6f3ff;
+  font-weight: bold;
+  color: ${SavedColors.Primaryblue};
+`;
 
-const SearchInput = ({ showSearch }:{showSearch:boolean}) => {
+const SearchInput = ({ showSearch }: { showSearch: boolean }) => {
   const [value, setValue] = useState('');
   const [results, setResults] = useState<any[]>([]);
 
+  // Helper function to highlight search term
+  const highlightText = (text: string, searchTerm: string) => {
+    if (!searchTerm.trim()) return text;
+    const regex = new RegExp(`(${searchTerm})`, 'gi');
+    const parts = text.split(regex);
+    return parts.map((part, index) =>
+      regex.test(part) ? (
+        <Highlight key={index}>{part}</Highlight>
+      ) : (
+        part
+      )
+    );
+  };
+
+  // Helper function to truncate text while ensuring highlighted term is visible
+  const truncateWithHighlight = (text: string, searchTerm: string, maxLength: number = 100) => {
+    if (!searchTerm.trim()) return text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
+
+    const regex = new RegExp(`(${searchTerm})`, 'gi');
+    const match = text.toLowerCase().indexOf(searchTerm.toLowerCase());
+    
+    if (match === -1) {
+      return text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
+    }
+
+    const contextLength = 50; // Characters to show before and after the match
+    let start = Math.max(0, match - contextLength);
+    let end = Math.min(text.length, match + searchTerm.length + contextLength);
+
+    if (end - start > maxLength) {
+      end = start + maxLength;
+    }
+
+    const truncated = (start > 0 ? '...' : '') + text.slice(start, end) + (end < text.length ? '...' : '');
+    return highlightText(truncated, searchTerm);
+  };
+
   // Handle search input change
-  const handleSearch = (searchTerm:string) => {
+  const handleSearch = (searchTerm: string) => {
     if (!searchTerm.trim()) {
       setResults([]);
       return;
     }
 
     const lowerCaseTerm = searchTerm.toLowerCase();
-    const filteredResults = TotalData.filter((item) => {
-      if (item.title.toLowerCase().includes(lowerCaseTerm)) return true;
-      if (item.description.toLowerCase().includes(lowerCaseTerm)) return true;
+    const filteredResults = TotalData.map((item) => {
+      let score = 0;
+      if (item.title.toLowerCase().includes(lowerCaseTerm)) {
+        score += 10; // Higher score for title match
+        score -= item.title.toLowerCase().indexOf(lowerCaseTerm) * 0.1; // Prioritize earlier matches
+      }
+      if (item.description.toLowerCase().includes(lowerCaseTerm)) {
+        score += 5; // Lower score for description match
+        score -= item.description.toLowerCase().indexOf(lowerCaseTerm) * 0.1;
+      }
       if (
         item.features &&
-        item.features.some((feature:any) => feature.toLowerCase().includes(lowerCaseTerm))
-      )
-        return true;
+        item.features.some((feature: any) => feature.toLowerCase().includes(lowerCaseTerm))
+      ) {
+        score += 3;
+      }
       if (
         item.industries &&
-        item.industries.some((industry:any) => industry.toLowerCase().includes(lowerCaseTerm))
-      )
-        return true;
-      return false;
-    });
+        item.industries.some((industry: any) => industry.toLowerCase().includes(lowerCaseTerm))
+      ) {
+        score += 3;
+      }
+      return { ...item, score };
+    })
+      .filter((item) => item.score > 0)
+      .sort((a, b) => b.score - a.score); // Sort by score (descending)
 
     setResults(filteredResults);
   };
 
-  const handleInputChange = (event:any) => {
+  const handleInputChange = (event: any) => {
     const newValue = event.currentTarget.value;
     setValue(newValue);
     handleSearch(newValue);
@@ -122,42 +173,41 @@ const SearchInput = ({ showSearch }:{showSearch:boolean}) => {
     setValue('');
     setResults([]);
   };
- const { navigateAndScroll } = useNavigationScroll()
+
+  const { navigateAndScroll } = useNavigationScroll();
+
   return (
-    <SearchBox showSearch={showSearch} >
+    <SearchBox showSearch={showSearch}>
       <Input
         placeholder="Search by keyword ..."
         variant="filled"
         value={value}
         onChange={handleInputChange}
         rightSectionPointerEvents="all"
-        rightSection={
-          <InputIcon aria-label="Search input" onClick={handleClear}>
-            <CiSearch />
-          </InputIcon>
-        }
+        // rightSection={
+        //   <InputIcon aria-label="Search input" onClick={handleClear}>
+        //     <CiSearch />
+        //   </InputIcon>
+        // }
         radius="lg"
         size="sm"
       />
       {results.length > 0 && (
         <ResultsContainer>
-          {results.map((result:TotalDataItem, index) => {
-            if(result.section){
-              return (
-            <ResultItem key={index} to="/" onClick={() => navigateAndScroll('/', result.section ?? 'dashboard-welcome-section')}>
-              <ResultTitle>{result.title}</ResultTitle>
-              <ResultDescription>{result.description}</ResultDescription>
+          {results.map((result: TotalDataItem & { score: number }, index) => (
+            <ResultItem
+              key={index}
+              to={result.target}
+              onClick={() => {
+                setResults([]);
+                if (!result.section) return;
+                navigateAndScroll('/', result.section ?? 'dashboard-welcome-section');
+              }}
+            >
+              <ResultTitle>{highlightText(result.title, value)}</ResultTitle>
+              <ResultDescription>{truncateWithHighlight(result.description, value)}</ResultDescription>
             </ResultItem>
-          )
-            }
-            
-            return (
-            <ResultItem key={index} to={result.target}>
-              <ResultTitle>{result.title}</ResultTitle>
-              <ResultDescription>{result.description}</ResultDescription>
-            </ResultItem>
-          )
-          })}
+          ))}
         </ResultsContainer>
       )}
     </SearchBox>
