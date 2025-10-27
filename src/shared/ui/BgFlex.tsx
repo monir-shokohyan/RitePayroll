@@ -18,8 +18,9 @@ export const BgFlex = styled(Flex)<BgFlexProps>`
     left: 0;
     right: 0;
     bottom: 0;
+    height: 100%;
     background-image: ${({ bg }) => (bg ? `url(${bg})` : "none")};
-    background-size: cover;
+    background-size: contain;
     background-color: ${({bgc}) => bgc ? bgc : 'transparent'} ;
     background-position: center;
     background-repeat: no-repeat;

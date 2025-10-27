@@ -8,6 +8,7 @@ const horWrapper = ({isBgColor = false,RSJustify='flex-start', children,rightSec
       wrap={isReverseWrap ? "wrap-reverse" : 'wrap' }
       bg={isBgColor ? `${bgImage}`:`'${bgImage}'`}
       w="100%"
+      opacity={0.3}
       h={{ base: 'auto', sm: 'auto', md: 'auto', lg:isBgColor? '60vh' : fullHeight ? '90vh' : 'auto' }}
       p={{ base: '10px 16px', sm: '10px 24px', md: '10px 32px', lg: '10px 40px' }}
       justify="center"
