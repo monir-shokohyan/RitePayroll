@@ -32,7 +32,7 @@ const Ui = memo(() => {
         <TextResponsive color={SavedColors.Primaryblue} fontSize="18px" fontWeight="600">
           Contact Us
         </TextResponsive>
-        <TitleWithFamily font="Nunito" fontSize="48px" fontWeight="800">
+        <TitleWithFamily $font="Nunito" fontSize="48px" fontWeight="800">
           Get in Touch with Lotus Soft Technologies Ltd.
         </TitleWithFamily>
         <VerticalLine opacity={20} />
@@ -41,7 +41,7 @@ const Ui = memo(() => {
           <Flex direction="column" w={{ base: "100%", lg: "50%" }}>
             <IconWithText
               fontWeight="600"
-              hoverActive={false}
+              $hoveractive={"false"}
               icon={FaReply}
               allowTextRes
               textRes="Reply within 24 hrs"
@@ -52,7 +52,7 @@ const Ui = memo(() => {
           <Flex direction="column" w={{ base: "100%", lg: "50%" }}>
             <IconWithText
               fontWeight="600"
-              hoverActive={false}
+              $hoveractive={"false"}
               icon={BsTelephoneFill}
               allowTextRes
               textRes="Telephone support"
@@ -61,7 +61,7 @@ const Ui = memo(() => {
           </Flex>
         </Flex>
 
-        <TextResponsive font="Roboto" fontSize="18px">
+        <TextResponsive $font="Roboto" fontSize="18px">
           We’re here to assist you with any inquiries about our products, services, or custom solutions. Reach out to us
           through the contact form below or use the provided information to connect with our team directly.
         </TextResponsive>
@@ -103,7 +103,7 @@ const Ui = memo(() => {
         
       >
 
-        <Image src="/bgNet.webp" style={{position: 'absolute'}} alt="background image"/>
+        <Image src="/bgNet.webp" style={{position: 'absolute', opacity: '0.4'}} alt="background image"/>
             <ActionLayout
               title="Address"
               description="Office No. F6, First Floor, Plot 7/9 2nd Street Industrial Area, Kampala, Uganda."

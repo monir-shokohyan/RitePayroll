@@ -35,11 +35,11 @@ const ProductWelcome = ({page}:{page:ProductsType}) => {
           }}
         />
         
-        <WelcomeTitle font="Nunito" fontWeight="800" color={SavedColors.PrimaryWhite}>
+        <WelcomeTitle $font="Nunito" fontWeight="800" color={SavedColors.PrimaryWhite}>
          {productsMap?.[page].name as any}
         </WelcomeTitle>
         
-        <WelcomeText font="Roboto" fontWeight='600' fontSize='24px' color={SavedColors.PrimaryWhite}>
+        <WelcomeText $font="Roboto" fontWeight='600' fontSize='24px' color={SavedColors.PrimaryWhite}>
           {productsMap?.[page].info as any}
         </WelcomeText>
         

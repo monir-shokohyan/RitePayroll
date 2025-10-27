@@ -1,10 +1,10 @@
 import { Flex, FlexProps } from "@mantine/core";
 import styled from "styled-components";
 
-export const Card = styled(Flex)<FlexProps & {bgColor: string}>`
+export const Card = styled(Flex)<FlexProps & {bgcolor: string}>`
   width: 345px;
   height: 426px;
-  background: ${({bgColor})=>  bgColor || '#fff'};
+  background: ${({bgcolor})=>  bgcolor || '#fff'};
   border: 1px solid #ddd;
   padding: 20px 30px ;
   box-sizing: border-box;

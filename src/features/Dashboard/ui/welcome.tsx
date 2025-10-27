@@ -16,7 +16,6 @@ const Welcome = memo(() => {
           src="/welcome.svg" 
           alt="software employee image" 
           miw={300}
-          fetchPriority='high'
         />
     }
     bgImage='/landing bg.svg'
@@ -34,16 +33,16 @@ const Welcome = memo(() => {
           loading='lazy'
         />
         
-        <WelcomeText font="Roboto" fontWeight="600">
+        <WelcomeText $font="Roboto" fontWeight="600">
           Welcome to Lotus Soft Technologies Ltd.
         </WelcomeText>
         
-        <WelcomeTitle font="Nunito" fontWeight="800">
+        <WelcomeTitle $font="Nunito" fontWeight="800">
           Empowering <CTC text="Africa's"/> Businesses with Smart, Scalable  
           <CTC text="Software"/> & Technology <CTC text="Solutions"/>.
         </WelcomeTitle>
         
-        <WelcomeText font="Roboto">
+        <WelcomeText $font="Roboto">
           Simplifying operations, automating workflows, and driving growth through innovation. Welcome to Lotus Soft Technologies Ltd., Uganda's leading provider of business software and IT solutions.
         </WelcomeText>
         

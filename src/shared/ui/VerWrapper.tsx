@@ -18,7 +18,7 @@ const VerWrapper = ({ sectionTitle, title, children,bgImage}:horWrapperType) => 
       gap={20}
     >
       <TextResponsive color={SavedColors.Primaryblue} fontSize="18px" fontWeight="600">{sectionTitle}</TextResponsive>
-      <TitleWithFamily font="Nunito" fontSize="48px" fontWeight="800">{title}</TitleWithFamily>
+      <TitleWithFamily $font="Nunito" fontSize="48px" fontWeight="800">{title}</TitleWithFamily>
       <VerticalLine opacity={20} />
       
         {children}

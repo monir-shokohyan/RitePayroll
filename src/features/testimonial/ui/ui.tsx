@@ -15,7 +15,7 @@ const Ui = memo(() => {
   return (
     <section id="dashboard-testimonial-section">
       <VerWrapper sectionTitle="Tesimonials" title="What they are saying about us">
-        <TextResponsive font="Roboto" fontSize="18px">
+        <TextResponsive $font="Roboto" fontSize="18px">
           As a trusted partner for Tally Accounting software and a leading integrator of URA EFRIS, we are committed to delivering top-notch software solutions that drive efficiency and growth. We value the comments and suggestions of our users, always listening attentively to their feedback to create the best products tailored to their needs.
         </TextResponsive>
         <Carousel
@@ -33,18 +33,18 @@ const Ui = memo(() => {
           {
             testimonialMap?.map((testim) => {
               return (
-                <Carousel.Slide style={{ display: 'flex', justifyContent: 'center' }}>
+                <Carousel.Slide key={testim.name} style={{ display: 'flex', justifyContent: 'center' }}>
                   <SCard w={{ base: "300px", lg: '436px' }} h="436px" p={30}>
                     <Flex w="100%" h="100%" justify="start" align="center" direction="column" gap={20}>
                       <Rating value={testim.star} />
-                      <TextResponsive font="Roboto" fontSize="18px">
+                      <TextResponsive $font="Roboto" fontSize="18px">
                         {testim.comment}
                       </TextResponsive>
                       <Image radius={'50%'} src={`/people/${testim.imageUrl}`} h={90} w={90} alt={`${testim.name} image`} />
-                      <TextResponsive font="Roboto" fontSize="24px">
+                      <TextResponsive $font="Roboto" fontSize="24px">
                         {testim.name}
                       </TextResponsive>
-                      <TextResponsive font="Roboto" fontSize="18px">
+                      <TextResponsive $font="Roboto" fontSize="18px">
                         {testim.position}
                       </TextResponsive>
 

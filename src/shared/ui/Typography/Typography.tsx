@@ -3,22 +3,22 @@ import { Link, NavLink } from 'react-router-dom';
 import { SavedColors } from '@shared/constants';
 
 export interface StyledTextProps {
-  font?:  'Roboto' | 'Nunito';
+  $font?:  'Roboto' | 'Nunito';
   fontSize?: string;
   fontWeight?: '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900';
   color?: string;
-  textAlign?: 'left' | 'center' | 'right' | 'justify';
+  $textalign?: 'left' | 'center' | 'right' | 'justify';
   responsive?: boolean;
   lineHeight?: string;
 }
 
 
 const textStyles = css<StyledTextProps>`
-  font-family: ${({ font }) => font || 'Roboto'}, sans-serif;
+  font-family: ${({ $font }) => $font || 'Roboto'}, sans-serif;
   font-size: ${({ fontSize }) => fontSize || '16px'};
   font-weight: ${({ fontWeight }) => fontWeight || '400'};
   color: ${({ color }) => color || SavedColors.TextColor};
-  text-align: ${({ textAlign }) => textAlign || 'left'};
+  text-align: ${({ $textalign }) => $textalign || 'left'};
   text-decoration: none;
   transition: all 0.3s ease-in-out;
 

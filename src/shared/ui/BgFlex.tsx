@@ -11,6 +11,7 @@ interface BgFlexProps extends FlexProps {
 export const BgFlex = styled(Flex)<BgFlexProps>`
   position: relative;
   animation: ${fadeIn} 1s ease-out 0.2s both;
+  overflow: hidden;
   &::before {
     content: '';
     position: absolute;

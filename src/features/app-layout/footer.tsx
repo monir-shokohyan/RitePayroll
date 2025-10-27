@@ -27,14 +27,14 @@ const Footer = memo(() => {
                     <Container wrap="wrap" >
                         <Container p='10px' gap={10} direction="column" minw='150px' w="50%">
                             <Container h='35' w='100%'>
-                                <TextWithFamily font="Nunito" fontWeight='600' fontSize='20px' color={SavedColors.PrimaryWhite}>
+                                <TextWithFamily $font="Nunito" fontWeight='600' fontSize='20px' color={SavedColors.PrimaryWhite}>
                                     Quick Links
                                 </TextWithFamily>
                             </Container>
 
                             {NavigationLinks.map((menu) => {
                                 return (
-                                    <NavLinkS font="Nunito" fontWeight='600' fontSize='15px' color={SavedColors.DarkWhite} to="/" onClick={() => navigateAndScroll('/',menu.scrollToSection as string)}>
+                                    <NavLinkS key={menu.label} $font="Nunito" fontWeight='600' fontSize='15px' color={SavedColors.DarkWhite} to="/" onClick={() => navigateAndScroll('/',menu.scrollToSection as string)}>
                                         {menu.label}
                                     </NavLinkS>
                                 )
@@ -44,14 +44,14 @@ const Footer = memo(() => {
 
                         <Container p='10px' gap={10} direction="column" minw='150px' w='50%'>
                             <Container h='35' w='100%'>
-                                <TextWithFamily font="Nunito" fontWeight='600' fontSize='20px' color={SavedColors.PrimaryWhite}>
+                                <TextWithFamily $font="Nunito" fontWeight='600' fontSize='20px' color={SavedColors.PrimaryWhite}>
                                     Products
                                 </TextWithFamily>
                             </Container>
 
                             {productLinks.map((links) => {
                                 return (
-                                    <NavLinkS font="Nunito" fontWeight='600' fontSize='15px' color={SavedColors.DarkWhite} to={links.to} key={links.to}>
+                                    <NavLinkS key={links.label} $font="Nunito" fontWeight='600' fontSize='15px' color={SavedColors.DarkWhite} to={links.to} >
                                         {links.label}
                                     </NavLinkS>
                                 )
@@ -64,22 +64,22 @@ const Footer = memo(() => {
 
                     <Container p='10px' gap={10} mw='338px' direction="column">
                         <Container h='35' w='100%'>
-                            <TextWithFamily font="Nunito" fontWeight='600' fontSize='20px' color={SavedColors.PrimaryWhite}>
+                            <TextWithFamily $font="Nunito" fontWeight='600' fontSize='20px' color={SavedColors.PrimaryWhite}>
                                 Get In Touch
                             </TextWithFamily>
                         </Container>
-                        <IconWithText fontSize='14px' icon={FaPhoneAlt} text='+256 755 818183' padding='0px' hoverActive={false} />
-                        <IconWithText fontSize='14px' icon={MdEmail} text='sales@lotus.co.ug' padding='0px' hoverActive={false} />
-                        <IconWithText fontSize='14px' icon={FaLocationDot} text='Office No. F6, First Floor, Plot 7/9 2nd Street Industrial Area, Kampala, Uganda.' padding='0px' hoverActive={false} />
+                        <IconWithText fontSize='14px' icon={FaPhoneAlt} text='+256 755 818183' padding='0px' $hoveractive={"false"} />
+                        <IconWithText fontSize='14px' icon={MdEmail} text='sales@lotus.co.ug' padding='0px' $hoveractive={"false"} />
+                        <IconWithText fontSize='14px' icon={FaLocationDot} text='Office No. F6, First Floor, Plot 7/9 2nd Street Industrial Area, Kampala, Uganda.' padding='0px' $hoveractive={"false"} />
 
                     </Container>
 
                 </FooterFirstContainer>
 
                 <FooterSecondContainer p='15px' gap={16} justify="start" direction="column" >
-                    <TextWithFamily color={SavedColors.PrimaryWhite} fontSize='20px' font="Nunito">Lotus Soft Technologies Ltd.</TextWithFamily>
+                    <TextWithFamily color={SavedColors.PrimaryWhite} fontSize='20px' $font="Nunito">Lotus Soft Technologies Ltd.</TextWithFamily>
                     <VerticalLine opacity={20} />
-                    <TextWithFamily color={SavedColors.DarkWhite} fontSize='16px' font="Roboto">
+                    <TextWithFamily color={SavedColors.DarkWhite} fontSize='16px' $font="Roboto">
                         a premier software development company based in Uganda. With over 25 years of expertise, we offer a suite of solutions designed to streamline and enhance business operations. Our flagship products include Ritebooks, Justpay, Rite Payroll, and STAR PMS, each crafted to address specific business needs. As a trusted partner for Tally Accounting software and a leading integrator of URA EFRIS,
                     </TextWithFamily>
 
@@ -96,7 +96,7 @@ const Footer = memo(() => {
             </Container>
 
             <Container w='100%' p='10px' justify="center" background='#000000'>
-                <TextWithFamily textAlign='center' color={SavedColors.DarkWhite} fontSize='1rem' font="Roboto">
+                <TextWithFamily $textalign='center'  color={SavedColors.DarkWhite} fontSize='1rem' $font="Roboto">
                     All Rights Reserved. Designed by Lotus Software Ltd.
                 </TextWithFamily>
             </Container>

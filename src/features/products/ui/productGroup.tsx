@@ -22,19 +22,20 @@ const ProductGroup = () => {
     <Flex wrap="wrap" w="100%" justify="center" gap={20}>
       {productsMap.map((product) => {
         return (
-           <Card onMouseEnter={()=>setId(product.title)} onMouseLeave={() => setId('')} bgColor={id===product.title ? product.color : '#fff'} onClick={() => navigate(product.to) }>
+           <Card key={product.title} onMouseEnter={()=>setId(product.title)} onMouseLeave={() => setId('')} bgcolor={id===product.title ? product.color : '#fff'} onClick={() => navigate(product.to) }>
         <Image height={74} src={product.imgUrl} width="auto" fit="contain" alt={product.alt}/>
-        <TextWithFamily color={id===product.title ? SavedColors.PrimaryWhite :SavedColors.TextColor} textAlign='center' fontWeight='600' font="Nunito" fontSize='14px'>{product.description}</TextWithFamily>
+        <TextWithFamily color={id===product.title ? SavedColors.PrimaryWhite :SavedColors.TextColor} $textalign='center' fontWeight='600' $font="Nunito" fontSize='14px'>{product.description}</TextWithFamily>
 
         <Flex direction="column" gap={10} >
           {
             product.features.map((feature) => {
               return (
                   <IconWithText
+                  key={feature}
                   text={feature}
                   icon={ImCheckmark}
                   fontSize='14px'
-                  hoverActive={false}
+                  $hoveractive={"false"}
                   padding='0px'
                   textColor={id===product.title ? SavedColors.PrimaryWhite :SavedColors.TextColor}
                   iconColor={id===product.title ? SavedColors.PrimaryWhite :SavedColors.Primaryblue}

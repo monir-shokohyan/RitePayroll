@@ -18,7 +18,7 @@ interface ActionLayoutProps {
   align?: 'flex-start' | 'center' | 'flex-end';
   Icon: IconType | string;
   currentWidth?: string;
-  textAlign?: 'left' | 'center' | 'right' | 'justify';
+  $textalign?: 'left' | 'center' | 'right' | 'justify';
   textSize?: string;
   titleSize?: string;
   gap?: number;
@@ -89,7 +89,7 @@ const ActionLayout = ({
   Icon,
   currentWidth = "48%",
   align = 'flex-start',
-  textAlign = 'left',
+  $textalign = 'left',
   textSize = '18px',
   titleSize = '24px',
   gap = 3,
@@ -127,29 +127,29 @@ const ActionLayout = ({
         <>
           <TextResponsive 
             id={titleId} // Assign ID for aria-labelledby
-            textAlign={textAlign} 
-            font='Nunito' 
+            $textalign={$textalign} 
+            $font='Nunito' 
             fontSize={titleSize} 
             fontWeight="600"
           >
             {title}
           </TextResponsive>
-          <TextResponsive textAlign={textAlign} font='Roboto' fontSize={textSize}>
+          <TextResponsive $textalign={$textalign} $font='Roboto' fontSize={textSize}>
             {description}
           </TextResponsive>
           {descriptionSecond && (
             <>
-              <TextResponsive textAlign={textAlign} font='Roboto' fontSize={textSize}>
+              <TextResponsive $textalign={$textalign} $font='Roboto' fontSize={textSize}>
                 {descriptionSecond}
               </TextResponsive>
               <br />
               {descriptionThird && (
-                <TextResponsive textAlign={textAlign} font='Roboto' fontSize={textSize}>
+                <TextResponsive $textalign={$textalign} $font='Roboto' fontSize={textSize}>
                   {descriptionThird}
                 </TextResponsive>
               )}
               {descriptionForth && (
-                <TextResponsive textAlign={textAlign} font='Roboto' fontSize={textSize}>
+                <TextResponsive $textalign={$textalign} $font='Roboto' fontSize={textSize}>
                   {descriptionForth}
                 </TextResponsive>
               )}
@@ -161,14 +161,14 @@ const ActionLayout = ({
         <>
           <TextWithFamily 
             id={titleId} // Assign ID for aria-labelledby
-            textAlign={textAlign} 
-            font='Nunito' 
+            $textalign={$textalign} 
+            $font='Nunito' 
             fontSize={titleSize} 
             fontWeight="600"
           >
             {titleNormal}
           </TextWithFamily>
-          <TextWithFamily textAlign={textAlign} font='Roboto' fontSize={textSize}>
+          <TextWithFamily $textalign={$textalign} $font='Roboto' fontSize={textSize}>
             {descriptionNormal}
           </TextWithFamily>
         </>

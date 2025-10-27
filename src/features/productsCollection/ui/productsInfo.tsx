@@ -25,7 +25,7 @@ function ProductsInfo({page}:{page:ProductsType}) {
       RSJustify="center"
     >
       <TextResponsive color={SavedColors.Primaryblue} fontSize="18px" fontWeight="600">About Product</TextResponsive>
-      <TitleWithFamily font="Nunito" fontSize="48px" fontWeight="800">{productsMap?.[page]?.name}</TitleWithFamily>
+      <TitleWithFamily $font="Nunito" fontSize="48px" fontWeight="800">{productsMap?.[page]?.name}</TitleWithFamily>
       <VerticalLine opacity={20} />
       <Flex direction="column">
 
@@ -33,7 +33,7 @@ function ProductsInfo({page}:{page:ProductsType}) {
           {
             productsMap?.[page].features.map((feature) => {
                 return (
-                  <IconWithText fontWeight="600" fontSize="18px" hoverActive={false} iconSize={25} icon={ImCheckmark} allowTextRes textRes={feature} textColor={SavedColors.TextColor}></IconWithText>
+                  <IconWithText key={feature} fontWeight="600" fontSize="18px" $hoveractive={"false"} iconSize={25} icon={ImCheckmark} allowTextRes textRes={feature} textColor={SavedColors.TextColor}></IconWithText>
                 )
             })
 
@@ -41,7 +41,7 @@ function ProductsInfo({page}:{page:ProductsType}) {
         
         
       </Flex>
-        <TextResponsive font="Roboto" fontSize="18px">{productsMap?.[page]?.info || 'info about product'}</TextResponsive>     
+        <TextResponsive $font="Roboto" fontSize="18px">{productsMap?.[page]?.info || 'info about product'}</TextResponsive>     
    
    <Flex wrap="wrap" gap={20}>
 

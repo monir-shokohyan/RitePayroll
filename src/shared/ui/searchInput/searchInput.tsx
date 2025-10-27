@@ -25,12 +25,12 @@ const InputIcon = styled.div`
   }
 `;
 
-const SearchBox = styled.div<{ height?: string; width?: string; showSearch: boolean }>`
+const SearchBox = styled.div<{ height?: string; width?: string; $showsearch: boolean }>`
   height: ${(props) => props.height || '40px'};
   width: ${(props) => props.width || '335px'};
   position: relative;
   @media (max-width: 1024px) {
-    display: ${(props) => (props.showSearch ? 'block' : 'none')};
+    display: ${(props) => (props.$showsearch ? 'block' : 'none')};
     width: 100%;
   }
 `;
@@ -84,7 +84,7 @@ const Highlight = styled.span`
   color: ${SavedColors.Primaryblue};
 `;
 
-const SearchInput = ({ showSearch, deActiveMenu }: { showSearch: boolean, deActiveMenu:() => void }) => {
+const SearchInput = ({ $showsearch, deActiveMenu }: { $showsearch: boolean, deActiveMenu:() => void }) => {
   const [value, setValue] = useState('');
   const [results, setResults] = useState<any[]>([]);
 
@@ -177,7 +177,7 @@ const SearchInput = ({ showSearch, deActiveMenu }: { showSearch: boolean, deActi
   const { navigateAndScroll } = useNavigationScroll();
 
   return (
-    <SearchBox showSearch={showSearch}>
+    <SearchBox $showsearch={$showsearch}>
       <Input
         placeholder="Search by keyword ..."
         variant="filled"
