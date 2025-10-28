@@ -17,8 +17,16 @@ const Navbar = memo(() => {
   const { navigateAndScroll } = useNavigationScroll();
   const location = useLocation();
 
-  // Track active section on scroll
+  // Determine if we're on the homepage
+  const isHomePage = location.pathname === '/';
+
+  // Only run scroll logic on homepage
   useEffect(() => {
+    if (!isHomePage) {
+      setActiveSection(''); // Clear active section when not on home
+      return;
+    }
+
     const handleScroll = () => {
       const sections = [
         'dashboard-welcome-section',
@@ -30,7 +38,6 @@ const Navbar = memo(() => {
         const element = document.getElementById(sectionId);
         if (element) {
           const rect = element.getBoundingClientRect();
-          // Check if section is in viewport (with some offset for better UX)
           if (rect.top <= 100 && rect.bottom >= 100) {
             setActiveSection(sectionId);
             break;
@@ -39,15 +46,17 @@ const Navbar = memo(() => {
       }
     };
 
+    const cleanup = () => window.removeEventListener('scroll', handleScroll);
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check on mount
+    handleScroll();
 
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [location]);
+    return cleanup;
+  }, [isHomePage]);
 
-  // Check if a product page is active
-  const isProductActive = productLinks.some(link => location.pathname === link.to);
+  const getSectionActive = (sectionId: string) =>
+    isHomePage && activeSection === sectionId ? 'active' : '';
 
+  const isProductsActive = productLinks.some(link => location.pathname === link.to);
   return (
     <NavbarS>
       <MenubarS>
@@ -56,7 +65,7 @@ const Navbar = memo(() => {
         <MenuItems
           to={'/'}
           onClick={() => navigateAndScroll('/', 'dashboard-welcome-section')}
-          className={activeSection === 'dashboard-welcome-section' ? 'active' : ''}
+          className={getSectionActive('dashboard-welcome-section')}
         >
           Home
         </MenuItems>
@@ -64,7 +73,7 @@ const Navbar = memo(() => {
         <MenuItems
           to={'/'}
           onClick={() => navigateAndScroll('/', 'dashboard-about-section')}
-          className={activeSection === 'dashboard-about-section' ? 'active' : ''}
+          className={getSectionActive('dashboard-about-section')}
         >
           About Us
         </MenuItems>
@@ -82,7 +91,7 @@ const Navbar = memo(() => {
             <ProductMenuTrigger
               as="button"
               role="button"
-              className={isProductActive ? 'active' : ''}
+              className={isProductsActive ? 'active' : ''}
               aria-label="Toggle products menu"
               aria-haspopup="menu"
               aria-expanded={desktopProductsOpen}
@@ -115,7 +124,7 @@ const Navbar = memo(() => {
         <MenuItems
           to="/"
           onClick={() => navigateAndScroll('/', 'dashboard-contact-section')}
-          className={activeSection === 'dashboard-contact-section' ? 'active' : ''}
+          className={getSectionActive('dashboard-contact-section')}
         >
           Contact Us
         </MenuItems>
@@ -133,7 +142,7 @@ const Navbar = memo(() => {
       >
         <Popover.Target>
           <MenuButtonContainer>
-            <Burger 
+            <Burger
               lineSize={2}
               size="md"
               color={SavedColors.Primaryblue}
@@ -143,7 +152,7 @@ const Navbar = memo(() => {
               aria-haspopup="menu"
               aria-expanded={opened}
               aria-controls="mobile-menu"
-              type="button"  />
+              type="button" />
           </MenuButtonContainer>
         </Popover.Target>
         <Popover.Dropdown id="mobile-menu">
@@ -183,10 +192,10 @@ const Navbar = memo(() => {
             onChange={setMobileProductsOpen}
           >
             <Menu.Target>
-              <ProductMenuListTrigger 
+              <ProductMenuListTrigger
                 as="button"
                 role="button"
-                className={isProductActive ? 'active' : ''}
+                className={isProductsActive ? 'active' : ''}
                 aria-label="Toggle mobile products menu"
                 aria-haspopup="menu"
                 aria-expanded={mobileProductsOpen}
