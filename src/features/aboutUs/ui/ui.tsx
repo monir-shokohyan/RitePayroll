@@ -51,9 +51,12 @@ const Ui = memo(() => {
       </Flex>
         <TextResponsive $font="Roboto" fontSize="18px">Lotus Soft Technologies Ltd. has been a trusted name in Uganda’s software industry for over 25 years. Founded by Mr. Nikhil Shah, Lotus has consistently delivered innovative business software solutions, helping organizations simplify processes, improve productivity, and ensure compliance with evolving market standards.</TextResponsive>  
       
-        <TextResponsive $font="Roboto" fontSize="18px">Co-Director Mrs. Shital Shah plays a pivotal role in the strategic direction and market expansion of Lotus Soft Technologies. Leveraging her deep knowledge in Accounting and Finance, she has been instrumental in bridging business needs with software innovation, leading successful product positioning and marketing strategies across Uganda and beyond. She stands as a symbol of women’s empowerment in technology and leadership, inspiring others to drive change through innovation.</TextResponsive>
+        <TextResponsive $font="Roboto" fontSize="18px">Mr. Nikhil Shah, Founder and Managing Director of Lotus Soft Technologies Ltd., is a visionary entrepreneur and technology innovator who has played a defining role in shaping Uganda’s software landscape for more than 25 years.
+With a deep understanding of accounting, inventory, and business management processes, Mr. Shah transformed Lotus from a small local software initiative into one of Uganda’s leading technology companies — trusted by thousands of businesses across retail, manufacturing, and distribution sectors.
+His leadership and technical foresight have driven the creation of flagship products such as Ritebooks, RiteEats, RiteRoutes, RitePayroll, and JustPay, which today set new benchmarks for business automation, mobility, and integrated financial management across Africa.
+Known for his hands-on approach and relentless pursuit of innovation, he continues to lead Lotus into the next era of digital transformation — expanding into AI-driven automation, cloud computing, digital payments integration, and global connectivity to make African businesses more efficient, adaptable, and competitive on the world stage.</TextResponsive>
    
-   
+   c:\Users\monir\OneDrive\Desktop\Figma project images\RITEBOOKS BROCHURE.pdf c:\Users\monir\OneDrive\Desktop\Figma project images\RITEBOOKS EXPRESS BROCHURE PRINT.pdf
    <Flex wrap="wrap" gap={20}>
 
      <ActionLayout 

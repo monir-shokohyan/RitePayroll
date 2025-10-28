@@ -153,6 +153,8 @@ const ProductMenuListTrigger = styled.div`
   font-style: normal;
   border-bottom: 3px solid transparent;
   transition: all 0.3s ease-in;
+  border: 0px;
+  background-color: transparent;
   cursor: pointer;
 
   &:hover {

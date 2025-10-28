@@ -4,8 +4,10 @@ import ActionLayout from '@shared/ui/ActionLayout';
 import { servicesMap } from '../constant/Contant';
 import { Card, CardContainer, ContactButton } from '../styles/styles';
 import { Helmet } from 'react-helmet';
+import useNavigationScroll from '@shared/hooks/useNavigationScroll';
 
 const ServicesGroup = () => {
+  const { navigateAndScroll } = useNavigationScroll();
 
   const structuredData = {
     '@context': 'https://schema.org',
@@ -33,7 +35,7 @@ const ServicesGroup = () => {
       {
         servicesMap?.map((service) => {
           return (
-            <CardContainer key={service.title}>
+            <CardContainer key={service.title} onClick={() =>navigateAndScroll('/', 'dashboard-contact-section')}>
               <Card>
                 <ActionLayout
                   titleNormal={service.title}

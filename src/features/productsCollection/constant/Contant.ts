@@ -24,7 +24,8 @@ export const productsMap: ProductsCollectionType = {
     industriesServed: {
       title: 'Industries Served',
       description: 'Retail, Wholesale, Distribution, Manufacturing, Services.'
-    }
+    },
+    brochureLink: 'ritebooks.pdf'
   },
   "ritebooks-express": {
     name: 'Ritebooks Express',
@@ -45,7 +46,8 @@ export const productsMap: ProductsCollectionType = {
     industriesServed: {
       title: 'Industries Served',
       description: 'Small Retailers, Shops, Pharmacies, and Service Businesses.'
-    }
+    },
+    brochureLink: 'ritebooks-express.pdf'
   },
   "ritebooks-pocket": {
     name: 'Ritebooks Pocket',

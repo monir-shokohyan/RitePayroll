@@ -25,6 +25,7 @@ interface Product {
   features: string[];
   deploymentOption: DeploymentOption;
   industriesServed: IndustriesServed;
+  brochureLink?: string
 }
 
 export type ProductsCollectionType = {

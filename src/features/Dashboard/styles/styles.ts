@@ -35,7 +35,7 @@ const HoveredButtonWithoutBorder = styled(Button)<PolymorphicComponentProps<'but
 
 &:hover{
   color: ${SavedColors.Primaryblue};
-  opacity: 60%;
+  opacity: 50% !important;
   background-color: transparent;
   transition: all 0.3s ease-in;
 }

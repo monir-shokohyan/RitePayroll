@@ -1,8 +1,8 @@
 import { ButtonType } from "@features/notfound/types"
-import { Button, ButtonProps } from "@mantine/core"
+import { Button } from "@mantine/core"
 import { SavedColors } from "@shared/constants"
 import { TextWithFamily } from "@shared/ui/Typography"
-import { Link, LinkProps, LinksProps } from "react-router-dom"
+import { Link, LinkProps } from "react-router-dom"
 import styled from "styled-components"
 
 const WelcomeText = styled(TextWithFamily)`
@@ -27,10 +27,11 @@ const HoveredButtonWithBorder = styled(Button)<ButtonType>`
   transition: all 0.3s ease-in;
 }
 `
-const HoveredButtonWithoutBorder = styled(Button)<ButtonProps>`
+const HoveredButtonWithoutBorder = styled(Button)<ButtonType>`
+text-decoration: none;
+color: ${SavedColors.PrimaryWhite};
 &:hover{
-  color: ${SavedColors.Primaryblue};
-  opacity: 60%;
+  opacity: 50%;
   background-color: transparent;
   transition: all 0.3s ease-in;
 }
