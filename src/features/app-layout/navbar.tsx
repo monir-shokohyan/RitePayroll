@@ -195,7 +195,7 @@ const Navbar = memo(() => {
           <VerticalLine opacity={20} style={{ marginBlock: '10px' }} />
 
           <Container p='10px' >
-            <Image src="/lotus logo.png" alt="lotus logo" width={104} />
+            <Image src="/lotus logo.png" alt="lotus logo"   />
           </Container>
         </Popover.Dropdown>
       </Popover>
