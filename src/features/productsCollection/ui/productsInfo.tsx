@@ -1,19 +1,19 @@
 import { VerticalLine } from "@features/app-layout/styles";
-import { ActionIcon, Flex, Image } from "@mantine/core";
+import { Flex } from "@mantine/core";
 import IconWithText from "@shared/ui/IconWithText";
 import { TextResponsive, TitleWithFamily } from "@shared/ui/Typography";
 import Wrapper from "@shared/ui/horWrapper";
 import { ImCheckmark } from "react-icons/im";
 import { SavedColors } from "@shared/constants";
 import ActionLayout from "@shared/ui/ActionLayout";
-import { MdRemoveRedEye } from 'react-icons/md'
-import { TbTargetArrow } from "react-icons/tb";
-import { productsMap } from "../constant/Contant";
+import { MdBlock } from 'react-icons/md'
 import { ProductsType } from "../types";
 import { ProductsTableOfContent } from "./productsMenu";
+import FindByName from "@shared/helpers/findByName";
 
 
 function ProductsInfo({page}:{page:ProductsType}) {
+    const product = FindByName(page)
   return (
     <Wrapper bgImage="/texture.png" isReverseWrap={false}
       fullHeight={false}
@@ -25,15 +25,15 @@ function ProductsInfo({page}:{page:ProductsType}) {
       RSJustify="center"
     >
       <TextResponsive color={SavedColors.Primaryblue} fontSize="18px" fontWeight="600">About Product</TextResponsive>
-      <TitleWithFamily $font="Nunito" fontSize="48px" fontWeight="800">{productsMap?.[page]?.name}</TitleWithFamily>
+      <TitleWithFamily $font="Nunito" fontSize="48px" fontWeight="800">{product?.name}</TitleWithFamily>
       <VerticalLine opacity={20} />
       <Flex direction="column">
 
 
           {
-            productsMap?.[page].features.map((feature) => {
+            product?.features.map((feature) => {
                 return (
-                  <IconWithText key={feature} fontWeight="600" fontSize="18px" $hoveractive={"false"} iconSize={25} icon={ImCheckmark} allowTextRes textRes={feature} textColor={SavedColors.TextColor}></IconWithText>
+                  <IconWithText key={feature.name} fontWeight="600" fontSize="18px" $hoveractive={"false"} iconSize={25} icon={ImCheckmark} allowTextRes textRes={feature.name} textColor={SavedColors.TextColor}></IconWithText>
                 )
             })
 
@@ -41,20 +41,21 @@ function ProductsInfo({page}:{page:ProductsType}) {
         
         
       </Flex>
-        <TextResponsive $font="Roboto" fontSize="18px">{productsMap?.[page]?.info || 'info about product'}</TextResponsive>     
+        <TextResponsive $font="Roboto" fontSize="18px">{product?.description || 'info about product'}</TextResponsive>     
    
    <Flex wrap="wrap" gap={20}>
-
-     <ActionLayout 
-      title={productsMap[page].deploymentOption.title}
-      description={productsMap[page].deploymentOption.description} 
-      Icon={MdRemoveRedEye}
-       />
-     <ActionLayout 
-      title={productsMap[page].industriesServed.title}
-      description={productsMap[page].industriesServed.description} 
-      Icon={TbTargetArrow}
-       />
+      {
+        product?.section?.map(section =>{
+          return (
+            <ActionLayout 
+             title={section.name}
+             description={section.description} 
+             Icon={section.icon ?? MdBlock}
+             ariaLabel={section.name}
+              />
+          )
+        })
+      }
    </Flex>
     </Wrapper>
   );

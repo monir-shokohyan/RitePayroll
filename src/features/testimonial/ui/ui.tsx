@@ -5,18 +5,20 @@ import { Carousel } from '@mantine/carousel';
 import '@mantine/carousel/styles.css';
 import { memo, useRef } from "react";
 import Autoplay from 'embla-carousel-autoplay';
-import { testimonialMap } from "../constant";
 import { SCard } from "../styles";
+import FindByName from "@shared/helpers/findByName";
+import { SavedColors } from "@shared/constants";
 
 
 const Ui = memo(() => {
   const autoplay = useRef(Autoplay({ delay: 5000 }));
+    const pageInfo = FindByName('Tesimonials')
 
   return (
     <section id="dashboard-testimonial-section">
-      <VerWrapper sectionTitle="Tesimonials" title="What they are saying about us">
+      <VerWrapper sectionTitle={pageInfo?.name} title={pageInfo?.title}>
         <TextResponsive $font="Roboto" fontSize="18px">
-          As a trusted partner for Tally Accounting software and a leading integrator of URA EFRIS, we are committed to delivering top-notch software solutions that drive efficiency and growth. We value the comments and suggestions of our users, always listening attentively to their feedback to create the best products tailored to their needs.
+          {pageInfo?.description}
         </TextResponsive>
         <Carousel
           withIndicators
@@ -31,21 +33,25 @@ const Ui = memo(() => {
         >
 
           {
-            testimonialMap?.map((testim) => {
+            pageInfo?.features?.map((testim) => {
               return (
                 <Carousel.Slide key={testim.name} style={{ display: 'flex', justifyContent: 'center' }}>
                   <SCard w={{ base: "300px", lg: '436px' }} h="436px" p={30}>
                     <Flex w="100%" h="100%" justify="start" align="center" direction="column" gap={20}>
-                      <Rating value={testim.star} />
+                      <Rating value={testim.star} size="lg" readOnly  color={SavedColors.Primaryblue}/>
+
+                      <Flex w="100%" h="500px" justify="center" align="center">
                       <TextResponsive $font="Roboto" fontSize="18px">
-                        {testim.comment}
+                        {testim?.description}
                       </TextResponsive>
-                      <Image radius={'50%'} src={`/people/${testim.imageUrl}`} h={90} w={90} alt={`${testim.name} image`} />
+                      </Flex>
+
+                      <Image radius={'50%'} src={`/people/${testim?.imageUrl}`} h={90} w={90} alt={`${testim?.name} image`} />
                       <TextResponsive $font="Roboto" fontSize="24px">
-                        {testim.name}
+                        {testim?.name}
                       </TextResponsive>
                       <TextResponsive $font="Roboto" fontSize="18px">
-                        {testim.position}
+                        {testim?.position}
                       </TextResponsive>
 
                     </Flex>

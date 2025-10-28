@@ -1,22 +1,23 @@
-import { Button, Flex } from '@mantine/core';
+import { Flex } from '@mantine/core';
 import { SavedColors } from '@shared/constants';
 import ActionLayout from '@shared/ui/ActionLayout';
-import { servicesMap } from '../constant/Contant';
 import { Card, CardContainer, ContactButton } from '../styles/styles';
 import { Helmet } from 'react-helmet';
 import useNavigationScroll from '@shared/hooks/useNavigationScroll';
+import { sectionType } from '@shared/constants/allTexts';
+import { MdBlock } from 'react-icons/md';
 
-const ServicesGroup = () => {
+const ServicesGroup = ({services}:{services: sectionType[]}) => {
   const { navigateAndScroll } = useNavigationScroll();
 
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    itemListElement: servicesMap?.map((service, index) => ({
+    itemListElement: services?.map((service, index) => ({
       '@type': 'Service',
       position: index + 1,
-      name: service.seo.title,
-      description: service.seo.description,
+      name: service?.seo?.title,
+      description: service?.seo?.description,
       provider: {
         '@type': 'Organization',
         name: 'Lotus Soft Technologies Ltd.',
@@ -33,14 +34,14 @@ const ServicesGroup = () => {
                 </script>
               </Helmet>
       {
-        servicesMap?.map((service) => {
+        services?.map((service) => {
           return (
-            <CardContainer key={service.title} onClick={() =>navigateAndScroll('/', 'dashboard-contact-section')}>
+            <CardContainer key={service?.name} onClick={() =>navigateAndScroll('/', 'dashboard-contact-section')}>
               <Card>
                 <ActionLayout
-                  titleNormal={service.title}
+                  titleNormal={service.name}
                   descriptionNormal={service.description}
-                  Icon={service.icon}
+                  Icon={service.icon ?? MdBlock}
                   currentWidth='100%'
                   align='center'
                   $textalign='center'
@@ -48,7 +49,7 @@ const ServicesGroup = () => {
                   gap={20}
                   titleSize='24px'
                   textSize='16px'
-                  ariaLabel={service.title}
+                  ariaLabel={service.name}
           
                 />
               </Card>

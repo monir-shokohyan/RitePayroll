@@ -6,15 +6,17 @@ import Wrapper from "@shared/ui/horWrapper";
 import { ImCheckmark } from "react-icons/im";
 import { SavedColors } from "@shared/constants";
 import ActionLayout from "@shared/ui/ActionLayout";
-import { MdRemoveRedEye } from 'react-icons/md'
-import { TbTargetArrow } from "react-icons/tb";
+import { MdBlock } from 'react-icons/md'
 import { HoveredButtonWithBorder } from "@features/Dashboard/styles/styles";
 import useNavigationScroll from "@shared/hooks/useNavigationScroll";
 import { memo } from "react";
+import FindByName from "@shared/helpers/findByName";
 
 
 const Ui = memo(() => {
   const { navigateAndScroll } = useNavigationScroll()
+    const pageInfo = FindByName('About Us')
+
 
   return (
     <section id="dashboard-about-section">
@@ -32,47 +34,44 @@ const Ui = memo(() => {
         leftWidth="60%"
         rightWidth="40%"
       >
-        <TextResponsive color={SavedColors.Primaryblue} fontSize="18px" fontWeight="600">About Us</TextResponsive>
-        <TitleWithFamily $font="Nunito" fontSize="48px" fontWeight="800">Mr. Nikhil Shah – Founder & Managing Director, Lotus Soft Technologies Ltd.</TitleWithFamily>
+        <TextResponsive color={SavedColors.Primaryblue} fontSize="18px" fontWeight="600">{pageInfo?.name}</TextResponsive>
+        <TitleWithFamily $font="Nunito" fontSize="48px" fontWeight="800">{pageInfo?.title}</TitleWithFamily>
         <VerticalLine opacity={20} />
         <Flex wrap="wrap">
 
           <Flex direction="column" w={{ base: '100%', lg: '50%' }}>
-            <IconWithText $hoveractive={"false"} icon={ImCheckmark} allowTextRes textRes="Innovation" textColor={SavedColors.TextColor}></IconWithText>
-            <IconWithText $hoveractive={"false"} icon={ImCheckmark} allowTextRes textRes="Customer Success" textColor={SavedColors.TextColor}></IconWithText>
-            <IconWithText $hoveractive={"false"} icon={ImCheckmark} allowTextRes textRes="Continuous Improvement" textColor={SavedColors.TextColor}></IconWithText>
+            {pageInfo?.section?.map(section =>{
+              return (
+                <IconWithText $hoveractive={"false"} icon={ImCheckmark} allowTextRes textRes={section.name} textColor={SavedColors.TextColor}></IconWithText>
+              )
+            })}
           </Flex>
-
           <Flex direction="column" w={{ base: '100%', lg: '50%' }}>
-            <IconWithText $hoveractive={"false"} icon={ImCheckmark} allowTextRes textRes="Integrity" textColor={SavedColors.TextColor}></IconWithText>
-            <IconWithText $hoveractive={"false"} icon={ImCheckmark} allowTextRes textRes="Collaboration" textColor={SavedColors.TextColor}></IconWithText>
+            {pageInfo?.sectionSecond?.map(section =>{
+              return (
+                <IconWithText $hoveractive={"false"} icon={ImCheckmark} allowTextRes textRes={section.name} textColor={SavedColors.TextColor}></IconWithText>
+              )
+            })}
           </Flex>
 
+    
         </Flex>
 
-        <TextResponsive $font="Roboto" fontSize="18px">Mr. Nikhil Shah, Founder and Managing Director of Lotus Soft Technologies Ltd., is a visionary entrepreneur and technology innovator who has played a defining role in shaping Uganda’s software landscape for more than 25 years.
-          With a deep understanding of accounting, inventory, and business management processes, Mr. Shah transformed Lotus from a small local software initiative into one of Uganda’s leading technology companies — trusted by thousands of businesses across retail, manufacturing, and distribution sectors.
-          His leadership and technical foresight have driven the creation of flagship products such as Ritebooks, RiteEats, RiteRoutes, RitePayroll, and JustPay, which today set new benchmarks for business automation, mobility, and integrated financial management across Africa.
-          Known for his hands-on approach and relentless pursuit of innovation, he continues to lead Lotus into the next era of digital transformation — expanding into AI-driven automation, cloud computing, digital payments integration, and global connectivity to make African businesses more efficient, adaptable, and competitive on the world stage.
-        </TextResponsive>
-        
-        <TextResponsive $font="Roboto" fontSize="18px">Co-Director Mrs. Shital Shah plays a pivotal role in the strategic direction and market expansion of Lotus Soft Technologies. Leveraging her deep knowledge in Accounting and Finance, she has been instrumental in bridging business needs with software innovation, leading successful product positioning and marketing strategies across Uganda and beyond. She stands as a symbol of women’s empowerment in technology and leadership, inspiring others to drive change through innovation.</TextResponsive>
-
+        <TextResponsive $font="Roboto" fontSize="18px">{pageInfo?.description} </TextResponsive>
+        <div></div>
+        <TextResponsive $font="Roboto" fontSize="18px">{pageInfo?.descriptionSecond}</TextResponsive>
 
         <Flex wrap="wrap" gap={20}>
-
-          <ActionLayout
-            title="Vision"
-            description="To be the most trusted provider of comprehensive business software and IT solutions across Africa and beyond."
-            Icon={MdRemoveRedEye}
-            ariaLabel="vision"
-          />
-          <ActionLayout
-            title="Mission"
-            description="To simplify, automate, and empower businesses with scalable technology solutions that drive growth and sustainability."
-            Icon={TbTargetArrow}
-            ariaLabel="Mission"
-          />
+          {pageInfo?.features.map(feature =>{
+            return (
+              <ActionLayout
+                title={feature.name}
+                description={feature.description}
+                Icon={feature.icon ?? MdBlock}
+                ariaLabel={feature.ariaLabel}
+              />
+            )
+          })}
 
         </Flex>
         <HoveredButtonWithBorder

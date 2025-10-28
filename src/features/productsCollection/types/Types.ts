@@ -1,12 +1,15 @@
+import { Products } from "@shared/constants/productsMap";
+
 export type ProductsType =
-  | 'ritebooks'
-  | 'justpay'
-  | 'rite-payroll'
-  | 'ritebooks-express'
-  | 'ritebooks-pocket'
-  | 'riteeats'
-  | 'riteroutes'
-  | 'tally-prime';
+  | Products.Ritebooks
+  | Products.Ritebooks_express
+  | Products.Justpay
+  | Products.Ritebooks_pocket
+  | Products.Riteeats
+  | Products.Riteroutes
+  | Products.Tally_prime
+  | Products.Rite_payroll
+
 
 interface DeploymentOption {
   title: string;

@@ -1,8 +1,9 @@
 import { ProductsCollection } from '@features/productsCollection'
+import { Products } from '@shared/constants/productsMap'
 
 const Ui = () => {
   return (
-   <ProductsCollection page="ritebooks-express" />
+   <ProductsCollection page={Products.Ritebooks_express} />
   )
 }
 

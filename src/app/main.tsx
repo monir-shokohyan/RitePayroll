@@ -15,7 +15,8 @@ if (!container) {
   throw new Error('Container was not found')
 }
 
-ReactGA.initialize('G-8XF7WF2WNT');
+ReactGA.initialize(import.meta.env.VITE_GOOGLE_ANALYTICS);
+
 createRoot(container).render(
   <StrictMode>
     <Providers>

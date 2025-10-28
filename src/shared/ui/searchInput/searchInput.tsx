@@ -9,8 +9,10 @@ const SearchInput = ({ $showsearch, deActiveMenu }: { $showsearch: boolean, deAc
   const [value, setValue] = useState('');
   const [results, setResults] = useState<any[]>([]);
 
+  // Add this helper first
   const escapeRegExp = (string: string) => string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
+  // Helper function to highlight search term
   const highlightText = (text: string, searchTerm: string) => {
     if (!searchTerm.trim()) return text;
 
@@ -24,19 +26,23 @@ const SearchInput = ({ $showsearch, deActiveMenu }: { $showsearch: boolean, deAc
     });
   };
 
+  // Helper to search deeply in any value (handles nested objects and arrays)
   const searchInValue = (value: any, searchTerm: string): boolean => {
     if (!value) return false;
     
     const lowerTerm = searchTerm.toLowerCase();
     
+    // String
     if (typeof value === 'string') {
       return value.toLowerCase().includes(lowerTerm);
     }
     
+    // Array
     if (Array.isArray(value)) {
       return value.some(item => searchInValue(item, searchTerm));
     }
     
+    // Object (recurse into nested properties)
     if (typeof value === 'object') {
       return Object.values(value).some(val => searchInValue(val, searchTerm));
     }
@@ -44,7 +50,108 @@ const SearchInput = ({ $showsearch, deActiveMenu }: { $showsearch: boolean, deAc
     return false;
   };
 
-  const getTruncatedText = (text: string, searchTerm: string, maxLength = 120): string => {
+  // Helper to find and extract the text containing the search term
+  const findMatchedText = (item: any, searchTerm: string): string => {
+    const lowerTerm = searchTerm.toLowerCase();
+    
+    // Check name first (new field)
+    if (item.name?.toLowerCase().includes(lowerTerm)) {
+      return item.name;
+    }
+    
+    // Check title
+    if (item.title?.toLowerCase().includes(lowerTerm)) {
+      return item.title;
+    }
+    
+    // Check description
+    if (item.description?.toLowerCase().includes(lowerTerm)) {
+      return item.description;
+    }
+    
+    // Check descriptionSecond
+    if (item.descriptionSecond?.toLowerCase().includes(lowerTerm)) {
+      return item.descriptionSecond;
+    }
+    
+    // Check features array (now array of objects with nested properties)
+    if (Array.isArray(item.features)) {
+      for (const feature of item.features) {
+        // If feature is an object, check its properties
+        if (typeof feature === 'object' && feature !== null) {
+          if (feature.name?.toLowerCase().includes(lowerTerm)) {
+            return feature.name;
+          }
+          if (feature.description?.toLowerCase().includes(lowerTerm)) {
+            return feature.description;
+          }
+          // Check nested features array
+          if (Array.isArray(feature.features)) {
+            for (const nestedFeature of feature.features) {
+              if (typeof nestedFeature === 'string' && nestedFeature.toLowerCase().includes(lowerTerm)) {
+                return nestedFeature;
+              }
+            }
+          }
+        }
+        // Fallback for string features
+        if (typeof feature === 'string' && feature.toLowerCase().includes(lowerTerm)) {
+          return feature;
+        }
+      }
+    }
+    
+    // Check section array
+    if (Array.isArray(item.section)) {
+      for (const sec of item.section) {
+        if (typeof sec === 'object' && sec !== null) {
+          if (sec.name?.toLowerCase().includes(lowerTerm)) {
+            return sec.name;
+          }
+          if (sec.description?.toLowerCase().includes(lowerTerm)) {
+            return sec.description;
+          }
+        }
+      }
+    }
+    
+    // Check sectionSecond array
+    if (Array.isArray(item.sectionSecond)) {
+      for (const sec of item.sectionSecond) {
+        if (typeof sec === 'object' && sec !== null) {
+          if (sec.name?.toLowerCase().includes(lowerTerm)) {
+            return sec.name;
+          }
+          if (sec.description?.toLowerCase().includes(lowerTerm)) {
+            return sec.description;
+          }
+        }
+      }
+    }
+    
+    // Check industries array
+    if (Array.isArray(item.industries)) {
+      for (const industry of item.industries) {
+        if (typeof industry === 'string' && industry.toLowerCase().includes(lowerTerm)) {
+          return industry;
+        }
+      }
+    }
+    
+    // Check deployment array
+    if (Array.isArray(item.deployment)) {
+      for (const deploy of item.deployment) {
+        if (typeof deploy === 'string' && deploy.toLowerCase().includes(lowerTerm)) {
+          return deploy;
+        }
+      }
+    }
+    
+    // Fallback to description or name
+    return item.description || item.name || item.title || '';
+  };
+
+  const getTruncatedText = (text: string, searchTerm: string, maxLength = 80): string => {
     if (!searchTerm.trim()) {
       return text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
     }
@@ -83,6 +190,7 @@ const SearchInput = ({ $showsearch, deActiveMenu }: { $showsearch: boolean, deAc
     return prefix + text.slice(start, end) + suffix;
   };
 
+
   const handleSearch = (searchTerm: string) => {
     if (!searchTerm.trim()) {
       setResults([]);
@@ -91,21 +199,26 @@ const SearchInput = ({ $showsearch, deActiveMenu }: { $showsearch: boolean, deAc
 
     const lowerCaseTerm = searchTerm.toLowerCase();
     
-    const filteredResults = TotalData.map((item, index) => {
+    const filteredResults = TotalData.map((item) => {
       let score = 0;
-      const matchedIn: string[] = [];
       
+      // Search through ALL fields recursively
       Object.entries(item).forEach(([key, value]) => {
         if (searchInValue(value, lowerCaseTerm)) {
-          matchedIn.push(key);
-          
-          if (key === 'title') {
+          // Scoring with safer position penalty
+          if (key === 'name') {
+            score += 12; // Highest priority for name
+            if (typeof value === 'string') {
+              const position = value.toLowerCase().indexOf(lowerCaseTerm);
+              score -= Math.min(position * 0.01, 5);
+            }
+          } else if (key === 'title') {
             score += 10;
             if (typeof value === 'string') {
               const position = value.toLowerCase().indexOf(lowerCaseTerm);
               score -= Math.min(position * 0.01, 5);
             }
-          } else if (key === 'description') {
+          } else if (key === 'description' || key === 'descriptionSecond') {
             score += 5;
             if (typeof value === 'string') {
               const position = value.toLowerCase().indexOf(lowerCaseTerm);
@@ -117,12 +230,11 @@ const SearchInput = ({ $showsearch, deActiveMenu }: { $showsearch: boolean, deAc
         }
       });
       
-      
-      
       return { ...item, score };
     })
       .filter((item) => item.score > 0)
       .sort((a, b) => b.score - a.score);
+
     setResults(filteredResults);
   };
 
@@ -161,13 +273,13 @@ const SearchInput = ({ $showsearch, deActiveMenu }: { $showsearch: boolean, deAc
                 deActiveMenu()
                 setValue('');
                 setResults([]);
-                if (!result.section) return;
-                navigateAndScroll('/', result.section ?? 'dashboard-welcome-section');
+                if (!result.sectionId) return;
+                navigateAndScroll('/', result.sectionId ?? 'dashboard-welcome-section');
               }}
             >
-              <ResultTitle>{highlightText(result.title, value)}</ResultTitle>
+              <ResultTitle>{highlightText(result.name || result.title || '', value)}</ResultTitle>
               <ResultDescription>
-                {highlightText(getTruncatedText(result.description, value), value)}
+                {highlightText(getTruncatedText(findMatchedText(result, value), value), value)}
               </ResultDescription>
             </ResultItem>
           ))}

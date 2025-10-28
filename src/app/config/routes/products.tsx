@@ -8,12 +8,13 @@ import { JustPayPage } from '@pages/products/justpay';
 import { TallyPrimePage } from '@pages/products/tally-prime';
 import { RouteType } from '@shared/types/router/route-type';
 import { ErrorSuspense } from '@shared/ui/error-suspense';
+import { Paths } from '@shared/api/paths';
 
 export const productsRoute: RouteType[] = [
   {
     key: 'ritebooks',
     guarded: '',
-    path: '/products/ritebooks',
+    path: Paths.Ritebooks,
     element: (
       <ErrorSuspense suspenseKey="ritebooks">
         <RitebooksPage />
@@ -23,7 +24,7 @@ export const productsRoute: RouteType[] = [
   {
     key: 'ritebooks-express',
     guarded: '',
-    path: '/products/ritebooks-express',
+    path: Paths.Ritebooks_express,
     element: (
       <ErrorSuspense suspenseKey="ritebooks-express">
         <RitebooksExpressPage />
@@ -33,7 +34,7 @@ export const productsRoute: RouteType[] = [
   {
     key: 'ritebooks-pocket',
     guarded: '',
-    path: '/products/ritebooks-pocket',
+    path: Paths.Ritebooks_pocket,
     element: (
       <ErrorSuspense suspenseKey="ritebooks-pocket">
         <RitebooksPocketPage />
@@ -43,7 +44,7 @@ export const productsRoute: RouteType[] = [
   {
     key: 'riteroutes',
     guarded: '',
-    path: '/products/riteroutes',
+    path: Paths.Riteroutes,
     element: (
       <ErrorSuspense suspenseKey="riteroutes">
         <RiteRoutesPage />
@@ -53,7 +54,7 @@ export const productsRoute: RouteType[] = [
   {
     key: 'rite-payroll',
     guarded: '',
-    path: '/products/rite-payroll',
+    path: Paths.Rite_payroll,
     element: (
       <ErrorSuspense suspenseKey="rite-payroll">
         <RitePayrollPage />
@@ -63,7 +64,7 @@ export const productsRoute: RouteType[] = [
   {
     key: 'riteeats',
     guarded: '',
-    path: '/products/riteeats',
+    path: Paths.Riteeats,
     element: (
       <ErrorSuspense suspenseKey="riteeats">
         <RiteEatsPage />
@@ -73,7 +74,7 @@ export const productsRoute: RouteType[] = [
   {
     key: 'justpay',
     guarded: '',
-    path: '/products/justpay',
+    path: Paths.Justpay,
     element: (
       <ErrorSuspense suspenseKey="justpay">
         <JustPayPage />
@@ -83,7 +84,7 @@ export const productsRoute: RouteType[] = [
   {
     key: 'tally-prime',
     guarded: '',
-    path: '/products/tally-prime',
+    path: Paths.Tally_prime,
     element: (
       <ErrorSuspense suspenseKey="tally-prime">
         <TallyPrimePage />

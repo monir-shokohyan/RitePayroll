@@ -6,26 +6,26 @@ import { FaArrowRight } from "react-icons/fa6";
 import { SavedColors } from '@shared/constants';
 import { useState } from 'react';
 import { Card } from '../styles/styles';
-import { productsMap } from '../constant/Contant';
 import { useNavigate } from 'react-router-dom';
+import { sectionType } from '@shared/constants/allTexts';
 
 
  
-const ProductGroup = () => {
+const ProductGroup = ({products}:{products: sectionType[]}) => {
   const [id, setId] = useState('')
   const navigate = useNavigate()
   return (
 
     <Flex wrap="wrap" w="100%" justify="center" gap={20}>
-      {productsMap.map((product) => {
+      {products.map((product) => {
         return (
-           <Card key={product.title} onMouseEnter={()=>setId(product.title)} onMouseLeave={() => setId('')} bgcolor={id===product.title ? product.color : '#fff'} bordercolor={product.color} onClick={() => navigate(product.to) }>
+           <Card key={product.name} onMouseEnter={()=>setId(product.name)} onMouseLeave={() => setId('')} bgcolor={id===product!.name ? product!.color ?? '#fff' : '#fff'} bordercolor={product.color ?? '#ffff'} onClick={() => navigate(product!.to as string) }>
         <Image height={74} src={product.imgUrl} width="auto" fit="contain" alt={product.alt}/>
         <TextWithFamily color={SavedColors.TextColor} $textalign='center' fontWeight='600' $font="Nunito" fontSize='14px'>{product.description}</TextWithFamily>
 
         <Flex direction="column" gap={10} >
           {
-            product.features.map((feature) => {
+            product?.features?.map((feature) => {
               return (
                   <IconWithText
                   key={feature}

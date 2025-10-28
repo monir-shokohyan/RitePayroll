@@ -6,9 +6,12 @@ import Container from '@shared/ui/Container'
 import Wrapper from '@shared/ui/horWrapper'
 import useNavigationScroll from '@shared/hooks/useNavigationScroll'
 import { memo } from 'react'
+import FindByName from '@shared/helpers/findByName'
 
 const Welcome = memo(() => {
   const { navigateAndScroll } = useNavigationScroll()
+      const pageInfo = FindByName('Welcome')
+
   return (
     <section id='dashboard-welcome-section'>
     <Wrapper rightSection={
@@ -34,7 +37,7 @@ const Welcome = memo(() => {
         />
         
         <WelcomeText $font="Roboto" fontWeight="600">
-          Welcome to Lotus Soft Technologies Ltd.
+          {pageInfo?.description}
         </WelcomeText>
         
         <WelcomeTitle $font="Nunito" fontWeight="800">
@@ -43,7 +46,7 @@ const Welcome = memo(() => {
         </WelcomeTitle>
         
         <WelcomeText $font="Roboto">
-          Simplifying operations, automating workflows, and driving growth through innovation. Welcome to Lotus Soft Technologies Ltd., Uganda's leading provider of business software and IT solutions.
+          {pageInfo?.descriptionSecond}
         </WelcomeText>
         
         <Container

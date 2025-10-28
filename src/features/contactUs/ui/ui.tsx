@@ -5,19 +5,16 @@ import Wrapper from "@shared/ui/horWrapper";
 import { SavedColors } from "@shared/constants";
 import ActionLayout from "@shared/ui/ActionLayout";
 import IconWithText from "@shared/ui/IconWithText";
-import { MdEmail } from "react-icons/md";
-import { BsTelephoneFill } from "react-icons/bs";
-import { IoIosTime } from "react-icons/io";
+import { MdBlock } from "react-icons/md";
 import ContactForm from "./contactForm";
 import { BgFlex } from "@shared/ui/BgFlex";
-import { FaLocationDot } from "react-icons/fa6";
-import { FaPhoneAlt } from "react-icons/fa";
-import { LuGlobe } from "react-icons/lu";
-import { FaReply } from "react-icons/fa";
+
 import { memo } from "react";
+import FindByName from "@shared/helpers/findByName";
 
 const Ui = memo(() => {
-
+  const pageInfo = FindByName('contact us')
+  
   return (
     <div id="dashboard-contact-section">
       <Wrapper
@@ -30,51 +27,52 @@ const Ui = memo(() => {
         rightWidth="40%"
       >
         <TextResponsive color={SavedColors.Primaryblue} fontSize="18px" fontWeight="600">
-          Contact Us
+          {pageInfo?.name}
         </TextResponsive>
         <TitleWithFamily $font="Nunito" fontSize="48px" fontWeight="800">
-          Get in Touch with Lotus Soft Technologies Ltd.
+          {pageInfo?.title}
         </TitleWithFamily>
         <VerticalLine opacity={20} />
 
         <Flex wrap="wrap">
-          <Flex direction="column" w={{ base: "100%", lg: "50%" }}>
-            <IconWithText
-              fontWeight="600"
-              $hoveractive={"false"}
-              icon={FaReply}
-              allowTextRes
-              textRes="Reply within 24 hrs"
-              textColor={SavedColors.TextColor}
-            ></IconWithText>
-          </Flex>
-
-          <Flex direction="column" w={{ base: "100%", lg: "50%" }}>
-            <IconWithText
-              fontWeight="600"
-              $hoveractive={"false"}
-              icon={BsTelephoneFill}
-              allowTextRes
-              textRes="Telephone support"
-              textColor={SavedColors.TextColor}
-            ></IconWithText>
-          </Flex>
+          {
+            pageInfo?.section?.map(section => {
+              return (
+                <Flex direction="column" w={{ base: "100%", lg: "50%" }}>
+                  <IconWithText
+                    fontWeight="600"
+                    $hoveractive={"false"}
+                    icon={section?.icon ?? MdBlock}
+                    allowTextRes
+                    textRes={section?.name}
+                    textColor={SavedColors.TextColor}
+                  ></IconWithText>
+                </Flex>
+              )
+            })
+          }
         </Flex>
 
         <TextResponsive $font="Roboto" fontSize="18px">
-          We’re here to assist you with any inquiries about our products, services, or custom solutions. Reach out to us
-          through the contact form below or use the provided information to connect with our team directly.
+          {pageInfo?.description}
         </TextResponsive>
-
-        <ActionLayout
-          title="Open Hours"
-          description="Mon - Fri"
-          descriptionSecond="9:00AM - 06:00PM "
-          descriptionThird="Sat"
-          descriptionForth="9:00AM - 01:00PM "
-          Icon={IoIosTime}
-          ariaLabel="open hours icon"
-        />
+        {
+          pageInfo?.sectionSecond?.map(sectionSecond => {
+            return (
+              <ActionLayout
+                title={sectionSecond?.name}
+                description={sectionSecond?.description}
+                descriptionSecond={sectionSecond?.description1}
+                descriptionThird={sectionSecond?.description2}
+                descriptionForth={sectionSecond?.description3}
+                Icon={sectionSecond?.icon ?? MdBlock}
+                ariaLabel={sectionSecond?.ariaLabel}
+                textSize="16px"
+              
+              />
+            )
+          })
+        }
 
         <Flex wrap="wrap" gap={20}></Flex>
       </Wrapper>
@@ -82,7 +80,7 @@ const Ui = memo(() => {
       <div style={{ position: "relative", height: '50vh', overflow: "scroll", maxWidth: "100%" }}>
 
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4581.645858084475!2d32.602924194979494!3d0.32116104070131996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbbe6a834714b%3A0x802d34bb32ac2e3a!2sLotus%20Technologies%20Ltd!5e0!3m2!1sen!2sug!4v1761568202387!5m2!1sen!2sug" 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4581.645858084475!2d32.602924194979494!3d0.32116104070131996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbbe6a834714b%3A0x802d34bb32ac2e3a!2sLotus%20Technologies%20Ltd!5e0!3m2!1sen!2sug!4v1761568202387!5m2!1sen!2sug"
           style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: 0 }}
           loading="lazy"
           allowFullScreen
@@ -99,39 +97,25 @@ const Ui = memo(() => {
         align="flex-start"
         gap={20}
         wrap="wrap"
-        style={{overflow: 'hidden'}}
-        
+        style={{ overflow: 'hidden' }}
+
       >
 
-        <Image src="/bgNet.webp" style={{position: 'absolute', opacity: '0.4'}} alt="background image"/>
-            <ActionLayout
-              title="Address"
-              description="Office No. F6, First Floor, Plot 7/9 2nd Street Industrial Area, Kampala, Uganda."
-              Icon={FaLocationDot}
-              currentWidth="20%"
-              ariaLabel="Address details"
+        <Image src="/bgNet.webp" style={{ position: 'absolute', opacity: '0.4' }} alt="background image" />
+        {
+          pageInfo?.features.map(feature => {
+            return (
+              
+              <ActionLayout
+                title={feature?.name}
+                description={feature?.description}
+                Icon={feature?.icon ?? MdBlock}
+                currentWidth="20%"
+                ariaLabel={feature?.ariaLabel}
               />
-            <ActionLayout
-              title="Phone"
-              description="+256 755 818183"
-              Icon={FaPhoneAlt}
-              currentWidth="20%"
-              ariaLabel="Phone details"
-              />
-            <ActionLayout
-              title="Email"
-              description="sales@lotus.co.ug"
-              Icon={MdEmail}
-              currentWidth="20%"
-              ariaLabel="email details"
-              />
-            <ActionLayout
-              title="Website"
-              description="www.lotus.co.ug"
-              Icon={LuGlobe}
-              currentWidth="20%"
-              ariaLabel="website details"
-            />
+            )
+          })
+        }
       </BgFlex>
     </div>
   );

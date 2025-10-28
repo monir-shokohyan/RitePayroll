@@ -1,4 +1,4 @@
-import { Image, Text, Button, Group } from '@mantine/core';
+import { Image } from '@mantine/core';
 import {
   HoveredButtonWithBorder,
   HoveredButtonWithoutBorder,
@@ -9,20 +9,20 @@ import { SavedColors } from '@shared/constants';
 import Container from '@shared/ui/Container';
 import Wrapper from '@shared/ui/horWrapper';
 import { ProductsType } from '../types';
-import { productsMap } from '../constant/Contant';
 import useNavigationScroll from '@shared/hooks/useNavigationScroll';
+import FindByName from '@shared/helpers/findByName';
 
 const ProductWelcome = ({ page }: { page: ProductsType }) => {
   const { navigateAndScroll } = useNavigationScroll();
+  const product = FindByName(page)
 
-  const product = productsMap?.[page];
   const hasBrochure = !!product?.brochureLink?.trim();
 
   return (
     <Wrapper
       rightSection={
         <Image
-          src={`/products/${product?.image}`}
+          src={`/products/${product?.imageUrl}`}
           alt={product?.name}
           miw={300}
           h="100%"
@@ -49,7 +49,7 @@ const ProductWelcome = ({ page }: { page: ProductsType }) => {
       </WelcomeTitle>
 
       <WelcomeText $font="Roboto" fontWeight="600" fontSize="24px" color={SavedColors.PrimaryWhite}>
-        {product?.info}
+        {product?.description}
       </WelcomeText>
 
       <Container gap={20} wrap="wrap" w="100%" justify="start" align="center">
