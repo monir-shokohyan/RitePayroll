@@ -1,62 +1,16 @@
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import SearchInput from "@shared/ui/searchInput/searchInput";
 import { IoChevronDown, IoChevronUp } from "react-icons/io5";
-import { useState, useEffect, memo } from "react";
+import { memo } from "react";
 import { Burger, Container, Image, Menu, Popover } from "@mantine/core";
 import { NavbarS, MenubarS, MenuItems, ProductMenuListTrigger, ProductMenuTrigger, CustomMenuItem, MenuButton, MenuListItem, MenuButtonContainer, VerticalLine } from "./styles";
 import { productLinks } from "./constants";
-import { useDisclosure } from "@mantine/hooks";
 import { SavedColors } from "@shared/constants";
-import useNavigationScroll from "@shared/hooks/useNavigationScroll";
+import useManageNavbar from "./modal/useManageNavbar";
 
 const Navbar = memo(() => {
-  const [desktopProductsOpen, setDesktopProductsOpen] = useState(false);
-  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
-  const [opened, { toggle, close }] = useDisclosure();
-  const [activeSection, setActiveSection] = useState('dashboard-welcome-section');
-  const { navigateAndScroll } = useNavigationScroll();
-  const location = useLocation();
+  const {navigateAndScroll, getSectionActive, desktopProductsOpen, setDesktopProductsOpen, mobileProductsOpen, setMobileProductsOpen, isProductsActive, toggle, close, opened,activeSection } = useManageNavbar()
 
-  // Determine if we're on the homepage
-  const isHomePage = location.pathname === '/';
-
-  // Only run scroll logic on homepage
-  useEffect(() => {
-    if (!isHomePage) {
-      setActiveSection(''); // Clear active section when not on home
-      return;
-    }
-
-    const handleScroll = () => {
-      const sections = [
-        'dashboard-welcome-section',
-        'dashboard-about-section',
-        'dashboard-contact-section'
-      ];
-
-      for (const sectionId of sections) {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 100 && rect.bottom >= 100) {
-            setActiveSection(sectionId);
-            break;
-          }
-        }
-      }
-    };
-
-    const cleanup = () => window.removeEventListener('scroll', handleScroll);
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-
-    return cleanup;
-  }, [isHomePage]);
-
-  const getSectionActive = (sectionId: string) =>
-    isHomePage && activeSection === sectionId ? 'active' : '';
-
-  const isProductsActive = productLinks.some(link => location.pathname === link.to);
   return (
     <NavbarS>
       <MenubarS>
