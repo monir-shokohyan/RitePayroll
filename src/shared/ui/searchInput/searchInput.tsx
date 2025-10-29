@@ -43,8 +43,8 @@ const SearchInput = ({
     const parts = text.split(regex)
 
     return parts.map((part, i) => {
-      const isMatch = part.toLowerCase() === searchTerm.toLowerCase()
-      return isMatch ? <Highlight key={part}>{part}</Highlight> : part
+      const isMatch = part.toLowerCase() === searchTerm.toLowerCase()      
+      return isMatch ? <Highlight key={i}>{part}</Highlight> : part
     })
   }
 
@@ -210,7 +210,7 @@ const SearchInput = ({
 
     const prefix = start > 0 ? '...' : ''
     const suffix = end < text.length ? '...' : ''
-
+    
     return prefix + text.slice(start, end) + suffix
   }
 
@@ -341,7 +341,8 @@ const SearchInput = ({
           role="listbox"
           aria-label="Search results"
         >
-          {results.map((result: SearchResult, index) => (
+          {results.map((result: SearchResult, index) =>{   
+            return (
             <ResultItem
               key={index}
               to={result.target}
@@ -358,7 +359,7 @@ const SearchInput = ({
                 )}
               </ResultDescription>
             </ResultItem>
-          ))}
+          )})}
         </ResultsContainer>
       )}
     </SearchBox>
