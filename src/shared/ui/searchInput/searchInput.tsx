@@ -1,18 +1,22 @@
 import { Input } from '@mantine/core';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { TotalData, TotalDataItem } from '@shared/constants/allTexts';
 import useNavigationScroll from '@shared/hooks/useNavigationScroll';
-import { Highlight, ResultDescription, ResultItem, ResultsContainer, ResultTitle, SearchBox } from './styles';
+import { Highlight, ResultDescription, ResultsContainer, ResultTitle, ResultItem, SearchBox } from './styles';
 
+interface SearchResult extends TotalDataItem {
+  score: number;
+  matchedText: string;
+}
 
-const SearchInput = ({ $showsearch, deActiveMenu }: { $showsearch: boolean, deActiveMenu:() => void }) => {
+const SearchInput = ({ $showsearch, deActiveMenu }: { $showsearch: boolean; deActiveMenu: () => void }) => {
   const [value, setValue] = useState('');
-  const [results, setResults] = useState<any[]>([]);
-
-  // Add this helper first
+  const [results, setResults] = useState<SearchResult[]>([]);
+  const [selectedIndex, setSelectedIndex] = useState<number>(-1);
+  const { navigateAndScroll } = useNavigationScroll();
+ const resultsContainerRef = useRef<HTMLDivElement>(null);
   const escapeRegExp = (string: string) => string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
-  // Helper function to highlight search term
   const highlightText = (text: string, searchTerm: string) => {
     if (!searchTerm.trim()) return text;
 
@@ -26,58 +30,47 @@ const SearchInput = ({ $showsearch, deActiveMenu }: { $showsearch: boolean, deAc
     });
   };
 
-  // Helper to search deeply in any value (handles nested objects and arrays)
   const searchInValue = (value: any, searchTerm: string): boolean => {
     if (!value) return false;
-    
+
     const lowerTerm = searchTerm.toLowerCase();
-    
-    // String
+
     if (typeof value === 'string') {
       return value.toLowerCase().includes(lowerTerm);
     }
-    
-    // Array
+
     if (Array.isArray(value)) {
-      return value.some(item => searchInValue(item, searchTerm));
+      return value.some((item) => searchInValue(item, searchTerm));
     }
-    
-    // Object (recurse into nested properties)
+
     if (typeof value === 'object') {
-      return Object.values(value).some(val => searchInValue(val, searchTerm));
+      return Object.values(value).some((val) => searchInValue(val, searchTerm));
     }
-    
+
     return false;
   };
 
-  // Helper to find and extract the text containing the search term
   const findMatchedText = (item: any, searchTerm: string): string => {
     const lowerTerm = searchTerm.toLowerCase();
-    
-    // Check name first (new field)
+
     if (item.name?.toLowerCase().includes(lowerTerm)) {
       return item.name;
     }
-    
-    // Check title
+
     if (item.title?.toLowerCase().includes(lowerTerm)) {
       return item.title;
     }
-    
-    // Check description
+
     if (item.description?.toLowerCase().includes(lowerTerm)) {
       return item.description;
     }
-    
-    // Check descriptionSecond
+
     if (item.descriptionSecond?.toLowerCase().includes(lowerTerm)) {
       return item.descriptionSecond;
     }
-    
-    // Check features array (now array of objects with nested properties)
+
     if (Array.isArray(item.features)) {
       for (const feature of item.features) {
-        // If feature is an object, check its properties
         if (typeof feature === 'object' && feature !== null) {
           if (feature.name?.toLowerCase().includes(lowerTerm)) {
             return feature.name;
@@ -85,7 +78,6 @@ const SearchInput = ({ $showsearch, deActiveMenu }: { $showsearch: boolean, deAc
           if (feature.description?.toLowerCase().includes(lowerTerm)) {
             return feature.description;
           }
-          // Check nested features array
           if (Array.isArray(feature.features)) {
             for (const nestedFeature of feature.features) {
               if (typeof nestedFeature === 'string' && nestedFeature.toLowerCase().includes(lowerTerm)) {
@@ -94,14 +86,12 @@ const SearchInput = ({ $showsearch, deActiveMenu }: { $showsearch: boolean, deAc
             }
           }
         }
-        // Fallback for string features
         if (typeof feature === 'string' && feature.toLowerCase().includes(lowerTerm)) {
           return feature;
         }
       }
     }
-    
-    // Check section array
+
     if (Array.isArray(item.section)) {
       for (const sec of item.section) {
         if (typeof sec === 'object' && sec !== null) {
@@ -114,8 +104,7 @@ const SearchInput = ({ $showsearch, deActiveMenu }: { $showsearch: boolean, deAc
         }
       }
     }
-    
-    // Check sectionSecond array
+
     if (Array.isArray(item.sectionSecond)) {
       for (const sec of item.sectionSecond) {
         if (typeof sec === 'object' && sec !== null) {
@@ -128,8 +117,7 @@ const SearchInput = ({ $showsearch, deActiveMenu }: { $showsearch: boolean, deAc
         }
       }
     }
-    
-    // Check industries array
+
     if (Array.isArray(item.industries)) {
       for (const industry of item.industries) {
         if (typeof industry === 'string' && industry.toLowerCase().includes(lowerTerm)) {
@@ -137,8 +125,7 @@ const SearchInput = ({ $showsearch, deActiveMenu }: { $showsearch: boolean, deAc
         }
       }
     }
-    
-    // Check deployment array
+
     if (Array.isArray(item.deployment)) {
       for (const deploy of item.deployment) {
         if (typeof deploy === 'string' && deploy.toLowerCase().includes(lowerTerm)) {
@@ -146,8 +133,7 @@ const SearchInput = ({ $showsearch, deActiveMenu }: { $showsearch: boolean, deAc
         }
       }
     }
-    
-    // Fallback to description or name
+
     return item.description || item.name || item.title || '';
   };
 
@@ -190,24 +176,22 @@ const SearchInput = ({ $showsearch, deActiveMenu }: { $showsearch: boolean, deAc
     return prefix + text.slice(start, end) + suffix;
   };
 
-
   const handleSearch = (searchTerm: string) => {
     if (!searchTerm.trim()) {
       setResults([]);
+      setSelectedIndex(-1);
       return;
     }
 
     const lowerCaseTerm = searchTerm.toLowerCase();
-    
+
     const filteredResults = TotalData.map((item) => {
       let score = 0;
-      
-      // Search through ALL fields recursively
+
       Object.entries(item).forEach(([key, value]) => {
         if (searchInValue(value, lowerCaseTerm)) {
-          // Scoring with safer position penalty
           if (key === 'name') {
-            score += 12; // Highest priority for name
+            score += 12;
             if (typeof value === 'string') {
               const position = value.toLowerCase().indexOf(lowerCaseTerm);
               score -= Math.min(position * 0.01, 5);
@@ -229,13 +213,15 @@ const SearchInput = ({ $showsearch, deActiveMenu }: { $showsearch: boolean, deAc
           }
         }
       });
-      
-      return { ...item, score };
+
+      const matchedText = findMatchedText(item, searchTerm);
+      return { ...item, score, matchedText };
     })
       .filter((item) => item.score > 0)
       .sort((a, b) => b.score - a.score);
 
     setResults(filteredResults);
+    setSelectedIndex(-1);
   };
 
   const handleInputChange = (event: any) => {
@@ -247,9 +233,49 @@ const SearchInput = ({ $showsearch, deActiveMenu }: { $showsearch: boolean, deAc
   const handleClear = () => {
     setValue('');
     setResults([]);
+    setSelectedIndex(-1);
   };
 
-  const { navigateAndScroll } = useNavigationScroll();
+  const handleResultClick = (result: SearchResult) => {
+    deActiveMenu();
+    setValue('');
+    setResults([]);
+    setSelectedIndex(-1);
+    if (!result.sectionId) return;
+    navigateAndScroll('/', result.sectionId);
+  };
+
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (results.length === 0) return;
+
+    if (event.key === 'ArrowDown') {
+      event.preventDefault();
+      setSelectedIndex((prev) => (prev < results.length - 1 ? prev + 1 : prev));
+    } else if (event.key === 'ArrowUp') {
+      event.preventDefault();
+      setSelectedIndex((prev) => (prev > 0 ? prev - 1 : -1));
+    } else if (event.key === 'Enter') {
+      event.preventDefault();
+      if (selectedIndex >= 0 && selectedIndex < results.length) {
+        handleResultClick(results[selectedIndex]);
+      }
+    } else if (event.key === 'Escape') {
+      setResults([]);
+      setSelectedIndex(-1);
+    }
+  };
+
+  useEffect(() => {
+  if (selectedIndex >= 0 && resultsContainerRef.current) {
+    const selectedElement = resultsContainerRef.current.children[selectedIndex] as HTMLElement;
+    if (selectedElement) {
+      selectedElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest'
+      });
+    }
+  }
+}, [selectedIndex, results.length]);
 
   return (
     <SearchBox $showsearch={$showsearch}>
@@ -258,28 +284,24 @@ const SearchInput = ({ $showsearch, deActiveMenu }: { $showsearch: boolean, deAc
         variant="filled"
         value={value}
         onChange={handleInputChange}
+        onKeyDown={handleKeyDown}
         rightSection={value !== '' ? <Input.ClearButton onClick={handleClear} /> : undefined}
         rightSectionPointerEvents="auto"
         radius="lg"
         size="sm"
       />
       {results.length > 0 && (
-        <ResultsContainer>
-          {results.map((result: TotalDataItem & { score: number }, index) => (
+        <ResultsContainer ref={resultsContainerRef} role="listbox" aria-label="Search results">
+          {results.map((result: SearchResult, index) => (
             <ResultItem
               key={index}
               to={result.target}
-              onClick={() => {
-                deActiveMenu()
-                setValue('');
-                setResults([]);
-                if (!result.sectionId) return;
-                navigateAndScroll('/', result.sectionId ?? 'dashboard-welcome-section');
-              }}
+              $isSelected={index === selectedIndex}
+              onClick={() => handleResultClick(result)}
             >
               <ResultTitle>{highlightText(result.name || result.title || '', value)}</ResultTitle>
               <ResultDescription>
-                {highlightText(getTruncatedText(findMatchedText(result, value), value), value)}
+                {highlightText(getTruncatedText(result.matchedText, value), value)}
               </ResultDescription>
             </ResultItem>
           ))}

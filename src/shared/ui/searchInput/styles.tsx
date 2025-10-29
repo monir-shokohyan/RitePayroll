@@ -28,11 +28,12 @@ export const ResultsContainer = styled.div`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 `;
 
-export const ResultItem = styled(Link)`
+export const ResultItem = styled(Link)<{$isSelected: boolean}>`
   display: block;
   padding: 10px 15px;
   text-decoration: none;
   color: ${SavedColors.Primaryblue};
+    background-color: ${({$isSelected}) => $isSelected ? '#f5f5f5' : 'transparent'};
   border-bottom: 1px solid #eee;
   &:hover {
     background-color: #f5f5f5;
