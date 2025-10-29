@@ -43,7 +43,7 @@ const SearchInput = ({
     const parts = text.split(regex)
 
     return parts.map((part, i) => {
-      const isMatch = part.toLowerCase() === searchTerm.toLowerCase()      
+      const isMatch = part.toLowerCase() === searchTerm.toLowerCase()
       return isMatch ? <Highlight key={i}>{part}</Highlight> : part
     })
   }
@@ -210,7 +210,7 @@ const SearchInput = ({
 
     const prefix = start > 0 ? '...' : ''
     const suffix = end < text.length ? '...' : ''
-    
+
     return prefix + text.slice(start, end) + suffix
   }
 
@@ -341,25 +341,26 @@ const SearchInput = ({
           role="listbox"
           aria-label="Search results"
         >
-          {results.map((result: SearchResult, index) =>{   
+          {results.map((result: SearchResult, index) => {
             return (
-            <ResultItem
-              key={index}
-              to={result.target}
-              $isSelected={index === selectedIndex}
-              onClick={() => handleResultClick(result)}
-            >
-              <ResultTitle>
-                {highlightText(result.name || result.title || '', value)}
-              </ResultTitle>
-              <ResultDescription>
-                {highlightText(
-                  getTruncatedText(result.matchedText, value),
-                  value,
-                )}
-              </ResultDescription>
-            </ResultItem>
-          )})}
+              <ResultItem
+                key={index}
+                to={result.target}
+                $isSelected={index === selectedIndex}
+                onClick={() => handleResultClick(result)}
+              >
+                <ResultTitle>
+                  {highlightText(result.name || result.title || '', value)}
+                </ResultTitle>
+                <ResultDescription>
+                  {highlightText(
+                    getTruncatedText(result.matchedText, value),
+                    value,
+                  )}
+                </ResultDescription>
+              </ResultItem>
+            )
+          })}
         </ResultsContainer>
       )}
     </SearchBox>

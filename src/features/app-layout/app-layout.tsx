@@ -6,10 +6,12 @@ import { ErrorSuspense } from '@shared/ui/error-suspense'
 import { Content } from './content'
 import Navbar from './navbar'
 import UtilityBar from './utilityBar'
+import { AffixComponent } from './Affix'
 
 const Footer = lazy(() => import('./footer'))
 
 export const AppLayout = () => {
+
   return (
     <div>
       <UtilityBar />
@@ -20,6 +22,7 @@ export const AppLayout = () => {
       <ErrorSuspense suspenseKey="/footer">
         <Footer />
       </ErrorSuspense>
+     <AffixComponent />
     </div>
   )
 }
