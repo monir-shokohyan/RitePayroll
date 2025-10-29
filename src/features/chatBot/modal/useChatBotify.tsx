@@ -1,3 +1,4 @@
+// src/modal/useChatBotifyBot.ts
 import { useState, useRef, useEffect } from "react";
 import { getAIResponse } from "../libs/ai";
 import { Message } from "../types";
@@ -15,6 +16,40 @@ const useChatBotifyBot = () => {
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
+
+  // Detect goodbye/thanks keywords
+  const isGoodbyeMessage = (text: string): boolean => {
+    const lower = text.toLowerCase().trim();
+    const goodbyeKeywords = [
+      "bye", "goodbye", "see you", "talk later", "end", "close",
+      "thanks", "thank you", "thankyou", "cheers", "cool", "got it",
+      "ok", "okay", "alright", "done", "finish"
+    ];
+    return goodbyeKeywords.some(keyword => lower.includes(keyword));
+  };
+
+  const handleGoodbyeResponse = async () => {
+    const farewellMessage = `You're welcome! 😊 Have a great day!\n\n${getLotusCompanyInfo()}`;
+    setMessages(prev => [
+      ...prev,
+      { 
+        type: "bot", 
+        text: farewellMessage, 
+        showWhatsApp: true 
+      }
+    ]);
+    setIsTyping(false);
+  };
+
+  // Lotus company info for farewell
+  const getLotusCompanyInfo = () => `
+**Lotus Soft Technologies Ltd.**  
+📞 +256 755 818183  
+📧 sales@lotus.co.ug  
+🌐 www.lotus.co.ug  
+
+*Need help anytime? We're here!*
+  `.trim();
 
   const quickBtnStyle: React.CSSProperties = {
     padding: "10px 16px",
@@ -52,7 +87,7 @@ const useChatBotifyBot = () => {
       },
 
       handle_input: {
-        function: async (params:any) => {
+        function: async (params: any) => {
           const userMsg = params.userInput?.trim();
           if (!userMsg) return;
 
@@ -60,6 +95,15 @@ const useChatBotifyBot = () => {
           setInput("");
           setIsTyping(true);
 
+          // **NEW: Check for goodbye/thanks**
+          if (isGoodbyeMessage(userMsg)) {
+            setTimeout(() => {
+              handleGoodbyeResponse();
+            }, 800);
+            return;
+          }
+
+          // Normal AI response
           const response = await getAIResponse(userMsg);
           setTimeout(() => {
             setMessages(prev => [
@@ -77,6 +121,14 @@ const useChatBotifyBot = () => {
       setIsTyping(true);
       setInput("");
 
+      // **NEW: Check for goodbye/thanks in quick actions**
+      if (isGoodbyeMessage(msg)) {
+        setTimeout(() => {
+          handleGoodbyeResponse();
+        }, 800);
+        return;
+      }
+
       const response = await getAIResponse(msg);
       setTimeout(() => {
         setMessages(prev => [
@@ -90,6 +142,14 @@ const useChatBotifyBot = () => {
 
   const handleSend = () => {
     if (!input.trim()) return;
+    
+    // **NEW: Check for goodbye before sending**
+    if (isGoodbyeMessage(input)) {
+      setInput("");
+      botSettings.injectMessage?.(input);
+      return;
+    }
+    
     botSettings.injectMessage?.(input);
   };
 
