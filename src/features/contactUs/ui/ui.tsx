@@ -38,7 +38,7 @@ const Ui = memo(() => {
           {
             pageInfo?.section?.map(section => {
               return (
-                <Flex direction="column" w={{ base: "100%", lg: "50%" }}>
+                <Flex direction="column" w={{ base: "100%", lg: "50%" }} key={section.name}>
                   <IconWithText
                     fontWeight="600"
                     $hoveractive={"false"}
@@ -60,6 +60,7 @@ const Ui = memo(() => {
           pageInfo?.sectionSecond?.map(sectionSecond => {
             return (
               <ActionLayout
+                key={sectionSecond.name}
                 title={sectionSecond?.name}
                 description={sectionSecond?.description}
                 descriptionSecond={sectionSecond?.description1}
@@ -107,6 +108,7 @@ const Ui = memo(() => {
             return (
               
               <ActionLayout
+                key={feature.name}
                 title={feature?.name}
                 description={feature?.description}
                 Icon={feature?.icon ?? MdBlock}

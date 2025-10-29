@@ -1,13 +1,13 @@
 import { ActionIconProps, PaperProps } from "@mantine/core";
 
-export interface Message {
-  type: 'user' | 'bot';
-  text: string;
-}
+
 export interface StyledActionIconProps extends ActionIconProps {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
-export interface CompanyInfo {
+
+
+export type ChatType = PaperProps & { isMinimized: boolean} & {children: React.ReactNode};
+export type CompanyInfo = {
   name: string;
   experience: string;
   clients: string;
@@ -18,17 +18,20 @@ export interface CompanyInfo {
   website: string;
   address: string;
   hours: string;
-}
+};
 
-export interface Product {
+export type Product = {
   name: string;
   description: string;
   features: string[];
   industries: string;
   deployment: string;
-}
+};
 
-export interface Products {
-  [key: string]: Product;
-}
-export type ChatType = PaperProps & { isMinimized: boolean} & {children: React.ReactNode};
+export type Products = Record<string, Product>;
+
+export type Message = {
+  type: "user" | "bot";
+  text: string;
+  showWhatsApp?: boolean;  // ← This allows button
+};

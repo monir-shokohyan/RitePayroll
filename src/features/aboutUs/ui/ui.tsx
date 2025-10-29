@@ -42,14 +42,14 @@ const Ui = memo(() => {
           <Flex direction="column" w={{ base: '100%', lg: '50%' }}>
             {pageInfo?.section?.map(section =>{
               return (
-                <IconWithText $hoveractive={"false"} icon={ImCheckmark} allowTextRes textRes={section.name} textColor={SavedColors.TextColor}></IconWithText>
+                <IconWithText key={section.name} $hoveractive={"false"} icon={ImCheckmark} allowTextRes textRes={section.name} textColor={SavedColors.TextColor}></IconWithText>
               )
             })}
           </Flex>
           <Flex direction="column" w={{ base: '100%', lg: '50%' }}>
             {pageInfo?.sectionSecond?.map(section =>{
               return (
-                <IconWithText $hoveractive={"false"} icon={ImCheckmark} allowTextRes textRes={section.name} textColor={SavedColors.TextColor}></IconWithText>
+                <IconWithText key={section.name} $hoveractive={"false"} icon={ImCheckmark} allowTextRes textRes={section.name} textColor={SavedColors.TextColor}></IconWithText>
               )
             })}
           </Flex>
@@ -65,6 +65,7 @@ const Ui = memo(() => {
           {pageInfo?.features.map(feature =>{
             return (
               <ActionLayout
+                key={feature.name}
                 title={feature.name}
                 description={feature.description}
                 Icon={feature.icon ?? MdBlock}

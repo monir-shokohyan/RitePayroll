@@ -1,12 +1,16 @@
-import { FaComment, FaTimes, FaPaperPlane, FaCompress, FaPhone, FaEnvelope, FaWhatsapp } from 'react-icons/fa';
-import { Button, TextInput, Text, Group, Paper, ActionIcon } from '@mantine/core';
-import { SavedColors } from '@shared/constants';
-import { ChatContainer, ContactBar, Header, InputContainer, MessageBubble, MessagesContainer, StatusIndicator, ToggleButton, TypingDot } from '../styles';
-import useManageChatBot from '../modal/useManageChatBot';
-import { memo } from 'react';
+import { memo } from "react";
+import { FaComment, FaTimes, FaPaperPlane, FaCompress, FaPhone, FaEnvelope, FaWhatsapp } from "react-icons/fa";
+import { Button, TextInput, Text, Group, Paper, ActionIcon } from "@mantine/core";
+import { SavedColors } from "@shared/constants";
+import { ChatContainer, ContactBar, Header, InputContainer, MessageBubble, MessagesContainer, StatusIndicator, ToggleButton, TypingDot } from "../styles";
+import useChatBotifyBot from "../modal/useChatBotify";
 
 export const Ui = memo(() => {
-  const { isOpen, isMinimized, setIsMinimized, setIsOpen, messages, handleKeyPress, handleSend, isTyping, messagesEndRef, input, setInput, handleQuickAction } = useManageChatBot();
+  const {
+    isOpen, isMinimized, setIsMinimized, setIsOpen,
+    messages, handleKeyPress, handleSend, isTyping,
+    messagesEndRef, input, setInput, handleQuickAction
+  } = useChatBotifyBot();
 
   return (
     <div>
@@ -42,25 +46,56 @@ export const Ui = memo(() => {
                   <Text size="xs" c="dimmed" mb="sm" fw={500}>Quick Actions:</Text>
                   <Group gap={8}>
                     <Button size="xs" variant="outline" onClick={() => handleQuickAction('Show me your products')}>
-                      🛍️ View Products
+                      View Products
                     </Button>
                     <Button size="xs" variant="outline" onClick={() => handleQuickAction('Request a demo')}>
-                      🎯 Request Demo
+                      Request Demo
                     </Button>
                     <Button size="xs" variant="outline" onClick={() => handleQuickAction('Contact information')}>
-                      📞 Contact Us
+                      Contact Us
                     </Button>
                   </Group>
                 </Paper>
               )}
 
               <MessagesContainer>
-                {messages.map((msg, idx) => (
+                {/* {messages.map((msg, idx) => (
                   <MessageBubble key={idx} isUser={msg.type === 'user'}>
                     <Text size="sm" style={{ whiteSpace: 'pre-line' }}>{msg.text}</Text>
                   </MessageBubble>
+                  
+                ))} */}
+                {messages.map((msg, idx) => (
+                  <MessageBubble key={idx} isUser={msg.type === 'user'}>
+                    <Text size="sm" style={{ whiteSpace: 'pre-line' }}>{msg.text}</Text>
+                    {/* ADD THIS BLOCK */}
+                    {msg.showWhatsApp && (
+                      <div style={{ marginTop: 12 }}>
+                        <a
+                          href="https://wa.me/256755818183?text=Hi%20Lotus%20Team%2C%20I%20need%20help%20with%20your%20products."
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: 6,
+                            padding: '8px 16px',
+                            background: '#25D366',
+                            color: 'white',
+                            borderRadius: 12,
+                            fontSize: 13,
+                            fontWeight: 500,
+                            textDecoration: 'none',
+                            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                          }}
+                        >
+                          <FaWhatsapp size={16} />
+                          Chat with Human
+                        </a>
+                      </div>
+                    )}
+                  </MessageBubble>
                 ))}
-                
                 {isTyping && (
                   <MessageBubble isUser={false}>
                     <Group gap={6}>
@@ -76,25 +111,16 @@ export const Ui = memo(() => {
               <ContactBar>
                 <Group justify="center" gap={16}>
                   <Text component="a" href="tel:+256755818183" c={SavedColors.productBlue} size="xs" fw={500}>
-                    <Group gap={4}>
-                      <FaPhone size={12} />
-                      +256 755 818183
-                    </Group>
+                    <Group gap={4}><FaPhone size={12} /> +256 755 818183</Group>
                   </Text>
                   <Text component="a" href="mailto:sales@lotus.co.ug" c={SavedColors.productBlue} size="xs" fw={500}>
-                    <Group gap={4}>
-                      <FaEnvelope size={12} />
-                      sales@lotus.co.ug
-                    </Group>
+                    <Group gap={4}><FaEnvelope size={12} /> sales@lotus.co.ug</Group>
                   </Text>
                 </Group>
                 <Group justify="center" gap={16} mt="sm">
-                  <Text size="xs" c="dimmed" fw={500}>Not satisfied? Kindly contact us through WhatsApp:</Text>
-                  <Text component="a" href="https://wa.me/+256755818183?text=I'm%20not%20satisfied%20with%20the%20bot.%20Please%20assist%20me." c={SavedColors.productBlue} size="xs" fw={500} target="_blank">
-                    <Group gap={4}>
-                      <FaWhatsapp size={12} />
-                      +256 755 818183
-                    </Group>
+                  <Text size="xs" c="dimmed" fw={500}>Not satisfied? Contact via WhatsApp:</Text>
+                  <Text component="a" href="https://wa.me/+256755818183" c={SavedColors.productBlue} size="xs" fw={500} target="_blank">
+                    <Group gap={4}><FaWhatsapp size={12} /> +256 755 818183</Group>
                   </Text>
                 </Group>
               </ContactBar>
@@ -109,14 +135,7 @@ export const Ui = memo(() => {
                     style={{ flex: 1 }}
                     radius="xl"
                   />
-                  <ActionIcon
-                    onClick={handleSend}
-                    disabled={!input.trim()}
-                    variant="gradient"
-                    color={SavedColors.productBlue}
-                    size="lg"
-                    radius="xl"
-                  >
+                  <ActionIcon onClick={handleSend} disabled={!input.trim()} variant="gradient" color={SavedColors.productBlue} size="lg" radius="xl">
                     <FaPaperPlane size={20} />
                   </ActionIcon>
                 </Group>
@@ -131,16 +150,9 @@ export const Ui = memo(() => {
         size="sm"
         variant="gradient"
         gradient={{ from: 'blue', to: 'indigo' }}
-        aria-label="toggle-button"
       >
-        {isOpen ? (
-          <FaTimes size={22} />
-        ) : (
-          <>
-            <FaComment size={22} className="group-hover:animate-bounce" />
-          </>
-        )}
+        {isOpen ? <FaTimes size={22} /> : <FaComment size={22} />}
       </ToggleButton>
     </div>
   );
-})
+});

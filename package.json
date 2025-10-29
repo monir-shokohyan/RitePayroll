@@ -26,6 +26,7 @@
     "postcss-preset-mantine": "^1.18.0",
     "postcss-simple-vars": "^7.0.1",
     "react": "^18.2.0",
+    "react-chatbotify": "^2.4.1",
     "react-dom": "^18.2.0",
     "react-error-boundary": "^5.0.0",
     "react-ga4": "^2.1.0",

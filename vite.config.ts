@@ -11,8 +11,13 @@ export default () => {
       open: true,
       port: 3000,
       host: '0.0.0.0',
+      proxy: {
+        "/events": "http://localhost:4000",
+        "/send": "http://localhost:4000",
+        "/webhook": "http://localhost:4000",
+      },
     },
-    preview:{
+    preview: {
       open: true,
       port: 3000,
       host: '0.0.0.0',

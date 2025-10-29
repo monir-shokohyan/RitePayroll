@@ -48,6 +48,7 @@ function ProductsInfo({page}:{page:ProductsType}) {
         product?.section?.map(section =>{
           return (
             <ActionLayout 
+             key={section.name}
              title={section.name}
              description={section.description} 
              Icon={section.icon ?? MdBlock}
