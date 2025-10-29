@@ -134,14 +134,14 @@ const Navbar = memo(() => {
               opened={opened}
               onClick={toggle}
               aria-label="Toggle navigation"
-              aria-haspopup="menu"
+              aria-haspopup="dialog"
               aria-expanded={opened}
               aria-controls="mobile-menu"
               type="button"
             />
           </MenuButtonContainer>
         </Popover.Target>
-        <Popover.Dropdown id="mobile-menu">
+        <Popover.Dropdown id="mobile-menu" role="navigation">
           <SearchInput
             $showsearch={true}
             deActiveMenu={() => close()}
@@ -187,7 +187,6 @@ const Navbar = memo(() => {
             <Menu.Target>
               <ProductMenuListTrigger
                 as="button"
-                role="button"
                 className={isProductsActive ? 'active' : ''}
                 aria-label="Toggle mobile products menu"
                 aria-haspopup="menu"

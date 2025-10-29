@@ -292,6 +292,7 @@ export const Ui = memo(() => {
         size="sm"
         variant="gradient"
         gradient={{ from: 'blue', to: 'indigo' }}
+        aria-label={isOpen ? 'Close chat' : 'Open chat'}
       >
         {isOpen ? <FaTimes size={22} /> : <FaComment size={22} />}
       </ToggleButton>
