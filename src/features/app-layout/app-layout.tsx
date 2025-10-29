@@ -11,7 +11,6 @@ import { AffixComponent } from './Affix'
 const Footer = lazy(() => import('./footer'))
 
 export const AppLayout = () => {
-
   return (
     <div>
       <UtilityBar />
@@ -22,7 +21,7 @@ export const AppLayout = () => {
       <ErrorSuspense suspenseKey="/footer">
         <Footer />
       </ErrorSuspense>
-     <AffixComponent />
+      <AffixComponent />
     </div>
   )
 }

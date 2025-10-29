@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Input } from '@mantine/core'
+import { Code, Input } from '@mantine/core'
 
 import { TotalData, TotalDataItem } from '@shared/constants/allTexts'
 import useNavigationScroll from '@shared/hooks/useNavigationScroll'
@@ -31,6 +31,7 @@ const SearchInput = ({
   const [selectedIndex, setSelectedIndex] = useState<number>(-1)
   const { navigateAndScroll } = useNavigationScroll()
   const resultsContainerRef = useRef<HTMLDivElement>(null)
+  const inputRef = useRef<HTMLInputElement>(null)
   const escapeRegExp = (string: string) =>
     string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
   const navigate = useNavigate()
@@ -320,6 +321,19 @@ const SearchInput = ({
     }
   }, [selectedIndex, results.length])
 
+
+  useEffect(() => {
+    const handleKeyPress = (event: KeyboardEvent) => {
+      if ((event.ctrlKey || event.metaKey) && event.key === 'k') {
+        event.preventDefault()
+        inputRef.current?.focus()
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyPress)
+    return () => window.removeEventListener('keydown', handleKeyPress)
+  }, [])
+
   return (
     <SearchBox $showsearch={$showsearch}>
       <Input
@@ -329,11 +343,14 @@ const SearchInput = ({
         onChange={handleInputChange}
         onKeyDown={handleKeyDown}
         rightSection={
-          value !== '' ? <Input.ClearButton onClick={handleClear} /> : undefined
+          value !== '' ? <Input.ClearButton onClick={handleClear} /> : <Code style={{fontSize:'10px'}}  >Ctrl + K</Code>
         }
         rightSectionPointerEvents="auto"
+        rightSectionWidth={80}
         radius="lg"
         size="sm"
+        ref={inputRef}
+
       />
       {results.length > 0 && (
         <ResultsContainer
