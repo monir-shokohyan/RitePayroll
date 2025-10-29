@@ -1,1 +1,1 @@
-export * from './useManageChatBot'
+export * from './useChatBotify'
