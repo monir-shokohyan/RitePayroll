@@ -1,11 +1,18 @@
-import { useLocation } from 'react-router-dom';
-import { MdKeyboardArrowRight } from 'react-icons/md';
-import { MenuContainer, MenuItemOnly, MenuList, MenuTitle, StyledProductMenu } from '../styles/styles';
-import { productLinks } from '@features/app-layout/constants';
+import { MdKeyboardArrowRight } from 'react-icons/md'
+import { useLocation } from 'react-router-dom'
 
+import { productLinks } from '@features/app-layout/constants'
+
+import {
+  MenuContainer,
+  MenuItemOnly,
+  MenuList,
+  MenuTitle,
+  StyledProductMenu,
+} from '../styles/styles'
 
 export const ProductsTableOfContent: React.FC = () => {
-  const location = useLocation();
+  const location = useLocation()
 
   return (
     <StyledProductMenu>
@@ -25,5 +32,5 @@ export const ProductsTableOfContent: React.FC = () => {
         </MenuList>
       </MenuContainer>
     </StyledProductMenu>
-  );
-};
+  )
+}

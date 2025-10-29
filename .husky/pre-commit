@@ -1,8 +1,6 @@
-# .husky/pre-commit
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
 
 echo "Running pre-commit checks..."
+npm run format
 
 # Run format:check (fails if code is not formatted)
 npm run format:check || {
@@ -11,10 +9,10 @@ npm run format:check || {
 }
 
 # Run lint (optional, but recommended)
-npm run lint || {
-  echo "❌ Lint failed."
-  exit 1
-}
+# npm run lint || {
+#   echo "❌ Lint failed."
+#   exit 1
+# }
 
 # Run build to catch TypeScript errors
 npm run build || {

@@ -1,6 +1,7 @@
-import { Content } from '@shared/ui/content';
-import { Helmet } from 'react-helmet';
-import { Ritebooks } from '@widgets/products/ritebooks';
+import { Helmet } from 'react-helmet'
+
+import { Ritebooks } from '@widgets/products/ritebooks'
+import { Content } from '@shared/ui/content'
 
 export const Page = () => {
   return (
@@ -11,11 +12,14 @@ export const Page = () => {
           name="description"
           content="A robust ERP solution combining accounting, inventory, POS, and manufacturing features to manage every aspect of business."
         />
-        <meta name="keywords" content="ritebooks, business software Uganda, ERP, POS" />
+        <meta
+          name="keywords"
+          content="ritebooks, business software Uganda, ERP, POS"
+        />
       </Helmet>
       <Content title="Ritebooks">
         <Ritebooks />
       </Content>
     </>
-  );
-};
+  )
+}

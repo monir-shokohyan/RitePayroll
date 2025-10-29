@@ -1,1 +1,1 @@
-export {Ui as TallyPrime} from './ui'
+export { Ui as TallyPrime } from './ui'

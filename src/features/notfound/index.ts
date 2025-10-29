@@ -1,1 +1,1 @@
-export {Ui as NotFoundFeature} from './ui'
+export { Ui as NotFoundFeature } from './ui'

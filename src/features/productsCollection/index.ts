@@ -1,1 +1,1 @@
-export {Ui as ProductsCollection} from './ui'
+export { Ui as ProductsCollection } from './ui'

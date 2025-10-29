@@ -1,14 +1,14 @@
-import { RitebooksPage } from '@pages/products/ritebooks';
-import { RitebooksExpressPage } from '@pages/products/ritebooks-express';
-import { RitebooksPocketPage } from '@pages/products/ritebooks-pocket';
-import { RiteRoutesPage } from '@pages/products/riteroutes';
-import { RitePayrollPage } from '@pages/products/rite-payroll';
-import { RiteEatsPage } from '@pages/products/riteeats';
-import { JustPayPage } from '@pages/products/justpay';
-import { TallyPrimePage } from '@pages/products/tally-prime';
-import { RouteType } from '@shared/types/router/route-type';
-import { ErrorSuspense } from '@shared/ui/error-suspense';
-import { Paths } from '@shared/api/paths';
+import { JustPayPage } from '@pages/products/justpay'
+import { RitePayrollPage } from '@pages/products/rite-payroll'
+import { RitebooksPage } from '@pages/products/ritebooks'
+import { RitebooksExpressPage } from '@pages/products/ritebooks-express'
+import { RitebooksPocketPage } from '@pages/products/ritebooks-pocket'
+import { RiteEatsPage } from '@pages/products/riteeats'
+import { RiteRoutesPage } from '@pages/products/riteroutes'
+import { TallyPrimePage } from '@pages/products/tally-prime'
+import { Paths } from '@shared/api/paths'
+import { RouteType } from '@shared/types/router/route-type'
+import { ErrorSuspense } from '@shared/ui/error-suspense'
 
 export const productsRoute: RouteType[] = [
   {
@@ -91,4 +91,4 @@ export const productsRoute: RouteType[] = [
       </ErrorSuspense>
     ),
   },
-];
+]

@@ -5,8 +5,8 @@ import { ThemeProvider } from './theme-provider'
 
 export const Providers = ({ children }: PropsWithChildren) => {
   return (
-      <BrowserRouter basename='/'>  
-          <ThemeProvider>{children}</ThemeProvider>
-      </BrowserRouter>
+    <BrowserRouter basename="/">
+      <ThemeProvider>{children}</ThemeProvider>
+    </BrowserRouter>
   )
 }

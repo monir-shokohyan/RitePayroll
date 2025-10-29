@@ -1,1 +1,1 @@
-export {Ui as WhyUsSection} from './ui'
+export { Ui as WhyUsSection } from './ui'

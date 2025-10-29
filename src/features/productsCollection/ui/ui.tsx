@@ -1,21 +1,22 @@
-import { useLocation } from "react-router-dom";
-import { ProductsType } from "../types";
-import { ProductsInfo } from "./productsInfo";
-import ProductWelcome from "./productWelcome";
-import { useEffect } from "react";
+import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 
-function Ui({page}:{page:ProductsType}) {
-  const { pathname } = useLocation();
+import { ProductsType } from '../types'
+import { ProductsInfo } from './productsInfo'
+import ProductWelcome from './productWelcome'
+
+function Ui({ page }: { page: ProductsType }) {
+  const { pathname } = useLocation()
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "instant" });
-  }, [pathname]);
+    window.scrollTo({ top: 0, behavior: 'instant' })
+  }, [pathname])
   return (
     <>
-    <ProductWelcome page={page}/>
-    <ProductsInfo page={page} />
+      <ProductWelcome page={page} />
+      <ProductsInfo page={page} />
     </>
-  );
+  )
 }
 
-export { Ui };
+export { Ui }

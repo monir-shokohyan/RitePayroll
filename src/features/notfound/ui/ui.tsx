@@ -1,32 +1,57 @@
-import { MdSearch } from 'react-icons/md';
-import { NotFoundPageProps } from '../types';
-import { BackgroundCircle, ButtonGroup, Container, ContentWrapper, Description, Number, NumberWrapper, SearchIcon, StyledButton, Title } from '../styles';
+import { MdSearch } from 'react-icons/md'
 
+import {
+  BackgroundCircle,
+  ButtonGroup,
+  Container,
+  ContentWrapper,
+  Description,
+  Number,
+  NumberWrapper,
+  SearchIcon,
+  StyledButton,
+  Title,
+} from '../styles'
+import { NotFoundPageProps } from '../types'
 
 const Ui: React.FC<NotFoundPageProps> = ({ onGoHome, onGoBack }) => {
-
   const handleGoHome = (): void => {
     if (onGoHome) {
-      onGoHome();
+      onGoHome()
     } else {
-      window.location.href = '/';
+      window.location.href = '/'
     }
-  };
+  }
 
   const handleGoBack = (): void => {
     if (onGoBack) {
-      onGoBack();
+      onGoBack()
     } else {
-      window.history.back();
+      window.history.back()
     }
-  };
+  }
 
   return (
     <Container>
-      <BackgroundCircle top="10%" left="10%" size="200px" delay="0s" />
-      <BackgroundCircle top="70%" left="80%" size="300px" delay="1s" />
-      <BackgroundCircle top="40%" left="70%" size="150px" delay="2s" />
-      
+      <BackgroundCircle
+        top="10%"
+        left="10%"
+        size="200px"
+        delay="0s"
+      />
+      <BackgroundCircle
+        top="70%"
+        left="80%"
+        size="300px"
+        delay="1s"
+      />
+      <BackgroundCircle
+        top="40%"
+        left="70%"
+        size="150px"
+        delay="2s"
+      />
+
       <ContentWrapper>
         <NumberWrapper>
           <Number delay="0s">4</Number>
@@ -37,30 +62,30 @@ const Ui: React.FC<NotFoundPageProps> = ({ onGoHome, onGoBack }) => {
         </NumberWrapper>
 
         <Title>Page Not Found</Title>
-        
+
         <Description>
-          Oops! The page you're looking for doesn't exist. It might have been moved or deleted.
-          Let's get you back on track!
+          Oops! The page you're looking for doesn't exist. It might have been
+          moved or deleted. Let's get you back on track!
         </Description>
 
-        <ButtonGroup >
+        <ButtonGroup>
           <StyledButton
             onClick={handleGoHome}
-            style={{ 
+            style={{
               background: '#15B3E0',
-              color: '#ffffff'
+              color: '#ffffff',
             }}
           >
             Go Home
           </StyledButton>
-          
+
           <StyledButton
             onClick={handleGoBack}
             variant="outline"
-            style={{ 
+            style={{
               borderColor: '#012970',
               color: '#012970',
-              borderWidth: '2px'
+              borderWidth: '2px',
             }}
           >
             Go Back
@@ -68,7 +93,7 @@ const Ui: React.FC<NotFoundPageProps> = ({ onGoHome, onGoBack }) => {
         </ButtonGroup>
       </ContentWrapper>
     </Container>
-  );
-};
+  )
+}
 
-export { Ui };
+export { Ui }

@@ -1,6 +1,7 @@
-import { Content } from '@shared/ui/content';
-import { Helmet } from 'react-helmet';
-import { RitebooksPocket } from '@widgets/products/ritebooks-pocket';
+import { Helmet } from 'react-helmet'
+
+import { RitebooksPocket } from '@widgets/products/ritebooks-pocket'
+import { Content } from '@shared/ui/content'
 
 export const Page = () => {
   return (
@@ -11,11 +12,14 @@ export const Page = () => {
           name="description"
           content="An Android-based accounting and POS app that provides small business owners full control from their smartphone or POS device."
         />
-        <meta name="keywords" content="ritebooks pocket, business software Uganda, ERP, POS" />
+        <meta
+          name="keywords"
+          content="ritebooks pocket, business software Uganda, ERP, POS"
+        />
       </Helmet>
       <Content title="Ritebooks Pocket">
         <RitebooksPocket />
       </Content>
     </>
-  );
-};
+  )
+}

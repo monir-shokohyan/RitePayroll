@@ -1,6 +1,7 @@
-import { Content } from '@shared/ui/content';
-import { Helmet } from 'react-helmet';
-import { RiteRoutes } from '@widgets/products/riteroutes';
+import { Helmet } from 'react-helmet'
+
+import { RiteRoutes } from '@widgets/products/riteroutes'
+import { Content } from '@shared/ui/content'
 
 export const Page = () => {
   return (
@@ -11,11 +12,14 @@ export const Page = () => {
           name="description"
           content="A comprehensive field sales and distribution management system for FMCG companies and distributors."
         />
-        <meta name="keywords" content="riteroutes, business software Uganda, ERP, POS" />
+        <meta
+          name="keywords"
+          content="riteroutes, business software Uganda, ERP, POS"
+        />
       </Helmet>
       <Content title="RiteRoutes">
         <RiteRoutes />
       </Content>
     </>
-  );
-};
+  )
+}

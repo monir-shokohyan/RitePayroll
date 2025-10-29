@@ -2,9 +2,7 @@ import { ProductsCollection } from '@features/productsCollection'
 import { Products } from '@shared/constants/productsMap'
 
 const Ui = () => {
-  return (
-   <ProductsCollection page={Products.Riteroutes} />
-  )
+  return <ProductsCollection page={Products.Riteroutes} />
 }
 
 export { Ui }

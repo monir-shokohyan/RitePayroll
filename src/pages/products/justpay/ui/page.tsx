@@ -1,6 +1,7 @@
-import { Content } from '@shared/ui/content';
-import { Helmet } from 'react-helmet';
-import { JustPay } from '@widgets/products/justpay';
+import { Helmet } from 'react-helmet'
+
+import { JustPay } from '@widgets/products/justpay'
+import { Content } from '@shared/ui/content'
 
 export const Page = () => {
   return (
@@ -11,11 +12,14 @@ export const Page = () => {
           name="description"
           content="A multi-vendor mobile loyalty platform enabling businesses to reward and retain customers effortlessly."
         />
-        <meta name="keywords" content="justpay, business software Uganda, ERP, POS" />
+        <meta
+          name="keywords"
+          content="justpay, business software Uganda, ERP, POS"
+        />
       </Helmet>
       <Content title="JustPay">
         <JustPay />
       </Content>
     </>
-  );
-};
+  )
+}

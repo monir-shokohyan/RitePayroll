@@ -1,22 +1,24 @@
-import { Image } from '@mantine/core';
+import { Image } from '@mantine/core'
+
+import { SavedColors } from '@shared/constants'
+import FindByName from '@shared/helpers/findByName'
+import useNavigationScroll from '@shared/hooks/useNavigationScroll'
+import Container from '@shared/ui/Container'
+import Wrapper from '@shared/ui/horWrapper'
+
 import {
   HoveredButtonWithBorder,
   HoveredButtonWithoutBorder,
   WelcomeText,
   WelcomeTitle,
-} from '../styles/styles';
-import { SavedColors } from '@shared/constants';
-import Container from '@shared/ui/Container';
-import Wrapper from '@shared/ui/horWrapper';
-import { ProductsType } from '../types';
-import useNavigationScroll from '@shared/hooks/useNavigationScroll';
-import FindByName from '@shared/helpers/findByName';
+} from '../styles/styles'
+import { ProductsType } from '../types'
 
 const ProductWelcome = ({ page }: { page: ProductsType }) => {
-  const { navigateAndScroll } = useNavigationScroll();
+  const { navigateAndScroll } = useNavigationScroll()
   const product = FindByName(page)
 
-  const hasBrochure = !!product?.brochureLink?.trim();
+  const hasBrochure = Boolean(product?.brochureLink?.trim())
 
   return (
     <Wrapper
@@ -44,15 +46,30 @@ const ProductWelcome = ({ page }: { page: ProductsType }) => {
         }}
       />
 
-      <WelcomeTitle $font="Nunito" fontWeight="800" color={SavedColors.PrimaryWhite}>
+      <WelcomeTitle
+        $font="Nunito"
+        fontWeight="800"
+        color={SavedColors.PrimaryWhite}
+      >
         {product?.name}
       </WelcomeTitle>
 
-      <WelcomeText $font="Roboto" fontWeight="600" fontSize="24px" color={SavedColors.PrimaryWhite}>
+      <WelcomeText
+        $font="Roboto"
+        fontWeight="600"
+        fontSize="24px"
+        color={SavedColors.PrimaryWhite}
+      >
         {product?.description}
       </WelcomeText>
 
-      <Container gap={20} wrap="wrap" w="100%" justify="start" align="center">
+      <Container
+        gap={20}
+        wrap="wrap"
+        w="100%"
+        justify="start"
+        align="center"
+      >
         <HoveredButtonWithBorder
           radius="md"
           size="md"
@@ -78,10 +95,12 @@ const ProductWelcome = ({ page }: { page: ProductsType }) => {
           >
             Download product brochure
           </HoveredButtonWithoutBorder>
-        ) : ''}
+        ) : (
+          ''
+        )}
       </Container>
     </Wrapper>
-  );
-};
+  )
+}
 
-export default ProductWelcome;
+export default ProductWelcome

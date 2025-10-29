@@ -1,9 +1,9 @@
-import { Button, Group, Paper, Text } from "@mantine/core";
-import styled, { keyframes } from "styled-components";
-import { ButtonType } from "../types";
-import { fadeIn, float, pulse, rotate } from "@shared/styles/animation";
+import { Button, Group, Paper, Text } from '@mantine/core'
+import styled, { keyframes } from 'styled-components'
 
+import { fadeIn, float, pulse, rotate } from '@shared/styles/animation'
 
+import { ButtonType } from '../types'
 
 export const Container = styled.div`
   min-height: 100vh;
@@ -18,20 +18,25 @@ export const Container = styled.div`
   @media (max-width: 768px) {
     padding: 1rem;
   }
-`;
+`
 
-export const BackgroundCircle = styled.div<{ top: string; left: string; size: string; delay: string }>`
+export const BackgroundCircle = styled.div<{
+  top: string
+  left: string
+  size: string
+  delay: string
+}>`
   position: absolute;
-  width: ${props => props.size};
-  height: ${props => props.size};
+  width: ${(props) => props.size};
+  height: ${(props) => props.size};
   border-radius: 50%;
   background: rgba(21, 179, 224, 0.1);
-  top: ${props => props.top};
-  left: ${props => props.left};
+  top: ${(props) => props.top};
+  left: ${(props) => props.left};
   animation: ${pulse} 4s ease-in-out infinite;
-  animation-delay: ${props => props.delay};
+  animation-delay: ${(props) => props.delay};
   z-index: 0;
-`;
+`
 
 export const ContentWrapper = styled(Paper)`
   max-width: 700px;
@@ -52,7 +57,7 @@ export const ContentWrapper = styled(Paper)`
   @media (max-width: 480px) {
     padding: 1.5rem 1rem;
   }
-`;
+`
 
 export const NumberWrapper = styled.div`
   display: flex;
@@ -66,16 +71,16 @@ export const NumberWrapper = styled.div`
     gap: 0.5rem;
     margin-bottom: 1.5rem;
   }
-`;
+`
 
-export const Number = styled.div<{delay: string}>`
+export const Number = styled.div<{ delay: string }>`
   font-family: 'Nunito', sans-serif;
   font-size: 8rem;
   font-weight: 800;
-  color: #15B3E0;
+  color: #15b3e0;
   line-height: 1;
   animation: ${float} 3s ease-in-out infinite;
-  animation-delay: ${props => props.delay || '0s'};
+  animation-delay: ${(props) => props.delay || '0s'};
 
   @media (max-width: 768px) {
     font-size: 6rem;
@@ -84,7 +89,7 @@ export const Number = styled.div<{delay: string}>`
   @media (max-width: 480px) {
     font-size: 4rem;
   }
-`;
+`
 
 export const SearchIcon = styled.div`
   font-size: 8rem;
@@ -101,7 +106,7 @@ export const SearchIcon = styled.div`
   @media (max-width: 480px) {
     font-size: 4rem;
   }
-`;
+`
 
 export const Title = styled(Text)`
   font-family: 'Nunito', sans-serif;
@@ -118,7 +123,7 @@ export const Title = styled(Text)`
   @media (max-width: 480px) {
     font-size: 1.5rem;
   }
-`;
+`
 
 export const Description = styled(Text)`
   font-family: 'Roboto', sans-serif;
@@ -138,7 +143,7 @@ export const Description = styled(Text)`
     font-size: 0.9rem;
     margin-bottom: 1.5rem;
   }
-`;
+`
 
 export const ButtonGroup = styled(Group)`
   animation: ${fadeIn} 1s ease-out 0.8s both;
@@ -147,12 +152,12 @@ export const ButtonGroup = styled(Group)`
   @media (max-width: 480px) {
     flex-direction: column;
     width: 100%;
-    
+
     button {
       width: 100%;
     }
   }
-  `;
+`
 
 export const StyledButton = styled(Button)<ButtonType>`
   font-family: 'Roboto', sans-serif;
@@ -160,14 +165,14 @@ export const StyledButton = styled(Button)<ButtonType>`
   border-radius: 5px;
   font-size: 1rem;
   transition: all 0.3s ease;
-  
+
   &:hover {
     transform: translateY(-3px);
     box-shadow: 0 5px 20px rgba(21, 179, 224, 0.3);
   }
-  
+
   @media (max-width: 480px) {
     font-size: 0.9rem;
     padding: 0.6rem 1.5rem;
   }
-  `;
+`

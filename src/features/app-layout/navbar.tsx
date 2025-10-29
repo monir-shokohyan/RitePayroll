@@ -1,23 +1,51 @@
-import { Link } from "react-router-dom";
-import SearchInput from "@shared/ui/searchInput/searchInput";
-import { IoChevronDown, IoChevronUp } from "react-icons/io5";
-import { memo } from "react";
-import { Burger, Container, Image, Menu, Popover } from "@mantine/core";
-import { NavbarS, MenubarS, MenuItems, ProductMenuListTrigger, ProductMenuTrigger, CustomMenuItem, MenuButton, MenuListItem, MenuButtonContainer, VerticalLine } from "./styles";
-import { productLinks } from "./constants";
-import { SavedColors } from "@shared/constants";
-import useManageNavbar from "./modal/useManageNavbar";
+import { memo } from 'react'
+import { IoChevronDown, IoChevronUp } from 'react-icons/io5'
+import { Link } from 'react-router-dom'
+import { Burger, Container, Image, Menu, Popover } from '@mantine/core'
+
+import { SavedColors } from '@shared/constants'
+import SearchInput from '@shared/ui/searchInput/searchInput'
+
+import { productLinks } from './constants'
+import useManageNavbar from './modal/useManageNavbar'
+import {
+  CustomMenuItem,
+  MenubarS,
+  MenuButtonContainer,
+  MenuItems,
+  MenuListItem,
+  NavbarS,
+  ProductMenuListTrigger,
+  ProductMenuTrigger,
+  VerticalLine,
+} from './styles'
 
 const Navbar = memo(() => {
-  const {navigateAndScroll, getSectionActive, desktopProductsOpen, setDesktopProductsOpen, mobileProductsOpen, setMobileProductsOpen, isProductsActive, toggle, close, opened,activeSection } = useManageNavbar()
+  const {
+    navigateAndScroll,
+    getSectionActive,
+    desktopProductsOpen,
+    setDesktopProductsOpen,
+    mobileProductsOpen,
+    setMobileProductsOpen,
+    isProductsActive,
+    toggle,
+    close,
+    opened,
+    activeSection,
+  } = useManageNavbar()
 
   return (
     <NavbarS>
       <MenubarS>
-        <Image src="/lotus logo.png" alt="lotus logo" w={{ base: '110px', lg: '162px' }} />
+        <Image
+          src="/lotus logo.png"
+          alt="lotus logo"
+          w={{ base: '110px', lg: '162px' }}
+        />
 
         <MenuItems
-          to={'/'}
+          to="/"
           onClick={() => navigateAndScroll('/', 'dashboard-welcome-section')}
           className={getSectionActive('dashboard-welcome-section')}
         >
@@ -25,7 +53,7 @@ const Navbar = memo(() => {
         </MenuItems>
 
         <MenuItems
-          to={'/'}
+          to="/"
           onClick={() => navigateAndScroll('/', 'dashboard-about-section')}
           className={getSectionActive('dashboard-about-section')}
         >
@@ -37,7 +65,7 @@ const Navbar = memo(() => {
           position="bottom"
           withArrow
           shadow="md"
-          transitionProps={{ transition: "scale-y" }}
+          transitionProps={{ transition: 'scale-y' }}
           opened={desktopProductsOpen}
           onChange={setDesktopProductsOpen}
         >
@@ -53,9 +81,9 @@ const Navbar = memo(() => {
             >
               Products
               {desktopProductsOpen ? (
-                <IoChevronUp style={{ marginLeft: "5px" }} />
+                <IoChevronUp style={{ marginLeft: '5px' }} />
               ) : (
-                <IoChevronDown style={{ marginLeft: "5px" }} />
+                <IoChevronDown style={{ marginLeft: '5px' }} />
               )}
             </ProductMenuTrigger>
           </Menu.Target>
@@ -84,7 +112,10 @@ const Navbar = memo(() => {
         </MenuItems>
       </MenubarS>
 
-      <SearchInput $showsearch={false} deActiveMenu={() => close()} />
+      <SearchInput
+        $showsearch={false}
+        deActiveMenu={() => close()}
+      />
 
       <Popover
         width={300}
@@ -106,31 +137,39 @@ const Navbar = memo(() => {
               aria-haspopup="menu"
               aria-expanded={opened}
               aria-controls="mobile-menu"
-              type="button" />
+              type="button"
+            />
           </MenuButtonContainer>
         </Popover.Target>
         <Popover.Dropdown id="mobile-menu">
-          <SearchInput $showsearch={true} deActiveMenu={() => close()} />
+          <SearchInput
+            $showsearch={true}
+            deActiveMenu={() => close()}
+          />
 
           <MenuListItem
-            to={'/'}
+            to="/"
             onClick={() => {
               toggle()
               navigateAndScroll('/', 'dashboard-welcome-section')
             }}
             style={{ marginTop: '1px' }}
-            className={activeSection === 'dashboard-welcome-section' ? 'active' : ''}
+            className={
+              activeSection === 'dashboard-welcome-section' ? 'active' : ''
+            }
           >
             Home
           </MenuListItem>
 
           <MenuListItem
-            to={'/'}
+            to="/"
             onClick={() => {
               navigateAndScroll('/', 'dashboard-about-section')
               toggle()
             }}
-            className={activeSection === 'dashboard-about-section' ? 'active' : ''}
+            className={
+              activeSection === 'dashboard-about-section' ? 'active' : ''
+            }
           >
             About Us
           </MenuListItem>
@@ -140,7 +179,7 @@ const Navbar = memo(() => {
             position="bottom"
             withArrow
             shadow="md"
-            transitionProps={{ transition: "scale-y" }}
+            transitionProps={{ transition: 'scale-y' }}
             withinPortal
             opened={mobileProductsOpen}
             onChange={setMobileProductsOpen}
@@ -157,9 +196,9 @@ const Navbar = memo(() => {
               >
                 Products
                 {mobileProductsOpen ? (
-                  <IoChevronUp style={{ marginLeft: "5px" }} />
+                  <IoChevronUp style={{ marginLeft: '5px' }} />
                 ) : (
-                  <IoChevronDown style={{ marginLeft: "5px" }} />
+                  <IoChevronDown style={{ marginLeft: '5px' }} />
                 )}
               </ProductMenuListTrigger>
             </Menu.Target>
@@ -170,8 +209,8 @@ const Navbar = memo(() => {
                   component={Link}
                   to={link.to}
                   onClick={() => {
-                    setMobileProductsOpen(false);
-                    close();
+                    setMobileProductsOpen(false)
+                    close()
                   }}
                   className={location.pathname === link.to ? 'active' : ''}
                 >
@@ -182,25 +221,33 @@ const Navbar = memo(() => {
           </Menu>
 
           <MenuListItem
-            to={'/'}
+            to="/"
             onClick={() => {
               toggle()
               navigateAndScroll('/', 'dashboard-contact-section')
             }}
-            className={activeSection === 'dashboard-contact-section' ? 'active' : ''}
+            className={
+              activeSection === 'dashboard-contact-section' ? 'active' : ''
+            }
           >
             Contact Us
           </MenuListItem>
 
-          <VerticalLine opacity={20} style={{ marginBlock: '10px' }} />
+          <VerticalLine
+            opacity={20}
+            style={{ marginBlock: '10px' }}
+          />
 
-          <Container p='10px' >
-            <Image src="/lotus logo.png" alt="lotus logo"   />
+          <Container p="10px">
+            <Image
+              src="/lotus logo.png"
+              alt="lotus logo"
+            />
           </Container>
         </Popover.Dropdown>
       </Popover>
     </NavbarS>
-  );
+  )
 })
 
-export default Navbar;
+export default Navbar

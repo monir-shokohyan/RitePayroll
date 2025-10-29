@@ -1,17 +1,26 @@
-import styled, { css } from 'styled-components';
-import { Link, NavLink } from 'react-router-dom';
-import { SavedColors } from '@shared/constants';
+import { Link, NavLink } from 'react-router-dom'
+import styled, { css } from 'styled-components'
+
+import { SavedColors } from '@shared/constants'
 
 export interface StyledTextProps {
-  $font?:  'Roboto' | 'Nunito';
-  fontSize?: string;
-  fontWeight?: '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900';
-  color?: string;
-  $textalign?: 'left' | 'center' | 'right' | 'justify';
-  responsive?: boolean;
-  lineHeight?: string;
+  $font?: 'Roboto' | 'Nunito'
+  fontSize?: string
+  fontWeight?:
+    | '100'
+    | '200'
+    | '300'
+    | '400'
+    | '500'
+    | '600'
+    | '700'
+    | '800'
+    | '900'
+  color?: string
+  $textalign?: 'left' | 'center' | 'right' | 'justify'
+  responsive?: boolean
+  lineHeight?: string
 }
-
 
 const textStyles = css<StyledTextProps>`
   font-family: ${({ $font }) => $font || 'Roboto'}, sans-serif;
@@ -21,19 +30,17 @@ const textStyles = css<StyledTextProps>`
   text-align: ${({ $textalign }) => $textalign || 'left'};
   text-decoration: none;
   transition: all 0.3s ease-in-out;
-
-`;
+`
 
 const TextWithFamily = styled.div<StyledTextProps>`
   ${textStyles}
-`;
+`
 const TitleWithFamily = styled.h1<StyledTextProps>`
   ${textStyles}
-  @media (max-width:1024px){
+  @media (max-width:1024px) {
     font-size: 24px;
   }
-`;
-
+`
 
 const LinkS = styled(Link)<StyledTextProps>`
   ${textStyles}
@@ -42,7 +49,7 @@ const LinkS = styled(Link)<StyledTextProps>`
   &:hover {
     color: ${SavedColors.Primaryblue};
   }
-`;
+`
 
 const NavLinkS = styled(NavLink)<StyledTextProps>`
   ${textStyles}
@@ -53,27 +60,27 @@ const NavLinkS = styled(NavLink)<StyledTextProps>`
   }
 
   &.active {
-    font-weight: ${({ fontWeight }) => (fontWeight ? Math.min(parseInt(fontWeight) + 100, 900) : '500')};
+    font-weight: ${({ fontWeight }) =>
+      fontWeight ? Math.min(Number.parseInt(fontWeight) + 100, 900) : '500'};
   }
-`;
-
+`
 
 const TextResponsive = styled.h1<StyledTextProps>`
   ${textStyles}
-  
+
   ${({ fontSize = '16px', responsive = true }) => {
-    if (!responsive) return '';
-    
-    const baseSize = parseFloat(fontSize);
-    const unit = fontSize.replace(baseSize.toString(), '');
-    
+    if (!responsive) return ''
+
+    const baseSize = Number.parseFloat(fontSize)
+    const unit = fontSize.replace(baseSize.toString(), '')
+
     return `
       // Mobile (base)
-      font-size: ${baseSize*0.8}${unit};
+      font-size: ${baseSize * 0.8}${unit};
       
       // Small tablets
       @media (min-width: 480px) {
-        font-size: ${baseSize*0.85}${unit};
+        font-size: ${baseSize * 0.85}${unit};
       }
       
       // Tablets
@@ -90,11 +97,9 @@ const TextResponsive = styled.h1<StyledTextProps>`
       @media (min-width: 1440px) {
         font-size: ${baseSize}${unit};
       }
-    `;
+    `
   }}
-`;
+`
 
-
-
-export {TextResponsive, TitleWithFamily, TextWithFamily, LinkS, NavLinkS };
-export default TextWithFamily;
+export { LinkS, NavLinkS, TextResponsive, TextWithFamily, TitleWithFamily }
+export default TextWithFamily

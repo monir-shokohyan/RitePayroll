@@ -1,26 +1,27 @@
-import { VerticalLine } from "@features/app-layout/styles";
-import { Flex, Image } from "@mantine/core";
-import IconWithText from "@shared/ui/IconWithText";
-import { TextResponsive, TitleWithFamily } from "@shared/ui/Typography";
-import Wrapper from "@shared/ui/horWrapper";
-import { ImCheckmark } from "react-icons/im";
-import { SavedColors } from "@shared/constants";
-import ActionLayout from "@shared/ui/ActionLayout";
+import { memo } from 'react'
+import { ImCheckmark } from 'react-icons/im'
 import { MdBlock } from 'react-icons/md'
-import { HoveredButtonWithBorder } from "@features/Dashboard/styles/styles";
-import useNavigationScroll from "@shared/hooks/useNavigationScroll";
-import { memo } from "react";
-import FindByName from "@shared/helpers/findByName";
+import { Flex, Image } from '@mantine/core'
 
+import { VerticalLine } from '@features/app-layout/styles'
+import { HoveredButtonWithBorder } from '@features/Dashboard/styles/styles'
+import { SavedColors } from '@shared/constants'
+import FindByName from '@shared/helpers/findByName'
+import useNavigationScroll from '@shared/hooks/useNavigationScroll'
+import ActionLayout from '@shared/ui/ActionLayout'
+import Wrapper from '@shared/ui/horWrapper'
+import IconWithText from '@shared/ui/IconWithText'
+import { TextResponsive, TitleWithFamily } from '@shared/ui/Typography'
 
 const Ui = memo(() => {
   const { navigateAndScroll } = useNavigationScroll()
-    const pageInfo = FindByName('About Us')
-
+  const pageInfo = FindByName('About Us')
 
   return (
     <section id="dashboard-about-section">
-      <Wrapper bgImage="/texture.png" isReverseWrap={false}
+      <Wrapper
+        bgImage="/texture.png"
+        isReverseWrap={false}
         fullHeight={false}
         rightSection={
           <Image
@@ -34,35 +35,77 @@ const Ui = memo(() => {
         leftWidth="60%"
         rightWidth="40%"
       >
-        <TextResponsive color={SavedColors.Primaryblue} fontSize="18px" fontWeight="600">{pageInfo?.name}</TextResponsive>
-        <TitleWithFamily $font="Nunito" fontSize="48px" fontWeight="800">{pageInfo?.title}</TitleWithFamily>
+        <TextResponsive
+          color={SavedColors.Primaryblue}
+          fontSize="18px"
+          fontWeight="600"
+        >
+          {pageInfo?.name}
+        </TextResponsive>
+        <TitleWithFamily
+          $font="Nunito"
+          fontSize="48px"
+          fontWeight="800"
+        >
+          {pageInfo?.title}
+        </TitleWithFamily>
         <VerticalLine opacity={20} />
         <Flex wrap="wrap">
-
-          <Flex direction="column" w={{ base: '100%', lg: '50%' }}>
-            {pageInfo?.section?.map(section =>{
+          <Flex
+            direction="column"
+            w={{ base: '100%', lg: '50%' }}
+          >
+            {pageInfo?.section?.map((section) => {
               return (
-                <IconWithText key={section.name} $hoveractive={"false"} icon={ImCheckmark} allowTextRes textRes={section.name} textColor={SavedColors.TextColor}></IconWithText>
+                <IconWithText
+                  key={section.name}
+                  $hoveractive="false"
+                  icon={ImCheckmark}
+                  allowTextRes
+                  textRes={section.name}
+                  textColor={SavedColors.TextColor}
+                />
               )
             })}
           </Flex>
-          <Flex direction="column" w={{ base: '100%', lg: '50%' }}>
-            {pageInfo?.sectionSecond?.map(section =>{
+          <Flex
+            direction="column"
+            w={{ base: '100%', lg: '50%' }}
+          >
+            {pageInfo?.sectionSecond?.map((section) => {
               return (
-                <IconWithText key={section.name} $hoveractive={"false"} icon={ImCheckmark} allowTextRes textRes={section.name} textColor={SavedColors.TextColor}></IconWithText>
+                <IconWithText
+                  key={section.name}
+                  $hoveractive="false"
+                  icon={ImCheckmark}
+                  allowTextRes
+                  textRes={section.name}
+                  textColor={SavedColors.TextColor}
+                />
               )
             })}
           </Flex>
-
-    
         </Flex>
 
-        <TextResponsive $font="Roboto" fontSize="18px">{pageInfo?.description} </TextResponsive>
-        <div></div>
-        <TextResponsive $font="Roboto" fontSize="18px">{pageInfo?.descriptionSecond}</TextResponsive>
+        <TextResponsive
+          $font="Roboto"
+          fontSize="18px"
+        >
+          {pageInfo?.description}{' '}
+        </TextResponsive>
+        <div />
+        <TextResponsive
+          $font="Roboto"
+          fontSize="18px"
+        >
+          {pageInfo?.descriptionSecond}
+        </TextResponsive>
 
-        <Flex wrap="wrap" gap={20}>
-          {pageInfo?.features.map(feature =>{
+        <Flex
+          wrap="wrap"
+          gap={20}
+        >
+          {pageInfo?.features.map((feature) => {
             return (
               <ActionLayout
                 key={feature.name}
@@ -73,7 +116,6 @@ const Ui = memo(() => {
               />
             )
           })}
-
         </Flex>
         <HoveredButtonWithBorder
           radius="sm"
@@ -81,13 +123,12 @@ const Ui = memo(() => {
           w={{ base: '100%', sm: 'auto', md: 'auto', lg: 'fit-content' }}
           color={SavedColors.Primaryblue}
           onClick={() => navigateAndScroll('/', 'dashboard-contact-section')}
-
         >
           Explore Our Journey and Values
         </HoveredButtonWithBorder>
       </Wrapper>
     </section>
-  );
+  )
 })
 
-export { Ui };
+export { Ui }

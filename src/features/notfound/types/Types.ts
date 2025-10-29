@@ -1,8 +1,8 @@
-import { ButtonProps, PolymorphicComponentProps } from "@mantine/core";
+import { ButtonProps, PolymorphicComponentProps } from '@mantine/core'
 
-export interface ButtonType extends PolymorphicComponentProps<'button', ButtonProps>{}
+export type ButtonType = PolymorphicComponentProps<'button', ButtonProps>
 
 export interface NotFoundPageProps {
-  onGoHome?: () => void;
-  onGoBack?: () => void;
+  onGoHome?: () => void
+  onGoBack?: () => void
 }

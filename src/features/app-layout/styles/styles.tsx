@@ -1,7 +1,8 @@
-import { Flex, FlexProps, Menu } from "@mantine/core";
-import { SavedColors } from "@shared/constants";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
+import { Link } from 'react-router-dom'
+import { Flex, FlexProps, Menu } from '@mantine/core'
+import styled from 'styled-components'
+
+import { SavedColors } from '@shared/constants'
 
 const NavbarS = styled.nav`
   position: sticky;
@@ -14,7 +15,7 @@ const NavbarS = styled.nav`
   justify-content: space-between;
   background-color: ${SavedColors.PrimaryWhite};
   z-index: 4;
-`;
+`
 
 const MenubarS = styled.div`
   display: flex;
@@ -23,7 +24,7 @@ const MenubarS = styled.div`
   height: 100%;
   width: 60%;
   gap: 20px;
-`;
+`
 
 const MenuItems = styled(Link)`
   display: flex;
@@ -34,7 +35,7 @@ const MenuItems = styled(Link)`
   text-decoration: none;
   color: #012970;
   font-size: 15px;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 600;
   font-style: normal;
   border-bottom: 3px solid transparent;
@@ -48,10 +49,10 @@ const MenuItems = styled(Link)`
     display: none;
   }
   &.active {
-  border-bottom: 3px solid ${SavedColors.Primaryblue};
-  color: ${SavedColors.Primaryblue};
-}
-`;
+    border-bottom: 3px solid ${SavedColors.Primaryblue};
+    color: ${SavedColors.Primaryblue};
+  }
+`
 
 const MenuListItem = styled(Link)`
   display: flex;
@@ -63,7 +64,7 @@ const MenuListItem = styled(Link)`
   text-decoration: none;
   color: #012970;
   font-size: 15px;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 600;
   font-style: normal;
   border-bottom: 3px solid transparent;
@@ -74,11 +75,11 @@ const MenuListItem = styled(Link)`
     color: ${SavedColors.PrimaryWhite};
   }
   &.active {
-  background-color: ${SavedColors.Primaryblue}10;
-  color: ${SavedColors.Primaryblue};
-  font-weight: 600;
-}
-`;
+    background-color: ${SavedColors.Primaryblue}10;
+    color: ${SavedColors.Primaryblue};
+    font-weight: 600;
+  }
+`
 
 const MenuButton = styled.div`
   height: 45px;
@@ -88,7 +89,7 @@ const MenuButton = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 5px;
-`;
+`
 
 const MenuButtonContainer = styled.div`
   display: flex;
@@ -103,7 +104,7 @@ const MenuButtonContainer = styled.div`
   @media (max-width: 1024px) {
     display: block;
   }
-`;
+`
 
 const ProductMenuTrigger = styled.div`
   display: flex;
@@ -114,7 +115,7 @@ const ProductMenuTrigger = styled.div`
   text-decoration: none;
   color: #012970;
   font-size: 15px;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 600;
   font-style: normal;
   border-bottom: 3px solid transparent;
@@ -133,10 +134,10 @@ const ProductMenuTrigger = styled.div`
     display: none;
   }
   &.active {
-  color: ${SavedColors.Primaryblue};
-  font-weight: 600;
-}
-`;
+    color: ${SavedColors.Primaryblue};
+    font-weight: 600;
+  }
+`
 
 const ProductMenuListTrigger = styled.div`
   display: flex;
@@ -148,7 +149,7 @@ const ProductMenuListTrigger = styled.div`
   text-decoration: none;
   color: #012970;
   font-size: 15px;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 600;
   font-style: normal;
   border-bottom: 3px solid transparent;
@@ -158,13 +159,13 @@ const ProductMenuListTrigger = styled.div`
   cursor: pointer;
 
   &:hover {
-     background: ${SavedColors.Primaryblue};
-     color: ${SavedColors.PrimaryWhite};
+    background: ${SavedColors.Primaryblue};
+    color: ${SavedColors.PrimaryWhite};
   }
-`;
+`
 
 const CustomMenuItem = styled(Menu.Item)<any>`
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 14px;
   color: #012970 !important;
@@ -174,13 +175,11 @@ const CustomMenuItem = styled(Menu.Item)<any>`
     color: white !important;
   }
   &.active {
-  background-color: ${SavedColors.Primaryblue}10;
-  color: ${SavedColors.Primaryblue};
-  font-weight: 600;
-}
-`;
-
-
+    background-color: ${SavedColors.Primaryblue}10;
+    color: ${SavedColors.Primaryblue};
+    font-weight: 600;
+  }
+`
 
 const UtilityContainer = styled.nav`
   display: flex;
@@ -190,19 +189,18 @@ const UtilityContainer = styled.nav`
   align-items: center;
   justify-content: space-between;
   background-color: ${SavedColors.FooterBgColor};
-  @media (max-width:1024px){
+  @media (max-width: 1024px) {
     display: none;
   }
-`;
+`
 
-const VerticalLine = styled.div<{opacity?:number}>`
+const VerticalLine = styled.div<{ opacity?: number }>`
   width: 100%;
   height: 4px;
   border-radius: 2px;
-  background: #15B3E0;
-  opacity: ${({opacity}) => opacity?? 100}%;
+  background: #15b3e0;
+  opacity: ${({ opacity }) => opacity ?? 100}%;
 `
-
 
 const FooterContainer = styled.footer`
   display: flex;
@@ -232,37 +230,35 @@ const FooterContainer = styled.footer`
     position: relative;
     z-index: 3;
   }
-
 `
 
 const FooterFirstContainer = styled(Flex)<FlexProps>`
-padding: 10px;
-width: 55%;
-@media (max-width:710px){
+  padding: 10px;
+  width: 55%;
+  @media (max-width: 710px) {
     width: 100%;
-}
-
+  }
 `
 const FooterSecondContainer = styled(Flex)<FlexProps>`
-padding: 10px;
-width: 40%;
-@media (max-width:710px){
+  padding: 10px;
+  width: 40%;
+  @media (max-width: 710px) {
     width: 100%;
-}
+  }
 `
 export {
+  CustomMenuItem,
+  FooterContainer,
   FooterFirstContainer,
-   FooterSecondContainer,
-    FooterContainer,
-     VerticalLine,
-      UtilityContainer,
-       CustomMenuItem,
-        ProductMenuListTrigger,
-         ProductMenuTrigger,
-          MenuButtonContainer,
-           MenuButton,
-            MenuListItem,
-             NavbarS,
-              MenubarS,
-               MenuItems
-              }
+  FooterSecondContainer,
+  MenubarS,
+  MenuButton,
+  MenuButtonContainer,
+  MenuItems,
+  MenuListItem,
+  NavbarS,
+  ProductMenuListTrigger,
+  ProductMenuTrigger,
+  UtilityContainer,
+  VerticalLine,
+}

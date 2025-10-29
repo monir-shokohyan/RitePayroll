@@ -1,50 +1,52 @@
-import { Button, ButtonProps, PolymorphicComponentProps } from "@mantine/core"
-import { SavedColors } from "@shared/constants"
-import { fadeIn } from "@shared/styles/animation"
-import { TextWithFamily } from "@shared/ui/Typography"
-import styled from "styled-components"
+import { Button, ButtonProps, PolymorphicComponentProps } from '@mantine/core'
+import styled from 'styled-components'
+
+import { SavedColors } from '@shared/constants'
+import { fadeIn } from '@shared/styles/animation'
+import { TextWithFamily } from '@shared/ui/Typography'
 
 const WelcomeText = styled(TextWithFamily)`
-animation: ${fadeIn} 1s ease-out 0.8s both;
-font-size: 1.3rem;
-@media (max-width:1000px){
+  animation: ${fadeIn} 1s ease-out 0.8s both;
+  font-size: 1.3rem;
+  @media (max-width: 1000px) {
     font-size: 1rem;
-}
-
+  }
 `
 const WelcomeTitle = styled(TextWithFamily)`
-animation: ${fadeIn} 1s ease-out 0.5s both;
-font-size: 3.2rem;
-@media (max-width:1000px){
+  animation: ${fadeIn} 1s ease-out 0.5s both;
+  font-size: 3.2rem;
+  @media (max-width: 1000px) {
     font-size: 1.5rem;
-}
-
+  }
 `
 
-const HoveredButtonWithBorder = styled(Button)<PolymorphicComponentProps<'button', ButtonProps>>`
+const HoveredButtonWithBorder = styled(Button)<
+  PolymorphicComponentProps<'button', ButtonProps>
+>`
   animation: ${fadeIn} 1s ease-out 0.8s both;
-&:hover{
-  border: 1px solid ${SavedColors.Primaryblue};
-  color: ${SavedColors.Primaryblue};
-  background-color: transparent;
-  transition: all 0.3s ease-in;
-}
+  &:hover {
+    border: 1px solid ${SavedColors.Primaryblue};
+    color: ${SavedColors.Primaryblue};
+    background-color: transparent;
+    transition: all 0.3s ease-in;
+  }
 `
-const HoveredButtonWithoutBorder = styled(Button)<PolymorphicComponentProps<'button', ButtonProps>>`
+const HoveredButtonWithoutBorder = styled(Button)<
+  PolymorphicComponentProps<'button', ButtonProps>
+>`
   animation: ${fadeIn} 1s ease-out 0.8s both;
 
-&:hover{
-  color: ${SavedColors.Primaryblue};
-  opacity: 50% !important;
-  background-color: transparent;
-  transition: all 0.3s ease-in;
-}
+  &:hover {
+    color: ${SavedColors.Primaryblue};
+    opacity: 50% !important;
+    background-color: transparent;
+    transition: all 0.3s ease-in;
+  }
 `
-
 
 export {
-    HoveredButtonWithBorder,
-    HoveredButtonWithoutBorder,
-    WelcomeText,
-    WelcomeTitle
+  HoveredButtonWithBorder,
+  HoveredButtonWithoutBorder,
+  WelcomeText,
+  WelcomeTitle,
 }

@@ -1,4 +1,4 @@
-import { keyframes } from "styled-components";
+import { keyframes } from 'styled-components'
 
 export const float = keyframes`
   0%, 100% {
@@ -7,7 +7,7 @@ export const float = keyframes`
   50% {
     transform: translateY(-20px);
   }
-`;
+`
 
 export const fadeIn = keyframes`
   from {
@@ -18,7 +18,7 @@ export const fadeIn = keyframes`
     opacity: 1;
     transform: translateY(0);
   }
-`;
+`
 
 export const rotate = keyframes`
   from {
@@ -27,7 +27,7 @@ export const rotate = keyframes`
   to {
     transform: rotate(360deg);
   }
-`;
+`
 
 export const pulse = keyframes`
   0%, 100% {
@@ -38,4 +38,4 @@ export const pulse = keyframes`
     transform: scale(1.1);
     opacity: 0.4;
   }
-`;
+`

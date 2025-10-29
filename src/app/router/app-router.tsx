@@ -1,10 +1,10 @@
 import { Route, Routes } from 'react-router-dom'
 
+import { NotFoundPage } from '@pages/notfound'
 import { ErrorSuspense } from '@shared/ui/error-suspense'
 
 import { routes } from '../config/routes'
 import { Layout } from './layout'
-import { NotFoundPage } from '@pages/notfound'
 
 export const AppRouter = () => {
   return (

@@ -1,6 +1,7 @@
-import { Content } from '@shared/ui/content';
-import { Helmet } from 'react-helmet';
-import { RiteEats } from '@widgets/products/riteeats';
+import { Helmet } from 'react-helmet'
+
+import { RiteEats } from '@widgets/products/riteeats'
+import { Content } from '@shared/ui/content'
 
 export const Page = () => {
   return (
@@ -11,11 +12,14 @@ export const Page = () => {
           name="description"
           content="Comprehensive restaurant and bar management software supporting fine dining, takeaway, delivery, and events."
         />
-        <meta name="keywords" content="riteeats, business software Uganda, ERP, POS" />
+        <meta
+          name="keywords"
+          content="riteeats, business software Uganda, ERP, POS"
+        />
       </Helmet>
       <Content title="RiteEats">
         <RiteEats />
       </Content>
     </>
-  );
-};
+  )
+}

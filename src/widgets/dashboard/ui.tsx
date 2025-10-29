@@ -1,9 +1,7 @@
 import { Dashboard } from '@features/Dashboard'
 
 const Ui = () => {
-  return (
-   <Dashboard />
-  )
+  return <Dashboard />
 }
 
 export { Ui }

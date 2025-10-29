@@ -1,9 +1,7 @@
 import { NotFoundFeature } from '@features/notfound'
 
 const Ui = () => {
-  return (
-   <NotFoundFeature />
-  )
+  return <NotFoundFeature />
 }
 
 export { Ui }

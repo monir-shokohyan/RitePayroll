@@ -1,4 +1,4 @@
-import { Products } from "@shared/constants/productsMap";
+import { Products } from '@shared/constants/productsMap'
 
 export type ProductsType =
   | Products.Ritebooks
@@ -10,27 +10,26 @@ export type ProductsType =
   | Products.Tally_prime
   | Products.Rite_payroll
 
-
 interface DeploymentOption {
-  title: string;
-  description: string;
+  title: string
+  description: string
 }
 
 interface IndustriesServed {
-  title: string;
-  description: string;
+  title: string
+  description: string
 }
 
 interface Product {
-  name: string;
-  info: string;
-  image: string;
-  features: string[];
-  deploymentOption: DeploymentOption;
-  industriesServed: IndustriesServed;
+  name: string
+  info: string
+  image: string
+  features: string[]
+  deploymentOption: DeploymentOption
+  industriesServed: IndustriesServed
   brochureLink?: string
 }
 
 export type ProductsCollectionType = {
-  [key in ProductsType]: Product;
-};
+  [key in ProductsType]: Product
+}

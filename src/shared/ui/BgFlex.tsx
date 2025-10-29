@@ -1,10 +1,11 @@
-import { Flex, FlexProps } from "@mantine/core";
-import { fadeIn } from "@shared/styles/animation";
-import styled from "styled-components";
+import { Flex, FlexProps } from '@mantine/core'
+import styled from 'styled-components'
+
+import { fadeIn } from '@shared/styles/animation'
 
 interface BgFlexProps extends FlexProps {
-  bg?: string;
-  opacity?: number;
+  bg?: string
+  opacity?: number
   bgc?: string
 }
 
@@ -20,9 +21,9 @@ export const BgFlex = styled(Flex)<BgFlexProps>`
     right: 0;
     bottom: 0;
     height: 100%;
-    background-image: ${({ bg }) => (bg ? `url(${bg})` : "none")};
+    background-image: ${({ bg }) => (bg ? `url(${bg})` : 'none')};
     background-size: contain;
-    background-color: ${({bgc}) => bgc ? bgc : 'transparent'} ;
+    background-color: ${({ bgc }) => (bgc ? bgc : 'transparent')};
     background-position: center;
     background-repeat: no-repeat;
     opacity: ${({ opacity = 0.5 }) => opacity};
@@ -33,4 +34,4 @@ export const BgFlex = styled(Flex)<BgFlexProps>`
     position: relative;
     z-index: 1;
   }
-`;
+`

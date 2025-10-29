@@ -1,1 +1,1 @@
-export {Ui as ProductSection} from './ui'
+export { Ui as ProductSection } from './ui'

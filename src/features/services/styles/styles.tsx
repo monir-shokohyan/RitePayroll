@@ -1,12 +1,13 @@
-import { Button, ButtonProps } from "@mantine/core";
-import { SavedColors } from "@shared/constants";
-import styled from "styled-components";
+import { Button, ButtonProps } from '@mantine/core'
+import styled from 'styled-components'
+
+import { SavedColors } from '@shared/constants'
 
 const CardContainer = styled.div`
   position: relative;
   width: 345px;
   margin-bottom: 40px;
-`;
+`
 
 const Card = styled.div`
   width: 345px;
@@ -18,9 +19,9 @@ const Card = styled.div`
   box-shadow: 2px 2px 8px #00000020;
   position: relative;
   overflow: hidden;
-`;
+`
 
-const ContactButton = styled(Button) <ButtonProps>`
+const ContactButton = styled(Button)<ButtonProps>`
   position: absolute;
   bottom: -20px;
   left: 50%;
@@ -28,19 +29,15 @@ const ContactButton = styled(Button) <ButtonProps>`
   width: 160px;
   transition: all 0.3s ease-in-out;
   z-index: 10;
-  
+
   opacity: 0;
   visibility: hidden;
-  
+
   ${CardContainer}:hover & {
     opacity: 1;
     visibility: visible;
     width: 280px;
   }
-`;
+`
 
-export {
-    ContactButton,
-    Card,
-    CardContainer
-}
+export { Card, CardContainer, ContactButton }

@@ -1,1 +1,1 @@
-export {Ui as ChatBot} from './ui'
+export { Ui as ChatBot } from './ui'

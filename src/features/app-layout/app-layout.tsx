@@ -1,15 +1,17 @@
-import { ChatBot } from '@features/chatBot';
-import { Content } from './content';
-import Navbar from './navbar';
-import UtilityBar from './utilityBar';
-import { lazy } from 'react';
-import { ErrorSuspense } from '@shared/ui/error-suspense';
+import { lazy } from 'react'
+
+import { ChatBot } from '@features/chatBot'
+import { ErrorSuspense } from '@shared/ui/error-suspense'
+
+import { Content } from './content'
+import Navbar from './navbar'
+import UtilityBar from './utilityBar'
+
 const Footer = lazy(() => import('./footer'))
 
 export const AppLayout = () => {
   return (
-    <div
-    >
+    <div>
       <UtilityBar />
       <Navbar />
       <Content />
@@ -19,5 +21,5 @@ export const AppLayout = () => {
         <Footer />
       </ErrorSuspense>
     </div>
-  );
+  )
 }

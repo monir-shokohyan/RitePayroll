@@ -1,1 +1,1 @@
-export {Ui as ContactUsSection} from './ui'
+export { Ui as ContactUsSection } from './ui'
