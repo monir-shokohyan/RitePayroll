@@ -141,7 +141,10 @@ const Navbar = memo(() => {
             />
           </MenuButtonContainer>
         </Popover.Target>
-        <Popover.Dropdown id="mobile-menu" role="navigation">
+        <Popover.Dropdown
+          id="mobile-menu"
+          role="navigation"
+        >
           <SearchInput
             $showsearch={true}
             deActiveMenu={() => close()}

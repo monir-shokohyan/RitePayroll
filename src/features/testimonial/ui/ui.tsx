@@ -38,6 +38,8 @@ const Ui = memo(() => {
           plugins={[autoplay.current]}
           onMouseEnter={autoplay.current.stop}
           onMouseLeave={() => autoplay.current.play()}
+          nextControlProps={{ 'aria-label': 'Next testimonial' }}
+          previousControlProps={{ 'aria-label': 'Previous testimonial' }}
         >
           {pageInfo?.features?.map((testim) => {
             return (
