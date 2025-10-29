@@ -5,11 +5,69 @@
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
+  <!-- HOME PAGE -->
+  <url>
+    <loc>https://lotus-soft-ltd.netlify.app/</loc>
+    <lastmod>2025-10-27T14:54:44+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
 
-<url>
-  <loc>https://lotus-soft-ltd.netlify.app/</loc>
-  <lastmod>2025-10-27T14:54:44+00:00</lastmod>
-</url>
+  <!-- ALL PRODUCT PAGES (From your routes) -->
+  <url>
+    <loc>https://lotus-soft-ltd.netlify.app/ritebooks</loc>
+    <lastmod>2025-10-27T14:54:44+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
+  <url>
+    <loc>https://lotus-soft-ltd.netlify.app/ritebooks-express</loc>
+    <lastmod>2025-10-27T14:54:44+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://lotus-soft-ltd.netlify.app/ritebooks-pocket</loc>
+    <lastmod>2025-10-27T14:54:44+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://lotus-soft-ltd.netlify.app/riteroutes</loc>
+    <lastmod>2025-10-27T14:54:44+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://lotus-soft-ltd.netlify.app/rite-payroll</loc>
+    <lastmod>2025-10-27T14:54:44+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://lotus-soft-ltd.netlify.app/riteeats</loc>
+    <lastmod>2025-10-27T14:54:44+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://lotus-soft-ltd.netlify.app/justpay</loc>
+    <lastmod>2025-10-27T14:54:44+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://lotus-soft-ltd.netlify.app/tally-prime</loc>
+    <lastmod>2025-10-27T14:54:44+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
 </urlset>

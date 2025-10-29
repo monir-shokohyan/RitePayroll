@@ -1,0 +1,28 @@
+# ========================================
+#  robots.txt – Lotus Soft Ltd
+#  Website: https://lotus-soft-ltd.netlify.app/
+#  Fully SEO-optimized | Static React SPA
+# ========================================
+
+User-agent: *
+Allow: /
+
+# === ALLOW ALL PUBLIC PAGES ===
+# Your main routes are fully accessible
+Allow: /
+Allow: /products/*
+Allow: /dashboard
+
+# === BLOCK DUPLICATE / SPAMMY URLS ===
+# Prevent indexing of URLs with query params (e.g. ?ref=, ?utm_, filters)
+Disallow: /*?*
+
+# === NO PRIVATE OR ADMIN PAGES TO BLOCK ===
+# You don’t have /admin, /login, /api → nothing to hide
+
+# === SITEMAP (Confirmed in root!) ===
+Sitemap: https://lotus-soft-ltd.netlify.app/sitemap.xml
+
+# === CRAWLER NOTES ===
+# Googlebot, Bingbot: Welcome! Index all product pages.
+# This is a static site – no dynamic content to worry about.

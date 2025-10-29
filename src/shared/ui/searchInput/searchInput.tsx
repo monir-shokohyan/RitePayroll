@@ -321,7 +321,6 @@ const SearchInput = ({
     }
   }, [selectedIndex, results.length])
 
-
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
       if ((event.ctrlKey || event.metaKey) && event.key === 'k') {
@@ -343,14 +342,17 @@ const SearchInput = ({
         onChange={handleInputChange}
         onKeyDown={handleKeyDown}
         rightSection={
-          value !== '' ? <Input.ClearButton onClick={handleClear} /> : <Code style={{fontSize:'10px'}}  >Ctrl + K</Code>
+          value !== '' ? (
+            <Input.ClearButton onClick={handleClear} />
+          ) : (
+            <Code style={{ fontSize: '10px' }}>Ctrl + K</Code>
+          )
         }
         rightSectionPointerEvents="auto"
         rightSectionWidth={80}
         radius="lg"
         size="sm"
         ref={inputRef}
-
       />
       {results.length > 0 && (
         <ResultsContainer
