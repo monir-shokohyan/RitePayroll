@@ -22,7 +22,7 @@ export const Ui = memo(() => {
                 <FaComment size={24} color={SavedColors.Primaryblue} />
               </Paper>
               <div>
-                <Text fw={700} size="lg">Lotus Assistant</Text>
+                <Text fw={700} size="lg">Lotus Ai Assistant</Text>
                 <Group gap={4}>
                   <StatusIndicator />
                   <Text size="xs" c="blue.1">Online • Ready to help</Text>
@@ -59,12 +59,6 @@ export const Ui = memo(() => {
               )}
 
               <MessagesContainer>
-                {/* {messages.map((msg, idx) => (
-                  <MessageBubble key={idx} isUser={msg.type === 'user'}>
-                    <Text size="sm" style={{ whiteSpace: 'pre-line' }}>{msg.text}</Text>
-                  </MessageBubble>
-                  
-                ))} */}
                 {messages.map((msg, idx) => (
                   <MessageBubble key={idx} isUser={msg.type === 'user'}>
                     <Text size="sm" style={{ whiteSpace: 'pre-line' }}>{msg.text}</Text>
