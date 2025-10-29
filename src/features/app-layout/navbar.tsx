@@ -134,10 +134,8 @@ const Navbar = memo(() => {
               opened={opened}
               onClick={toggle}
               aria-label="Toggle navigation"
-              aria-haspopup="dialog"
               aria-expanded={opened}
               aria-controls="mobile-menu"
-              type="button"
             />
           </MenuButtonContainer>
         </Popover.Target>
