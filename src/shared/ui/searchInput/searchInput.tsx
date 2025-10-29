@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { TotalData, TotalDataItem } from '@shared/constants/allTexts';
 import useNavigationScroll from '@shared/hooks/useNavigationScroll';
 import { Highlight, ResultDescription, ResultsContainer, ResultTitle, ResultItem, SearchBox } from './styles';
+import { useNavigate } from 'react-router-dom';
 
 interface SearchResult extends TotalDataItem {
   score: number;
@@ -16,6 +17,7 @@ const SearchInput = ({ $showsearch, deActiveMenu }: { $showsearch: boolean; deAc
   const { navigateAndScroll } = useNavigationScroll();
  const resultsContainerRef = useRef<HTMLDivElement>(null);
   const escapeRegExp = (string: string) => string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const navigate = useNavigate()
 
   const highlightText = (text: string, searchTerm: string) => {
     if (!searchTerm.trim()) return text;
@@ -237,11 +239,15 @@ const SearchInput = ({ $showsearch, deActiveMenu }: { $showsearch: boolean; deAc
   };
 
   const handleResultClick = (result: SearchResult) => {
+
     deActiveMenu();
     setValue('');
     setResults([]);
-    setSelectedIndex(-1);
-    if (!result.sectionId) return;
+    setSelectedIndex(-1);    
+    if (!result.sectionId) {
+      navigate(result.target)
+      return
+    };
     navigateAndScroll('/', result.sectionId);
   };
 
