@@ -343,7 +343,7 @@ const SearchInput = ({
         >
           {results.map((result: SearchResult, index) => (
             <ResultItem
-              key={result.target}
+              key={index}
               to={result.target}
               $isSelected={index === selectedIndex}
               onClick={() => handleResultClick(result)}
