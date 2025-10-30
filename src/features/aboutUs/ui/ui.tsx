@@ -29,9 +29,9 @@ const Ui = memo(() => {
             alt="pc image"
             miw={300}
             height="100%"
-            fit='contain'
+            fit="contain"
             style={{
-              aspectRatio: '1/1'
+              aspectRatio: '1/1',
             }}
           />
         }

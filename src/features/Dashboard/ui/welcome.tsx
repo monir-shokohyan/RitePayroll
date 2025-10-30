@@ -28,9 +28,9 @@ const Welcome = memo(() => {
             alt="software employee image"
             miw={300}
             style={{
-              aspectRatio: '16/9'
+              aspectRatio: '16/9',
             }}
-            fit='contain'
+            fit="contain"
           />
         }
         bgImage="/landing bg.svg"
@@ -44,12 +44,11 @@ const Welcome = memo(() => {
             top: '10%',
             left: '0%',
             opacity: '40%',
-            aspectRatio:'11/9'
+            aspectRatio: '11/9',
           }}
           loading="eager"
           fetchPriority="high"
-          fit='contain'
-          
+          fit="contain"
         />
 
         <WelcomeText
