@@ -21,22 +21,22 @@ export default () => {
       port: 3000,
       host: '0.0.0.0',
     },
-    build:{
+    build: {
       cssCodeSplit: true,
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom']
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            vendor: ['react', 'react-dom'],
+          },
+          assetFileNames: (assetInfo) => {
+            if (assetInfo.name.endsWith('.css')) {
+              return 'assets/css/[name]-[hash][extname]'
+            }
+            return 'assets/[name]-[hash][extname]'
+          },
         },
-        assetFileNames: (assetInfo) => {
-          if (assetInfo.name.endsWith('.css')) {
-            return 'assets/css/[name]-[hash][extname]';
-          }
-          return 'assets/[name]-[hash][extname]';
-        }
-      }
+      },
+      chunkSizeWarningLimit: 1000,
     },
-    chunkSizeWarningLimit: 1000
-    }
   })
 }
