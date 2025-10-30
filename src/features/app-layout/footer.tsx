@@ -209,13 +209,17 @@ const Footer = memo(() => {
               allowText={false}
               icon={FaFacebook}
               iconSize={20}
-              handleClick={() => window.open(ImportantInfo.facebookUrl, '_blank')}
+              handleClick={() =>
+                window.open(ImportantInfo.facebookUrl, '_blank')
+              }
             />
             <IconWithText
               allowText={false}
               icon={FaLinkedin}
               iconSize={20}
-              handleClick={() => window.open(ImportantInfo.linkedinUrl, '_blank')}
+              handleClick={() =>
+                window.open(ImportantInfo.linkedinUrl, '_blank')
+              }
             />
             <IconWithText
               allowText={false}
@@ -234,7 +238,6 @@ const Footer = memo(() => {
               icon={FaPhoneAlt}
               iconSize={20}
               handleClick={() => (window.location.href = 'tel:+256755818183')}
-
             />
           </Flex>
         </FooterSecondContainer>

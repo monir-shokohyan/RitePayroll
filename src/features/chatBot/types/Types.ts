@@ -18,6 +18,11 @@ export interface CompanyInfo {
   website: string
   address: string
   hours: string
+  facebook?: string,
+  linkedin?: string,
+  github?: string,
+  instargram?: string,
+
 }
 
 export interface Product {

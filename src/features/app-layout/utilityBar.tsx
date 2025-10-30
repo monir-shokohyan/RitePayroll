@@ -64,14 +64,12 @@ const UtilityBar = memo(() => {
           icon={FaGithub}
           iconSize={20}
           handleClick={() => window.open(ImportantInfo.githubUrl, '_blank')}
-
         />
         <IconWithText
           allowText={false}
           icon={FaPhoneAlt}
           iconSize={20}
           handleClick={() => (window.location.href = 'tel:+256755818183')}
-
         />
       </Flex>
     </UtilityContainer>

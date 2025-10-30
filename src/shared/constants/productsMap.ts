@@ -8,4 +8,3 @@ export enum Products {
   Justpay = 'JustPay',
   Tally_prime = 'Tally Prime',
 }
-

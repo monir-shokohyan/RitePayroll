@@ -1,3 +1,4 @@
+import { ImportantInfo } from '@shared/constants/companyInfo'
 import { CompanyInfo, Products } from '../types'
 
 export const companyInfo: CompanyInfo = {
@@ -11,6 +12,10 @@ export const companyInfo: CompanyInfo = {
   website: 'www.lotus.co.ug',
   address: 'Plot 7/9, 2nd Street Industrial Area, Kampala, Uganda',
   hours: 'Mon-Fri: 9:00 AM - 6:00 PM | Sat: 9:00 AM - 1:00 PM',
+  facebook: ImportantInfo.facebookUrl,
+  linkedin: ImportantInfo.linkedinUrl,
+  github: ImportantInfo.githubUrl,
+
 }
 
 export const products: Products = {
