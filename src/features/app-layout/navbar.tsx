@@ -39,7 +39,7 @@ const Navbar = memo(() => {
     <NavbarS>
       <MenubarS>
         <Image
-          src="/lotus logo.png"
+          src="/lotus logo.webp"
           alt="lotus logo"
           w={{ base: '110px', lg: '162px' }}
         />
@@ -237,7 +237,7 @@ const Navbar = memo(() => {
 
           <Container p="10px">
             <Image
-              src="/lotus logo.png"
+              src="/lotus logo.webp"
               alt="lotus logo"
             />
           </Container>

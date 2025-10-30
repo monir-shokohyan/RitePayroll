@@ -36,7 +36,7 @@ const Footer = memo(() => {
       >
         <Image
           loading="lazy"
-          src="/lotus logo.png"
+          src="/lotus logo.webp"
           alt="lotus logo"
           w={164}
         />
