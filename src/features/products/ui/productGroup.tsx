@@ -34,7 +34,7 @@ const ProductGroup = ({ products }: { products: sectionType[] }) => {
             <Image
               height={74}
               src={product.imgUrl}
-              width="auto"
+              width={263}
               fit="contain"
               alt={product.alt}
             />
