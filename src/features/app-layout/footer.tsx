@@ -34,14 +34,14 @@ const Footer = memo(() => {
         p="10px"
         justify="center"
       >
-         <Image
-              src="/lotus logo.webp"
-              alt="lotus logo"
-              w={{ base: '120', lg: '150px' }}
-              h={{ base: '60px', lg: '65px' }}
-              fit="contain"
-              loading='lazy'
-            />
+        <Image
+          src="/lotus logo.webp"
+          alt="lotus logo"
+          w={{ base: '120', lg: '150px' }}
+          h={{ base: '60px', lg: '65px' }}
+          fit="contain"
+          loading="lazy"
+        />
       </Container>
 
       <Container
