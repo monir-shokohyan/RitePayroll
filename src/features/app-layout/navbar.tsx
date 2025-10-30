@@ -41,9 +41,9 @@ const Navbar = memo(() => {
         <Image
           src="/lotus logo.webp"
           alt="lotus logo"
-          w={{base:'120',lg:"150px"}}
-          h={{base:'60px',lg:"65px"}}
-          fit='contain'
+          w={{ base: '120', lg: '150px' }}
+          h={{ base: '60px', lg: '65px' }}
+          fit="contain"
         />
 
         <MenuItems
@@ -237,10 +237,14 @@ const Navbar = memo(() => {
             style={{ marginBlock: '10px' }}
           />
 
-          <Container p="10px">
+          <Container p="10px" style={{ textAlign: 'center'}}>
             <Image
               src="/lotus logo.webp"
               alt="lotus logo"
+              w={{ base: '120', lg: '150px' }}
+              h={{ base: '60px', lg: '65px' }}
+              fit="contain"
+              loading='lazy'
             />
           </Container>
         </Popover.Dropdown>
