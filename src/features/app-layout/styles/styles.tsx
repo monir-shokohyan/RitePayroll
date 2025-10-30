@@ -101,8 +101,7 @@ const MenuButtonContainer = styled(UnstyledButton)`
   @media (max-width: 1024px) {
     display: flex;
   }
-`;
-
+`
 
 const ProductMenuTrigger = styled.div`
   display: flex;

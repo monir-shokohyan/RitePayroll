@@ -133,14 +133,13 @@ const Navbar = memo(() => {
               color={SavedColors.Primaryblue}
               opened={opened}
               onClick={toggle}
-              aria-label={opened ? "Close navigation menu" : "Open navigation menu"}
+              aria-label={
+                opened ? 'Close navigation menu' : 'Open navigation menu'
+              }
             />
-          
           </MenuButtonContainer>
         </Popover.Target>
-        <Popover.Dropdown
-          id="mobile-menu"
-        >
+        <Popover.Dropdown id="mobile-menu">
           <SearchInput
             $showsearch={true}
             deActiveMenu={() => close()}

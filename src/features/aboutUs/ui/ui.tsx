@@ -28,8 +28,11 @@ const Ui = memo(() => {
             src="/pc.png"
             alt="pc image"
             miw={300}
-            style={{ objectFit: 'contain' }}
             height="100%"
+            fit='contain'
+            style={{
+              aspectRatio: '1/1'
+            }}
           />
         }
         leftWidth="60%"
