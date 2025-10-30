@@ -128,20 +128,18 @@ const Navbar = memo(() => {
         <Popover.Target>
           <MenuButtonContainer>
             <Burger
-              lineSize={2}
+              lineSize={3}
               size="md"
               color={SavedColors.Primaryblue}
               opened={opened}
               onClick={toggle}
-              aria-label="Toggle navigation"
-              aria-expanded={opened}
-              aria-controls="mobile-menu"
+              aria-label={opened ? "Close navigation menu" : "Open navigation menu"}
             />
+          
           </MenuButtonContainer>
         </Popover.Target>
         <Popover.Dropdown
           id="mobile-menu"
-          role="navigation"
         >
           <SearchInput
             $showsearch={true}

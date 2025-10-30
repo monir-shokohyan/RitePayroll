@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Flex, FlexProps, Menu } from '@mantine/core'
+import { Button, Flex, FlexProps, Menu, UnstyledButton } from '@mantine/core'
 import styled from 'styled-components'
 
 import { SavedColors } from '@shared/constants'
@@ -91,20 +91,18 @@ const MenuButton = styled.div`
   border-radius: 5px;
 `
 
-const MenuButtonContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+const MenuButtonContainer = styled(UnstyledButton)`
   border-radius: 5px;
-  transition: all 0.3s ease-in;
+  transition: transform 0.3s ease-in;
   &:hover {
-    transform: scale(105%);
+    transform: scale(1.05);
   }
   display: none;
   @media (max-width: 1024px) {
-    display: block;
+    display: flex;
   }
-`
+`;
+
 
 const ProductMenuTrigger = styled.div`
   display: flex;
