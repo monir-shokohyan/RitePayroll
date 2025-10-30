@@ -35,7 +35,7 @@ const Footer = memo(() => {
         justify="center"
       >
         <Image
-          src="/lotus logo.webp"
+          src="/lotus-logo.webp"
           alt="lotus logo"
           w={{ base: '120', lg: '150px' }}
           h={{ base: '60px', lg: '65px' }}

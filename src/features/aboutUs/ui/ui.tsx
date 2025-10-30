@@ -12,11 +12,12 @@ import ActionLayout from '@shared/ui/ActionLayout'
 import Wrapper from '@shared/ui/horWrapper'
 import IconWithText from '@shared/ui/IconWithText'
 import { TextResponsive, TitleWithFamily } from '@shared/ui/Typography'
+import { useMediaQuery } from '@mantine/hooks'
 
 const Ui = memo(() => {
   const { navigateAndScroll } = useNavigationScroll()
   const pageInfo = FindByName('About Us')
-
+  const isMobile = useMediaQuery('(max-width: 768px)');
   return (
     <section id="dashboard-about-section">
       <Wrapper
@@ -25,7 +26,7 @@ const Ui = memo(() => {
         fullHeight={false}
         rightSection={
           <Image
-            src="/pc.webp"
+            src={isMobile ? 'pc-mobile.webp' : "/pc.webp"}
             alt="pc image"
             miw={300}
             height="100%"
