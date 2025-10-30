@@ -26,7 +26,7 @@ const Ui = memo(() => {
         fullHeight={false}
         rightSection={
           <Image
-            src={isMobile ? 'pc-mobile.webp' : "/pc.webp"}
+            src={"/pc.webp"}
             alt="pc image"
             miw={300}
             height="100%"
