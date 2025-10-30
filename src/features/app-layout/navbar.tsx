@@ -41,7 +41,9 @@ const Navbar = memo(() => {
         <Image
           src="/lotus logo.webp"
           alt="lotus logo"
-          w={{ base: '110px', lg: '162px' }}
+          w={{base:'120',lg:"150px"}}
+          h={{base:'60px',lg:"65px"}}
+          fit='contain'
         />
 
         <MenuItems
