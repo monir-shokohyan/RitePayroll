@@ -427,7 +427,7 @@ export const TotalData: TotalDataItem[] = [
         star: 5,
         description:
           'Their software solutions are user-friendly and reliable, making our accounting processes smoother and more efficient.',
-        imageUrl: 'testim-1.jpg',
+        imageUrl: 'testim-1.webp',
         name: 'Sara Willson',
         position: 'Data analyst',
       },
@@ -435,7 +435,7 @@ export const TotalData: TotalDataItem[] = [
         star: 5,
         description:
           'The integration with URA EFRIS has streamlined our compliance processes, making financial reporting effortless and reliable.',
-        imageUrl: 'testim-2.jpg',
+        imageUrl: 'testim-2.webp',
         name: 'Saul Goodman',
         position: 'Ceo and founder',
       },
@@ -443,7 +443,7 @@ export const TotalData: TotalDataItem[] = [
         star: 5,
         description:
           'Their innovative solutions have significantly improved our HR workflows, enhancing team productivity and accuracy.',
-        imageUrl: 'testim-3.jpg',
+        imageUrl: 'testim-3.webp',
         name: 'John Larson',
         position: 'HR Manager',
       },
