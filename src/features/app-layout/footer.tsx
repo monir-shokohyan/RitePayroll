@@ -23,6 +23,7 @@ import {
   FooterSecondContainer,
   VerticalLine,
 } from './styles'
+import { ImportantInfo } from '@shared/constants/companyInfo'
 
 const Footer = memo(() => {
   const { navigateAndScroll } = useNavigationScroll()
@@ -155,21 +156,21 @@ const Footer = memo(() => {
             <IconWithText
               fontSize="14px"
               icon={FaPhoneAlt}
-              text="+256 755 818183"
+              text={ImportantInfo.phoneNumber}
               padding="0px"
               $hoveractive="false"
             />
             <IconWithText
               fontSize="14px"
               icon={MdEmail}
-              text="sales@lotus.co.ug"
+              text={ImportantInfo.emailAddress}
               padding="0px"
               $hoveractive="false"
             />
             <IconWithText
               fontSize="14px"
               icon={FaLocationDot}
-              text="Office No. F6, First Floor, Plot 7/9 2nd Street Industrial Area, Kampala, Uganda."
+              text={ImportantInfo.address}
               padding="0px"
               $hoveractive="false"
             />
@@ -208,26 +209,32 @@ const Footer = memo(() => {
               allowText={false}
               icon={FaFacebook}
               iconSize={20}
+              handleClick={() => window.open(ImportantInfo.facebookUrl, '_blank')}
             />
             <IconWithText
               allowText={false}
               icon={FaLinkedin}
               iconSize={20}
+              handleClick={() => window.open(ImportantInfo.linkedinUrl, '_blank')}
             />
             <IconWithText
               allowText={false}
               icon={FaInstagram}
               iconSize={20}
+              // handleClick={() => window.open('https://www.facebook.com/yourpage', '_blank')}
             />
             <IconWithText
               allowText={false}
               icon={FaGithub}
               iconSize={20}
+              handleClick={() => window.open(ImportantInfo.githubUrl, '_blank')}
             />
             <IconWithText
               allowText={false}
               icon={FaPhoneAlt}
               iconSize={20}
+              handleClick={() => (window.location.href = 'tel:+256755818183')}
+
             />
           </Flex>
         </FooterSecondContainer>
