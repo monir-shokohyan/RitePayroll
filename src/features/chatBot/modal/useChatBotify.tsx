@@ -21,7 +21,6 @@ const useChatBotifyBot = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages])
 
-  
   const botSettings = {
     chatWindow: { showScrollbar: false, showHeader: false, showFooter: false },
 

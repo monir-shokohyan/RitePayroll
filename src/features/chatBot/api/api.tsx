@@ -1,4 +1,4 @@
-import { SYSTEM_PROMPT } from "../constant"
+import { SYSTEM_PROMPT } from '../constant'
 
 const CallGrok = async (userInput: string): Promise<string> => {
   try {
@@ -28,4 +28,3 @@ const CallGrok = async (userInput: string): Promise<string> => {
 }
 
 export { CallGrok }
-

@@ -35,7 +35,7 @@ const Navbar = memo(() => {
     opened,
     activeSection,
   } = useManageNavbar()
-  const isTabletOrMobile = useMediaQuery('(max-width: 1024px)');
+  const isTabletOrMobile = useMediaQuery('(max-width: 1024px)')
   return (
     <NavbarS>
       <MenubarS>
