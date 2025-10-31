@@ -20,9 +20,9 @@ const ProductWelcome = ({ page }: { page: ProductsType }) => {
   const product = FindByName(page)
 
   const hasBrochure = Boolean(product?.brochureLink?.trim())
-    const isTableMobile = useMediaQuery('(max-width: 760px)')
+  const isTablet = useMediaQuery('(max-width: 760px)')
+  const isMobile = useMediaQuery('(max-width: 760px)')
 
-  
   return (
     <Wrapper
       rightSection={
@@ -39,7 +39,7 @@ const ProductWelcome = ({ page }: { page: ProductsType }) => {
       isBgColor
     >
       <Image
-        src={isTableMobile ? 'bgNet_mobile.webp' : '/bgNet.webp'}
+        src={isTablet ? 'bgNet_tablet.webp': isMobile ? 'bgNet_mobile.webp' : '/bgNet.webp'}
         alt="net background image"
         style={{
           position: 'absolute',

@@ -222,7 +222,10 @@ const FooterContainer = styled.footer`
     background-position: center;
     opacity: 0.25;
     z-index: 1;
-    @media (max-width: 760px){
+    @media (max-width: 760px) {
+      background-image: url('/bgNet_tablet.webp');
+    }
+    @media (max-width: 450px) {
       background-image: url('/bgNet_mobile.webp');
     }
   }

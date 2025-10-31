@@ -19,7 +19,8 @@ import { useMediaQuery } from '@mantine/hooks'
 const Welcome = memo(() => {
   const { navigateAndScroll } = useNavigationScroll()
   const pageInfo = FindByName('Welcome')
-    const isTableMobile = useMediaQuery('(max-width: 760px)')
+  const isTablet = useMediaQuery('(max-width: 760px)')
+  const isMobile = useMediaQuery('(max-width: 760px)')
 
   return (
     <section id="dashboard-welcome-section">
@@ -39,7 +40,7 @@ const Welcome = memo(() => {
         isReverseWrap={true}
       >
         <Image
-          src={isTableMobile ? 'bgNet_mobile.webp' : '/bgNet.webp'}
+          src={isTablet ? 'bgNet_tablet.webp': isMobile ? 'bgNet_mobile.webp' : '/bgNet.webp'}
           alt="background image"
           style={{
             position: 'absolute',
