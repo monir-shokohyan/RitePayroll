@@ -1,8 +1,8 @@
-// src/modal/useChatBotifyBot.ts
 import { useEffect, useRef, useState } from 'react'
 
 import { getAIResponse } from '../libs/ai'
 import { Message } from '../types'
+import { quickBtnStyle } from '../styles'
 
 const useChatBotifyBot = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -21,18 +21,7 @@ const useChatBotifyBot = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages])
 
-  const quickBtnStyle: React.CSSProperties = {
-    padding: '10px 16px',
-    borderRadius: '12px',
-    border: '1px solid #e0e0e0',
-    background: '#fff',
-    fontSize: '14px',
-    fontWeight: 500,
-    cursor: 'pointer',
-    textAlign: 'left',
-    boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
-  }
-
+  
   const botSettings = {
     chatWindow: { showScrollbar: false, showHeader: false, showFooter: false },
 

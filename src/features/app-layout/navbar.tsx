@@ -19,6 +19,7 @@ import {
   ProductMenuTrigger,
   VerticalLine,
 } from './styles'
+import { useMediaQuery } from '@mantine/hooks'
 
 const Navbar = memo(() => {
   const {
@@ -34,7 +35,7 @@ const Navbar = memo(() => {
     opened,
     activeSection,
   } = useManageNavbar()
-
+  const isTabletOrMobile = useMediaQuery('(max-width: 1024px)');
   return (
     <NavbarS>
       <MenubarS>
@@ -128,18 +129,17 @@ const Navbar = memo(() => {
         onChange={toggle}
       >
         <Popover.Target>
-          <MenuButtonContainer>
-            <Burger
-              lineSize={3}
-              size="md"
-              color={SavedColors.Primaryblue}
-              opened={opened}
-              onClick={toggle}
-              aria-label={
-                opened ? 'Close navigation menu' : 'Open navigation menu'
-              }
-            />
-          </MenuButtonContainer>
+          <Burger
+            lineSize={3}
+            size="md"
+            color={SavedColors.Primaryblue}
+            opened={opened}
+            onClick={toggle}
+            aria-label={
+              opened ? 'Close navigation menu' : 'Open navigation menu'
+            }
+            style={{ display: `${isTabletOrMobile ? 'flex' : 'none'}` }}
+          />
         </Popover.Target>
         <Popover.Dropdown id="mobile-menu">
           <SearchInput

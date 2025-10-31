@@ -47,7 +47,6 @@ const Welcome = memo(() => {
             aspectRatio: '11/9',
           }}
           loading="eager"
-          fetchPriority="high"
           fit="contain"
         />
 
