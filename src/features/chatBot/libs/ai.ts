@@ -32,9 +32,9 @@ export const getAIResponse = async (
 
   if (aiReply?.includes('OUT_OF_BOX')) {
     return {
-      text: 'I’m sorry, but I’m unable to fully understand your request or intent at this time. For further assistance, kindly allow me to connect you with a human representative.',
+      text: 'I am here to assist you with Lotus support. It would be my pleasure to serve you regarding any Lotus-related inquiries. For additional assistance, please feel free to connect with us by clicking the button below.',
       showWhatsApp: true,
-    }
+    };
   }
   if (aiReply?.includes('CONNECT_TO_HUMAN')) {
     return {
@@ -42,7 +42,6 @@ export const getAIResponse = async (
       showWhatsApp: true,
     }
   }
-
 
   if (aiReply?.includes('SHOW_PRICES')) {
     return {

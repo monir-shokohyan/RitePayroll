@@ -36,7 +36,7 @@ const ProductWelcome = ({ page }: { page: ProductsType }) => {
       isBgColor
     >
       <Image
-        src="/bgNet.webp"
+        src="https://res.cloudinary.com/dxgwogxjb/image/upload/v1761903448/bgNet_nnu964.webp"
         alt="net background image"
         style={{
           position: 'absolute',

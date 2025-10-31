@@ -19,7 +19,7 @@ const Ui = memo(() => {
   return (
     <div id="dashboard-contact-section">
       <Wrapper
-        bgImage="/bgNet.webp"
+        bgImage="https://res.cloudinary.com/dxgwogxjb/image/upload/v1761903448/bgNet_nnu964.webp"
         isReverseWrap={false}
         fullHeight={false}
         rightSection={<ContactForm />}
@@ -132,7 +132,7 @@ const Ui = memo(() => {
         style={{ overflow: 'hidden' }}
       >
         <Image
-          src="/bgNet.webp"
+          src="https://res.cloudinary.com/dxgwogxjb/image/upload/v1761903448/bgNet_nnu964.webp"
           style={{ position: 'absolute', opacity: '0.4' }}
           alt="background image"
         />

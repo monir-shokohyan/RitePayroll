@@ -37,7 +37,7 @@ const Welcome = memo(() => {
         isReverseWrap={true}
       >
         <Image
-          src="/bgNet.webp"
+          src="https://res.cloudinary.com/dxgwogxjb/image/upload/v1761903448/bgNet_nnu964.webp"
           alt="background image"
           style={{
             position: 'absolute',

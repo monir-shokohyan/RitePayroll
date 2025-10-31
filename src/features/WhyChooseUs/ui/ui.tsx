@@ -15,7 +15,7 @@ const Ui = memo(() => {
   return (
     <section id="dashboard-whyus-section">
       <Wrapper
-        bgImage="/bgNet.webp"
+        bgImage="https://res.cloudinary.com/dxgwogxjb/image/upload/v1761903448/bgNet_nnu964.webp"
         isReverseWrap={false}
         fullHeight={false}
         rightSection={
