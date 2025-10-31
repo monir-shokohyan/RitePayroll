@@ -80,7 +80,6 @@ export const getAIResponse = async (
   showSocialMedia?: boolean
 }> => {
   const aiReply = await callGroq(userInput)
-  console.log('ai reply is ', aiReply)
 
   if (
     aiReply &&
