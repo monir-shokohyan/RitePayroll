@@ -21,7 +21,6 @@ const useChatBotifyBot = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages])
 
-
   const quickBtnStyle: React.CSSProperties = {
     padding: '10px 16px',
     borderRadius: '12px',
@@ -86,7 +85,7 @@ const useChatBotifyBot = () => {
 
           // Normal AI response
           const response = await getAIResponse(userMsg)
-                    
+
           setTimeout(() => {
             setMessages((prev) => [
               ...prev,

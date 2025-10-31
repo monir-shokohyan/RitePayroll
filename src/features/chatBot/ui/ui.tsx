@@ -155,9 +155,15 @@ export const Ui = memo(() => {
 
               <MessagesContainer>
                 {messages.map((msg, idx) => (
-                  <MessageBubble key={idx} isUser={msg.type === 'user'}>
+                  <MessageBubble
+                    key={idx}
+                    isUser={msg.type === 'user'}
+                  >
                     {msg.text && (
-                      <Text size="sm" style={{ whiteSpace: 'pre-line' }}>
+                      <Text
+                        size="sm"
+                        style={{ whiteSpace: 'pre-line' }}
+                      >
                         {msg.text}
                       </Text>
                     )}
@@ -287,7 +293,8 @@ export const Ui = memo(() => {
 
       <ToggleButton
         onClick={() => {
-          setIsOpen(!isOpen)}}
+          setIsOpen(!isOpen)
+        }}
         size="sm"
         variant="gradient"
         gradient={{ from: 'blue', to: 'indigo' }}

@@ -25,11 +25,11 @@ whatsapp: ${companyInfo.whatsapp}
 
 Products:
 ${Object.values(products)
-    .map(
-      (p) =>
-        `${p.name}: ${p.description}. Features: ${p.features.join('; ')}. Industries: ${p.industries}.`,
-    )
-    .join('\n')}
+  .map(
+    (p) =>
+      `${p.name}: ${p.description}. Features: ${p.features.join('; ')}. Industries: ${p.industries}.`,
+  )
+  .join('\n')}
 
 Services: ${services.join(', ')}
 
@@ -63,12 +63,9 @@ const callGroq = async (userInput: string): Promise<string> => {
   }
 }
 
-
 const getRuleBasedResponse = (
   input: string,
-): { text: string; showWhatsApp?: boolean, showSocialMedia?: boolean } => {
-
-
+): { text: string; showWhatsApp?: boolean; showSocialMedia?: boolean } => {
   return {
     text: 'Let me connect you to a human.',
     showWhatsApp: true,
@@ -77,10 +74,13 @@ const getRuleBasedResponse = (
 
 export const getAIResponse = async (
   userInput: string,
-): Promise<{ text: string; showWhatsApp?: boolean, showSocialMedia?: boolean }> => {
+): Promise<{
+  text: string
+  showWhatsApp?: boolean
+  showSocialMedia?: boolean
+}> => {
   const aiReply = await callGroq(userInput)
-  console.log('ai reply is ', aiReply);
-
+  console.log('ai reply is ', aiReply)
 
   if (
     aiReply &&
@@ -96,8 +96,8 @@ export const getAIResponse = async (
   if (aiReply?.includes('CONNECT_TO_HUMAN')) {
     return {
       text: 'I’m sorry, but I’m unable to fully understand your request or intent at this time. For further assistance, kindly allow me to connect you with a human representative.',
-      showWhatsApp: true
-    };
+      showWhatsApp: true,
+    }
   }
 
   if (aiReply?.includes('SHOW_PRICES')) {
@@ -108,12 +108,11 @@ export const getAIResponse = async (
   }
   if (aiReply?.includes('SOCIAL_MEDIA')) {
     return {
-      text:'',
+      text: '',
       showWhatsApp: false,
       showSocialMedia: true,
-    };
+    }
   }
-
 
   return fallback
 }

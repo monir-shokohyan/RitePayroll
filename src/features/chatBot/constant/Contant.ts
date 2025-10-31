@@ -15,7 +15,7 @@ export const companyInfo: CompanyInfo = {
   facebook: ImportantInfo.facebookUrl,
   linkedin: ImportantInfo.linkedinUrl,
   github: ImportantInfo.githubUrl,
-  whatsapp: ImportantInfo.whatsapp
+  whatsapp: ImportantInfo.whatsapp,
 }
 
 export const products: Products = {
