@@ -216,16 +216,13 @@ const FooterContainer = styled.footer`
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('/bgNet_mobile.webp');
+    background-image: url('/bgNet.webp');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     opacity: 0.25;
     z-index: 1;
     @media (max-width: 760px) {
-      background-image: url('/bgNet_tablet.webp');
-    }
-    @media (max-width: 450px) {
       background-image: url('/bgNet_mobile.webp');
     }
   }

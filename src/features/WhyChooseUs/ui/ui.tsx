@@ -12,13 +12,12 @@ import { useMediaQuery } from '@mantine/hooks'
 
 const Ui = memo(() => {
   const pageInfo = FindByName('why choose us')
-  const isTablet = useMediaQuery('(max-width: 760px)')
-  const isMobile = useMediaQuery('(max-width: 450px)')
+  const isTableMobile = useMediaQuery('(max-width: 760px)')
 
   return (
     <section id="dashboard-whyus-section">
       <Wrapper
-        bgImage={isTablet ? 'bgNet_tablet.webp': isMobile ? 'bgNet_mobile.webp' : '/bgNet.webp'}
+        bgImage={isTableMobile ? 'bgNet_mobile.webp' : '/bgNet.webp'}
         isReverseWrap={false}
         fullHeight={false}
         rightSection={

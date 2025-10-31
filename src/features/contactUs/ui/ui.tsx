@@ -16,13 +16,12 @@ import { useMediaQuery } from '@mantine/hooks'
 
 const Ui = memo(() => {
   const pageInfo = FindByName('contact us')
-  const isTablet = useMediaQuery('(max-width: 760px)')
-  const isMobile = useMediaQuery('(max-width: 450px)')
+  const isTableMobile = useMediaQuery('(max-width: 760px)')
 
   return (
     <div id="dashboard-contact-section">
       <Wrapper
-        bgImage={isTablet ? 'bgNet_tablet.webp': isMobile ? 'bgNet_mobile.webp' : '/bgNet.webp'}
+        bgImage={isTableMobile ? 'bgNet_mobile.webp' : '/bgNet.webp'}
         isReverseWrap={false}
         fullHeight={false}
         rightSection={<ContactForm />}
@@ -135,7 +134,7 @@ const Ui = memo(() => {
         style={{ overflow: 'hidden' }}
       >
         <Image
-          src={isTablet ? 'bgNet_tablet.webp': isMobile ? 'bgNet_mobile.webp' : '/bgNet.webp'}
+          src={isTableMobile ? 'bgNet_mobile.webp' : '/bgNet.webp'}
           style={{ position: 'absolute', opacity: '0.25' }}
           alt="background image"
         />
