@@ -13,13 +13,16 @@ import {
   WelcomeTitle,
 } from '../styles/styles'
 import { ProductsType } from '../types'
+import { useMediaQuery } from '@mantine/hooks'
 
 const ProductWelcome = ({ page }: { page: ProductsType }) => {
   const { navigateAndScroll } = useNavigationScroll()
   const product = FindByName(page)
 
   const hasBrochure = Boolean(product?.brochureLink?.trim())
+    const isTableMobile = useMediaQuery('(max-width: 760px)')
 
+  
   return (
     <Wrapper
       rightSection={
@@ -36,13 +39,13 @@ const ProductWelcome = ({ page }: { page: ProductsType }) => {
       isBgColor
     >
       <Image
-        src="https://res.cloudinary.com/dxgwogxjb/image/upload/v1761903448/bgNet_nnu964.webp"
+        src={isTableMobile ? 'bgNet_mobile.webp' : '/bgNet.webp'}
         alt="net background image"
         style={{
           position: 'absolute',
           top: '10%',
           left: '0%',
-          opacity: '40%',
+          opacity: '25%',
         }}
       />
 

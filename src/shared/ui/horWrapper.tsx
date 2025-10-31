@@ -18,7 +18,7 @@ const horWrapper = ({
         wrap={isReverseWrap ? 'wrap-reverse' : 'wrap'}
         bg={isBgColor ? `${bgImage}` : `'${bgImage}'`}
         w="100%"
-        opacity={0.3}
+        opacity={0.25}
         h={{
           base: 'auto',
           sm: 'auto',

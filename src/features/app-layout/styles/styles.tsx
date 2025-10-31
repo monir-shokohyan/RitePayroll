@@ -216,11 +216,15 @@ const FooterContainer = styled.footer`
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('https://res.cloudinary.com/dxgwogxjb/image/upload/v1761903448/bgNet_nnu964.webp');
-    background-size: cover;
+    background-image: url('/bgNet_mobile.webp');
+    background-size: contain;
+    background-repeat: no-repeat;
     background-position: center;
-    opacity: 0.2;
+    opacity: 0.25;
     z-index: 1;
+    @media (max-width: 760px){
+      background-image: url('/bgNet_mobile.webp');
+    }
   }
 
   & > * {

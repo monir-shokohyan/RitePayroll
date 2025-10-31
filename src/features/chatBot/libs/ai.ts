@@ -34,7 +34,7 @@ export const getAIResponse = async (
     return {
       text: 'I am here to assist you with Lotus support. It would be my pleasure to serve you regarding any Lotus-related inquiries. For additional assistance, please feel free to connect with us by clicking the button below.',
       showWhatsApp: true,
-    };
+    }
   }
   if (aiReply?.includes('CONNECT_TO_HUMAN')) {
     return {

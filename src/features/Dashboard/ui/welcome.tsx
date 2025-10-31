@@ -14,10 +14,12 @@ import {
   WelcomeText,
   WelcomeTitle,
 } from '../styles/styles'
+import { useMediaQuery } from '@mantine/hooks'
 
 const Welcome = memo(() => {
   const { navigateAndScroll } = useNavigationScroll()
   const pageInfo = FindByName('Welcome')
+    const isTableMobile = useMediaQuery('(max-width: 760px)')
 
   return (
     <section id="dashboard-welcome-section">
@@ -37,13 +39,13 @@ const Welcome = memo(() => {
         isReverseWrap={true}
       >
         <Image
-          src="https://res.cloudinary.com/dxgwogxjb/image/upload/v1761903448/bgNet_nnu964.webp"
+          src={isTableMobile ? 'bgNet_mobile.webp' : '/bgNet.webp'}
           alt="background image"
           style={{
             position: 'absolute',
             top: '10%',
             left: '0%',
-            opacity: '40%',
+            opacity: '25%',
             aspectRatio: '11/9',
           }}
           loading="eager"

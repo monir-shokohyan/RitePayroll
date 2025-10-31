@@ -12,14 +12,16 @@ import IconWithText from '@shared/ui/IconWithText'
 import { TextResponsive, TitleWithFamily } from '@shared/ui/Typography'
 
 import ContactForm from './contactForm'
+import { useMediaQuery } from '@mantine/hooks'
 
 const Ui = memo(() => {
   const pageInfo = FindByName('contact us')
+    const isTableMobile = useMediaQuery('(max-width: 760px)')
 
   return (
     <div id="dashboard-contact-section">
       <Wrapper
-        bgImage="https://res.cloudinary.com/dxgwogxjb/image/upload/v1761903448/bgNet_nnu964.webp"
+        bgImage={isTableMobile ? 'bgNet_mobile.webp' : '/bgNet.webp'}
         isReverseWrap={false}
         fullHeight={false}
         rightSection={<ContactForm />}
@@ -132,8 +134,8 @@ const Ui = memo(() => {
         style={{ overflow: 'hidden' }}
       >
         <Image
-          src="https://res.cloudinary.com/dxgwogxjb/image/upload/v1761903448/bgNet_nnu964.webp"
-          style={{ position: 'absolute', opacity: '0.4' }}
+          src={isTableMobile ? 'bgNet_mobile.webp' : '/bgNet.webp'}
+          style={{ position: 'absolute', opacity: '0.25' }}
           alt="background image"
         />
         {pageInfo?.features.map((feature) => {

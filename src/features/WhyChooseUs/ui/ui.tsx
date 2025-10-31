@@ -8,14 +8,16 @@ import FindByName from '@shared/helpers/findByName'
 import ActionLayout from '@shared/ui/ActionLayout'
 import Wrapper from '@shared/ui/horWrapper'
 import { TextResponsive, TitleWithFamily } from '@shared/ui/Typography'
+import { useMediaQuery } from '@mantine/hooks'
 
 const Ui = memo(() => {
   const pageInfo = FindByName('why choose us')
+    const isTableMobile = useMediaQuery('(max-width: 760px)')
 
   return (
     <section id="dashboard-whyus-section">
       <Wrapper
-        bgImage="https://res.cloudinary.com/dxgwogxjb/image/upload/v1761903448/bgNet_nnu964.webp"
+        bgImage={isTableMobile ? 'bgNet_mobile.webp' : '/bgNet.webp'}
         isReverseWrap={false}
         fullHeight={false}
         rightSection={
