@@ -7,4 +7,5 @@ export enum ImportantInfo {
   emailAddress = 'sales@lotus.co.ug',
   address = 'Office No. F6, First Floor, Plot 7/9 2nd Street Industrial Area, Kampala, Uganda.',
   website = 'https://www.lotus.co.ug',
+  whatsapp = '+256 755 818183'
 }

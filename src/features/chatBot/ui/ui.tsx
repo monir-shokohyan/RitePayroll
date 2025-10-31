@@ -31,6 +31,7 @@ import {
   ToggleButton,
   TypingDot,
 } from '../styles'
+import { SocialMediaUi } from './socialMedia'
 
 export const Ui = memo(() => {
   const {
@@ -47,7 +48,6 @@ export const Ui = memo(() => {
     setInput,
     handleQuickAction,
   } = useChatBotifyBot()
-
   return (
     <div>
       {isOpen && (
@@ -155,17 +155,14 @@ export const Ui = memo(() => {
 
               <MessagesContainer>
                 {messages.map((msg, idx) => (
-                  <MessageBubble
-                    key={idx}
-                    isUser={msg.type === 'user'}
-                  >
-                    <Text
-                      size="sm"
-                      style={{ whiteSpace: 'pre-line' }}
-                    >
-                      {msg.text}
-                    </Text>
+                  <MessageBubble key={idx} isUser={msg.type === 'user'}>
+                    {msg.text && (
+                      <Text size="sm" style={{ whiteSpace: 'pre-line' }}>
+                        {msg.text}
+                      </Text>
+                    )}
                     {/* ADD THIS BLOCK */}
+                    {msg.showSocialMedia && <SocialMediaUi />}
                     {msg.showWhatsApp && (
                       <div style={{ marginTop: 12 }}>
                         <a
@@ -269,6 +266,7 @@ export const Ui = memo(() => {
                     placeholder="Type your message..."
                     style={{ flex: 1 }}
                     radius="xl"
+                    autoFocus={true}
                   />
                   <ActionIcon
                     onClick={handleSend}
@@ -288,7 +286,8 @@ export const Ui = memo(() => {
       )}
 
       <ToggleButton
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => {
+          setIsOpen(!isOpen)}}
         size="sm"
         variant="gradient"
         gradient={{ from: 'blue', to: 'indigo' }}

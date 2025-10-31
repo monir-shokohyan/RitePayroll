@@ -18,11 +18,11 @@ export interface CompanyInfo {
   website: string
   address: string
   hours: string
-  facebook?: string,
-  linkedin?: string,
-  github?: string,
-  instargram?: string,
-
+  facebook?: string
+  linkedin?: string
+  github?: string
+  instargram?: string
+  whatsapp?: string
 }
 
 export interface Product {
@@ -36,7 +36,8 @@ export interface Product {
 export type Products = Record<string, Product>
 
 export interface Message {
-  type: 'user' | 'bot'
+  type: 'bot' | 'user'
   text: string
-  showWhatsApp?: boolean // ← This allows button
+  showWhatsApp?: boolean
+  showSocialMedia?: boolean
 }
