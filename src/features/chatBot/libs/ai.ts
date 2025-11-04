@@ -1,13 +1,6 @@
 import { CallGrok } from '../api'
+import { getRuleBasedResponse } from './offlineBrain'
 
-const getRuleBasedResponse = (
-  input: string,
-): { text: string; showWhatsApp?: boolean; showSocialMedia?: boolean } => {
-  return {
-    text: 'Let me connect you to a human.',
-    showWhatsApp: true,
-  }
-}
 
 export const getAIResponse = async (
   userInput: string,

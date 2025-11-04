@@ -63,7 +63,7 @@ const Welcome = memo(() => {
           $font="Nunito"
           fontWeight="800"
         >
-          Empowering <CTC text="Africa's" /> Businesses with Smart, Scalable   
+          Empowering <CTC text="Africa's" /> Businesses with Smart, Scalable
           <CTC text=" Software" /> & Technology <CTC text="Solutions" />.
         </WelcomeTitle>
 
