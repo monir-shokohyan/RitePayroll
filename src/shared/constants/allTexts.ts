@@ -80,7 +80,7 @@ export const TotalData: TotalDataItem[] = [
     name: 'About Us',
     target: '/',
     title:
-      'Mr. Nikhil Shah – Founder & Managing Director, Lotus Soft Technologies Ltd.',
+      'About Lotus Soft Technologies Ltd.',
     description:
       'Mr. Nikhil Shah, Founder and Managing Director of Lotus Soft Technologies Ltd., is a visionary entrepreneur and technology innovator who has played a defining role in shaping Uganda’s software landscape for more than 25 years.With a deep understanding of accounting, inventory, and business management processes, Mr. Shah transformed Lotus from a small local software initiative into one of Uganda’s leading technology companies — trusted by thousands of businesses across retail, manufacturing, and distribution sectors. His leadership and technical foresight have driven the creation of flagship products such as Ritebooks, RiteEats, RiteRoutes, RitePayroll, and JustPay, which today set new benchmarks for business automation, mobility, and integrated financial management across Africa. Known for his hands-on approach and relentless pursuit of innovation, he continues to lead Lotus into the next era of digital transformation — expanding into AI-driven automation, cloud computing, digital payments integration, and global connectivity to make African businesses more efficient, adaptable, and competitive on the world stage.',
     descriptionSecond:

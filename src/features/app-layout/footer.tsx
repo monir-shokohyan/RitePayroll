@@ -9,7 +9,6 @@ import {
 import { FaLocationDot } from 'react-icons/fa6'
 import { MdEmail } from 'react-icons/md'
 import { Flex, Image } from '@mantine/core'
-
 import { SavedColors } from '@shared/constants'
 import useNavigationScroll from '@shared/hooks/useNavigationScroll'
 import Container from '@shared/ui/Container'
