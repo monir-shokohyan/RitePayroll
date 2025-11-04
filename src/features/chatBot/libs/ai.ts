@@ -1,6 +1,6 @@
 import { CallGrok } from '../api'
+import { companyInfo } from '../constant'
 import { getRuleBasedResponse } from './offlineBrain'
-
 
 export const getAIResponse = async (
   userInput: string,
@@ -16,7 +16,9 @@ export const getAIResponse = async (
     !aiReply.includes('OUT_OF_BOX') &&
     !aiReply.includes('CONNECT_TO_HUMAN') &&
     !aiReply.includes('SHOW_PRICES') &&
-    !aiReply.includes('SOCIAL_MEDIA')
+    !aiReply.includes('SOCIAL_MEDIA') && 
+    !aiReply.includes('COMPANY_REACH')
+
   ) {
     return { text: aiReply, showWhatsApp: false }
   }
@@ -49,6 +51,14 @@ export const getAIResponse = async (
       showSocialMedia: true,
     }
   }
+  if (aiReply?.includes('COMPANY_REACH')) {
+    return {
+      text: `You can reach us at:\n📞 Phone: ${companyInfo.phone}\n📧 Email: ${companyInfo.email}\n🌐 Website: ${companyInfo.website}\n📍 Address: ${companyInfo.address}\n🕐 Hours: ${companyInfo.hours}`,
+      showWhatsApp: false,
+      showSocialMedia: false,
+    }
+  }
+
 
   return fallback
 }

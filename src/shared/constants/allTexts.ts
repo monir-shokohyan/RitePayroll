@@ -342,7 +342,7 @@ export const TotalData: TotalDataItem[] = [
         description1: '9:00AM - 06:00PM ',
         description2: 'Sat',
         description3: '9:00AM - 01:00PM ',
-        ariaLabel: 'open hours icon', 
+        ariaLabel: 'open hours icon',
       },
     ],
     target: '/',
