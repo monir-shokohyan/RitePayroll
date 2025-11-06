@@ -153,7 +153,7 @@ export const Ui = memo(() => {
                 </Paper>
               )}
 
-              <MessagesContainer>
+              <MessagesContainer >
                 {messages.map((msg, idx) => (
                   <MessageBubble
                     key={idx}
