@@ -386,31 +386,31 @@ export const TotalData: TotalDataItem[] = [
         icon: HiLightBulb,
         name: 'Innovation',
         description:
-          'we pioneer cutting-edge software and IT solutions, empowering businesses in Uganda and beyond to thrive through creative, scalable technology.',
+          'We pioneer cutting-edge software and IT solutions, empowering businesses in Uganda and beyond to thrive through creative, scalable technology.',
       },
       {
         icon: FaShieldAlt,
         name: 'Integrity',
         description:
-          'we uphold unwavering honesty and ethical standards in every solution we deliver, building trust and reliability for our clients across Uganda and beyond.',
+          'We uphold unwavering honesty and ethical standards in every solution we deliver, building trust and reliability for our clients across Uganda and beyond.',
       },
       {
         icon: FaTrophy,
         name: 'Customer Success',
         description:
-          'we prioritize your growth, delivering tailored software and IT solutions that drive efficiency, productivity, and success for businesses across Uganda.',
+          'We prioritize your growth, delivering tailored software and IT solutions that drive efficiency, productivity, and success for businesses across Uganda.',
       },
       {
         icon: FaHandsHelping,
         name: 'Collaboration',
         description:
-          'we partner closely with businesses across Uganda, co-creating tailored software solutions that drive shared success and growth.',
+          'We partner closely with businesses across Uganda, co-creating tailored software solutions that drive shared success and growth.',
       },
       {
         icon: GrPowerCycle,
         name: 'Continuous Improvement',
         description:
-          'we relentlessly pursue excellence, refining our software and IT solutions to deliver ever-evolving value and innovation for businesses across Uganda.',
+          'We relentlessly pursue excellence, refining our software and IT solutions to deliver ever-evolving value and innovation for businesses across Uganda.',
       },
     ],
   },

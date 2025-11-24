@@ -1,6 +1,7 @@
 import { memo } from 'react'
 import { MdBlock } from 'react-icons/md'
 import { Flex, Image } from '@mantine/core'
+import { useMediaQuery } from '@mantine/hooks'
 
 import { VerticalLine } from '@features/app-layout/styles'
 import { SavedColors } from '@shared/constants'
@@ -8,7 +9,6 @@ import FindByName from '@shared/helpers/findByName'
 import ActionLayout from '@shared/ui/ActionLayout'
 import Wrapper from '@shared/ui/horWrapper'
 import { TextResponsive, TitleWithFamily } from '@shared/ui/Typography'
-import { useMediaQuery } from '@mantine/hooks'
 
 const Ui = memo(() => {
   const pageInfo = FindByName('why choose us')

@@ -9,7 +9,9 @@ import {
 import { FaLocationDot } from 'react-icons/fa6'
 import { MdEmail } from 'react-icons/md'
 import { Flex, Image } from '@mantine/core'
+
 import { SavedColors } from '@shared/constants'
+import { ImportantInfo } from '@shared/constants/companyInfo'
 import useNavigationScroll from '@shared/hooks/useNavigationScroll'
 import Container from '@shared/ui/Container'
 import IconWithText from '@shared/ui/IconWithText'
@@ -22,7 +24,6 @@ import {
   FooterSecondContainer,
   VerticalLine,
 } from './styles'
-import { ImportantInfo } from '@shared/constants/companyInfo'
 
 const Footer = memo(() => {
   const { navigateAndScroll } = useNavigationScroll()
@@ -195,7 +196,7 @@ const Footer = memo(() => {
             fontSize="16px"
             $font="Roboto"
           >
-            a premier software development company based in Uganda. With over 25
+            A premier software development company based in Uganda. With over 25
             years of expertise, we offer a suite of solutions designed to
             streamline and enhance business operations. Our flagship products
             include Ritebooks, Justpay, Rite Payroll, and STAR PMS, each crafted
