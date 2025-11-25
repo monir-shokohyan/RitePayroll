@@ -4,7 +4,7 @@ import { Flex } from '@mantine/core'
 
 import { SavedColors } from '@shared/constants'
 import { SectionType } from '@shared/constants/allTexts'
-import useNavigationScroll from '@shared/hooks/useNavigationScroll'
+import { useNavigationScroll } from '@shared/hooks/useNavigationScroll'
 import { ActionLayout } from '@shared/ui/ActionLayout'
 
 import { Card, CardContainer, ContactButton } from '../styles/styles'

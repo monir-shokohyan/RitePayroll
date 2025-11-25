@@ -7,4 +7,4 @@ const FindByName = (name: string) => {
   )
 }
 
-export default FindByName
+export { FindByName }

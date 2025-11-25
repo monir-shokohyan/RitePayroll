@@ -1,4 +1,4 @@
-import { horWrapperType } from '@shared/types/horWrapper'
+import { HorWrapperType } from '@shared/types/horWrapper'
 import { BgFlex } from '@shared/ui/BgFlex'
 
 const horWrapper = ({
@@ -11,7 +11,7 @@ const horWrapper = ({
   leftWidth = '55%',
   rightWidth = '45%',
   fullHeight = true,
-}: horWrapperType) => {
+}: HorWrapperType) => {
   return (
     <>
       <BgFlex

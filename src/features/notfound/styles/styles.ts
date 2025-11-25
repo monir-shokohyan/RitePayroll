@@ -1,5 +1,5 @@
 import { Button, Group, Paper, Text } from '@mantine/core'
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 
 import { fadeIn, float, pulse, rotate } from '@shared/styles/animation'
 

@@ -1,4 +1,5 @@
 import { ImportantInfo } from '@shared/constants/companyInfo'
+
 import { CompanyInfo, Products } from '../types'
 
 export const companyInfo: CompanyInfo = {

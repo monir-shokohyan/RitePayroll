@@ -4,9 +4,9 @@ import { Flex, Image, Rating } from '@mantine/core'
 import Autoplay from 'embla-carousel-autoplay'
 
 import { SavedColors } from '@shared/constants'
-import FindByName from '@shared/helpers/findByName'
+import { FindByName } from '@shared/helpers/findByName'
 import { TextResponsive } from '@shared/ui/Typography'
-import VerWrapper from '@shared/ui/VerWrapper'
+import { VerWrapper } from '@shared/ui/VerWrapper'
 
 import { SCard } from '../styles'
 

@@ -8,7 +8,7 @@ import { SavedColors } from '@shared/constants'
 import SearchInput from '@shared/ui/searchInput/searchInput'
 
 import { productLinks } from './constants'
-import useManageNavbar from './modal/useManageNavbar'
+import { useManageNavbar } from './modal/useManageNavbar'
 import {
   CustomMenuItem,
   MenubarS,

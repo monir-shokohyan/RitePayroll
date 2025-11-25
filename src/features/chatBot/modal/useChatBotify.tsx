@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 
 import { getAIResponse } from '../libs/ai'
-import { Message } from '../types'
 import { quickBtnStyle } from '../styles'
+import { Message } from '../types'
 
 const useChatBotifyBot = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -145,4 +145,4 @@ const useChatBotifyBot = () => {
   }
 }
 
-export default useChatBotifyBot
+export { useChatBotifyBot }

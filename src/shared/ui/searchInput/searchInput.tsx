@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { Code, Input } from '@mantine/core'
 
 import { TotalData, TotalDataItem } from '@shared/constants/allTexts'
-import useNavigationScroll from '@shared/hooks/useNavigationScroll'
+import { useNavigationScroll } from '@shared/hooks/useNavigationScroll'
 
 import {
   Highlight,

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Button, Flex, FlexProps, Menu, UnstyledButton } from '@mantine/core'
+import { Flex, FlexProps, Menu, UnstyledButton } from '@mantine/core'
 import styled from 'styled-components'
 
 import { SavedColors } from '@shared/constants'

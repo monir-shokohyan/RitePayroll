@@ -1,11 +1,13 @@
+/* eslint-disable react/jsx-pascal-case */
 import { memo } from 'react'
 import { Image } from '@mantine/core'
+import { useMediaQuery } from '@mantine/hooks'
 
 import { SavedColors } from '@shared/constants'
-import FindByName from '@shared/helpers/findByName'
-import useNavigationScroll from '@shared/hooks/useNavigationScroll'
-import { CTC } from '@shared/ui/CTC'
+import { FindByName } from '@shared/helpers/findByName'
+import { useNavigationScroll } from '@shared/hooks/useNavigationScroll'
 import Container from '@shared/ui/Container'
+import { CTC } from '@shared/ui/CTC'
 import Wrapper from '@shared/ui/horWrapper'
 
 import {
@@ -14,7 +16,6 @@ import {
   WelcomeText,
   WelcomeTitle,
 } from '../styles/styles'
-import { useMediaQuery } from '@mantine/hooks'
 
 const Welcome = memo(() => {
   const { navigateAndScroll } = useNavigationScroll()

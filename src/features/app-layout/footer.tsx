@@ -12,9 +12,9 @@ import { Flex, Image } from '@mantine/core'
 
 import { SavedColors } from '@shared/constants'
 import { ImportantInfo } from '@shared/constants/companyInfo'
-import useNavigationScroll from '@shared/hooks/useNavigationScroll'
+import { useNavigationScroll } from '@shared/hooks/useNavigationScroll'
 import Container from '@shared/ui/Container'
-import IconWithText from '@shared/ui/IconWithText'
+import { IconWithText } from '@shared/ui/IconWithText'
 import { NavLinkS, TextWithFamily } from '@shared/ui/Typography'
 
 import { NavigationLinks, productLinks } from './constants'

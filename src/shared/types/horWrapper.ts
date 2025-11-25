@@ -1,4 +1,4 @@
-export interface horWrapperType {
+export interface HorWrapperType {
   rightSection?: React.ReactNode
   bgImage?: string
   isReverseWrap?: boolean

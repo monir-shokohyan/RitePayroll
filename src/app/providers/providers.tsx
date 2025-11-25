@@ -1,6 +1,7 @@
 import { PropsWithChildren } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import ReactLenis from 'lenis/react'
+
 import { ThemeProvider } from './theme-provider'
 
 export const Providers = ({ children }: PropsWithChildren) => {

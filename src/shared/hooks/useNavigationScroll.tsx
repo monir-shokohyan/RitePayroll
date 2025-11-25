@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/prefer-query-selector */
 import { useNavigate } from 'react-router-dom'
 
 const useNavigationScroll = () => {
@@ -23,4 +24,4 @@ const useNavigationScroll = () => {
   }
 }
 
-export default useNavigationScroll
+export { useNavigationScroll }

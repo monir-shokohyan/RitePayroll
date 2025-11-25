@@ -20,7 +20,7 @@ import {
 
 import { SavedColors } from '@shared/constants'
 
-import useChatBotifyBot from '../modal/useChatBotify'
+import { useChatBotifyBot } from '../modal/useChatBotify'
 import {
   ChatContainer,
   ContactBar,

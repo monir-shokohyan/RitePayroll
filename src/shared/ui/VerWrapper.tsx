@@ -1,6 +1,6 @@
 import { VerticalLine } from '@features/app-layout/styles'
 import { SavedColors } from '@shared/constants'
-import { horWrapperType } from '@shared/types/horWrapper'
+import { HorWrapperType } from '@shared/types/horWrapper'
 import { BgFlex } from '@shared/ui/BgFlex'
 
 import { TextResponsive, TitleWithFamily } from './Typography'
@@ -10,7 +10,7 @@ const VerWrapper = ({
   title,
   children,
   bgImage,
-}: horWrapperType) => {
+}: HorWrapperType) => {
   return (
     <>
       <BgFlex
@@ -50,4 +50,4 @@ const VerWrapper = ({
   )
 }
 
-export default VerWrapper
+export { VerWrapper }

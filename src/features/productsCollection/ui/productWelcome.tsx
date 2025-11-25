@@ -1,8 +1,9 @@
 import { Image } from '@mantine/core'
+import { useMediaQuery } from '@mantine/hooks'
 
 import { SavedColors } from '@shared/constants'
-import FindByName from '@shared/helpers/findByName'
-import useNavigationScroll from '@shared/hooks/useNavigationScroll'
+import { FindByName } from '@shared/helpers/findByName'
+import { useNavigationScroll } from '@shared/hooks/useNavigationScroll'
 import Container from '@shared/ui/Container'
 import Wrapper from '@shared/ui/horWrapper'
 
@@ -13,7 +14,6 @@ import {
   WelcomeTitle,
 } from '../styles/styles'
 import { ProductsType } from '../types'
-import { useMediaQuery } from '@mantine/hooks'
 
 const ProductWelcome = ({ page }: { page: ProductsType }) => {
   const { navigateAndScroll } = useNavigationScroll()
@@ -105,4 +105,4 @@ const ProductWelcome = ({ page }: { page: ProductsType }) => {
   )
 }
 
-export default ProductWelcome
+export { ProductWelcome }

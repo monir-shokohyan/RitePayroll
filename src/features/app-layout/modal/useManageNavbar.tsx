@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useDisclosure } from '@mantine/hooks'
 
-import useNavigationScroll from '@shared/hooks/useNavigationScroll'
+import { useNavigationScroll } from '@shared/hooks/useNavigationScroll'
 
 import { productLinks } from '../constants'
 
@@ -32,6 +32,7 @@ const useManageNavbar = () => {
       ]
 
       for (const sectionId of sections) {
+        // eslint-disable-next-line unicorn/prefer-query-selector
         const element = document.getElementById(sectionId)
         if (element) {
           const rect = element.getBoundingClientRect()
@@ -71,4 +72,4 @@ const useManageNavbar = () => {
   }
 }
 
-export default useManageNavbar
+export { useManageNavbar }

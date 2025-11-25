@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'
 
 import { ProductsType } from '../types'
 import { ProductsInfo } from './productsInfo'
-import ProductWelcome from './productWelcome'
+import { ProductWelcome } from './productWelcome'
 
 function Ui({ page }: { page: ProductsType }) {
   const { pathname } = useLocation()

@@ -11,7 +11,7 @@ import { MdEmail } from 'react-icons/md'
 import { Flex } from '@mantine/core'
 
 import { ImportantInfo } from '@shared/constants/companyInfo'
-import IconWithText from '@shared/ui/IconWithText'
+import { IconWithText } from '@shared/ui/IconWithText'
 
 import { UtilityContainer } from './styles'
 

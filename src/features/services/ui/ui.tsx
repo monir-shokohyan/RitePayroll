@@ -1,7 +1,7 @@
 import { memo } from 'react'
 
-import FindByName from '@shared/helpers/findByName'
-import VerWrapper from '@shared/ui/VerWrapper'
+import { FindByName } from '@shared/helpers/findByName'
+import { VerWrapper } from '@shared/ui/VerWrapper'
 
 import { ServicesGroup } from './srvicesGroup'
 

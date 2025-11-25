@@ -61,6 +61,7 @@ const NavLinkS = styled(NavLink)<StyledTextProps>`
 
   &.active {
     font-weight: ${({ fontWeight }) =>
+      // eslint-disable-next-line radix
       fontWeight ? Math.min(Number.parseInt(fontWeight) + 100, 900) : '500'};
   }
 `
@@ -102,4 +103,3 @@ const TextResponsive = styled.h1<StyledTextProps>`
 `
 
 export { LinkS, NavLinkS, TextResponsive, TextWithFamily, TitleWithFamily }
-export default TextWithFamily

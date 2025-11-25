@@ -5,7 +5,7 @@ import { useMediaQuery } from '@mantine/hooks'
 
 import { VerticalLine } from '@features/app-layout/styles'
 import { SavedColors } from '@shared/constants'
-import FindByName from '@shared/helpers/findByName'
+import { FindByName } from '@shared/helpers/findByName'
 import { ActionLayout } from '@shared/ui/ActionLayout'
 import Wrapper from '@shared/ui/horWrapper'
 import { TextResponsive, TitleWithFamily } from '@shared/ui/Typography'

@@ -60,7 +60,7 @@ const contactFormSchema = yup.object({
 
 type ContactFormData = yup.InferType<typeof contactFormSchema>
 
-export const ContactForm: React.FC = () => {
+const ContactFormMain: React.FC = () => {
   const [showSuccess, setShowSuccess] = React.useState(false)
   const [showError, setShowError] = React.useState(false)
   const [errorMessage, setErrorMessage] = React.useState('')
@@ -238,4 +238,4 @@ export const ContactForm: React.FC = () => {
   )
 }
 
-export default ContactForm
+export { ContactFormMain }

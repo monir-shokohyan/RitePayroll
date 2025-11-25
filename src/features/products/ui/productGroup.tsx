@@ -5,13 +5,13 @@ import { useNavigate } from 'react-router-dom'
 import { Button, Flex, Image } from '@mantine/core'
 
 import { SavedColors } from '@shared/constants'
-import { sectionType } from '@shared/constants/allTexts'
-import IconWithText from '@shared/ui/IconWithText'
+import { SectionType } from '@shared/constants/allTexts'
+import { IconWithText } from '@shared/ui/IconWithText'
 import { TextWithFamily } from '@shared/ui/Typography'
 
 import { Card } from '../styles/styles'
 
-const ProductGroup = ({ products }: { products: sectionType[] }) => {
+const ProductGroup = ({ products }: { products: SectionType[] }) => {
   const [id, setId] = useState('')
   const navigate = useNavigate()
   return (
@@ -88,4 +88,4 @@ const ProductGroup = ({ products }: { products: sectionType[] }) => {
   )
 }
 
-export default ProductGroup
+export { ProductGroup }

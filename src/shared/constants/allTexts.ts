@@ -1,3 +1,4 @@
+/* eslint-disable sonarjs/no-duplicate-string */
 import { IconType } from 'react-icons'
 import { BsTelephoneFill } from 'react-icons/bs'
 import {

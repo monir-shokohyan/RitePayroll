@@ -5,14 +5,14 @@ import { useMediaQuery } from '@mantine/hooks'
 
 import { VerticalLine } from '@features/app-layout/styles'
 import { SavedColors } from '@shared/constants'
-import FindByName from '@shared/helpers/findByName'
+import { FindByName } from '@shared/helpers/findByName'
 import { ActionLayout } from '@shared/ui/ActionLayout'
 import { BgFlex } from '@shared/ui/BgFlex'
 import Wrapper from '@shared/ui/horWrapper'
-import IconWithText from '@shared/ui/IconWithText'
+import { IconWithText } from '@shared/ui/IconWithText'
 import { TextResponsive, TitleWithFamily } from '@shared/ui/Typography'
 
-import ContactForm from './contactForm'
+import { ContactFormMain } from './contactForm'
 
 const Ui = memo(() => {
   const pageInfo = FindByName('contact us')
@@ -24,7 +24,7 @@ const Ui = memo(() => {
         bgImage={isTableMobile ? 'bgNet_mobile.webp' : '/bgNet.webp'}
         isReverseWrap={false}
         fullHeight={false}
-        rightSection={<ContactForm />}
+        rightSection={<ContactFormMain />}
         RSJustify="center"
         leftWidth="60%"
         rightWidth="40%"

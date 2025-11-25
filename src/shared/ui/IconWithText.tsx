@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { SavedColors } from '@shared/constants'
 
 import { Container as ContainerS } from './Container'
-import TextWithFamily, { TextResponsive } from './Typography/Typography'
+import { TextResponsive, TextWithFamily } from './Typography/Typography'
 
 interface IconWithTextProps {
   icon: IconType
@@ -104,4 +104,4 @@ const IconWithText = ({
   )
 }
 
-export default IconWithText
+export { IconWithText }
