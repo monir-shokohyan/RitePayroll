@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-pascal-case */
 import { memo } from 'react'
 import { ImCheckmark } from 'react-icons/im'
 import { MdBlock } from 'react-icons/md'
@@ -9,6 +10,7 @@ import { SavedColors } from '@shared/constants'
 import { FindByName } from '@shared/helpers/findByName'
 import { useNavigationScroll } from '@shared/hooks/useNavigationScroll'
 import { ActionLayout } from '@shared/ui/ActionLayout'
+import { CTC } from '@shared/ui/CTC'
 import Wrapper from '@shared/ui/horWrapper'
 import { IconWithText } from '@shared/ui/IconWithText'
 import { TextResponsive, TitleWithFamily } from '@shared/ui/Typography'
@@ -93,13 +95,25 @@ const Ui = memo(() => {
           $font="Roboto"
           fontSize="18px"
         >
-          {pageInfo?.description}{' '}
+          {/* <CTC
+            text=" Mr. Nikhil Shah"
+            as="a"
+            to="/"
+          /> */}
+          <span>Mr. Nikhil Shah</span>
+          {pageInfo?.description}
         </TextResponsive>
         <div />
         <TextResponsive
           $font="Roboto"
           fontSize="18px"
         >
+          {/* <CTC
+            text=" Mrs. Shital Shah"
+            as="a"
+            to="/"
+          /> */}
+          <span>Co-Director Mrs. Shital Shah</span>
           {pageInfo?.descriptionSecond}
         </TextResponsive>
 
