@@ -3,13 +3,13 @@ import { MdBlock } from 'react-icons/md'
 import { Flex } from '@mantine/core'
 
 import { SavedColors } from '@shared/constants'
-import { sectionType } from '@shared/constants/allTexts'
+import { SectionType } from '@shared/constants/allTexts'
 import useNavigationScroll from '@shared/hooks/useNavigationScroll'
-import ActionLayout from '@shared/ui/ActionLayout'
+import { ActionLayout } from '@shared/ui/ActionLayout'
 
 import { Card, CardContainer, ContactButton } from '../styles/styles'
 
-const ServicesGroup = ({ services }: { services: sectionType[] }) => {
+const ServicesGroup = ({ services }: { services: SectionType[] }) => {
   const { navigateAndScroll } = useNavigationScroll()
 
   const structuredData = {
@@ -75,4 +75,4 @@ const ServicesGroup = ({ services }: { services: sectionType[] }) => {
   )
 }
 
-export default ServicesGroup
+export { ServicesGroup }

@@ -29,7 +29,7 @@ import { Paths } from '@shared/api/paths'
 import { SavedColors } from './contant'
 import { Products } from './productsMap'
 
-export interface sectionType {
+export interface SectionType {
   name: string
   description?: string
   description1?: string
@@ -46,6 +46,8 @@ export interface sectionType {
   imgUrl?: string
   to?: string
   alt?: string
+  isActive?: boolean
+  target?: string
 }
 
 export interface TotalDataItem {
@@ -55,10 +57,10 @@ export interface TotalDataItem {
   description?: string
   descriptionSecond?: string
   target: string
-  section?: sectionType[]
-  sectionSecond?: sectionType[]
+  section?: SectionType[]
+  sectionSecond?: SectionType[]
   sectionId?: string
-  features: sectionType[]
+  features: SectionType[]
   industries?: string[]
   deployment?: string[]
   brochureLink?: string
@@ -353,24 +355,31 @@ export const TotalData: TotalDataItem[] = [
         description: 'Plot 7/9, 2nd Street Industrial Area, Kampala, Uganda',
         icon: FaLocationDot,
         ariaLabel: 'Address details',
+        isActive: false,
       },
       {
         name: 'Phone',
         description: '+256 755 818183',
+        target: 'tel:+256755818183',
         icon: FaPhoneAlt,
         ariaLabel: 'Phone details',
+        isActive: true,
       },
       {
         name: 'Email',
         description: 'sales@lotus.co.ug',
+        target: 'mailto:sales@lotus.co.ug',
         icon: MdEmail,
         ariaLabel: 'email details',
+        isActive: true,
       },
       {
         name: 'Website',
         description: 'www.lotus.co.ug',
+        target: 'https://www.lotus.co.ug',
         icon: LuGlobe,
         ariaLabel: 'website details',
+        isActive: true,
       },
     ],
   },

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-autofocus */
 import { memo } from 'react'
 import {
   FaComment,
@@ -156,6 +157,7 @@ export const Ui = memo(() => {
               <MessagesContainer>
                 {messages.map((msg, idx) => (
                   <MessageBubble
+                    // eslint-disable-next-line react/no-array-index-key
                     key={idx}
                     isUser={msg.type === 'user'}
                   >
@@ -167,7 +169,6 @@ export const Ui = memo(() => {
                         {msg.text}
                       </Text>
                     )}
-                    {/* ADD THIS BLOCK */}
                     {msg.showSocialMedia && <SocialMediaUi />}
                     {msg.showWhatsApp && (
                       <div style={{ marginTop: 12 }}>

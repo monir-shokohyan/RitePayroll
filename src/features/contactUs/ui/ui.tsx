@@ -1,18 +1,18 @@
 import { memo } from 'react'
 import { MdBlock } from 'react-icons/md'
 import { Flex, Image } from '@mantine/core'
+import { useMediaQuery } from '@mantine/hooks'
 
 import { VerticalLine } from '@features/app-layout/styles'
 import { SavedColors } from '@shared/constants'
 import FindByName from '@shared/helpers/findByName'
-import ActionLayout from '@shared/ui/ActionLayout'
+import { ActionLayout } from '@shared/ui/ActionLayout'
 import { BgFlex } from '@shared/ui/BgFlex'
 import Wrapper from '@shared/ui/horWrapper'
 import IconWithText from '@shared/ui/IconWithText'
 import { TextResponsive, TitleWithFamily } from '@shared/ui/Typography'
 
 import ContactForm from './contactForm'
-import { useMediaQuery } from '@mantine/hooks'
 
 const Ui = memo(() => {
   const pageInfo = FindByName('contact us')
@@ -147,6 +147,12 @@ const Ui = memo(() => {
               Icon={feature?.icon ?? MdBlock}
               currentWidth="20%"
               ariaLabel={feature?.ariaLabel}
+              handleClick={() => {
+                if (feature.isActive) {
+                  window.open(feature.target, '_blank')
+                }
+              }}
+              isButton={feature.isActive}
             />
           )
         })}

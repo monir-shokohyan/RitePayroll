@@ -2,6 +2,7 @@ import { memo } from 'react'
 import { IoChevronDown, IoChevronUp } from 'react-icons/io5'
 import { Link } from 'react-router-dom'
 import { Burger, Container, Image, Menu, Popover } from '@mantine/core'
+import { useMediaQuery } from '@mantine/hooks'
 
 import { SavedColors } from '@shared/constants'
 import SearchInput from '@shared/ui/searchInput/searchInput'
@@ -11,7 +12,6 @@ import useManageNavbar from './modal/useManageNavbar'
 import {
   CustomMenuItem,
   MenubarS,
-  MenuButtonContainer,
   MenuItems,
   MenuListItem,
   NavbarS,
@@ -19,7 +19,6 @@ import {
   ProductMenuTrigger,
   VerticalLine,
 } from './styles'
-import { useMediaQuery } from '@mantine/hooks'
 
 const Navbar = memo(() => {
   const {
@@ -256,4 +255,4 @@ const Navbar = memo(() => {
   )
 })
 
-export default Navbar
+export { Navbar }

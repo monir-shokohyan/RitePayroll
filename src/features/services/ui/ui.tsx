@@ -3,7 +3,7 @@ import { memo } from 'react'
 import FindByName from '@shared/helpers/findByName'
 import VerWrapper from '@shared/ui/VerWrapper'
 
-import ServicesGroup from './srvicesGroup'
+import { ServicesGroup } from './srvicesGroup'
 
 const Ui = memo(() => {
   const pageInfo = FindByName('Services')

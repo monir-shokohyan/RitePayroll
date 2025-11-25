@@ -1,7 +1,8 @@
-import { ActionIcon, Transition, Affix } from '@mantine/core'
-import { useWindowScroll } from '@mantine/hooks'
-import { SavedColors } from '@shared/constants'
 import { FaArrowUp } from 'react-icons/fa'
+import { ActionIcon, Affix, Transition } from '@mantine/core'
+import { useWindowScroll } from '@mantine/hooks'
+
+import { SavedColors } from '@shared/constants'
 
 const AffixComponent = () => {
   const [scroll, scrollTo] = useWindowScroll()

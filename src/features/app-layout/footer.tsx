@@ -158,14 +158,18 @@ const Footer = memo(() => {
               icon={FaPhoneAlt}
               text={ImportantInfo.phoneNumber}
               padding="0px"
-              $hoveractive="false"
+              $hoveractive="true"
+              handleClick={() => (window.location.href = 'tel:+256755818183')}
             />
             <IconWithText
               fontSize="14px"
               icon={MdEmail}
               text={ImportantInfo.emailAddress}
               padding="0px"
-              $hoveractive="false"
+              $hoveractive="true"
+              handleClick={() =>
+                (window.location.href = `mailto:${ImportantInfo.emailAddress}`)
+              }
             />
             <IconWithText
               fontSize="14px"
@@ -201,7 +205,7 @@ const Footer = memo(() => {
             streamline and enhance business operations. Our flagship products
             include Ritebooks, Justpay, Rite Payroll, and STAR PMS, each crafted
             to address specific business needs. As a trusted partner for Tally
-            Accounting software and a leading integrator of URA EFRIS,
+            Accounting software and a leading integrator of URA EFRIS,
           </TextWithFamily>
 
           <Flex gap={10}>
@@ -255,11 +259,11 @@ const Footer = memo(() => {
           fontSize="1rem"
           $font="Roboto"
         >
-          All Rights Reserved. Designed by Lotus Software Ltd.
+          All Rights Reserved. Designed by Lotus Software Ltd.
         </TextWithFamily>
       </Container>
     </FooterContainer>
   )
 })
 
-export default Footer
+export { Footer }

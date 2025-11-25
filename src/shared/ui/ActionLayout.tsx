@@ -7,7 +7,7 @@ import { SavedColors } from '@shared/constants'
 import { TextResponsive, TextWithFamily } from './Typography'
 
 interface ActionLayoutProps {
-  IsButton?: boolean
+  isButton?: boolean
   rotate?: number
   iconSize?: number
   buttonSize?: number | string
@@ -27,7 +27,7 @@ interface ActionLayoutProps {
   descriptionThird?: string
   descriptionForth?: string
   handleClick?: () => void
-  ariaLabel?: string // New prop for accessible name
+  ariaLabel?: string
 }
 
 const ActionIconWrapper = styled.div<{
@@ -88,7 +88,7 @@ const IconContainer = styled.div<{ $rotate: number }>`
 `
 
 const ActionLayout = ({
-  IsButton = false,
+  isButton = false,
   rotate = 0,
   iconSize = 30,
   buttonSize = '65px',
@@ -107,14 +107,12 @@ const ActionLayout = ({
   descriptionSecond,
   descriptionThird,
   descriptionForth,
-  handleClick,
-  ariaLabel, // Use new prop
+  handleClick = () => {},
+  ariaLabel,
 }: ActionLayoutProps) => {
-  // Generate a unique ID for aria-labelledby if title is used
   const titleId = title
     ? `title-${Math.random().toString(36).slice(2, 11)}`
     : undefined
-
   return (
     <Flex
       gap={gap}
@@ -124,18 +122,18 @@ const ActionLayout = ({
       w={{ base: '100%', lg: currentWidth }}
     >
       <ActionIconWrapper
-        $isButton={IsButton}
+        $isButton={isButton}
         $rotate={rotate}
         $buttonSize={buttonSize}
       >
         <ActionIcon
           size={buttonSize}
-          disabled={!IsButton}
+          disabled={!isButton}
           onClick={handleClick}
           aria-label={
-            ariaLabel || (IsButton && !title ? 'Action button' : undefined)
-          } // Fallback accessible name
-          aria-labelledby={title && IsButton ? titleId : undefined} // Link to title if available
+            ariaLabel || (isButton && !title ? 'Action button' : undefined)
+          }
+          aria-labelledby={title && isButton ? titleId : undefined}
         >
           <IconContainer $rotate={rotate}>
             <Icon
@@ -143,14 +141,13 @@ const ActionLayout = ({
               className="icon-svg"
               aria-hidden="true"
             />{' '}
-            {/* Icon is decorative */}
           </IconContainer>
         </ActionIcon>
       </ActionIconWrapper>
       {title && description ? (
         <>
           <TextResponsive
-            id={titleId} // Assign ID for aria-labelledby
+            id={titleId}
             $textalign={$textalign}
             $font="Nunito"
             fontSize={titleSize}
@@ -200,7 +197,7 @@ const ActionLayout = ({
       {titleNormal && descriptionNormal ? (
         <>
           <TextWithFamily
-            id={titleId} // Assign ID for aria-labelledby
+            id={titleId}
             $textalign={$textalign}
             $font="Nunito"
             fontSize={titleSize}
@@ -221,4 +218,4 @@ const ActionLayout = ({
   )
 }
 
-export default ActionLayout
+export { ActionLayout }

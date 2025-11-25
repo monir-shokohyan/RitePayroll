@@ -10,10 +10,10 @@ import { LuGlobe } from 'react-icons/lu'
 import { MdEmail } from 'react-icons/md'
 import { Flex } from '@mantine/core'
 
+import { ImportantInfo } from '@shared/constants/companyInfo'
 import IconWithText from '@shared/ui/IconWithText'
 
 import { UtilityContainer } from './styles'
-import { ImportantInfo } from '@shared/constants/companyInfo'
 
 const UtilityBar = memo(() => {
   return (
@@ -76,4 +76,4 @@ const UtilityBar = memo(() => {
   )
 })
 
-export default UtilityBar
+export { UtilityBar }
