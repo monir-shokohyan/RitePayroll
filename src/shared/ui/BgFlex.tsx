@@ -7,12 +7,13 @@ interface BgFlexProps extends FlexProps {
   bg?: string
   opacity?: number
   bgc?: string
+  $isSticky?: boolean
 }
 
 export const BgFlex = styled(Flex)<BgFlexProps>`
   position: relative;
   animation: ${fadeIn} 1s ease-out 0.2s both;
-  overflow: hidden;
+  overflow: ${({ $isSticky }) => ($isSticky ? 'visible' : 'hidden')};
   &::before {
     content: '';
     position: absolute;

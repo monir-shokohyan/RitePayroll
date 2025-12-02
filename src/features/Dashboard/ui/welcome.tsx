@@ -8,7 +8,7 @@ import { FindByName } from '@shared/helpers/findByName'
 import { useNavigationScroll } from '@shared/hooks/useNavigationScroll'
 import Container from '@shared/ui/Container'
 import { CTC } from '@shared/ui/CTC'
-import Wrapper from '@shared/ui/horWrapper'
+import { horWrapper as Wrapper } from '@shared/ui/horWrapper'
 
 import {
   HoveredButtonWithBorder,

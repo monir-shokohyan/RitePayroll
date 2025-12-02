@@ -2,7 +2,10 @@
 import { IconType } from 'react-icons'
 import { BsTelephoneFill } from 'react-icons/bs'
 import {
+  FaClipboardList,
   FaCloudDownloadAlt,
+  FaCrown,
+  FaGem,
   FaHandsHelping,
   FaMobileAlt,
   FaPhoneAlt,
@@ -30,6 +33,12 @@ import { Paths } from '@shared/api/paths'
 import { SavedColors } from './contant'
 import { Products } from './productsMap'
 
+export interface EditionType {
+  name: string
+  description: string
+  icon?: IconType
+  editions?: Pick<SectionType, 'name' | 'description' | 'icon'>[]
+}
 export interface SectionType {
   name: string
   description?: string
@@ -56,6 +65,7 @@ export interface TotalDataItem {
   title?: string
   imageUrl?: string
   description?: string
+  overview?: string
   descriptionSecond?: string
   target: string
   section?: SectionType[]
@@ -65,6 +75,7 @@ export interface TotalDataItem {
   industries?: string[]
   deployment?: string[]
   brochureLink?: string
+  edition?: EditionType
 }
 
 export const TotalData: TotalDataItem[] = [
@@ -177,11 +188,11 @@ export const TotalData: TotalDataItem[] = [
       {
         name: 'RITEEATS',
         description:
-          'Comprehensive restaurant and bar management software supporting fine dining, takeaway, delivery, and events.',
+          'RiteEats is built to improve operational efficiency, financial accuracy and customer service for food businesses of all sizes. It centralizes operations into one secure, real-time system.',
         features: [
-          'Table, Takeaway & Delivery Management',
-          'Kitchen Display System (KDS)',
-          'Recipe & Cost Control',
+          'POS Billing & Kitchen Automation',
+          'Inventory & Recipe Costing',
+          'Promotions, Loyalty & Reservations',
         ],
         color: SavedColors.productRed,
         imgUrl: '/products/Rite-eats.webp',
@@ -477,7 +488,7 @@ export const TotalData: TotalDataItem[] = [
 
   {
     name: Products.Ritebooks,
-    description:
+    overview:
       'A robust ERP solution combining accounting, inventory, POS, and manufacturing features to manage every aspect of business operations.',
     imageUrl: 'productsWelcome.png',
     features: [
@@ -510,7 +521,7 @@ export const TotalData: TotalDataItem[] = [
   },
   {
     name: Products.Ritebooks_express,
-    description:
+    overview:
       'An affordable and simplified version of Ritebooks tailored for startups and small businesses.',
     imageUrl: 'productsWelcome.png',
     features: [
@@ -539,7 +550,7 @@ export const TotalData: TotalDataItem[] = [
   },
   {
     name: Products.Ritebooks_pocket,
-    description:
+    overview:
       'An Android-based accounting and POS app that provides small business owners full control from their smartphone or POS device.',
     imageUrl: 'productsWelcome.png',
     features: [
@@ -567,7 +578,7 @@ export const TotalData: TotalDataItem[] = [
   },
   {
     name: Products.Riteroutes,
-    description:
+    overview:
       'A comprehensive field sales and distribution management system for FMCG companies and distributors.',
     imageUrl: 'productsWelcome.png',
     features: [
@@ -595,7 +606,7 @@ export const TotalData: TotalDataItem[] = [
   },
   {
     name: Products.Rite_payroll,
-    description:
+    overview:
       'A complete payroll management system ensuring compliance, efficiency, and automation of HR processes.',
     imageUrl: 'productsWelcome.png',
     features: [
@@ -623,20 +634,19 @@ export const TotalData: TotalDataItem[] = [
   },
   {
     name: Products.Riteeats,
-    description:
-      'Comprehensive restaurant and bar management software supporting fine dining, takeaway, delivery, and events.',
+    overview:
+      'RiteEats is built to improve operational efficiency, financial accuracy and customer service for food businesses of all sizes. It centralizes operations into one secure, real-time system.',
     imageUrl: 'productsWelcome.png',
     features: [
-      { name: 'Table, Takeaway & Delivery Management' },
-      { name: 'Kitchen Display System (KDS)' },
-      { name: 'Recipe & Cost Control' },
-      { name: 'Queue & Reservation Management' },
-      { name: 'Inventory & Waste Tracking' },
-      { name: 'Online Ordering & Loyalty Integration' },
-      { name: 'Event & Buffet Management' },
-      { name: 'Waiter/Captain Mobile App' },
-      { name: 'URA EFRIS Integrated Billing' },
+      { name: 'POS Billing & Kitchen Automation' },
+      { name: 'Inventory & Recipe Costing' },
+      { name: 'Promotions, Loyalty & Reservations' },
+      { name: 'Event & Catering Management' },
+      { name: 'Full Accounting & Tax Compliance' },
+      { name: 'Multi-Outlet & Multi-Warehouse Control' },
     ],
+    description:
+      'RiteEats is a complete Restaurant & Bar Management Software developed by Lotus Soft Technologies Ltd. to automate hospitality operations including POS billing, kitchen order management, inventory control, recipe costing, loyalty programs and complete accounting.',
     section: [
       {
         name: 'Deployment Options',
@@ -645,16 +655,38 @@ export const TotalData: TotalDataItem[] = [
       },
       {
         name: 'Industries Served',
-        description: 'Restaurants, Bars, Cafés, Hotels, Event Venues.',
+        description:
+          'Restaurants, Cafés, Bars, Hotels, Food Chains, QSR Outlets, Takeaway Kitchens, Banquets & Catering Businesses.',
         icon: TbTargetArrow,
       },
     ],
+    edition: {
+      name: 'Available editions',
+      description: '',
+      editions: [
+        {
+          name: 'RiteEats Essentials',
+          description: 'Billing & KOT Management',
+          icon: FaClipboardList,
+        },
+        {
+          name: 'RiteEats Plus',
+          description: 'Essentials + Inventory & Recipe Control',
+          icon: FaCrown,
+        },
+        {
+          name: 'RiteEats Ultimate',
+          description: 'Plus + Complete Accounting',
+          icon: FaGem,
+        },
+      ],
+    },
     brochureLink: '',
     target: Paths.Riteeats,
   },
   {
     name: Products.Justpay,
-    description:
+    overview:
       'A multi-vendor mobile loyalty platform enabling businesses to reward and retain customers effortlessly.',
     imageUrl: 'productsWelcome.png',
     features: [
@@ -683,7 +715,7 @@ export const TotalData: TotalDataItem[] = [
   },
   {
     name: Products.Tally_prime,
-    description:
+    overview:
       "Lotus is Uganda's leading Tally Prime partner offering customization, support, and cloud solutions.",
     imageUrl: 'productsWelcome.png',
     features: [

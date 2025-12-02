@@ -7,7 +7,7 @@ import { VerticalLine } from '@features/app-layout/styles'
 import { SavedColors } from '@shared/constants'
 import { FindByName } from '@shared/helpers/findByName'
 import { ActionLayout } from '@shared/ui/ActionLayout'
-import Wrapper from '@shared/ui/horWrapper'
+import { horWrapper as Wrapper } from '@shared/ui/horWrapper'
 import { TextResponsive, TitleWithFamily } from '@shared/ui/Typography'
 
 const Ui = memo(() => {

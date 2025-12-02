@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { AnyObject } from 'yup'
 
 import { getAIResponse } from '../libs/ai'
 import { quickBtnStyle } from '../styles'
@@ -63,7 +64,7 @@ const useChatBotifyBot = () => {
       },
 
       handle_input: {
-        function: async (params: any) => {
+        function: async (params: AnyObject) => {
           const userMsg = params.userInput?.trim()
           if (!userMsg) return
 
@@ -89,7 +90,6 @@ const useChatBotifyBot = () => {
         },
       },
     },
-
     injectMessage: async (msg: string) => {
       setMessages((prev) => [...prev, { type: 'user', text: msg }])
       setIsTyping(true)

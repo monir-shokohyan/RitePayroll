@@ -10,4 +10,5 @@ export interface HorWrapperType {
   title?: string
   RSJustify?: 'flex-start' | 'center' | 'flex-end'
   isBgColor?: boolean
+  isSticky?: boolean
 }

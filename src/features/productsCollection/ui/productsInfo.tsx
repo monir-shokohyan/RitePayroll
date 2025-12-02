@@ -6,11 +6,12 @@ import { VerticalLine } from '@features/app-layout/styles'
 import { SavedColors } from '@shared/constants'
 import { FindByName } from '@shared/helpers/findByName'
 import { ActionLayout } from '@shared/ui/ActionLayout'
-import Wrapper from '@shared/ui/horWrapper'
+import { horWrapper as Wrapper } from '@shared/ui/horWrapper'
 import { IconWithText } from '@shared/ui/IconWithText'
 import { TextResponsive, TitleWithFamily } from '@shared/ui/Typography'
 
 import { ProductsType } from '../types'
+import { ProductsEditions } from './productsEditions'
 import { ProductsTableOfContent } from './productsMenu'
 
 function ProductsInfo({ page }: { page: ProductsType }) {
@@ -24,6 +25,7 @@ function ProductsInfo({ page }: { page: ProductsType }) {
       leftWidth="60%"
       rightWidth="40%"
       RSJustify="center"
+      isSticky={true}
     >
       <TextResponsive
         color={SavedColors.Primaryblue}
@@ -61,7 +63,7 @@ function ProductsInfo({ page }: { page: ProductsType }) {
         $font="Roboto"
         fontSize="18px"
       >
-        {product?.description || 'info about product'}
+        {product?.description || product?.overview || 'info about product'}
       </TextResponsive>
 
       <Flex
@@ -80,6 +82,7 @@ function ProductsInfo({ page }: { page: ProductsType }) {
           )
         })}
       </Flex>
+      <ProductsEditions page={page} />
     </Wrapper>
   )
 }

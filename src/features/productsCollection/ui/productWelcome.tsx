@@ -5,7 +5,7 @@ import { SavedColors } from '@shared/constants'
 import { FindByName } from '@shared/helpers/findByName'
 import { useNavigationScroll } from '@shared/hooks/useNavigationScroll'
 import Container from '@shared/ui/Container'
-import Wrapper from '@shared/ui/horWrapper'
+import { horWrapper as Wrapper } from '@shared/ui/horWrapper'
 
 import {
   HoveredButtonWithBorder,
@@ -62,7 +62,7 @@ const ProductWelcome = ({ page }: { page: ProductsType }) => {
         fontSize="24px"
         color={SavedColors.PrimaryWhite}
       >
-        {product?.description}
+        {product?.overview}
       </WelcomeText>
 
       <Container

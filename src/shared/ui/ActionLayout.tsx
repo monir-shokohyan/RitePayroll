@@ -144,7 +144,7 @@ const ActionLayout = ({
           </IconContainer>
         </ActionIcon>
       </ActionIconWrapper>
-      {title && description ? (
+      {title ? (
         <>
           <TextResponsive
             id={titleId}

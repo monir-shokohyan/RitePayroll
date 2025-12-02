@@ -11,6 +11,7 @@ const horWrapper = ({
   leftWidth = '55%',
   rightWidth = '45%',
   fullHeight = true,
+  isSticky = false,
 }: HorWrapperType) => {
   return (
     <>
@@ -18,6 +19,7 @@ const horWrapper = ({
         wrap={isReverseWrap ? 'wrap-reverse' : 'wrap'}
         bg={isBgColor ? `${bgImage}` : `'${bgImage}'`}
         w="100%"
+        $isSticky={true}
         opacity={0.25}
         h={{
           base: 'auto',
@@ -32,7 +34,7 @@ const horWrapper = ({
           lg: '10px 40px',
         }}
         justify="center"
-        align="center"
+        align={isSticky ? 'flex-start' : 'center'}
       >
         <BgFlex
           direction="column"
@@ -49,18 +51,31 @@ const horWrapper = ({
           {children}
         </BgFlex>
 
-        <BgFlex
-          w={{ base: '100%', lg: rightWidth }}
-          h="100%"
-          justify={RSJustify}
-          align="center"
-          p={{ base: '0px', lg: '0' }}
-        >
-          {rightSection}
-        </BgFlex>
+        {isSticky ? (
+          <BgFlex
+            w={{ base: '100%', lg: rightWidth }}
+            h="100%"
+            justify={RSJustify}
+            align="center"
+            p="100px 0px"
+            style={{ position: 'sticky', top: '70px'}}
+          >
+            {rightSection}
+          </BgFlex>
+        ) : (
+          <BgFlex
+            w={{ base: '100%', lg: rightWidth }}
+            h="100%"
+            justify={RSJustify}
+            align="center"
+            p={{ base: '0px', lg: '0' }}
+          >
+            {rightSection}
+          </BgFlex>
+        )}
       </BgFlex>
     </>
   )
 }
 
-export default horWrapper
+export { horWrapper }

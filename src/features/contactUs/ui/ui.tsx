@@ -8,7 +8,7 @@ import { SavedColors } from '@shared/constants'
 import { FindByName } from '@shared/helpers/findByName'
 import { ActionLayout } from '@shared/ui/ActionLayout'
 import { BgFlex } from '@shared/ui/BgFlex'
-import Wrapper from '@shared/ui/horWrapper'
+import { horWrapper as Wrapper } from '@shared/ui/horWrapper'
 import { IconWithText } from '@shared/ui/IconWithText'
 import { TextResponsive, TitleWithFamily } from '@shared/ui/Typography'
 
