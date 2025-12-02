@@ -58,7 +58,7 @@ const horWrapper = ({
             justify={RSJustify}
             align="center"
             p="100px 0px"
-            style={{ position: 'sticky', top: '70px'}}
+            style={{ position: 'sticky', top: '70px' }}
           >
             {rightSection}
           </BgFlex>
