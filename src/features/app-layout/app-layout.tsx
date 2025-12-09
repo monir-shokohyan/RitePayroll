@@ -6,7 +6,6 @@ import { ErrorSuspense } from '@shared/ui/error-suspense'
 import { AffixComponent } from './Affix'
 import { Content } from './content'
 import { Navbar } from './navbar'
-import { UtilityBar } from './utilityBar'
 
 const Footer = lazy(() =>
   import('./footer').then((module) => ({ default: module.Footer })),
@@ -14,7 +13,6 @@ const Footer = lazy(() =>
 export const AppLayout = () => {
   return (
     <div>
-      <UtilityBar />
       <Navbar />
       <Content />
       <ChatBot />

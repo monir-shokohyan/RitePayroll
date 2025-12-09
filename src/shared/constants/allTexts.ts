@@ -1,36 +1,33 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 import { IconType } from 'react-icons'
-import { BsTelephoneFill } from 'react-icons/bs'
 import {
+  FaArchway,
+  FaBirthdayCake,
   FaClipboardList,
-  FaCloudDownloadAlt,
+  FaClock,
+  FaCoffee,
   FaCrown,
   FaGem,
+  FaGlassWhiskey,
+  FaHamburger,
   FaHandsHelping,
-  FaMobileAlt,
+  FaHotel,
+  FaMusic,
   FaPhoneAlt,
-  FaReply,
   FaShieldAlt,
+  FaShoppingBag,
+  FaStoreAlt,
+  FaUtensils,
 } from 'react-icons/fa'
-import {
-  FaCartShopping,
-  FaCloud,
-  FaComputer,
-  FaGlobe,
-  FaLaptop,
-  FaLocationDot,
-  FaTrophy,
-} from 'react-icons/fa6'
+import { FaLocationDot, FaTrophy } from 'react-icons/fa6'
 import { GrPowerCycle } from 'react-icons/gr'
 import { HiLightBulb } from 'react-icons/hi'
-import { IoIosTime } from 'react-icons/io'
 import { LuGlobe } from 'react-icons/lu'
-import { MdEmail, MdRemoveRedEye, MdTouchApp } from 'react-icons/md'
+import { MdEmail, MdRemoveRedEye } from 'react-icons/md'
 import { TbTargetArrow } from 'react-icons/tb'
 
 import { Paths } from '@shared/api/paths'
 
-import { SavedColors } from './contant'
 import { Products } from './productsMap'
 
 export interface EditionType {
@@ -65,6 +62,7 @@ export interface TotalDataItem {
   title?: string
   imageUrl?: string
   description?: string
+  dTitle?: string
   overview?: string
   descriptionSecond?: string
   target: string
@@ -122,253 +120,91 @@ export const TotalData: TotalDataItem[] = [
       },
     ],
   },
+
   {
-    name: 'Products',
-    title:
-      'Lotus Soft Technologies offers a suite of integrated business software products designed for diverse industries.',
+    name: 'industries',
+    dTitle: 'Explore',
+    title: 'INDUSTRIES SERVED',
     target: '/',
-    sectionId: 'dashboard-products-section',
+    sectionId: 'dashboard-industries-section',
     features: [
       {
-        name: 'RITEBOOKS',
-        description:
-          'A robust ERP solution combining accounting, inventory, POS, and manufacturing features to manage every aspect of business operations.',
-        features: [
-          'POS with URA EFRIS Integration',
-          'User Role Permissions & Audit Trails',
-          ' Manufacturing & Assembly Modules',
-        ],
-        color: SavedColors.productBlue,
-        imgUrl: '/products/Ritebooks.webp',
-        to: '/products/ritebooks',
-        alt: 'Ritebooks ERP software interface',
+        name: 'Restaurants',
+        icon: FaUtensils,
+        ariaLabel: 'Restaurants industry',
+        isActive: true,
       },
       {
-        name: 'JustPay',
-        description:
-          'A multi-vendor mobile loyalty platform enabling businesses to reward and retain customers effortlessly.',
-        features: [
-          'Real-Time Offers & Notifications',
-          'Integration with POS & Ritebooks',
-          'Multi-Branch and Multi-Currency Support',
-        ],
-        color: SavedColors.productOrange,
-        imgUrl: '/products/Just-pay.webp',
-        to: '/products/justpay',
-        alt: 'JustPay mobile loyalty platform',
+        name: 'Cafés',
+        icon: FaCoffee,
+        ariaLabel: 'Cafés industry',
+        isActive: true,
       },
       {
-        name: 'RITEPAYROLL',
-        description:
-          'A complete payroll management system ensuring compliance, efficiency, and automation of HR processes.',
-        features: [
-          'PAYE, NSSF & LST Compliance',
-          'Employee Self-Service (ESS)',
-          'Loan & Advance Management',
-        ],
-        color: SavedColors.productGreen,
-        imgUrl: '/products/Rite-payroll.webp',
-        to: '/products/rite-payroll',
-        alt: 'RitePayroll management system dashboard',
+        name: 'Bars',
+        icon: FaGlassWhiskey,
+        ariaLabel: 'Bars industry',
+        isActive: true,
       },
       {
-        name: 'RITEBOOKS POCKET',
-        description:
-          'An Android-based accounting and POS app that provides small business owners full control from their smartphone or POS device.',
-        features: [
-          'Sales, Purchase & Expense Entry',
-          'Daily Summary Dashboard',
-          'POS Billing & Receipt Printing',
-        ],
-        color: SavedColors.productRedBrown,
-        imgUrl: '/products/Ritebooks-pocket.webp',
-        to: '/products/ritebooks-pocket',
-        alt: 'Ritebooks Pocket mobile app interface',
+        name: 'Clubs',
+        icon: FaMusic,
+        ariaLabel: 'Clubs industry',
+        isActive: true,
       },
       {
-        name: 'RITEEATS',
-        description:
-          'RiteEats is built to improve operational efficiency, financial accuracy and customer service for food businesses of all sizes. It centralizes operations into one secure, real-time system.',
-        features: [
-          'POS Billing & Kitchen Automation',
-          'Inventory & Recipe Costing',
-          'Promotions, Loyalty & Reservations',
-        ],
-        color: SavedColors.productRed,
-        imgUrl: '/products/Rite-eats.webp',
-        to: '/products/riteeats',
-        alt: 'RiteEats restaurant management software',
+        name: 'Food Courts',
+        icon: FaStoreAlt,
+        ariaLabel: 'Food Courts industry',
+        isActive: true,
       },
       {
-        name: 'RITEROUTES',
-        description:
-          'A comprehensive field sales and distribution management system for FMCG companies and distributors.',
-        features: [
-          'Route Planning & Sales Rep Assignment',
-          'GPS Tracking & Real-Time Monitoring',
-          'Order Booking & Delivery Confirmation',
-        ],
-        color: SavedColors.productViolet,
-        imgUrl: '/products/Rite-routes.webp',
-        to: '/products/riteroutes',
-        alt: 'RiteRoutes field sales tracking interface',
+        name: 'Fast Food Chains',
+        icon: FaHamburger,
+        ariaLabel: 'Fast Food Chains industry',
+        isActive: true,
       },
       {
-        name: 'RITEBOOKS EXPRESS',
-        description:
-          'An affordable and simplified version of Ritebooks tailored for startups and small businesses.',
-        features: [
-          'Basic Accounting – Sales, Purchases, Receipts, Payments',
-          'Inventory Control with Reorder Alerts',
-          'POS Billing with Barcode Scanning',
-        ],
-        color: SavedColors.productBrown,
-        imgUrl: '/products/Ritebooks-express.webp',
-        to: '/products/ritebooks-express',
-        alt: 'Ritebooks Express accounting software',
+        name: 'QSR',
+        icon: FaClock,
+        ariaLabel: 'Quick Service Restaurants (QSR)',
+        isActive: true,
       },
       {
-        name: 'TallyPrime',
-        description:
-          "Lotus is Uganda's leading Tally Prime partner offering customization, support, and cloud solutions.",
-        features: [
-          'Full Accounting & Financial Management',
-          'VAT & URA EFRIS Compliance',
-          'Multi-Currency & Cost Centre Reporting',
-        ],
-        color: SavedColors.productPink,
-        imgUrl: '/products/Tally-prime.webp',
-        to: '/products/tally-prime',
-        alt: 'TallyPrime accounting software interface',
+        name: 'Takeaway Kitchens',
+        icon: FaShoppingBag,
+        ariaLabel: 'Takeaway Kitchens industry',
+        isActive: true,
+      },
+      {
+        name: 'Hotels',
+        icon: FaHotel,
+        ariaLabel: 'Hotels industry',
+        isActive: true,
+      },
+      {
+        name: 'Banquet Halls',
+        icon: FaArchway,
+        ariaLabel: 'Banquet Halls industry',
+        isActive: true,
+      },
+      {
+        name: 'Catering Businesses',
+        icon: FaBirthdayCake,
+        ariaLabel: 'Catering Businesses industry',
+        isActive: true,
       },
     ],
   },
   {
-    name: 'Services',
-    title: 'What We Offer',
-    target: '/',
-    sectionId: 'dashboard-services-section',
-    features: [
-      {
-        icon: FaLaptop,
-        name: 'Custom Software Development',
-        description:
-          'Tailor-made ERP, CRM, and workflow systems designed to fit unique business processes.',
-        seo: {
-          title: 'Custom Software Development Uganda',
-          description:
-            'Tailor-made ERP, CRM, and workflow systems designed to fit unique business processes.',
-        },
-      },
-      {
-        icon: FaMobileAlt,
-        name: 'Custom Mobile Application Development',
-        description:
-          'Develop Android and iOS apps that improve business mobility and customer engagement.',
-        seo: {
-          title: 'Custom Mobile Application Development Uganda',
-          description:
-            'Develop Android and iOS apps that improve business mobility and customer engagement.',
-        },
-      },
-      {
-        icon: MdTouchApp,
-        name: 'URA EFRIS Integration',
-        description:
-          'Comprehensive EFRIS fiscalization setup, invoice automation, and system synchronization.',
-        seo: {
-          title: 'URA EFRIS Integration Uganda',
-          description:
-            'Comprehensive EFRIS fiscalization setup, invoice automation, and system synchronization.',
-        },
-      },
-      {
-        icon: FaCloudDownloadAlt,
-        name: 'Tally Customization & Cloud Services',
-        description:
-          'Enhance Tally Prime with local compliance, custom modules, and remote access.',
-        seo: {
-          title: 'Tally Customization & Cloud Services Uganda',
-          description:
-            'Enhance Tally Prime with local compliance, custom modules, and remote access.',
-        },
-      },
-      {
-        icon: FaCloud,
-        name: 'Cloud Hosting & Backup',
-        description:
-          'Secure hosting environments with regular data backup and recovery solutions.',
-        seo: {
-          title: 'Cloud Hosting & Backup Uganda',
-          description:
-            'Secure hosting environments with regular data backup and recovery solutions.',
-        },
-      },
-      {
-        icon: FaGlobe,
-        name: 'Website Development & Hosting',
-        description:
-          'Responsive, SEO-optimized websites with integrated hosting and maintenance.',
-        seo: {
-          title: 'Website Development & Hosting Uganda',
-          description:
-            'Responsive, SEO-optimized websites with integrated hosting and maintenance.',
-        },
-      },
-      {
-        icon: FaCartShopping,
-        name: 'E-Commerce Integrations',
-        description:
-          'Shopify and WooCommerce integrations to sync your online store with accounting & inventory.',
-        seo: {
-          title: 'E-Commerce Integrations Uganda',
-          description:
-            'Shopify and WooCommerce integrations to sync your online store with accounting & inventory.',
-        },
-      },
-      {
-        icon: FaComputer,
-        name: 'IT Infrastructure & Hardware Solutions',
-        description:
-          'Lotus provides enterprise-grade hardware solutions: HP & DELL servers, SOPHOS firewalls, POS systems, laptops, and antivirus solutions.',
-        seo: {
-          title: 'E-Commerce Integrations Uganda',
-          description:
-            'Shopify and WooCommerce integrations to sync your online store with accounting & inventory.',
-        },
-      },
-    ],
-  },
-  {
-    name: 'Contact Us',
-    title: 'Get in Touch with Lotus Soft Technologies Ltd.',
+    name: 'contact us',
+    dTitle: 'Have a Question ?',
+    title: 'CONTACT US',
     description:
-      'We’re here to assist you with any inquiries about our products, services, or custom solutions. Reach out to us through the contact form below or use the provided information to connect with our team directly.',
-    section: [
-      { name: 'Reply within 24 hrs', icon: FaReply },
-      { name: 'Telephone support', icon: BsTelephoneFill },
-    ],
-    sectionSecond: [
-      {
-        name: 'Open Hours',
-        icon: IoIosTime,
-        description: 'Mon - Fri',
-        description1: '9:00AM - 06:00PM ',
-        description2: 'Sat',
-        description3: '9:00AM - 01:00PM ',
-        ariaLabel: 'open hours icon',
-      },
-    ],
+      'To request a quote or want to meet up for coffee. contact us directly or fill up the form and we will get back to you promptly.',
     target: '/',
     sectionId: 'dashboard-contact-section',
     features: [
-      {
-        name: 'Address',
-        description: 'Plot 7/9, 2nd Street Industrial Area, Kampala, Uganda',
-        icon: FaLocationDot,
-        ariaLabel: 'Address details',
-        isActive: false,
-      },
       {
         name: 'Phone',
         description: '+256 755 818183',
@@ -392,6 +228,13 @@ export const TotalData: TotalDataItem[] = [
         icon: LuGlobe,
         ariaLabel: 'website details',
         isActive: true,
+      },
+      {
+        name: 'Address',
+        description: 'Plot 7/9, 2nd Street Industrial Area, Kampala, Uganda',
+        icon: FaLocationDot,
+        ariaLabel: 'Address details',
+        isActive: false,
       },
     ],
   },

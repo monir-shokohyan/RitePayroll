@@ -12,12 +12,7 @@ const Wrapper = styled(Flex)<FlexProps>`
 export const Content = ({ title, children, ...props }: Props) => {
   return (
     <div {...props}>
-      <Wrapper
-        direction="column"
-        gap={{ base: 20, sm: 25, md: 30 }}
-      >
-        {children}
-      </Wrapper>
+      <Wrapper direction="column">{children}</Wrapper>
     </div>
   )
 }

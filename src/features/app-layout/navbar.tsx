@@ -7,7 +7,7 @@ import { useMediaQuery } from '@mantine/hooks'
 import { SavedColors } from '@shared/constants'
 import SearchInput from '@shared/ui/searchInput/searchInput'
 
-import { productLinks } from './constants'
+import { addonLinks } from './constants'
 import { useManageNavbar } from './modal/useManageNavbar'
 import {
   CustomMenuItem,
@@ -39,7 +39,7 @@ const Navbar = memo(() => {
     <NavbarS>
       <MenubarS>
         <Image
-          src="/lotus-logo.webp"
+          src="/Rite eats fill.png"
           alt="lotus logo"
           w={{ base: '120', lg: '150px' }}
           h={{ base: '60px', lg: '65px' }}
@@ -61,7 +61,35 @@ const Navbar = memo(() => {
         >
           About Us
         </MenuItems>
+        <MenuItems
+          to="/"
+          onClick={() => navigateAndScroll('/', 'dashboard-editions-section')}
+          className={getSectionActive('dashboard-editions-section')}
+        >
+          Editions
+        </MenuItems>
 
+        <MenuItems
+          to="/"
+          onClick={() => navigateAndScroll('/', 'dashboard-contact-section')}
+          className={getSectionActive('dashboard-contact-section')}
+        >
+          Contact Us
+        </MenuItems>
+        <MenuItems
+          to="/"
+          onClick={() => navigateAndScroll('/', 'dashboard-features-section')}
+          className={getSectionActive('dashboard-features-section')}
+        >
+          Features
+        </MenuItems>
+        <MenuItems
+          to="/"
+          onClick={() => navigateAndScroll('/', 'dashboard-industries-section')}
+          className={getSectionActive('dashboard-industries-section')}
+        >
+          Industries
+        </MenuItems>
         <Menu
           width={200}
           position="bottom"
@@ -76,12 +104,12 @@ const Navbar = memo(() => {
               as="button"
               role="button"
               className={isProductsActive ? 'active' : ''}
-              aria-label="Toggle products menu"
+              aria-label="Toggle addon menu"
               aria-haspopup="menu"
               aria-expanded={desktopProductsOpen}
-              aria-controls="products-menu"
+              aria-controls="addon-menu"
             >
-              Products
+              Addon
               {desktopProductsOpen ? (
                 <IoChevronUp style={{ marginLeft: '5px' }} />
               ) : (
@@ -90,7 +118,7 @@ const Navbar = memo(() => {
             </ProductMenuTrigger>
           </Menu.Target>
           <Menu.Dropdown>
-            {productLinks.map((link) => (
+            {addonLinks.map((link) => (
               <CustomMenuItem
                 key={link.to}
                 component={Link}
@@ -104,21 +132,13 @@ const Navbar = memo(() => {
             ))}
           </Menu.Dropdown>
         </Menu>
-
-        <MenuItems
-          to="/"
-          onClick={() => navigateAndScroll('/', 'dashboard-contact-section')}
-          className={getSectionActive('dashboard-contact-section')}
-        >
-          Contact Us
-        </MenuItems>
       </MenubarS>
 
       <SearchInput
         $showsearch={false}
         deActiveMenu={() => close()}
       />
-
+      {/* mobile code */}
       <Popover
         width={300}
         position="bottom"
@@ -131,7 +151,7 @@ const Navbar = memo(() => {
           <Burger
             lineSize={3}
             size="md"
-            color={SavedColors.Primaryblue}
+            color={SavedColors.TextColor}
             opened={opened}
             onClick={toggle}
             aria-label={
@@ -172,7 +192,55 @@ const Navbar = memo(() => {
           >
             About Us
           </MenuListItem>
+          <MenuListItem
+            to="/"
+            onClick={() => {
+              navigateAndScroll('/', 'dashboard-editions-section')
+              toggle()
+            }}
+            className={
+              activeSection === 'dashboard-editions-section' ? 'active' : ''
+            }
+          >
+            Editions
+          </MenuListItem>
 
+          <MenuListItem
+            to="/"
+            onClick={() => {
+              toggle()
+              navigateAndScroll('/', 'dashboard-contact-section')
+            }}
+            className={
+              activeSection === 'dashboard-contact-section' ? 'active' : ''
+            }
+          >
+            Contact Us
+          </MenuListItem>
+          <MenuListItem
+            to="/"
+            onClick={() => {
+              toggle()
+              navigateAndScroll('/', 'dashboard-features-section')
+            }}
+            className={
+              activeSection === 'dashboard-features-section' ? 'active' : ''
+            }
+          >
+            Features
+          </MenuListItem>
+          <MenuListItem
+            to="/"
+            onClick={() => {
+              toggle()
+              navigateAndScroll('/', 'dashboard-industries-section')
+            }}
+            className={
+              activeSection === 'dashboard-industries-section' ? 'active' : ''
+            }
+          >
+            Industries
+          </MenuListItem>
           <Menu
             width={250}
             position="bottom"
@@ -192,7 +260,7 @@ const Navbar = memo(() => {
                 aria-expanded={mobileProductsOpen}
                 aria-controls="mobile-products-menu"
               >
-                Products
+                Addon
                 {mobileProductsOpen ? (
                   <IoChevronUp style={{ marginLeft: '5px' }} />
                 ) : (
@@ -201,7 +269,7 @@ const Navbar = memo(() => {
               </ProductMenuListTrigger>
             </Menu.Target>
             <Menu.Dropdown id="mobile-products-menu">
-              {productLinks.map((link) => (
+              {addonLinks.map((link) => (
                 <CustomMenuItem
                   key={link.to}
                   component={Link}
@@ -217,19 +285,6 @@ const Navbar = memo(() => {
               ))}
             </Menu.Dropdown>
           </Menu>
-
-          <MenuListItem
-            to="/"
-            onClick={() => {
-              toggle()
-              navigateAndScroll('/', 'dashboard-contact-section')
-            }}
-            className={
-              activeSection === 'dashboard-contact-section' ? 'active' : ''
-            }
-          >
-            Contact Us
-          </MenuListItem>
 
           <VerticalLine
             opacity={20}
@@ -251,6 +306,7 @@ const Navbar = memo(() => {
           </Container>
         </Popover.Dropdown>
       </Popover>
+      {/* mobile code */}
     </NavbarS>
   )
 })

@@ -1,97 +1,24 @@
 import { memo } from 'react'
-import { MdBlock } from 'react-icons/md'
-import { Flex, Image } from '@mantine/core'
-import { useMediaQuery } from '@mantine/hooks'
 
-import { VerticalLine } from '@features/app-layout/styles'
-import { SavedColors } from '@shared/constants'
-import { FindByName } from '@shared/helpers/findByName'
-import { ActionLayout } from '@shared/ui/ActionLayout'
-import { BgFlex } from '@shared/ui/BgFlex'
 import { horWrapper as Wrapper } from '@shared/ui/horWrapper'
-import { IconWithText } from '@shared/ui/IconWithText'
-import { TextResponsive, TitleWithFamily } from '@shared/ui/Typography'
 
 import { ContactFormMain } from './contactForm'
+import { ContactInfo } from './contactInfo'
 
 const Ui = memo(() => {
-  const pageInfo = FindByName('contact us')
-  const isTableMobile = useMediaQuery('(max-width: 760px)')
-
   return (
     <div id="dashboard-contact-section">
       <Wrapper
-        bgImage={isTableMobile ? 'bgNet_mobile.webp' : '/bgNet.webp'}
         isReverseWrap={false}
         fullHeight={false}
-        rightSection={<ContactFormMain />}
+        rightSection={<ContactInfo />}
         RSJustify="center"
-        leftWidth="60%"
-        rightWidth="40%"
+        leftWidth="50%"
+        rightWidth="45%"
+        desTitle="Have a Question ?"
+        title="CONTACT US"
       >
-        <TextResponsive
-          color={SavedColors.Primaryblue}
-          fontSize="18px"
-          fontWeight="600"
-        >
-          {pageInfo?.name}
-        </TextResponsive>
-        <TitleWithFamily
-          $font="Nunito"
-          fontSize="48px"
-          fontWeight="800"
-        >
-          {pageInfo?.title}
-        </TitleWithFamily>
-        <VerticalLine opacity={20} />
-
-        <Flex wrap="wrap">
-          {pageInfo?.section?.map((section) => {
-            return (
-              <Flex
-                key={section.name}
-                direction="column"
-                w={{ base: '100%', lg: '50%' }}
-              >
-                <IconWithText
-                  fontWeight="600"
-                  $hoveractive="false"
-                  icon={section?.icon ?? MdBlock}
-                  allowTextRes
-                  textRes={section?.name}
-                  textColor={SavedColors.TextColor}
-                />
-              </Flex>
-            )
-          })}
-        </Flex>
-
-        <TextResponsive
-          $font="Roboto"
-          fontSize="18px"
-        >
-          {pageInfo?.description}
-        </TextResponsive>
-        {pageInfo?.sectionSecond?.map((sectionSecond) => {
-          return (
-            <ActionLayout
-              key={sectionSecond.name}
-              title={sectionSecond?.name}
-              description={sectionSecond?.description}
-              descriptionSecond={sectionSecond?.description1}
-              descriptionThird={sectionSecond?.description2}
-              descriptionForth={sectionSecond?.description3}
-              Icon={sectionSecond?.icon ?? MdBlock}
-              ariaLabel={sectionSecond?.ariaLabel}
-              textSize="16px"
-            />
-          )
-        })}
-
-        <Flex
-          wrap="wrap"
-          gap={20}
-        />
+        <ContactFormMain />
       </Wrapper>
 
       <div
@@ -117,46 +44,6 @@ const Ui = memo(() => {
           title="Map showing location at coordinates 0°19'16.6'N 32°36'10.2'E in Uganda"
         />
       </div>
-      <BgFlex
-        bg={SavedColors.lightBlue}
-        w="100%"
-        h={{ base: 'auto', sm: 'auto', md: 'auto', lg: '30vh' }}
-        p={{
-          base: '10px 16px',
-          sm: '10px 24px',
-          md: '10px 32px',
-          lg: '20px 40px',
-        }}
-        justify="center"
-        align="flex-start"
-        gap={20}
-        wrap="wrap"
-        style={{ overflow: 'hidden' }}
-      >
-        <Image
-          src={isTableMobile ? 'bgNet_mobile.webp' : '/bgNet.webp'}
-          style={{ position: 'absolute', opacity: '0.25' }}
-          alt="background image"
-        />
-        {pageInfo?.features.map((feature) => {
-          return (
-            <ActionLayout
-              key={feature.name}
-              title={feature?.name}
-              description={feature?.description}
-              Icon={feature?.icon ?? MdBlock}
-              currentWidth="20%"
-              ariaLabel={feature?.ariaLabel}
-              handleClick={() => {
-                if (feature.isActive) {
-                  window.open(feature.target, '_blank')
-                }
-              }}
-              isButton={feature.isActive}
-            />
-          )
-        })}
-      </BgFlex>
     </div>
   )
 })

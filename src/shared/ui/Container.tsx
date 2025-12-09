@@ -19,6 +19,7 @@ interface FlexProps extends MantineFlexProps {
   mh?: string
   minw?: string
   minh?: string
+  border?: string
 }
 
 const Container = styled(MantineFlex)<FlexProps>`
@@ -32,6 +33,7 @@ const Container = styled(MantineFlex)<FlexProps>`
   min-width: ${({ minw }) => minw || 'auto'};
   min-height: ${({ minh }) => minh || 'auto'};
   max-height: ${({ mh }) => mh || 'auto'};
+  border: ${({ border }) => border || 'auto'};
 `
 
 export default Container

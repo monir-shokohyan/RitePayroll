@@ -11,4 +11,7 @@ export interface HorWrapperType {
   RSJustify?: 'flex-start' | 'center' | 'flex-end'
   isBgColor?: boolean
   isSticky?: boolean
+  desTitle?: string
+  gradientDirection?: 'bottom-to-top' | 'top-to-bottom'
+  doubleOption?: boolean
 }

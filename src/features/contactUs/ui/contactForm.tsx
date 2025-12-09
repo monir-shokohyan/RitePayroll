@@ -20,6 +20,8 @@ import styled from 'styled-components'
 import * as yup from 'yup'
 
 import { SavedColors } from '@shared/constants'
+import { FindByName } from '@shared/helpers'
+import { TextWithFamily } from '@shared/ui/Typography'
 
 interface ExtendedButtonProps
   extends ButtonProps,
@@ -28,14 +30,14 @@ interface ExtendedButtonProps
 }
 
 const HoveredButton = styled(Button)<ExtendedButtonProps>`
-  color: ${SavedColors.PrimaryWhite};
-  border: 1px solid ${SavedColors.PrimaryWhite};
+  color: ${SavedColors.primaryBlue};
+  border: 1px solid ${SavedColors.primaryBlue};
   background-color: transparent;
   transition: all 0.5s ease-in-out;
 
   &:hover {
-    color: ${SavedColors.Primaryblue};
-    background-color: ${SavedColors.PrimaryWhite};
+    color: ${SavedColors.PrimaryWhite};
+    background-color: ${SavedColors.primaryBlue};
   }
 `
 
@@ -48,10 +50,6 @@ const contactFormSchema = yup.object({
     .string()
     .email('Please enter a valid email address')
     .required('Email is required'),
-  phone: yup
-    .string()
-    .min(10, 'Please enter a valid phone number')
-    .required('Phone number is required'),
   message: yup
     .string()
     .min(10, 'Message must be at least 10 characters')
@@ -64,6 +62,7 @@ const ContactFormMain: React.FC = () => {
   const [showSuccess, setShowSuccess] = React.useState(false)
   const [showError, setShowError] = React.useState(false)
   const [errorMessage, setErrorMessage] = React.useState('')
+  const pageInfo = FindByName('contact us')
 
   const {
     register,
@@ -75,7 +74,6 @@ const ContactFormMain: React.FC = () => {
     defaultValues: {
       name: '',
       email: '',
-      phone: '',
       message: '',
     },
   })
@@ -85,7 +83,6 @@ const ContactFormMain: React.FC = () => {
       const templateParams = {
         name: data.name,
         email: data.email,
-        phone: data.phone,
         message: data.message,
         subject: 'Form Message',
         reply_to: data.email,
@@ -137,14 +134,14 @@ const ContactFormMain: React.FC = () => {
   return (
     <Flex
       p={{ base: '20px', lg: '20px' }}
-      w={{ base: '100%', lg: '80%' }}
-      bg={SavedColors.Primaryblue}
+      w={{ base: '100%', lg: '100%' }}
       style={{ borderRadius: '5px' }}
     >
       <Box
         component="form"
         w="100%"
         onSubmit={handleSubmit(onSubmit, onInvalid)}
+        style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}
       >
         <VisuallyHidden>
           <label htmlFor="name">Your Name</label>
@@ -176,6 +173,14 @@ const ContactFormMain: React.FC = () => {
             {errorMessage}
           </Notification>
         )}
+        <TextWithFamily
+          $font="Nunito"
+          fontSize="16px"
+          fontWeight="600"
+          style={{ marginBottom: '10px' }}
+        >
+          {pageInfo?.description}
+        </TextWithFamily>
 
         <TextInput
           placeholder="Enter your full name"
@@ -198,17 +203,6 @@ const ContactFormMain: React.FC = () => {
           id="email"
         />
 
-        <TextInput
-          placeholder="Enter your phone number"
-          type="tel"
-          {...register('phone')}
-          error={errors.phone?.message}
-          required
-          mb="lg"
-          size="sm"
-          id="phone"
-        />
-
         <Textarea
           placeholder="Please describe your inquiry in detail..."
           rows={5}
@@ -226,7 +220,7 @@ const ContactFormMain: React.FC = () => {
           loading={isSubmitting}
           disabled={isSubmitting}
           leftSection={
-            isSubmitting ? <Loader size="sm" /> : <CiMail size={18} />
+            isSubmitting ? <Loader size="sm" /> : <CiMail size={20} />
           }
           fullWidth
           variant="outline"

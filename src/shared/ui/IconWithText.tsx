@@ -20,7 +20,10 @@ interface IconWithTextProps {
   iconSize?: number
   padding?: string
   $hoveractive?: 'false' | 'true'
+  $border?: string
   fontSize?: string
+  $isActiveIconBg?: boolean
+  $iconContainerSize?: 'sm' | 'md' | 'lg'
   fontWeight?:
     | '100'
     | '200'
@@ -47,7 +50,7 @@ const IconWithText = ({
   icon: Icon,
   text,
   textRes,
-  iconColor = SavedColors.Primaryblue,
+  iconColor = SavedColors.TextColor,
   textColor = SavedColors.DarkWhite,
   font = 'Roboto',
   handleClick = () => {},
@@ -58,7 +61,11 @@ const IconWithText = ({
   $hoveractive = 'true',
   fontSize = '18px',
   fontWeight = '600',
+  $isActiveIconBg = true,
+  $border,
+  $iconContainerSize = 'md',
 }: IconWithTextProps) => {
+  const ContainerSize = $iconContainerSize === 'sm' ? '30px' : '45px'
   return (
     <Container $hoveractive={$hoveractive}>
       <Flex
@@ -68,10 +75,13 @@ const IconWithText = ({
         onClick={handleClick}
       >
         <ContainerS
-          h="25px"
-          w="25px"
+          h={ContainerSize}
+          w={ContainerSize}
           justify="center"
           align="center"
+          borderRadius="50%"
+          background={$isActiveIconBg ? SavedColors.PrimaryWhite : 'none'}
+          border={$border}
         >
           <Icon
             color={iconColor}
@@ -85,6 +95,7 @@ const IconWithText = ({
             $font={font}
             color={textColor}
             fontSize={fontSize}
+            fontWeight={fontWeight}
           >
             {text}
           </TextWithFamily>

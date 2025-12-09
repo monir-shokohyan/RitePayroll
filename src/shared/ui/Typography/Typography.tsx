@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components'
 import { SavedColors } from '@shared/constants'
 
 export interface StyledTextProps {
-  $font?: 'Roboto' | 'Nunito'
+  $font?: 'Roboto' | 'Nunito' | 'Tangerine'
   fontSize?: string
   fontWeight?:
     | '100'
@@ -47,7 +47,7 @@ const LinkS = styled(Link)<StyledTextProps>`
   cursor: pointer;
 
   &:hover {
-    color: ${SavedColors.Primaryblue};
+    color: ${SavedColors.primaryBlue};
   }
 `
 
@@ -56,7 +56,7 @@ const NavLinkS = styled(NavLink)<StyledTextProps>`
   cursor: pointer;
 
   &:hover {
-    color: ${SavedColors.Primaryblue};
+    color: ${SavedColors.primaryBlue};
   }
 
   &.active {

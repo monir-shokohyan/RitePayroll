@@ -42,15 +42,15 @@ const MenuItems = styled(Link)`
   transition: all 0.3s ease-in;
 
   &:hover {
-    border-bottom: 3px solid ${SavedColors.Primaryblue};
-    color: ${SavedColors.Primaryblue};
+    border-bottom: 3px solid ${SavedColors.TextColor};
+    color: ${SavedColors.TextColor};
   }
   @media (max-width: 1024px) {
     display: none;
   }
   &.active {
-    border-bottom: 3px solid ${SavedColors.Primaryblue};
-    color: ${SavedColors.Primaryblue};
+    border-bottom: 3px solid ${SavedColors.TextColor};
+    color: ${SavedColors.TextColor};
   }
 `
 
@@ -71,12 +71,12 @@ const MenuListItem = styled(Link)`
   transition: all 0.3s ease-in;
 
   &:hover {
-    background: ${SavedColors.Primaryblue};
+    background: ${SavedColors.TextColor};
     color: ${SavedColors.PrimaryWhite};
   }
   &.active {
-    background-color: ${SavedColors.Primaryblue}10;
-    color: ${SavedColors.Primaryblue};
+    background-color: ${SavedColors.TextColor}10;
+    color: ${SavedColors.TextColor};
     font-weight: 600;
   }
 `
@@ -84,7 +84,7 @@ const MenuListItem = styled(Link)`
 const MenuButton = styled.div`
   height: 45px;
   width: 45px;
-  background-color: ${SavedColors.Primaryblue};
+  background-color: ${SavedColors.TextColor};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -123,15 +123,15 @@ const ProductMenuTrigger = styled.div`
   cursor: pointer;
 
   &:hover {
-    border-bottom: 3px solid ${SavedColors.Primaryblue};
-    color: ${SavedColors.Primaryblue};
+    border-bottom: 3px solid ${SavedColors.TextColor};
+    color: ${SavedColors.TextColor};
     transform: scale(100%);
   }
   @media (max-width: 1024px) {
     display: none;
   }
   &.active {
-    color: ${SavedColors.Primaryblue};
+    color: ${SavedColors.TextColor};
     font-weight: 600;
   }
 `
@@ -156,7 +156,7 @@ const ProductMenuListTrigger = styled.div`
   cursor: pointer;
 
   &:hover {
-    background: ${SavedColors.Primaryblue};
+    background: ${SavedColors.TextColor};
     color: ${SavedColors.PrimaryWhite};
   }
 `
@@ -168,35 +168,21 @@ const CustomMenuItem = styled(Menu.Item)<any>`
   color: #012970 !important;
 
   &:hover {
-    background-color: ${SavedColors.Primaryblue} !important;
+    background-color: ${SavedColors.TextColor} !important;
     color: white !important;
   }
   &.active {
-    background-color: ${SavedColors.Primaryblue}10;
-    color: ${SavedColors.Primaryblue};
+    background-color: ${SavedColors.TextColor}10;
+    color: ${SavedColors.TextColor};
     font-weight: 600;
   }
 `
 
-const UtilityContainer = styled.nav`
-  display: flex;
-  padding-inline: 20px;
-  height: 45px;
-  width: 100vw;
-  align-items: center;
-  justify-content: space-between;
-  background-color: ${SavedColors.FooterBgColor};
-  @media (max-width: 1024px) {
-    display: none;
-  }
-`
-
-const VerticalLine = styled.div<{ opacity?: number }>`
-  width: 100%;
+const VerticalLine = styled.div`
+  width: 154px;
   height: 4px;
   border-radius: 2px;
-  background: #15b3e0;
-  opacity: ${({ opacity }) => opacity ?? 100}%;
+  background: ${SavedColors.TextColor};
 `
 
 const FooterContainer = styled.footer`
@@ -208,6 +194,7 @@ const FooterContainer = styled.footer`
   background-color: ${SavedColors.FooterBgColor};
   position: relative;
   overflow: hidden;
+  padding-block: 10px;
 
   &::before {
     content: '';
@@ -216,15 +203,11 @@ const FooterContainer = styled.footer`
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('/bgNet.webp');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     opacity: 0.25;
     z-index: 1;
-    @media (max-width: 760px) {
-      background-image: url('/bgNet_mobile.webp');
-    }
   }
 
   & > * {
@@ -260,6 +243,5 @@ export {
   NavbarS,
   ProductMenuListTrigger,
   ProductMenuTrigger,
-  UtilityContainer,
   VerticalLine,
 }
