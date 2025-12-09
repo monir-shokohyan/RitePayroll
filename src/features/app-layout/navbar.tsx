@@ -286,10 +286,7 @@ const Navbar = memo(() => {
             </Menu.Dropdown>
           </Menu>
 
-          <VerticalLine
-            opacity={20}
-            style={{ marginBlock: '10px' }}
-          />
+          <VerticalLine style={{ marginBlock: '10px' }} />
 
           <Container
             p="10px"

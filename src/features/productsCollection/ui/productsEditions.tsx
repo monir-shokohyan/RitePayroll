@@ -35,7 +35,7 @@ function ProductsEditions({ page }: { page: ProductsType }) {
       >
         {edition?.name || 'Editions'}
       </TitleWithFamily>
-      <VerticalLine opacity={20} />
+      <VerticalLine />
 
       <Flex
         wrap="wrap"

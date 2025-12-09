@@ -52,7 +52,7 @@ const Ui = memo(() => {
         >
           {pageInfo?.title}
         </TitleWithFamily>
-        <VerticalLine opacity={20} />
+        <VerticalLine />
         <Flex wrap="wrap">
           <Flex
             direction="column"

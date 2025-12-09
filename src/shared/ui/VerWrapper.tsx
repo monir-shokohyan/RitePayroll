@@ -42,7 +42,7 @@ const VerWrapper = ({
         >
           {title}
         </TitleWithFamily>
-        <VerticalLine opacity={20} />
+        <VerticalLine />
 
         {children}
       </BgFlex>

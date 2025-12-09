@@ -41,7 +41,7 @@ function ProductsInfo({ page }: { page: ProductsType }) {
       >
         {product?.name}
       </TitleWithFamily>
-      <VerticalLine opacity={20} />
+      <VerticalLine />
       <Flex direction="column">
         {product?.features.map((feature) => {
           return (

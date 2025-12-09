@@ -1,7 +1,7 @@
 import { MdKeyboardArrowRight } from 'react-icons/md'
 import { useLocation } from 'react-router-dom'
 
-import { productLinks } from '@features/app-layout/constants'
+import { addonLinks } from '@features/app-layout/constants'
 
 import {
   MenuContainer,
@@ -19,7 +19,7 @@ export const ProductsTableOfContent: React.FC = () => {
       <MenuContainer>
         <MenuTitle>Our Products</MenuTitle>
         <MenuList>
-          {productLinks.map((link) => (
+          {addonLinks.map((link) => (
             <MenuItemOnly
               key={link.to}
               to={link.to}
