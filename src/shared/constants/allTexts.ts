@@ -3,11 +3,14 @@ import { IconType } from 'react-icons'
 import {
   FaArchway,
   FaBirthdayCake,
+  FaBoxOpen,
+  FaCashRegister,
   FaClipboardList,
   FaClock,
   FaCoffee,
   FaCrown,
   FaGem,
+  FaGift,
   FaGlassWhiskey,
   FaHamburger,
   FaHandsHelping,
@@ -17,9 +20,10 @@ import {
   FaShieldAlt,
   FaShoppingBag,
   FaStoreAlt,
+  FaTable,
   FaUtensils,
 } from 'react-icons/fa'
-import { FaLocationDot, FaTrophy } from 'react-icons/fa6'
+import { FaKitchenSet, FaLocationDot, FaTrophy } from 'react-icons/fa6'
 import { GrPowerCycle } from 'react-icons/gr'
 import { HiLightBulb } from 'react-icons/hi'
 import { LuGlobe } from 'react-icons/lu'
@@ -55,6 +59,7 @@ export interface SectionType {
   alt?: string
   isActive?: boolean
   target?: string
+  distance?: number
 }
 
 export interface TotalDataItem {
@@ -196,6 +201,126 @@ export const TotalData: TotalDataItem[] = [
       },
     ],
   },
+
+  {
+    name: 'features',
+    dTitle: 'Standard',
+    title: 'CORE FEATURES',
+    target: '/',
+    sectionId: 'dashboard-features-section',
+    features: [
+      {
+        name: 'Smart POS Billing & Ordering',
+        description:
+          'Fast touch screen billing with multiple payment modes, modifiers, discounts and complimentary tracking.',
+        icon: FaCashRegister,
+        ariaLabel: 'Smart POS Billing and Ordering',
+        isActive: true,
+        distance: 0,
+      },
+      {
+        name: 'Kitchen & Bar Automation',
+        description:
+          'Integrated KOT handling, multi-kitchen/bar printing and optimized order flow.',
+        icon: FaKitchenSet,
+        ariaLabel: 'Kitchen and Bar Automation',
+        isActive: true,
+        distance: 15,
+      },
+      {
+        name: 'Table & Area Management',
+        description:
+          'Live floor management with table split, merge and shift operations.',
+        icon: FaTable,
+        ariaLabel: 'Table and Area Management',
+        isActive: true,
+        distance: 0,
+      },
+      {
+        name: 'Inventory & Recipe Control',
+        description:
+          'Multi-warehouse stock, automatic recipe deduction and accurate food costing.',
+        icon: FaBoxOpen,
+        ariaLabel: 'Inventory and Recipe Control',
+        isActive: true,
+        distance: 60,
+      },
+      {
+        name: 'Multi-Outlet & Multi-Currency',
+        description:
+          'Centralized system for multiple branches with consolidated reporting.',
+        icon: FaStoreAlt,
+        ariaLabel: 'Multi-Outlet and Multi-Currency Support',
+        isActive: true,
+        distance: 20,
+      },
+      {
+        name: 'Promotions & Loyalty',
+        description:
+          'Time-based offers, discounts and customer reward programs.',
+        icon: FaGift,
+        ariaLabel: 'Promotions and Loyalty Programs',
+        isActive: true,
+        distance: 90,
+      },
+      {
+        name: 'Security & Compliance',
+        description:
+          'Role-based access, till security, audit trails and VAT/tax compliant billing.',
+        icon: FaShieldAlt,
+        ariaLabel: 'Security and Compliance',
+        isActive: true,
+        distance: 30,
+      },
+    ],
+  },
+  {
+    name: 'addon',
+    dTitle: 'Enhance with',
+    title: 'ADVANCED ADD-ON MODULES',
+    target: '/',
+    sectionId: 'dashboard-addon-section',
+    features: [
+      {
+        name: 'Kitchen Display System (KDS)',
+        description:
+          'Real-time paperless digital order display in kitchens and bars.',
+        ariaLabel: 'Kitchen Display System',
+        isActive: true,
+      },
+      {
+        name: 'Captain/Waiter App',
+        description: 'Mobile table-side ordering on Android & iOS.',
+        ariaLabel: 'Captain and Waiter App',
+        isActive: true,
+      },
+      {
+        name: 'Customer Loyalty Management',
+        description: 'Reward programs, points, visits and targeted promotions.',
+        ariaLabel: 'Customer Loyalty Management',
+        isActive: true,
+      },
+      {
+        name: 'Online Table Reservations',
+        description: 'Digital advance bookings with real-time table control.',
+        ariaLabel: 'Online Table Reservations',
+        isActive: true,
+      },
+      {
+        name: 'Token & Queue Management',
+        description: 'High-speed queue handling for fast service counters.',
+        ariaLabel: 'Token and Queue Management',
+        isActive: true,
+      },
+      {
+        name: 'Event Management System',
+        description:
+          'Banquet, party and corporate event billing and profitability control.',
+        ariaLabel: 'Event Management System',
+        isActive: true,
+      },
+    ],
+  },
   {
     name: 'contact us',
     dTitle: 'Have a Question ?',
@@ -278,57 +403,6 @@ export const TotalData: TotalDataItem[] = [
       },
     ],
   },
-  {
-    name: 'Tesimonials',
-    title: 'What they are saying about us',
-    description:
-      'As a trusted partner for Tally Accounting software and a leading integrator of URA EFRIS, we are committed to delivering top-notch software solutions that drive efficiency and growth. We value the descriptions and suggestions of our users, always listening attentively to their feedback to create the best products tailored to their needs.',
-    target: '/',
-    sectionId: 'dashboard-testimonial-section',
-    features: [
-      {
-        star: 5,
-        description:
-          'Their software solutions are user-friendly and reliable, making our accounting processes smoother and more efficient.',
-        imageUrl: 'testim-1.webp',
-        name: 'Sara Willson',
-        position: 'Data analyst',
-      },
-      {
-        star: 5,
-        description:
-          'The integration with URA EFRIS has streamlined our compliance processes, making financial reporting effortless and reliable.',
-        imageUrl: 'testim-2.webp',
-        name: 'Saul Goodman',
-        position: 'Ceo and founder',
-      },
-      {
-        star: 5,
-        description:
-          'Their innovative solutions have significantly improved our HR workflows, enhancing team productivity and accuracy.',
-        imageUrl: 'testim-3.webp',
-        name: 'John Larson',
-        position: 'HR Manager',
-      },
-      {
-        star: 5,
-        description:
-          'The seamless integration with URA EFRIS and Tally has transformed our financial operations, saving us time and boosting accuracy.',
-        imageUrl: 'testim-4.png',
-        name: 'Emma Thompson',
-        position: 'Finance Manager',
-      },
-      {
-        star: 5,
-        description:
-          'Their software solutions are user-friendly and reliable, making our accounting processes smoother and more efficient.',
-        imageUrl: 'testim-5.png',
-        name: 'Michael Chen',
-        position: 'Operations Director',
-      },
-    ],
-  },
-
   {
     name: Products.Ritebooks,
     overview:

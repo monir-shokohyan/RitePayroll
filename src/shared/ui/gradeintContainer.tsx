@@ -16,7 +16,8 @@ interface GradientFlexProps {
   gradientDirection?: GradientDirection
 }
 
-const GradientFlex = styled(Flex)<GradientFlexProps & FlexProps>`
+export const GradientFlex = styled(Flex)<GradientFlexProps & FlexProps>`
+  padding-top: 130px;
   background: ${({ gradientDirection = 'top-to-bottom' }) =>
     gradientDirection === 'top-to-bottom'
       ? css`
@@ -53,6 +54,7 @@ const GradientContainer = ({
           fontSize="40px"
           fontWeight="600"
           $font="Tangerine"
+          $textalign="center"
         >
           {desTitle}
         </TextResponsive>
@@ -60,6 +62,7 @@ const GradientContainer = ({
           color={SavedColors.TextColor}
           fontSize="33px"
           fontWeight="600"
+          $textalign="center"
         >
           {title}
         </TextResponsive>

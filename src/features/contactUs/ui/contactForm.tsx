@@ -125,15 +125,12 @@ const ContactFormMain: React.FC = () => {
     }
   }
 
-  // Handle form validation errors
   const onInvalid = () => {
     console.log('Form has validation errors')
-    // Yup validation errors will be automatically displayed in the form
   }
 
   return (
     <Flex
-      p={{ base: '20px', lg: '20px' }}
       w={{ base: '100%', lg: '100%' }}
       style={{ borderRadius: '5px' }}
     >

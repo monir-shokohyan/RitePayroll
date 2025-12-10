@@ -39,13 +39,8 @@ const horWrapper = ({
           md: 'auto',
           lg: isBgColor ? '60vh' : fullHeight ? '90vh' : 'auto',
         }}
-        p={{
-          base: '10px 16px',
-          sm: '10px 24px',
-          md: '10px 32px',
-          lg: '40px 40px',
-        }}
-        gap={'5%'}
+        p={20}
+        gap="5%"
         justify="center"
         align="flex-start"
       >
@@ -58,6 +53,7 @@ const horWrapper = ({
               gap={20}
               justify="center"
               align="center"
+              p={{ base: '0px', lg: '0' }}
             >
               {children}
             </Flex>
