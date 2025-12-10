@@ -1,70 +1,20 @@
 /* eslint-disable react/jsx-pascal-case */
 import { memo } from 'react'
-import { Flex, FlexProps, Image, ImageProps } from '@mantine/core'
-import styled from 'styled-components'
+import { Tooltip } from 'react-tooltip'
+import { Flex } from '@mantine/core'
 
 import { SavedColors } from '@shared/constants'
 import { FindByName } from '@shared/helpers'
 import { horWrapper as Wrapper } from '@shared/ui/horWrapper'
 import { TextWithFamily } from '@shared/ui/Typography'
 
-const HoveredFeature = styled(Flex)<FlexProps>`
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  border: 1px solid gray;
-  border-radius: 30px;
-  padding-inline: 20px;
-  padding-block: 5px;
-  background: ${SavedColors.PrimaryWhite};
-  transition: transform 0.2s ease-in-out;
-  &:hover {
-    cursor: pointer;
-    transform: scale(1.05);
-  }
-  @media (max-width: 1100px) {
-    width: 100% !important;
-  }
-`
-const Line = styled.div`
-  width: 100%;
-  border-bottom: 1px solid gray;
-  height: 1px;
-
-  @media (max-width: 1100px) {
-    display: none;
-  }
-`
-
-const ResImage = styled(Image)<ImageProps>`
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translate(-50%);
-  width: 460px;
-  @media (max-width: 1204px) {
-    width: 450px;
-  }
-  @media (max-width: 1100px) {
-    display: none;
-  }
-`
-const FeatureContainer = styled(Flex)<FlexProps>`
-  padding-top: 100px;
-  @media (max-width: 1100px) {
-    flex-direction: column;
-    gap: 20px !important;
-    justify-content: center;
-    align-items: center;
-    padding-top: 0px;
-  }
-`
-const SideContainer = styled(Flex)<FlexProps>`
-  width: 45%;
-  @media (max-width: 1100px) {
-    width: 100%;
-  }
-`
+import {
+  FeatureContainer,
+  HoveredFeature,
+  Line,
+  ResImage,
+  SideContainer,
+} from '../style'
 
 const Ui = memo(() => {
   const pageInfo = FindByName('features')
@@ -106,7 +56,10 @@ const Ui = memo(() => {
                   lg: feature.distance,
                 }}
               >
-                <HoveredFeature>
+                <HoveredFeature
+                  data-tooltip-id={feature.ariaLabel}
+                  data-tooltip-content={feature.description}
+                >
                   {feature.icon && (
                     <feature.icon
                       size={22}
@@ -118,6 +71,7 @@ const Ui = memo(() => {
                   </TextWithFamily>
                 </HoveredFeature>
                 <Line />
+                <Tooltip id={feature.ariaLabel} />
               </Flex>
             ))}
           </SideContainer>
@@ -138,7 +92,10 @@ const Ui = memo(() => {
                 align="center"
               >
                 <Line />
-                <HoveredFeature>
+                <HoveredFeature
+                  data-tooltip-id={feature.ariaLabel}
+                  data-tooltip-content={feature.description}
+                >
                   {feature.icon && (
                     <feature.icon
                       size={22}
@@ -149,6 +106,7 @@ const Ui = memo(() => {
                     {feature.name}
                   </TextWithFamily>
                 </HoveredFeature>
+                <Tooltip id={feature.ariaLabel} />
               </Flex>
             ))}
           </SideContainer>

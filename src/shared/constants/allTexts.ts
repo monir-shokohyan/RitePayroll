@@ -1,38 +1,48 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 import { IconType } from 'react-icons'
 import {
+  FaAddressBook,
   FaArchway,
+  FaBalanceScale,
+  FaBell,
   FaBirthdayCake,
+  FaBookOpen,
   FaBoxOpen,
   FaCashRegister,
+  FaChartLine,
+  FaChartPie,
   FaClipboardList,
   FaClock,
   FaCoffee,
+  FaCreditCard,
   FaCrown,
-  FaGem,
+  FaCubes,
+  FaCut,
+  FaFileAlt,
+  FaFileInvoiceDollar,
   FaGift,
   FaGlassWhiskey,
   FaHamburger,
-  FaHandsHelping,
   FaHotel,
+  FaMoneyBillWave,
   FaMusic,
+  FaNetworkWired,
   FaPhoneAlt,
+  FaPlusCircle,
   FaShieldAlt,
   FaShoppingBag,
   FaStoreAlt,
   FaTable,
   FaUtensils,
+  FaWarehouse,
 } from 'react-icons/fa'
-import { FaKitchenSet, FaLocationDot, FaTrophy } from 'react-icons/fa6'
+import { FaKitchenSet, FaLocationDot } from 'react-icons/fa6'
 import { GrPowerCycle } from 'react-icons/gr'
-import { HiLightBulb } from 'react-icons/hi'
 import { LuGlobe } from 'react-icons/lu'
 import { MdEmail, MdRemoveRedEye } from 'react-icons/md'
 import { TbTargetArrow } from 'react-icons/tb'
 
-import { Paths } from '@shared/api/paths'
-
-import { Products } from './productsMap'
+import { SavedColors } from './contant'
 
 export interface EditionType {
   name: string
@@ -53,6 +63,7 @@ export interface SectionType {
   ariaLabel?: string
   seo?: { title: string; description: string }
   features?: string[]
+  editions?: EditionsType[]
   color?: string
   imgUrl?: string
   to?: string
@@ -62,6 +73,20 @@ export interface SectionType {
   distance?: number
 }
 
+interface Feature {
+  name: string
+  icon: IconType
+}
+
+interface EditionsType {
+  name: string
+  description: string
+  bestFor: string
+  imageSrc: string
+  infoSectionBg: SavedColors
+  featureSectionBg: SavedColors
+  features: Feature[]
+}
 export interface TotalDataItem {
   name: string
   title?: string
@@ -79,6 +104,7 @@ export interface TotalDataItem {
   deployment?: string[]
   brochureLink?: string
   edition?: EditionType
+  editions?: EditionsType[]
 }
 
 export const TotalData: TotalDataItem[] = [
@@ -200,6 +226,89 @@ export const TotalData: TotalDataItem[] = [
         isActive: true,
       },
     ],
+  },
+  {
+    name: 'editions',
+    dTitle: 'Discover',
+    title: 'RITE EATS SOFTWARE VERSIONS',
+    target: '/',
+    sectionId: 'dashboard-industries-section',
+    editions: [
+      {
+        name: 'RiteEats Essentials',
+        description:
+          'Fast and accurate front-end POS with seamless kitchen coordination',
+        bestFor:
+          'Best suited for small to medium restaurants, cafés and fast-food outlets.',
+        imageSrc: '/editions/left.jpeg',
+        infoSectionBg: SavedColors.Essentials,
+        featureSectionBg: SavedColors.EssentialsFeature,
+        features: [
+          { name: 'Touch screen POS billing', icon: FaCashRegister },
+          { name: 'Dine-in, takeaway & delivery modes', icon: FaShoppingBag },
+          {
+            name: 'KOT generation & remote kitchen/bar printing',
+            icon: FaKitchenSet,
+          },
+          { name: 'Table & area management', icon: FaTable },
+          {
+            name: 'Multiple payment modes',
+            icon: FaCreditCard,
+          },
+          { name: 'Bill splitting & partial billing', icon: FaCut },
+          // {
+          //   name: 'Modifiers, toppings & complimentary items',
+          //   icon: FaPlusCircle,
+          // },
+          { name: 'Waiter/captain ordering support', icon: FaClipboardList },
+        ],
+      },
+      {
+        name: 'RiteEats Plus',
+        description:
+          'Everything in Essentials + complete inventory and recipe management',
+        bestFor:
+          'Best suited for growing restaurants, bars and multi-kitchen operations.',
+        imageSrc: '/editions/center.jpeg',
+        infoSectionBg: SavedColors.Plus,
+        featureSectionBg: SavedColors.PlusFeature,
+        features: [
+          { name: 'Multi-warehouse inventory management', icon: FaWarehouse },
+          { name: 'Multi-unit item handling', icon: FaCubes },
+          { name: 'Recipe creation and management', icon: FaBookOpen },
+          { name: 'Automatic recipe-wise stock deduction', icon: GrPowerCycle },
+          { name: 'Recipe costing & food margin control', icon: FaChartLine },
+          { name: 'Reorder level & stock alerts', icon: FaBell },
+          { name: 'Time-based menu and promotions', icon: FaClock },
+        ],
+      },
+      {
+        name: 'RiteEats Ultimate',
+        description:
+          'Enterprise-grade solution with full accounting and multi-branch control',
+        bestFor:
+          'Best suited for food chains, franchises, hotels and enterprise hospitality businesses.',
+        imageSrc: '/editions/right.jpeg',
+        infoSectionBg: SavedColors.Ultimate,
+        featureSectionBg: SavedColors.UltimateFeature,
+        features: [
+          { name: 'Complete accounting system', icon: FaBalanceScale },
+          { name: 'Cash and credit control', icon: FaMoneyBillWave },
+          {
+            name: 'Customer & supplier ledger management',
+            icon: FaAddressBook,
+          },
+          { name: 'VAT and tax compliance', icon: FaFileInvoiceDollar },
+          {
+            name: 'Profit & Loss, Balance Sheet & financial reporting',
+            icon: FaFileAlt,
+          },
+          { name: 'Multi-branch consolidated accounts', icon: FaNetworkWired },
+          { name: 'Advanced management dashboards', icon: FaChartPie },
+        ],
+      },
+    ],
+    features: [],
   },
 
   {
@@ -362,300 +471,5 @@ export const TotalData: TotalDataItem[] = [
         isActive: false,
       },
     ],
-  },
-  {
-    name: 'why choose us',
-    title: 'We Are Pioneers In Business Software Solutions',
-    description:
-      'Lotus Soft Technologies Ltd. has been at the forefront of software innovation in Uganda for over 25 years. Founded with the mission to simplify business operations, our company, led by Mr. Nikhil Shah, has developed a comprehensive range of software solutions. Our expertise spans Accounting, Inventory, POS, and Customer Loyalty Management, with a strong focus on integrating with local systems like URA EFRIS and providing customized solutions for diverse business needs.',
-    target: '/',
-    sectionId: 'dashboard-whyus-section',
-    features: [
-      {
-        icon: HiLightBulb,
-        name: 'Innovation',
-        description:
-          'We pioneer cutting-edge software and IT solutions, empowering businesses in Uganda and beyond to thrive through creative, scalable technology.',
-      },
-      {
-        icon: FaShieldAlt,
-        name: 'Integrity',
-        description:
-          'We uphold unwavering honesty and ethical standards in every solution we deliver, building trust and reliability for our clients across Uganda and beyond.',
-      },
-      {
-        icon: FaTrophy,
-        name: 'Customer Success',
-        description:
-          'We prioritize your growth, delivering tailored software and IT solutions that drive efficiency, productivity, and success for businesses across Uganda.',
-      },
-      {
-        icon: FaHandsHelping,
-        name: 'Collaboration',
-        description:
-          'We partner closely with businesses across Uganda, co-creating tailored software solutions that drive shared success and growth.',
-      },
-      {
-        icon: GrPowerCycle,
-        name: 'Continuous Improvement',
-        description:
-          'We relentlessly pursue excellence, refining our software and IT solutions to deliver ever-evolving value and innovation for businesses across Uganda.',
-      },
-    ],
-  },
-  {
-    name: Products.Ritebooks,
-    overview:
-      'A robust ERP solution combining accounting, inventory, POS, and manufacturing features to manage every aspect of business operations.',
-    imageUrl: 'productsWelcome.png',
-    features: [
-      {
-        name: 'Complete Accounting with Trial Balance, P&L, and Balance Sheet',
-      },
-      { name: 'Inventory & Stock Management with Batch/Serial Control' },
-      { name: 'Multi-Branch and Multi-Currency Support' },
-      { name: 'POS with URA EFRIS Integration' },
-      { name: 'Manufacturing & Assembly Modules' },
-      { name: 'Route Sales & Distribution Management' },
-      { name: 'Bank Reconciliation & Cash Flow Reports' },
-      { name: 'User Role Permissions & Audit Trails' },
-    ],
-    section: [
-      {
-        name: 'Deployment Options',
-        description: 'Available in both Cloud and On-Premise versions.',
-        icon: MdRemoveRedEye,
-      },
-      {
-        name: 'Industries Served',
-        description:
-          'Retail, Wholesale, Distribution, Manufacturing, Services.',
-        icon: TbTargetArrow,
-      },
-    ],
-    brochureLink: 'ritebooks.pdf',
-    target: Paths.Ritebooks,
-  },
-  {
-    name: Products.Ritebooks_express,
-    overview:
-      'An affordable and simplified version of Ritebooks tailored for startups and small businesses.',
-    imageUrl: 'productsWelcome.png',
-    features: [
-      { name: 'Basic Accounting – Sales, Purchases, Receipts, Payments' },
-      { name: 'Inventory Control with Reorder Alerts' },
-      { name: 'POS Billing with Barcode Scanning' },
-      { name: 'Essential Reports for Profit & Stock Monitoring' },
-      { name: 'Multi-User Access' },
-      { name: 'Cloud Hosting Option' },
-    ],
-    section: [
-      {
-        name: 'Deployment Options',
-        description: 'Cloud and On-Premise options.',
-        icon: MdRemoveRedEye,
-      },
-      {
-        name: 'Industries Served',
-        description:
-          'Small Retailers, Shops, Pharmacies, and Service Businesses.',
-        icon: TbTargetArrow,
-      },
-    ],
-    brochureLink: 'ritebooks-express.pdf',
-    target: Paths.Ritebooks_express,
-  },
-  {
-    name: Products.Ritebooks_pocket,
-    overview:
-      'An Android-based accounting and POS app that provides small business owners full control from their smartphone or POS device.',
-    imageUrl: 'productsWelcome.png',
-    features: [
-      { name: 'Sales, Purchase & Expense Entry' },
-      { name: 'Daily Summary Dashboard' },
-      { name: 'POS Billing & Receipt Printing' },
-      { name: 'Offline Functionality with Cloud Sync' },
-      { name: 'Customer & Supplier Tracking' },
-      { name: 'Optional URA EFRIS Integration' },
-    ],
-    section: [
-      {
-        name: 'Deployment Options',
-        description: 'Android Mobile & Tablet Application.',
-        icon: MdRemoveRedEye,
-      },
-      {
-        name: 'Industries Served',
-        description: 'Micro & Small Businesses, Field Traders, Mobile Vendors.',
-        icon: TbTargetArrow,
-      },
-    ],
-    brochureLink: '',
-    target: Paths.Ritebooks_pocket,
-  },
-  {
-    name: Products.Riteroutes,
-    overview:
-      'A comprehensive field sales and distribution management system for FMCG companies and distributors.',
-    imageUrl: 'productsWelcome.png',
-    features: [
-      { name: 'Route Planning & Sales Rep Assignment' },
-      { name: 'GPS Tracking & Real-Time Monitoring' },
-      { name: 'Order Booking & Delivery Confirmation' },
-      { name: 'Inventory and Van Stock Management' },
-      { name: 'Payment Collection Tracking' },
-      { name: 'Performance Dashboards & Reports' },
-    ],
-    section: [
-      {
-        name: 'Deployment Options',
-        description: 'Web + Mobile App (Android).',
-        icon: MdRemoveRedEye,
-      },
-      {
-        name: 'Industries Served',
-        description: 'Distribution, FMCG, Beverages, Pharmaceuticals.',
-        icon: TbTargetArrow,
-      },
-    ],
-    brochureLink: '',
-    target: Paths.Riteroutes,
-  },
-  {
-    name: Products.Rite_payroll,
-    overview:
-      'A complete payroll management system ensuring compliance, efficiency, and automation of HR processes.',
-    imageUrl: 'productsWelcome.png',
-    features: [
-      { name: 'Automated Payroll Calculations' },
-      { name: 'PAYE, NSSF & LST Compliance' },
-      { name: 'Employee Self-Service (ESS)' },
-      { name: 'Loan & Advance Management' },
-      { name: 'Multi-Bream Payroll' },
-      { name: 'Cloud Backup & Report Generation' },
-    ],
-    section: [
-      {
-        name: 'Deployment Options',
-        description: 'Available in Cloud & On-Premise.',
-        icon: MdRemoveRedEye,
-      },
-      {
-        name: 'Industries Served',
-        description: 'Corporate, NGOs, Manufacturing, Retail Chains.',
-        icon: TbTargetArrow,
-      },
-    ],
-    brochureLink: '',
-    target: Paths.Rite_payroll,
-  },
-  {
-    name: Products.Riteeats,
-    overview:
-      'RiteEats is built to improve operational efficiency, financial accuracy and customer service for food businesses of all sizes. It centralizes operations into one secure, real-time system.',
-    imageUrl: 'productsWelcome.png',
-    features: [
-      { name: 'POS Billing & Kitchen Automation' },
-      { name: 'Inventory & Recipe Costing' },
-      { name: 'Promotions, Loyalty & Reservations' },
-      { name: 'Event & Catering Management' },
-      { name: 'Full Accounting & Tax Compliance' },
-      { name: 'Multi-Outlet & Multi-Warehouse Control' },
-    ],
-    description:
-      'RiteEats is a complete Restaurant & Bar Management Software developed by Lotus Soft Technologies Ltd. to automate hospitality operations including POS billing, kitchen order management, inventory control, recipe costing, loyalty programs and complete accounting.',
-    section: [
-      {
-        name: 'Deployment Options',
-        description: 'Cloud and Licensed Installation.',
-        icon: MdRemoveRedEye,
-      },
-      {
-        name: 'Industries Served',
-        description:
-          'Restaurants, Cafés, Bars, Hotels, Food Chains, QSR Outlets, Takeaway Kitchens, Banquets & Catering Businesses.',
-        icon: TbTargetArrow,
-      },
-    ],
-    edition: {
-      name: 'Available editions',
-      description: '',
-      editions: [
-        {
-          name: 'RiteEats Essentials',
-          description: 'Billing & KOT Management',
-          icon: FaClipboardList,
-        },
-        {
-          name: 'RiteEats Plus',
-          description: 'Essentials + Inventory & Recipe Control',
-          icon: FaCrown,
-        },
-        {
-          name: 'RiteEats Ultimate',
-          description: 'Plus + Complete Accounting',
-          icon: FaGem,
-        },
-      ],
-    },
-    brochureLink: '',
-    target: Paths.Riteeats,
-  },
-  {
-    name: Products.Justpay,
-    overview:
-      'A multi-vendor mobile loyalty platform enabling businesses to reward and retain customers effortlessly.',
-    imageUrl: 'productsWelcome.png',
-    features: [
-      { name: 'Digital Membership Creation' },
-      { name: 'Loyalty Savings Wallet (Non-Point Based)' },
-      { name: 'Multi-Outlet Redemption System' },
-      { name: 'Real-Time Offers & Notifications' },
-      { name: 'Integration with POS & Ritebooks' },
-      { name: 'Customer Insights & Analytics' },
-    ],
-    section: [
-      {
-        name: 'Deployment Options',
-        description: 'Mobile App + Cloud Dashboard.',
-        icon: MdRemoveRedEye,
-      },
-      {
-        name: 'Industries Served',
-        description:
-          'Supermarkets, Retail Chains, Salons, Pharmacies, Restaurants.',
-        icon: TbTargetArrow,
-      },
-    ],
-    brochureLink: '',
-    target: Paths.Justpay,
-  },
-  {
-    name: Products.Tally_prime,
-    overview:
-      "Lotus is Uganda's leading Tally Prime partner offering customization, support, and cloud solutions.",
-    imageUrl: 'productsWelcome.png',
-    features: [
-      { name: 'Full Accounting & Financial Management' },
-      { name: 'VAT & URA EFRIS Compliance' },
-      { name: 'Multi-Currency & Cost Centre Reporting' },
-      { name: 'Inventory & Reconciliation' },
-      { name: 'Tally Customization Services' },
-      { name: 'Remote Access via Tally Cloud' },
-    ],
-    section: [
-      {
-        name: 'Deployment Options',
-        description: 'Desktop & Cloud.',
-        icon: MdRemoveRedEye,
-      },
-      {
-        name: 'Industries Served',
-        description: 'Accountants, Auditors, SMEs, Enterprises.',
-        icon: TbTargetArrow,
-      },
-    ],
-    brochureLink: '',
-    target: Paths.Tally_prime,
   },
 ]

@@ -39,7 +39,8 @@ const horWrapper = ({
           md: 'auto',
           lg: isBgColor ? '60vh' : fullHeight ? '90vh' : 'auto',
         }}
-        p={20}
+        py={20}
+        px={50}
         gap="5%"
         justify="center"
         align="flex-start"
