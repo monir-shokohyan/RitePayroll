@@ -10,7 +10,7 @@ import {
 import styled, { keyframes } from 'styled-components'
 
 import { SavedColors } from '@shared/constants'
-import { TextWithFamily } from '@shared/ui/Typography'
+import { TextResponsive, TextWithFamily } from '@shared/ui/Typography'
 
 const spin = keyframes`
   from { transform: rotate(0deg); }
@@ -107,8 +107,8 @@ const Bubble = styled.div<{ $angle: number }>`
   left: 50%;
   width: 28%;
   height: 28%;
-  min-width: 120px;
-  min-height: 120px;
+  min-width: 100px;
+  min-height: 100px;
   margin: -14% 0 0 -14%;
   transform: rotate(${(p) => p.$angle}deg) translateX(120%)
     rotate(-${(p) => p.$angle}deg);
@@ -120,8 +120,8 @@ const Bubble = styled.div<{ $angle: number }>`
   }
 
   @media (max-width: 480px) {
-    width: 32%;
-    height: 32%;
+    width: 30%;
+    height: 30%;
   }
 `
 
@@ -148,22 +148,27 @@ const Card = styled.div`
   &:hover {
     transform: scale(1.03);
   }
+
+  ${Icon} svg {
+    width: clamp(16px, 6vw, 32px);
+    height: clamp(16px, 6vw, 32px);
+  }
 `
 
 const features = [
-  { icon: <FaCashRegister size={32} />, label: 'Touch Screen\nPOS Billing' },
-  { icon: <FaUtensils size={32} />, label: 'Kitchen & Bar Order\nAutomation' },
-  { icon: <FaBoxOpen size={32} />, label: 'Inventory & Recipe\nCost Control' },
+  { icon: <FaCashRegister />, label: 'Touch Screen\nPOS Billing' },
+  { icon: <FaUtensils />, label: 'Kitchen & Bar Order\nAutomation' },
+  { icon: <FaBoxOpen />, label: 'Inventory & Recipe\nCost Control' },
   {
-    icon: <FaHeart size={32} />,
+    icon: <FaHeart />,
     label: 'Loyalty, Reservations &\nEvent Management',
   },
   {
-    icon: <FaDollarSign size={32} />,
+    icon: <FaDollarSign />,
     label: 'Multi-Outlet & Multi-\nCurrency Support',
   },
   {
-    icon: <FaChartBar size={32} />,
+    icon: <FaChartBar />,
     label: 'Complete Accounting &\nFinancial Reports',
   },
 ]
@@ -212,20 +217,20 @@ export function RotatingFeaturesWheel() {
             color={SavedColors.TextColorGreen}
           />
         </Icon>
-        <TextWithFamily
-          fontSize="16px"
+        <TextResponsive
+          fontSize="14px"
           $textalign="center"
           fontWeight="700"
         >
           Core
-        </TextWithFamily>
-        <TextWithFamily
-          fontSize="16px"
+        </TextResponsive>
+        <TextResponsive
+          fontSize="14px"
           $textalign="center"
           fontWeight="700"
         >
           Highlights
-        </TextWithFamily>
+        </TextResponsive>
       </Center>
 
       {/* Feature bubbles - counter-rotate text to stay upright */}
@@ -233,19 +238,19 @@ export function RotatingFeaturesWheel() {
         const angle = i * 60
         return (
           <Bubble
-            key={i}
+            key={item.label}
             $angle={angle}
           >
             <Card>
               <Icon>{item.icon}</Icon>
-              <TextWithFamily
+              <TextResponsive
                 fontSize="10px"
                 $textalign="center"
                 fontWeight="600"
                 style={{ whiteSpace: 'pre-line', lineHeight: '1.4' }}
               >
                 {item.label}
-              </TextWithFamily>
+              </TextResponsive>
             </Card>
           </Bubble>
         )
