@@ -5,7 +5,6 @@ import { MdBlock } from 'react-icons/md'
 import { Flex, Image } from '@mantine/core'
 
 import { VerticalLine } from '@features/app-layout/styles'
-import { HoveredButtonWithBorder } from '@features/Dashboard/styles/styles'
 import { SavedColors } from '@shared/constants'
 import { FindByName } from '@shared/helpers/findByName'
 import { useNavigationScroll } from '@shared/hooks/useNavigationScroll'
@@ -132,15 +131,6 @@ const Ui = memo(() => {
             )
           })}
         </Flex>
-        <HoveredButtonWithBorder
-          radius="sm"
-          size="md"
-          w={{ base: '100%', sm: 'auto', md: 'auto', lg: 'fit-content' }}
-          color={SavedColors.Primaryblue}
-          onClick={() => navigateAndScroll('/', 'dashboard-contact-section')}
-        >
-          Explore Our Journey and Values
-        </HoveredButtonWithBorder>
       </Wrapper>
     </section>
   )
