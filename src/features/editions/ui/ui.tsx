@@ -13,7 +13,7 @@ const Ui = memo(() => {
   const pageInfo = FindByName('editions')
 
   return (
-    <div id="dashboard-features-section">
+    <div id="dashboard-editions-section">
       <Wrapper
         isReverseWrap={false}
         fullHeight={false}

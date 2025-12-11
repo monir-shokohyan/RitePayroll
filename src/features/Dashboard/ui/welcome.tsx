@@ -1,7 +1,8 @@
 /* eslint-disable react/jsx-pascal-case */
 import { memo } from 'react'
-import { Image } from '@mantine/core'
+import { Image, ImageProps } from '@mantine/core'
 import { useMediaQuery } from '@mantine/hooks'
+import styled from 'styled-components'
 
 import { SavedColors } from '@shared/constants'
 import { FindByName } from '@shared/helpers/findByName'
@@ -18,6 +19,12 @@ import {
 } from '../styles/styles'
 import { WelcomeFeature } from './welcomeFeature'
 
+const HoveredArrow = styled.div`
+  transition: transform 0.2s ease-in-out;
+  &:hover {
+    transform: translateY(10px);
+  }
+`
 const Welcome = memo(() => {
   const { navigateAndScroll } = useNavigationScroll()
   const pageInfo = FindByName('Welcome')
@@ -118,13 +125,17 @@ const Welcome = memo(() => {
               Download Brochure
             </HoveredButtonWithoutBorder>
           </Container>
-          <Image
-            src="/arrow-down-big.png"
-            alt="background image"
-            loading="eager"
-            fit="contain"
-            w={{ base: '0px', sm: '0px', md: '120px', lg: '150px' }}
-          />
+          <HoveredArrow
+            onClick={() => navigateAndScroll('/', 'dashboard-editions-section')}
+          >
+            <Image
+              src="/arrow-down-big.png"
+              alt="background image"
+              loading="eager"
+              fit="contain"
+              w={{ base: '0px', sm: '0px', md: '120px', lg: '150px' }}
+            />
+          </HoveredArrow>
         </div>
       </Wrapper>
     </section>
