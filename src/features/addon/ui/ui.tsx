@@ -79,6 +79,7 @@ const Ui = memo(() => {
           w="100%"
           justify="center"
           gap={32}
+          px={10}
         >
           {pageInfo?.features.map((feature) => (
             <StyledCard

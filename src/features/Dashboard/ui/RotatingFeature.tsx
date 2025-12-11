@@ -10,7 +10,7 @@ import {
 import styled, { keyframes } from 'styled-components'
 
 import { SavedColors } from '@shared/constants'
-import { TextResponsive, TextWithFamily } from '@shared/ui/Typography'
+import { TextResponsive } from '@shared/ui/Typography'
 
 const spin = keyframes`
   from { transform: rotate(0deg); }
@@ -176,9 +176,7 @@ const features = [
 export function RotatingFeaturesWheel() {
   return (
     <Container>
-      {/* Rotating background layer */}
       <RotatingBackground>
-        {/* Connector lines */}
         {[0, 60, 120, 180, 240, 300].map((angle) => (
           <Connector
             key={angle}
@@ -186,7 +184,6 @@ export function RotatingFeaturesWheel() {
           />
         ))}
 
-        {/* Green segmented ring */}
         <SegmentedRing viewBox="0 0 440 440">
           <circle
             cx="220"
@@ -233,7 +230,6 @@ export function RotatingFeaturesWheel() {
         </TextResponsive>
       </Center>
 
-      {/* Feature bubbles - counter-rotate text to stay upright */}
       {features.map((item, i) => {
         const angle = i * 60
         return (

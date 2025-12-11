@@ -133,6 +133,7 @@ const ContactFormMain: React.FC = () => {
     <Flex
       w={{ base: '100%', lg: '100%' }}
       style={{ borderRadius: '5px' }}
+      px={10}
     >
       <Box
         component="form"

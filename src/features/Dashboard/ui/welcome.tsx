@@ -30,93 +30,102 @@ const Welcome = memo(() => {
         leftWidth="45%"
         rightWidth="45%"
         doubleOption={true}
-        bgImage="/landing bg.svg"
         activeHead={false}
         $paddingTop="10px"
-        isReverseWrap={true}
+        isReverseWrap={false}
       >
-        <Image
-          src={isTableMobile ? 'bgNet_mobile.webp' : '/bgNet.webp'}
-          alt="background image"
-          style={{
-            position: 'absolute',
-            top: '10%',
-            left: '0%',
-            opacity: '25%',
-            aspectRatio: '11/9',
-          }}
-          loading="eager"
-          fit="contain"
-        />
-
-        <TextWithFamily
-          $font="Tangerine"
-          fontWeight="600"
-          fontSize="40px"
-          color={SavedColors.TextColorGreen}
-          $textalign="left"
-        >
-          {pageInfo?.description}
-        </TextWithFamily>
-
-        <WelcomeTitle
-          $font="Nunito"
-          fontWeight="800"
-        >
-          Complete <CTC text="Resturant" /> & <CTC text=" Bar " /> Management
-          <CTC text=" Software" />.
-        </WelcomeTitle>
-
-        <WelcomeText $font="Roboto">{pageInfo?.descriptionSecond}</WelcomeText>
-
-        <Container
-          gap={20}
-          w="100%"
-          justify="start"
-          align="center"
-        >
-          <HoveredButtonWithoutBorder
-            radius="md"
-            size="md"
-            w={{ base: '100%', sm: 'auto', md: 'auto', lg: 'auto' }}
-            color={SavedColors.Primaryblue}
-            variant="transparent"
-            onClick={() => navigateAndScroll('/', 'dashboard-contact-section')}
-          >
-            Request a live demo
-          </HoveredButtonWithoutBorder>
-          |
-          <HoveredButtonWithoutBorder
-            radius={20}
-            size="md"
-            w={{ base: '100%', sm: 'auto', md: 'auto', lg: 'auto' }}
-            color={SavedColors.Primaryblue}
-            variant="transparent"
-            onClick={() => {
-              window.location.href = 'https://wa.me/+256755818183'
+        <div style={{ paddingInline: '10px' }}>
+          <Image
+            src={isTableMobile ? 'bgNet_mobile.webp' : '/bgNet.webp'}
+            alt="background image"
+            style={{
+              position: 'absolute',
+              top: '10%',
+              left: '0%',
+              opacity: '25%',
+              aspectRatio: '11/9',
             }}
+            loading="eager"
+            fit="contain"
+          />
+
+          <TextWithFamily
+            $font="Tangerine"
+            fontWeight="600"
+            fontSize="40px"
+            color={SavedColors.TextColorGreen}
+            $textalign="left"
           >
-            Speak to Sales
-          </HoveredButtonWithoutBorder>
-          |
-          <HoveredButtonWithoutBorder
-            radius="md"
-            size="md"
-            w={{ base: '100%', sm: 'auto', md: 'auto', lg: 'auto' }}
-            color={SavedColors.Primaryblue}
-            variant="transparent"
-            onClick={() => navigateAndScroll('/', 'dashboard-contact-section')}
+            {pageInfo?.description}
+          </TextWithFamily>
+
+          <WelcomeTitle
+            $font="Nunito"
+            fontWeight="800"
           >
-            Download Brochure
-          </HoveredButtonWithoutBorder>
-        </Container>
-        <Image
-          src="/arrow-down-big.png"
-          alt="background image"
-          loading="eager"
-          fit="contain"
-          w={150}
-        />
+            Complete <CTC text="Resturant" /> & <CTC text=" Bar " /> Management
+            <CTC text=" Software" />.
+          </WelcomeTitle>
+
+          <WelcomeText $font="Roboto">
+            {pageInfo?.descriptionSecond}
+          </WelcomeText>
+
+          <Container
+            gap={20}
+            w="100%"
+            wrap="wrap"
+            justify="start"
+            align="center"
+            py={20}
+          >
+            <HoveredButtonWithoutBorder
+              radius="md"
+              size="sm"
+              w={{ base: '100%', sm: 'auto', md: 'auto', lg: 'auto' }}
+              color={SavedColors.Primaryblue}
+              variant="transparent"
+              onClick={() =>
+                navigateAndScroll('/', 'dashboard-contact-section')
+              }
+            >
+              Request a live demo
+            </HoveredButtonWithoutBorder>
+
+            <HoveredButtonWithoutBorder
+              radius={20}
+              size="sm"
+              w={{ base: '100%', sm: 'auto', md: 'auto', lg: 'auto' }}
+              color={SavedColors.Primaryblue}
+              variant="transparent"
+              onClick={() => {
+                window.location.href = 'https://wa.me/+256755818183'
+              }}
+            >
+              Speak to Sales
+            </HoveredButtonWithoutBorder>
+
+            <HoveredButtonWithoutBorder
+              radius="md"
+              size="sm"
+              w={{ base: '100%', sm: 'auto', md: 'auto', lg: 'auto' }}
+              color={SavedColors.Primaryblue}
+              variant="transparent"
+              onClick={() =>
+                navigateAndScroll('/', 'dashboard-contact-section')
+              }
+            >
+              Download Brochure
+            </HoveredButtonWithoutBorder>
+          </Container>
+          <Image
+            src="/arrow-down-big.png"
+            alt="background image"
+            loading="eager"
+            fit="contain"
+            w={{ base: '0px', sm: '0px', md: '120px', lg: '150px' }}
+          />
+        </div>
       </Wrapper>
     </section>
   )

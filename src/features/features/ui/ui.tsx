@@ -39,6 +39,7 @@ const Ui = memo(() => {
           wrap="wrap"
           gap="10%"
           justify="flex-start"
+          px={10}
         >
           <SideContainer
             direction="column"
