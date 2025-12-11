@@ -14,10 +14,11 @@ type GradientDirection = 'top-to-bottom' | 'bottom-to-top'
 
 interface GradientFlexProps {
   gradientDirection?: GradientDirection
+  $paddingTop?: string
 }
 
 export const GradientFlex = styled(Flex)<GradientFlexProps & FlexProps>`
-  padding-top: 130px;
+  padding-top: ${({ $paddingTop = '130px' }) => $paddingTop};
   background: ${({ gradientDirection = 'top-to-bottom' }) =>
     gradientDirection === 'top-to-bottom'
       ? css`
@@ -33,41 +34,48 @@ const GradientContainer = ({
   direction = 'top-to-bottom',
   desTitle = '',
   title = '',
+  activeHead = true,
+  $paddingTop,
 }: {
   children: ReactNode
   direction: GradientDirection
   desTitle: string
   title: string
+  activeHead: boolean
+  $paddingTop?: string
 }) => {
   return (
     <GradientFlex
       gradientDirection={direction}
       direction="column"
+      $paddingTop={$paddingTop}
     >
-      <Flex
-        direction="column"
-        align="center"
-        style={{ width: '100vw' }}
-      >
-        <TextResponsive
-          color={SavedColors.TextColorGreen}
-          fontSize="40px"
-          fontWeight="600"
-          $font="Tangerine"
-          $textalign="center"
+      {activeHead && (
+        <Flex
+          direction="column"
+          align="center"
+          style={{ width: '100vw' }}
         >
-          {desTitle}
-        </TextResponsive>
-        <TextResponsive
-          color={SavedColors.TextColor}
-          fontSize="33px"
-          fontWeight="600"
-          $textalign="center"
-        >
-          {title}
-        </TextResponsive>
-        <VerticalLine />
-      </Flex>
+          <TextResponsive
+            color={SavedColors.TextColorGreen}
+            fontSize="40px"
+            fontWeight="600"
+            $font="Tangerine"
+            $textalign="center"
+          >
+            {desTitle}
+          </TextResponsive>
+          <TextResponsive
+            color={SavedColors.TextColor}
+            fontSize="33px"
+            fontWeight="600"
+            $textalign="center"
+          >
+            {title}
+          </TextResponsive>
+          <VerticalLine />
+        </Flex>
+      )}
       {children}
     </GradientFlex>
   )

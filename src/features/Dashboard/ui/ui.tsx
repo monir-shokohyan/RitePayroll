@@ -13,7 +13,7 @@ import { Welcome } from './welcome'
 function Ui() {
   return (
     <>
-      {/* <Welcome /> */}
+      <Welcome />
       {/* <AboutSection /> */}
       {/* <ProductSection /> */}
       {/* <ServicesSection /> */}

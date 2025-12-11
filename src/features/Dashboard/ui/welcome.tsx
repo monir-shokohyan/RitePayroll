@@ -9,13 +9,14 @@ import { useNavigationScroll } from '@shared/hooks/useNavigationScroll'
 import Container from '@shared/ui/Container'
 import { CTC } from '@shared/ui/CTC'
 import { horWrapper as Wrapper } from '@shared/ui/horWrapper'
+import { TextWithFamily } from '@shared/ui/Typography'
 
 import {
-  HoveredButtonWithBorder,
   HoveredButtonWithoutBorder,
   WelcomeText,
   WelcomeTitle,
 } from '../styles/styles'
+import { WelcomeFeature } from './welcomeFeature'
 
 const Welcome = memo(() => {
   const { navigateAndScroll } = useNavigationScroll()
@@ -25,18 +26,13 @@ const Welcome = memo(() => {
   return (
     <section id="dashboard-welcome-section">
       <Wrapper
-        rightSection={
-          <Image
-            src="/welcome.svg"
-            alt="software employee image"
-            miw={300}
-            style={{
-              aspectRatio: '16/9',
-            }}
-            fit="contain"
-          />
-        }
+        rightSection={<WelcomeFeature />}
+        leftWidth="45%"
+        rightWidth="45%"
+        doubleOption={true}
         bgImage="/landing bg.svg"
+        activeHead={false}
+        $paddingTop="10px"
         isReverseWrap={true}
       >
         <Image
@@ -53,40 +49,43 @@ const Welcome = memo(() => {
           fit="contain"
         />
 
-        <WelcomeText
-          $font="Roboto"
+        <TextWithFamily
+          $font="Tangerine"
           fontWeight="600"
+          fontSize="40px"
+          color={SavedColors.TextColorGreen}
+          $textalign="left"
         >
           {pageInfo?.description}
-        </WelcomeText>
+        </TextWithFamily>
 
         <WelcomeTitle
           $font="Nunito"
           fontWeight="800"
         >
-          Empowering <CTC text="Africa's" /> Businesses with Smart, Scalable
-          <CTC text=" Software" /> & Technology <CTC text="Solutions" />.
+          Complete <CTC text="Resturant" /> & <CTC text=" Bar " /> Management
+          <CTC text=" Software" />.
         </WelcomeTitle>
 
         <WelcomeText $font="Roboto">{pageInfo?.descriptionSecond}</WelcomeText>
 
         <Container
           gap={20}
-          wrap="wrap"
           w="100%"
           justify="start"
           align="center"
         >
-          <HoveredButtonWithBorder
+          <HoveredButtonWithoutBorder
             radius="md"
             size="md"
             w={{ base: '100%', sm: 'auto', md: 'auto', lg: 'auto' }}
             color={SavedColors.Primaryblue}
+            variant="transparent"
             onClick={() => navigateAndScroll('/', 'dashboard-contact-section')}
           >
-            Request a demo
-          </HoveredButtonWithBorder>
-
+            Request a live demo
+          </HoveredButtonWithoutBorder>
+          |
           <HoveredButtonWithoutBorder
             radius={20}
             size="md"
@@ -97,9 +96,27 @@ const Welcome = memo(() => {
               window.location.href = 'https://wa.me/+256755818183'
             }}
           >
-            Talk to Our Experts on WhatsApp
+            Speak to Sales
+          </HoveredButtonWithoutBorder>
+          |
+          <HoveredButtonWithoutBorder
+            radius="md"
+            size="md"
+            w={{ base: '100%', sm: 'auto', md: 'auto', lg: 'auto' }}
+            color={SavedColors.Primaryblue}
+            variant="transparent"
+            onClick={() => navigateAndScroll('/', 'dashboard-contact-section')}
+          >
+            Download Brochure
           </HoveredButtonWithoutBorder>
         </Container>
+        <Image
+          src="/arrow-down-big.png"
+          alt="background image"
+          loading="eager"
+          fit="contain"
+          w={150}
+        />
       </Wrapper>
     </section>
   )

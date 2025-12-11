@@ -11,7 +11,7 @@ const horWrapper = ({
   children,
   rightSection,
   bgImage,
-  isReverseWrap,
+  isReverseWrap = false,
   leftWidth = '55%',
   rightWidth = '45%',
   fullHeight = true,
@@ -20,12 +20,16 @@ const horWrapper = ({
   title = '',
   gradientDirection = 'bottom-to-top',
   doubleOption = true,
+  activeHead = true,
+  $paddingTop = '130px',
 }: HorWrapperType) => {
   return (
     <GradientContainer
       direction={gradientDirection}
       title={title}
       desTitle={desTitle}
+      activeHead={activeHead}
+      $paddingTop={$paddingTop}
     >
       <BgFlex
         wrap={isReverseWrap ? 'wrap-reverse' : 'wrap'}
@@ -58,12 +62,11 @@ const horWrapper = ({
               h={{ base: 'auto', lg: '100%' }}
               gap={20}
               justify="center"
-              align="center"
+              align="start"
               p={{ base: '0px', lg: '0' }}
             >
               {children}
             </Flex>
-
             <BgFlex
               w={{ base: '100%', lg: rightWidth }}
               h="100%"

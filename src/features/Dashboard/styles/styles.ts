@@ -7,7 +7,6 @@ import { TextWithFamily } from '@shared/ui/Typography'
 
 const WelcomeText = styled(TextWithFamily)`
   animation: ${fadeIn} 1s ease-out 0.8s both;
-  font-size: 1.3rem;
   @media (max-width: 1000px) {
     font-size: 1rem;
   }
@@ -20,17 +19,6 @@ const WelcomeTitle = styled(TextWithFamily)`
   }
 `
 
-const HoveredButtonWithBorder = styled(Button)<
-  PolymorphicComponentProps<'button', ButtonProps>
->`
-  animation: ${fadeIn} 1s ease-out 0.8s both;
-  &:hover {
-    border: 1px solid ${SavedColors.Primaryblue};
-    color: ${SavedColors.Primaryblue};
-    background-color: transparent;
-    transition: all 0.3s ease-in;
-  }
-`
 const HoveredButtonWithoutBorder = styled(Button)<
   PolymorphicComponentProps<'button', ButtonProps>
 >`
@@ -44,9 +32,4 @@ const HoveredButtonWithoutBorder = styled(Button)<
   }
 `
 
-export {
-  HoveredButtonWithBorder,
-  HoveredButtonWithoutBorder,
-  WelcomeText,
-  WelcomeTitle,
-}
+export { HoveredButtonWithoutBorder, WelcomeText, WelcomeTitle }

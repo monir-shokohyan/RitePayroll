@@ -110,11 +110,11 @@ export interface TotalDataItem {
 export const TotalData: TotalDataItem[] = [
   {
     name: 'Welcome',
-    description: 'Welcome to Lotus Soft Technologies Ltd.',
+    description: 'Welcome to the Rite Eats',
     title:
       "Empowering Africa's Businesses with Smart, ScalableSoftware & Technology Solutions.",
     descriptionSecond:
-      "Simplifying operations, automating workflows, and driving growth through innovation. Welcome to Lotus Soft Technologies Ltd., Uganda's leading provider of business software and IT solutions.",
+      'RiteEats is a complete Restaurant & Bar Management Software designed to digitally transform how restaurants, cafés, bars, clubs and food chains operate. Built with deep understanding of real hospitality workflows, RiteEats integrates point of sale billing, kitchen automation, inventory control, recipe management, customer engagement and full accounting into one powerful system.',
     target: '/',
     sectionId: 'dashboard-welcome-section',
     features: [],
@@ -256,10 +256,6 @@ export const TotalData: TotalDataItem[] = [
             icon: FaCreditCard,
           },
           { name: 'Bill splitting & partial billing', icon: FaCut },
-          // {
-          //   name: 'Modifiers, toppings & complimentary items',
-          //   icon: FaPlusCircle,
-          // },
           { name: 'Waiter/captain ordering support', icon: FaClipboardList },
         ],
       },

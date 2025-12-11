@@ -1,8 +1,6 @@
 /* eslint-disable react/jsx-pascal-case */
 import { memo } from 'react'
-import { FaInfo, FaInfoCircle } from 'react-icons/fa'
 import { IoIosInformationCircleOutline } from 'react-icons/io'
-import { Tooltip } from 'react-tooltip'
 import { Flex, Image } from '@mantine/core'
 
 import { SavedColors } from '@shared/constants'
@@ -10,14 +8,6 @@ import { FindByName } from '@shared/helpers'
 import { horWrapper as Wrapper } from '@shared/ui/horWrapper'
 import { IconWithText } from '@shared/ui/IconWithText'
 import { TextWithFamily } from '@shared/ui/Typography'
-
-import {
-  FeatureContainer,
-  HoveredFeature,
-  Line,
-  ResImage,
-  SideContainer,
-} from '../style'
 
 const Ui = memo(() => {
   const pageInfo = FindByName('editions')

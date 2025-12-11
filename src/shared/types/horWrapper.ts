@@ -14,4 +14,6 @@ export interface HorWrapperType {
   desTitle?: string
   gradientDirection?: 'bottom-to-top' | 'top-to-bottom'
   doubleOption?: boolean
+  activeHead?: boolean
+  $paddingTop?: string
 }
