@@ -3,6 +3,7 @@ import { IconType } from 'react-icons'
 import styled from 'styled-components'
 
 import { SavedColors } from '@shared/constants'
+import { TextWithFamily } from '@shared/ui/Typography'
 
 const CardWrapper = styled.div`
   width: min(300px, 100%);
@@ -35,21 +36,6 @@ const CardBody = styled.div`
 const CardIcon = styled.div`
   color: ${SavedColors.primaryBlue};
   margin-bottom: 1rem;
-`
-
-const CardTitle = styled.p`
-  font-weight: 800;
-  color: #121513;
-  font-size: 1.25rem;
-  margin: 1.5rem 0 0.75rem;
-  height: 60px;
-`
-
-const CardParagraph = styled.p`
-  color: #303830;
-  font-size: 0.875rem;
-  line-height: 1.5;
-  height: 60px;
 `
 
 const CardRibbon = styled.div`
@@ -148,8 +134,22 @@ const RibbonCard: React.FC<CardProps> = ({
         <CardIcon style={{ color: iconColor }}>
           <Icon size={IconSize} />
         </CardIcon>
-        <CardTitle>{title}</CardTitle>
-        <CardParagraph>{description}</CardParagraph>
+        <TextWithFamily
+          style={{ height: '70px' }}
+          $font="Nunito"
+          fontWeight="800"
+          fontSize="18px"
+        >
+          {title}
+        </TextWithFamily>
+        <TextWithFamily
+          style={{ height: '70px' }}
+          $font="Nunito"
+          fontWeight="500"
+          fontSize="14px"
+        >
+          {description}
+        </TextWithFamily>
       </CardBody>
 
       <CardRibbon>
