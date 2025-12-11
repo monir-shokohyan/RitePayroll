@@ -9,25 +9,29 @@ import { FindByName } from '@shared/helpers'
 import { horWrapper as Wrapper } from '@shared/ui/horWrapper'
 import { TextWithFamily } from '@shared/ui/Typography'
 
+import { RibbonCard } from './ribbonCard'
+import { IconType } from 'react-icons'
+
 const StyledCard = styled(Card)<CardProps>`
   position: relative;
   border-radius: 20px;
-  padding: 42px;
-  padding-top: 62px;
-  height: 260px;
+  /* padding: 42px; */
+  /* padding-top: 62px; */
+  /* height: 260px; */
   width: 420px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  /* background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%); */
+  background: transparent;
+  /* border: 1px solid #e5e7eb; */
+  /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); */
   transition: all 0.3s ease;
 
   &:hover {
     cursor: pointer;
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    /* box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12); */
   }
 `
 
@@ -85,8 +89,9 @@ const Ui = memo(() => {
             <StyledCard
               key={feature.name}
               shadow="none"
+              bg="transparent"
             >
-              <Image
+              {/* <Image
                 src="/bg-arrow.svg"
                 height={40}
                 fit="contain"
@@ -136,7 +141,13 @@ const Ui = memo(() => {
 
               <ArrowButton>
                 <FaArrowRight size={20} />
-              </ArrowButton>
+              </ArrowButton> */}
+              <RibbonCard
+                title={feature.name}
+                description={feature.description ?? ''}
+                number={feature.id ?? 1}
+                Icon={feature.icon as IconType}
+              />
             </StyledCard>
           ))}
         </Flex>

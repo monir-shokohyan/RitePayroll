@@ -15,7 +15,6 @@ import {
   FaClock,
   FaCoffee,
   FaCreditCard,
-  FaCrown,
   FaCubes,
   FaCut,
   FaFileAlt,
@@ -28,7 +27,6 @@ import {
   FaMusic,
   FaNetworkWired,
   FaPhoneAlt,
-  FaPlusCircle,
   FaShieldAlt,
   FaShoppingBag,
   FaStoreAlt,
@@ -39,7 +37,16 @@ import {
 import { FaKitchenSet, FaLocationDot } from 'react-icons/fa6'
 import { GrPowerCycle } from 'react-icons/gr'
 import { LuGlobe } from 'react-icons/lu'
-import { MdEmail, MdRemoveRedEye } from 'react-icons/md'
+import {
+  MdCardGiftcard,
+  MdEmail,
+  MdEvent,
+  MdEventSeat,
+  MdOutlineMonitor,
+  MdQueue,
+  MdRemoveRedEye,
+  MdSmartphone,
+} from 'react-icons/md'
 import { TbTargetArrow } from 'react-icons/tb'
 
 import { SavedColors } from './contant'
@@ -71,6 +78,7 @@ export interface SectionType {
   isActive?: boolean
   target?: string
   distance?: number
+  id?: number
 }
 
 interface Feature {
@@ -387,42 +395,54 @@ export const TotalData: TotalDataItem[] = [
     sectionId: 'dashboard-addon-section',
     features: [
       {
+        id: 1,
         name: 'Kitchen Display System (KDS)',
         description:
           'Real-time paperless digital order display in kitchens and bars.',
         ariaLabel: 'Kitchen Display System',
         isActive: true,
+        icon: MdOutlineMonitor,
       },
       {
+        id: 2,
         name: 'Captain/Waiter App',
         description: 'Mobile table-side ordering on Android & iOS.',
         ariaLabel: 'Captain and Waiter App',
         isActive: true,
+        icon: MdSmartphone,
       },
       {
+        id: 3,
         name: 'Customer Loyalty Management',
         description: 'Reward programs, points, visits and targeted promotions.',
         ariaLabel: 'Customer Loyalty Management',
         isActive: true,
+        icon: MdCardGiftcard,
       },
       {
+        id: 4,
         name: 'Online Table Reservations',
         description: 'Digital advance bookings with real-time table control.',
         ariaLabel: 'Online Table Reservations',
         isActive: true,
+        icon: MdEventSeat,
       },
       {
+        id: 5,
         name: 'Token & Queue Management',
         description: 'High-speed queue handling for fast service counters.',
         ariaLabel: 'Token and Queue Management',
         isActive: true,
+        icon: MdQueue,
       },
       {
+        id: 6,
         name: 'Event Management System',
         description:
           'Banquet, party and corporate event billing and profitability control.',
         ariaLabel: 'Event Management System',
         isActive: true,
+        icon: MdEvent,
       },
     ],
   },
