@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-pascal-case */
 import { memo } from 'react'
-import { Image, ImageProps } from '@mantine/core'
+import { Image } from '@mantine/core'
 import { useMediaQuery } from '@mantine/hooks'
 import styled from 'styled-components'
 

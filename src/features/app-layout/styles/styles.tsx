@@ -156,7 +156,7 @@ const ProductMenuListTrigger = styled.div`
   cursor: pointer;
 
   &:hover {
-    background: ${SavedColors.TextColor};
+    background: ${SavedColors.primaryBlue};
     color: ${SavedColors.PrimaryWhite};
   }
 `
@@ -168,11 +168,11 @@ const CustomMenuItem = styled(Menu.Item)<any>`
   color: #012970 !important;
 
   &:hover {
-    background-color: ${SavedColors.TextColor} !important;
+    background-color: ${SavedColors.primaryBlue} !important;
     color: white !important;
   }
   &.active {
-    background-color: ${SavedColors.TextColor}10;
+    background-color: ${SavedColors.primaryBlue}10;
     color: ${SavedColors.TextColor};
     font-weight: 600;
   }

@@ -56,13 +56,6 @@ const Navbar = memo(() => {
 
         <MenuItems
           to="/"
-          onClick={() => navigateAndScroll('/', 'dashboard-about-section')}
-          className={getSectionActive('dashboard-about-section')}
-        >
-          About Us
-        </MenuItems>
-        <MenuItems
-          to="/"
           onClick={() => navigateAndScroll('/', 'dashboard-editions-section')}
           className={getSectionActive('dashboard-editions-section')}
         >
@@ -151,13 +144,13 @@ const Navbar = memo(() => {
           <Burger
             lineSize={3}
             size="md"
-            color={SavedColors.TextColor}
+            color={SavedColors.Primaryblue}
             opened={opened}
             onClick={toggle}
             aria-label={
               opened ? 'Close navigation menu' : 'Open navigation menu'
             }
-            style={{ display: `${isTabletOrMobile ? 'flex' : 'none'}` }}
+            style={{ display: `${isTabletOrMobile ? 'block' : 'none'}` }}
           />
         </Popover.Target>
         <Popover.Dropdown id="mobile-menu">
@@ -293,7 +286,7 @@ const Navbar = memo(() => {
             style={{ textAlign: 'center' }}
           >
             <Image
-              src="/lotus-logo.webp"
+              src="/Rite eats fill.png"
               alt="lotus logo"
               w={{ base: '120', lg: '150px' }}
               h={{ base: '60px', lg: '65px' }}
