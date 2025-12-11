@@ -1,12 +1,24 @@
 /* eslint-disable react/jsx-pascal-case */
 import { memo } from 'react'
-import Marquee from 'react-fast-marquee'
-import { Card, Flex } from '@mantine/core'
+import Marquee, { MarqueeProps } from 'react-fast-marquee'
+import { Card, CardProps, Flex } from '@mantine/core'
+import styled from 'styled-components'
 
 import { SavedColors } from '@shared/constants'
 import { FindByName } from '@shared/helpers'
 import { horWrapper as Wrapper } from '@shared/ui/horWrapper'
 import { TextWithFamily } from '@shared/ui/Typography'
+
+const StyledMarquee = styled(Marquee)<MarqueeProps>`
+  padding-block: 10px;
+`
+const StyledCard = styled(Card)<CardProps>`
+  box-shadow:
+    2px 2px 8px rgba(0, 0, 0, 0.2),
+    -2px -2px 8px rgba(255, 255, 255, 0.2),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.3),
+    inset -2px -2px 4px rgba(0, 0, 0, 0.3);
+`
 
 const Ui = memo(() => {
   const pageInfo = FindByName('industries')
@@ -24,16 +36,15 @@ const Ui = memo(() => {
         title=" INDUSTRIES SERVED"
         gradientDirection="top-to-bottom"
         doubleOption={false}
+        $flexGap={0}
       >
-        <Marquee>
+        <StyledMarquee>
           {pageInfo?.features.map((Mcard) => {
             return (
-              <Card
+              <StyledCard
                 key={Mcard.name}
-                shadow="sm"
                 padding="sm"
                 radius="md"
-                withBorder
                 ml={20}
               >
                 <Flex
@@ -49,19 +60,17 @@ const Ui = memo(() => {
                   )}
                   <TextWithFamily>{Mcard.name}</TextWithFamily>
                 </Flex>
-              </Card>
+              </StyledCard>
             )
           })}
-        </Marquee>
-        <Marquee direction="right">
+        </StyledMarquee>
+        <StyledMarquee direction="right">
           {pageInfo?.features.map((Mcard) => {
             return (
-              <Card
+              <StyledCard
                 key={Mcard.name}
-                shadow="sm"
                 padding="sm"
                 radius="md"
-                withBorder
                 ml={20}
               >
                 <Flex
@@ -77,10 +86,10 @@ const Ui = memo(() => {
                   )}
                   <TextWithFamily>{Mcard.name}</TextWithFamily>
                 </Flex>
-              </Card>
+              </StyledCard>
             )
           })}
-        </Marquee>
+        </StyledMarquee>
       </Wrapper>
     </div>
   )

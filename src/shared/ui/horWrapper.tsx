@@ -22,6 +22,7 @@ const horWrapper = ({
   doubleOption = true,
   activeHead = true,
   $paddingTop = '130px',
+  $flexGap = 20,
 }: HorWrapperType) => {
   return (
     <GradientContainer
@@ -82,7 +83,7 @@ const horWrapper = ({
             direction="column"
             w={{ base: '100%' }}
             h={{ base: 'auto', lg: '100%' }}
-            gap={20}
+            gap={$flexGap}
             justify="center"
             align="center"
           >
