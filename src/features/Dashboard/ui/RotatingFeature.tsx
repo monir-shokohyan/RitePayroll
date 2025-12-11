@@ -37,6 +37,13 @@ const RotatingBackground = styled.div`
   inset: 0;
   animation: ${spin} 60s linear infinite;
 `
+const Icon = styled.div`
+  color: ${SavedColors.TextColorGreen};
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
 
 const Center = styled.div`
   position: absolute;
@@ -63,15 +70,12 @@ const Center = styled.div`
   z-index: 10;
   color: #111;
   padding: 16px;
+   ${Icon} svg {
+    width: clamp(16px, 6vw, 32px);
+    height: clamp(16px, 6vw, 32px);
+  }
 `
 
-const Icon = styled.div`
-  color: ${SavedColors.TextColorGreen};
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`
 
 // Responsive connector lines
 const Connector = styled.div<{ $angle: number }>`
