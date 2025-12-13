@@ -4,34 +4,66 @@ import {
   FaAddressBook,
   FaArchway,
   FaBalanceScale,
+  FaBan,
   FaBell,
   FaBirthdayCake,
   FaBookOpen,
   FaBoxOpen,
+  FaBullhorn,
+  FaCalendarCheck,
+  FaCalendarPlus,
   FaCashRegister,
   FaChartLine,
   FaChartPie,
   FaClipboardList,
   FaClock,
+  FaClone,
   FaCoffee,
+  FaCoins,
+  FaConciergeBell,
   FaCreditCard,
   FaCubes,
   FaCut,
+  FaEnvelope,
+  FaExclamationTriangle,
   FaFileAlt,
+  FaFileInvoice,
   FaFileInvoiceDollar,
   FaGift,
   FaGlassWhiskey,
+  FaGlobe,
   FaHamburger,
+  FaHistory,
   FaHotel,
+  FaHourglassHalf,
+  FaLayerGroup,
+  FaList,
+  FaMapMarkedAlt,
   FaMoneyBillWave,
+  FaMoneyCheckAlt,
   FaMusic,
   FaNetworkWired,
+  FaPaperPlane,
   FaPhoneAlt,
+  FaRing,
+  FaRoute,
   FaShieldAlt,
   FaShoppingBag,
+  FaSmileBeam,
+  FaStar,
   FaStoreAlt,
+  FaSyncAlt,
   FaTable,
+  FaTabletAlt,
+  FaTachometerAlt,
+  FaTasks,
+  FaTicketAlt,
+  FaTv,
+  FaUserPlus,
+  FaUsers,
+  FaUsersCog,
   FaUtensils,
+  FaVolumeUp,
   FaWarehouse,
 } from 'react-icons/fa'
 import { FaKitchenSet, FaLocationDot } from 'react-icons/fa6'
@@ -44,11 +76,10 @@ import {
   MdEventSeat,
   MdOutlineMonitor,
   MdQueue,
-  MdRemoveRedEye,
   MdSmartphone,
 } from 'react-icons/md'
-import { TbTargetArrow } from 'react-icons/tb'
 
+import { Addon } from './addonsMap'
 import { SavedColors } from './contant'
 
 export interface EditionType {
@@ -95,6 +126,10 @@ interface EditionsType {
   featureSectionBg: SavedColors
   features: Feature[]
 }
+interface BestForType {
+  label: string
+  icon: IconType
+}
 export interface TotalDataItem {
   name: string
   title?: string
@@ -113,6 +148,8 @@ export interface TotalDataItem {
   brochureLink?: string
   edition?: EditionType
   editions?: EditionsType[]
+  bestFor?: BestForType[]
+  id?: Addon | string
 }
 
 export const TotalData: TotalDataItem[] = [
@@ -127,39 +164,6 @@ export const TotalData: TotalDataItem[] = [
     sectionId: 'dashboard-welcome-section',
     features: [],
   },
-  {
-    name: 'About Us',
-    target: '/',
-    title: 'About Lotus Soft Technologies Ltd.',
-    description:
-      ', Founder and Managing Director of Lotus Soft Technologies Ltd., is a visionary entrepreneur and technology innovator who has played a defining role in shaping Uganda’s software landscape for more than 25 years.With a deep understanding of accounting, inventory, and business management processes, Mr. Shah transformed Lotus from a small local software initiative into one of Uganda’s leading technology companies — trusted by thousands of businesses across retail, manufacturing, and distribution sectors. His leadership and technical foresight have driven the creation of flagship products such as Ritebooks, RiteEats, RiteRoutes, RitePayroll, and JustPay, which today set new benchmarks for business automation, mobility, and integrated financial management across Africa. Known for his hands-on approach and relentless pursuit of innovation, he continues to lead Lotus into the next era of digital transformation — expanding into AI-driven automation, cloud computing, digital payments integration, and global connectivity to make African businesses more efficient, adaptable, and competitive on the world stage.',
-    descriptionSecond:
-      ' plays a pivotal role in the strategic direction and market expansion of Lotus Soft Technologies. Leveraging her deep knowledge in Accounting and Finance, she has been instrumental in bridging business needs with software innovation, leading successful product positioning and marketing strategies across Uganda and beyond. She stands as a symbol of women’s empowerment in technology and leadership, inspiring others to drive change through innovation.',
-    section: [
-      { name: 'Innovation' },
-      { name: 'Customer Success' },
-      { name: 'Continuous Improvement' },
-    ],
-    sectionSecond: [{ name: 'Integrity' }, { name: 'Collaboration' }],
-    sectionId: 'dashboard-about-section',
-    features: [
-      {
-        name: 'Vision',
-        description:
-          'To be the most trusted provider of comprehensive business software and IT solutions across Africa and beyond.',
-        icon: MdRemoveRedEye,
-        ariaLabel: 'vision',
-      },
-      {
-        name: 'Mission',
-        description:
-          'To simplify, automate, and empower businesses with scalable technology solutions that drive growth and sustainability.',
-        icon: TbTargetArrow,
-        ariaLabel: 'Mission',
-      },
-    ],
-  },
-
   {
     name: 'industries',
     dTitle: 'Explore',
@@ -240,7 +244,7 @@ export const TotalData: TotalDataItem[] = [
     dTitle: 'Discover',
     title: 'RITE EATS SOFTWARE VERSIONS',
     target: '/',
-    sectionId: 'dashboard-industries-section',
+    sectionId: 'dashboard-editions-section',
     editions: [
       {
         name: 'RiteEats Essentials',
@@ -487,5 +491,161 @@ export const TotalData: TotalDataItem[] = [
         isActive: false,
       },
     ],
+  },
+  {
+    id: 'Captain / Waiter Ordering & Billing App',
+    name: Addon.WaiterApp,
+    overview:
+      'This module enables captains and waiters to take orders directly at the guest table using Android or iOS handheld devices or tablets. The app speeds up ordering, reduces errors, and enhances the guest experience by minimizing waiting time and ensuring accurate service.',
+    imageUrl: '/products/captain-app.png',
+    features: [
+      { name: 'Table-side live order entry', icon: FaTabletAlt },
+      {
+        name: 'Instant KOT transmission to kitchen and bar',
+        icon: FaPaperPlane,
+      },
+      { name: 'Real-time table status and order updates', icon: FaSyncAlt },
+      { name: 'Reduced manual rewriting or re-entry of orders', icon: FaBan },
+      {
+        name: 'Optional table-side bill preview and confirmation',
+        icon: FaFileInvoiceDollar,
+      },
+      {
+        name: 'Improved coordination between service staff and kitchen',
+        icon: FaUsersCog,
+      },
+    ],
+    bestFor: [
+      { label: 'Fine Dining Restaurants', icon: FaUtensils },
+      { label: 'Lounges & Bars', icon: FaGlassWhiskey },
+      { label: 'Clubs & Nightlife', icon: FaMusic },
+      { label: 'Premium Cafés', icon: FaCoffee },
+      { label: 'Hotels & Resorts', icon: FaHotel },
+    ],
+    brochureLink: '/brochures/Rite eats.pdf',
+    target: '/captain-waiter-app',
+  },
+  {
+    id: 'Kitchen Display System (KDS)',
+    name: Addon.Kds,
+    overview:
+      'Replace paper KOTs with real-time digital screens in the kitchen and bar. Eliminate lost tickets, speed up preparation, and improve accuracy with color-coded alerts and order tracking.',
+    imageUrl: '/products/kds.png',
+    features: [
+      { name: 'Live digital display of all orders', icon: FaTv },
+      { name: 'Auto-routing to correct kitchen/bar station', icon: FaRoute },
+      {
+        name: 'Color-coded priority & delay alerts',
+        icon: FaExclamationTriangle,
+      },
+      { name: 'Preparation time and order aging', icon: FaHourglassHalf },
+      { name: 'Status: Preparing to Ready to Served', icon: FaTasks },
+      { name: 'Supports multiple kitchen screens', icon: FaClone },
+    ],
+    bestFor: [
+      { label: 'High-Volume Restaurants', icon: FaUtensils },
+      { label: 'Quick Service Restaurants', icon: FaClock },
+      { label: 'Food Courts', icon: FaStoreAlt },
+      { label: 'Cloud Kitchens', icon: FaKitchenSet },
+      { label: 'Busy Bars', icon: FaGlassWhiskey },
+    ],
+    brochureLink: '/brochures/Rite eats.pdf',
+    target: '/kds',
+  },
+  {
+    id: 'Customer Loyalty Management',
+    name: Addon.CustomerLoyaltyManagement,
+    overview:
+      'Build lasting customer relationships with points, tiers, birthday rewards, and smart campaigns. Turn one-time guests into loyal regulars who spend more and visit often.',
+    imageUrl: '/products/loyalty.png',
+    features: [
+      { name: 'Register via mobile number or card', icon: FaUserPlus },
+      { name: 'Point-based earn & redeem system', icon: FaCoins },
+      { name: 'Tiered benefits and reward slabs', icon: FaLayerGroup },
+      { name: 'Auto birthday & anniversary offers', icon: FaBirthdayCake },
+      { name: 'Visit & spend history tracking', icon: FaHistory },
+      { name: 'Targeted promotions for VIPs', icon: FaBullhorn },
+    ],
+    bestFor: [
+      { label: 'Restaurants', icon: FaUtensils },
+      { label: 'Cafés & Bakeries', icon: FaCoffee },
+      { label: 'Food Chains', icon: FaStoreAlt },
+      { label: 'Franchises', icon: FaNetworkWired },
+      { label: 'Multi-Outlet Brands', icon: FaCubes },
+    ],
+    brochureLink: '/brochures/Rite eats.pdf',
+    target: '/loyalty',
+  },
+  {
+    id: 'Online Table Reservation System',
+    name: Addon.OnlineTableReservations,
+    overview:
+      'Let customers book tables online 24/7 with live availability. Reduce phone calls, avoid double bookings, and fill seats during peak hours intelligently.',
+    imageUrl: '/products/reservation.png',
+    features: [
+      { name: 'Real-time table availability calendar', icon: FaCalendarCheck },
+      { name: 'Booking widget for website & social media', icon: FaGlobe },
+      { name: 'Auto SMS/email confirmations', icon: FaEnvelope },
+      { name: 'Peak hour & capacity controls', icon: FaTachometerAlt },
+      { name: 'Integrated with floor plan', icon: FaMapMarkedAlt },
+      { name: 'Pre-payment & no-show management', icon: FaCreditCard },
+    ],
+    bestFor: [
+      { label: 'Fine Dining', icon: FaUtensils },
+      { label: 'Rooftop & View Restaurants', icon: FaArchway },
+      { label: 'Lounges', icon: FaGlassWhiskey },
+      { label: 'Banquet Venues', icon: MdEvent },
+      { label: 'Popular Outlets', icon: FaStar },
+    ],
+    brochureLink: '/brochures/Rite eats.pdf',
+    target: '/reservation',
+  },
+  {
+    id: 'Token & Queue Management System',
+    name: Addon.QueueManagement,
+    overview:
+      'Perfect for fast-service environments. Generate tokens, display serving numbers, manage multiple queues, and deliver smooth, frustration-free customer flow.',
+    imageUrl: '/products/token-queue.png',
+    features: [
+      { name: 'Token generation at counter/kiosk', icon: FaTicketAlt },
+      { name: 'Large digital display boards', icon: FaTv },
+      { name: 'Voice announcement & SMS alerts', icon: FaVolumeUp },
+      { name: 'Separate queues: dine-in, takeaway, delivery', icon: FaList },
+      { name: 'Real-time queue analytics', icon: FaChartLine },
+      { name: 'Reduced crowding and wait anger', icon: FaSmileBeam },
+    ],
+    bestFor: [
+      { label: 'QSR & Fast Food', icon: FaHamburger },
+      { label: 'Food Courts', icon: FaStoreAlt },
+      { label: 'Bakeries & Sweet Shops', icon: FaBirthdayCake },
+      { label: 'Takeaway Outlets', icon: FaShoppingBag },
+      { label: 'Cloud Kitchens', icon: FaKitchenSet },
+    ],
+    brochureLink: '/brochures/Rite eats.pdf',
+    target: '/token-queue',
+  },
+  {
+    id: 'Event Management System',
+    name: Addon.EventManagementSystem,
+    overview:
+      'Manage banquets, weddings, corporate events, and private parties from enquiry to final settlement — with menu costing, advances, and per-event profit reports.',
+    imageUrl: '/products/event-management.png',
+    features: [
+      { name: 'Event enquiry & booking calendar', icon: FaCalendarPlus },
+      { name: 'Custom menu planning and costing', icon: FaUtensils },
+      { name: 'Guest count & seating allocation', icon: FaUsers },
+      { name: 'Advance/deposit/balance tracking', icon: FaMoneyCheckAlt },
+      { name: 'Separate event billing & taxation', icon: FaFileInvoice },
+      { name: 'Profit & loss report per event', icon: FaChartPie },
+    ],
+    bestFor: [
+      { label: 'Banquet Halls', icon: FaArchway },
+      { label: 'Hotels & Resorts', icon: FaHotel },
+      { label: 'Clubs & Lounges', icon: FaMusic },
+      { label: 'Wedding Venues', icon: FaRing },
+      { label: 'Catering Companies', icon: FaConciergeBell },
+    ],
+    brochureLink: '/brochures/Rite eats.pdf',
+    target: '/event-management',
   },
 ]

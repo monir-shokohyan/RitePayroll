@@ -30,6 +30,10 @@ const HoveredButtonWithoutBorder = styled(Button)<
     background-color: transparent;
     transition: all 0.3s ease-in;
   }
+  @media (max-width: 768px) {
+    width: 100%;
+    text-align: center;
+  }
 `
 
 export { HoveredButtonWithoutBorder, WelcomeText, WelcomeTitle }

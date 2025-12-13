@@ -17,4 +17,5 @@ export interface HorWrapperType {
   activeHead?: boolean
   $paddingTop?: string
   $flexGap?: number
+  $deactiveLine?: boolean
 }

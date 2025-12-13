@@ -19,7 +19,7 @@ import {
 } from '../styles/styles'
 import { WelcomeFeature } from './welcomeFeature'
 
-const HoveredArrow = styled.div`
+export const HoveredArrow = styled.div`
   transition: transform 0.2s ease-in-out;
   &:hover {
     transform: translateY(10px);
@@ -113,16 +113,24 @@ const Welcome = memo(() => {
             </HoveredButtonWithoutBorder>
 
             <HoveredButtonWithoutBorder
-              radius="md"
+              as="a"
+              radius={20}
               size="sm"
               w={{ base: '100%', sm: 'auto', md: 'auto', lg: 'auto' }}
               color={SavedColors.Primaryblue}
               variant="transparent"
-              onClick={() =>
-                navigateAndScroll('/', 'dashboard-contact-section')
-              }
+              href="/brochures/Rite eats.pdf"
+              download
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                textDecoration: 'none',
+                color: SavedColors.primaryBlue,
+                fontWeight: '600',
+                fontSize: '14px',
+              }}
             >
-              Download Brochure
+              Download product brochure
             </HoveredButtonWithoutBorder>
           </Container>
           <HoveredArrow

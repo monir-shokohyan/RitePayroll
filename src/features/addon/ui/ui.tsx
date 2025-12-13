@@ -65,7 +65,7 @@ const Ui = memo(() => {
   const pageInfo = FindByName('addon')
 
   return (
-    <div id="dashboard-industries-section">
+    <div id="dashboard-addon-section">
       <Wrapper
         isReverseWrap={false}
         fullHeight={false}

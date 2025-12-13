@@ -70,12 +70,11 @@ const Center = styled.div`
   z-index: 10;
   color: #111;
   padding: 16px;
-   ${Icon} svg {
+  ${Icon} svg {
     width: clamp(16px, 6vw, 32px);
     height: clamp(16px, 6vw, 32px);
   }
 `
-
 
 // Responsive connector lines
 const Connector = styled.div<{ $angle: number }>`

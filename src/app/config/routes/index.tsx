@@ -1,6 +1,6 @@
 import { RouteType } from '@shared/types/router/route-type'
 
+import { addonRoute } from './addons'
 import { mainRoute } from './folder'
-import { productsRoute } from './products'
 
-export const routes: RouteType[] = [...mainRoute, ...productsRoute]
+export const routes: RouteType[] = [...mainRoute, ...addonRoute]

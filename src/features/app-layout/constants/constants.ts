@@ -1,13 +1,15 @@
+import { Paths } from '@shared/api/paths'
+
 export const addonLinks = [
-  { to: '/addon/kitchen-display-system', label: 'Kitchen Display System' },
-  { to: '/addon/captain-waiter-app', label: ' Captain/Waiter App' },
+  { to: Paths.Kds, label: 'Kitchen Display System' },
+  { to: Paths.Waiter_App, label: ' Captain/Waiter App' },
   {
-    to: '/addon/costumer-loyalty-management',
+    to: Paths.Customer_Loyalty_Management,
     label: ' Customer Loyalty Management',
   },
-  { to: '/addon/online-table-management', label: ' Online Table Reservations' },
-  { to: '/addon/token-queue-management', label: ' Token & Queue Management' },
-  { to: '/addon/event-management-system', label: ' Event Management System' },
+  { to: Paths.Online_Table_Reservations, label: ' Online Table Reservations' },
+  { to: Paths.Queue_Management, label: ' Token & Queue Management' },
+  { to: Paths.Event_Management_System, label: ' Event Management System' },
 ]
 
 export const NavigationLinks = [

@@ -20,6 +20,7 @@ export interface StyledTextProps {
   $textalign?: 'left' | 'center' | 'right' | 'justify'
   responsive?: boolean
   lineHeight?: string
+  width?: string
 }
 
 const textStyles = css<StyledTextProps>`
@@ -30,6 +31,7 @@ const textStyles = css<StyledTextProps>`
   text-align: ${({ $textalign }) => $textalign || 'left'};
   text-decoration: none;
   transition: all 0.3s ease-in-out;
+  width: ${({ width }) => (width ? width : '100%')};
 `
 
 const TextWithFamily = styled.div<StyledTextProps>`
@@ -101,5 +103,47 @@ const TextResponsive = styled.h1<StyledTextProps>`
     `
   }}
 `
+const TextResponsiveSmaller = styled.h1<StyledTextProps>`
+  ${textStyles}
 
-export { LinkS, NavLinkS, TextResponsive, TextWithFamily, TitleWithFamily }
+  ${({ fontSize = '16px', responsive = true }) => {
+    if (!responsive) return ''
+
+    const baseSize = Number.parseFloat(fontSize)
+    const unit = fontSize.replace(baseSize.toString(), '')
+
+    return `
+      // Mobile (base)
+      font-size: ${baseSize * 0.5}${unit};
+      
+      // Small tablets
+      @media (min-width: 480px) {
+        font-size: ${baseSize * 0.6}${unit};
+      }
+      
+      // Tablets
+      @media (min-width: 768px) {
+        font-size: ${baseSize * 0.8}${unit};
+      }
+      
+      // Small desktop
+      @media (min-width: 1024px) {
+        font-size: ${baseSize * 0.95}${unit};
+      }
+      
+      // Large desktop
+      @media (min-width: 1440px) {
+        font-size: ${baseSize}${unit};
+      }
+    `
+  }}
+`
+
+export {
+  LinkS,
+  NavLinkS,
+  TextResponsive,
+  TextResponsiveSmaller,
+  TextWithFamily,
+  TitleWithFamily,
+}
