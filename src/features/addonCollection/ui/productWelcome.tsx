@@ -26,7 +26,7 @@ const ProductWelcome = ({ page }: { page: ProductsType }) => {
         <Image
           src="/girl.svg"
           alt={product?.id}
-          h="500px"
+          h={{ base: 200, sm: 200, md: 400, lg: 500 }}
           fit="contain"
         />
       }
