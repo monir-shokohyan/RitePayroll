@@ -1,6 +1,6 @@
 import { IconType } from 'react-icons'
 import { FaBatteryEmpty } from 'react-icons/fa'
-import { Flex, FlexProps } from '@mantine/core'
+import { Flex } from '@mantine/core'
 import { useMediaQuery } from '@mantine/hooks'
 import styled from 'styled-components'
 
@@ -26,7 +26,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ Icon, title }) => {
           color={SavedColors.TextColorGreen}
         />
         <TextResponsiveSmaller
-          width="60%"
+          width="80%"
           $textalign="center"
         >
           {title}
@@ -40,7 +40,6 @@ const HoneycombGrid = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
   padding: 0 20px;
   position: relative;
   width: 100%;
@@ -53,9 +52,16 @@ const DiamondCardWrapper = styled.div`
 
 const DiamondCard = styled.div`
   background: white;
-  width: 280px;
-  height: 280px;
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  box-shadow:
+    0 15px 25px -4px rgba(0, 0, 0, 0.2),
+    inset 0 -3px 4px -1px rgba(0, 0, 0, 0.1),
+    0 -10px 15px -1px rgba(255, 255, 255, 0.3),
+    inset 0 3px 4px -1px rgba(255, 255, 255, 0.2),
+    inset 0 0 5px 1px rgba(255, 255, 255, 0.1),
+    inset 0 20px 30px 0 rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 220px;
+  height: 220px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -80,21 +86,6 @@ const DiamondCard = styled.div`
     gap: 5px;
   }
 `
-const AbsoluteFlex = styled(Flex)<FlexProps>`
-  position: absolute;
-  top: 150px;
-  justify-content: center;
-  @media (max-width: 998px) {
-    top: 110px;
-  }
-  @media (max-width: 720px) {
-    top: 85px;
-  }
-
-  @media (max-width: 480px) {
-    top: 70px;
-  }
-`
 
 const ProductsInfo = ({ page }: { page: ProductsType }) => {
   const product = FindByName(page)
@@ -113,7 +104,7 @@ const ProductsInfo = ({ page }: { page: ProductsType }) => {
       doubleOption={false}
     >
       <HoneycombGrid>
-        <Flex gap={{ base: 10, sm: 10, md: 20, lg: 40 }}>
+        <Flex gap={{ base: 10, sm: 10, md: 20, lg: 20 }}>
           {product?.features.slice(0, 3).map((feature) => (
             <FeatureCard
               key={feature.name}
@@ -123,7 +114,7 @@ const ProductsInfo = ({ page }: { page: ProductsType }) => {
           ))}
         </Flex>
 
-        <AbsoluteFlex gap={{ base: 10, sm: 10, md: 20, lg: 40 }}>
+        <Flex gap={{ base: 10, sm: 10, md: 20, lg: 20 }}>
           {product?.features.slice(3, 5).map((feature) => (
             <FeatureCard
               key={feature.name}
@@ -131,7 +122,7 @@ const ProductsInfo = ({ page }: { page: ProductsType }) => {
               Icon={feature.icon ?? FaBatteryEmpty}
             />
           ))}
-        </AbsoluteFlex>
+        </Flex>
 
         <Flex>
           {product?.features.slice(5, 6).map((feature) => (

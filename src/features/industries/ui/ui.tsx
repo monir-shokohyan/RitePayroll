@@ -9,7 +9,7 @@ import { FindByName } from '@shared/helpers'
 import { horWrapper as Wrapper } from '@shared/ui/horWrapper'
 import { TextWithFamily } from '@shared/ui/Typography'
 
-const StyledMarquee = styled(Marquee)<MarqueeProps>`
+export const StyledMarquee = styled(Marquee)<MarqueeProps>`
   padding-block: 10px;
 `
 const StyledCard = styled(Card)<CardProps>`

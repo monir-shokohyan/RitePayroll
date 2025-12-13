@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 
 import { ProductsType } from '../types'
+import { BestFor } from './bestFor'
 import { ProductsInfo } from './productsInfo'
 import { ProductWelcome } from './productWelcome'
 
@@ -15,6 +16,7 @@ function Ui({ page }: { page: ProductsType }) {
     <>
       <ProductWelcome page={page} />
       <ProductsInfo page={page} />
+      <BestFor page={page} />
     </>
   )
 }
