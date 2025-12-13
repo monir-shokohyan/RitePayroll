@@ -42,7 +42,7 @@ const BestFor = ({ page }: { page: ProductsType }) => {
               key={bestItem.label}
               direction="column"
               justify="flex-start"
-              pt={{ base: 10, sm: 10, md: 20, lg: 40 }}
+              pt={{ base: 20, sm: 20, md: 40, lg: 60 }}
               align="center"
               gap={{ base: 10, sm: 10, md: 20, lg: 20 }}
               w={{ base: 80, sm: 80, md: 160, lg: 200 }}
