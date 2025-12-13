@@ -21,18 +21,21 @@ const Footer = memo(() => {
       >
         <IconWithText
           allowText={false}
+          allowTextRes={false}
           icon={FaGithub}
           iconSize={20}
           handleClick={() => window.open(ImportantInfo.githubUrl, '_blank')}
         />
         <IconWithText
           allowText={false}
+          allowTextRes={false}
           icon={FaPhoneAlt}
           iconSize={20}
           handleClick={() => (window.location.href = 'tel:+256755818183')}
         />
         <IconWithText
           allowText={false}
+          allowTextRes={false}
           icon={MdEmail}
           iconSize={20}
           handleClick={() =>
@@ -41,6 +44,7 @@ const Footer = memo(() => {
         />
         <IconWithText
           allowText={false}
+          allowTextRes={false}
           icon={HiGlobeAlt}
           iconSize={20}
           handleClick={() => window.open(ImportantInfo.website, '_blank')}
