@@ -13,14 +13,14 @@ const COLOR_BOTTOM = '#DFEDEE'
 type GradientDirection = 'top-to-bottom' | 'bottom-to-top'
 
 interface GradientFlexProps {
-  gradientDirection?: GradientDirection
+  $gradientDirection?: GradientDirection
   $paddingTop?: string
 }
 
 export const GradientFlex = styled(Flex)<GradientFlexProps & FlexProps>`
   padding-top: ${({ $paddingTop = '130px' }) => $paddingTop};
-  background: ${({ gradientDirection = 'top-to-bottom' }) =>
-    gradientDirection === 'top-to-bottom'
+  background: ${({ $gradientDirection = 'top-to-bottom' }) =>
+    $gradientDirection === 'top-to-bottom'
       ? css`
           linear-gradient(to bottom, ${COLOR_TOP}, ${COLOR_BOTTOM});
         `
@@ -46,7 +46,7 @@ const GradientContainer = ({
 }) => {
   return (
     <GradientFlex
-      gradientDirection={direction}
+      $gradientDirection={direction}
       direction="column"
       $paddingTop={$paddingTop}
     >

@@ -79,7 +79,7 @@ const IconWithText = ({
           w={ContainerSize}
           justify="center"
           align="center"
-          borderRadius="50%"
+          $borderRadius="50%"
           background={$isActiveIconBg ? SavedColors.PrimaryWhite : 'none'}
           border={$border}
         >

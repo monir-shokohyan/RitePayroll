@@ -10,7 +10,7 @@ interface FlexProps extends MantineFlexProps {
   height?: string
   bg?: string
   background?: string
-  borderRadius?: string
+  $borderRadius?: string
   m?: string
   margin?: string
   p?: string
@@ -26,7 +26,7 @@ const Container = styled(MantineFlex)<FlexProps>`
   width: ${({ w }) => w || 'auto'};
   height: ${({ h, height }) => h || height || 'auto'};
   background: ${({ bg, background }) => bg || background || 'transparent'};
-  border-radius: ${({ borderRadius }) => borderRadius || '0'};
+  border-radius: ${({ $borderRadius }) => $borderRadius || '0'};
   margin: ${({ m, margin }) => m || margin || '0'};
   padding: ${({ p }) => p || '0'};
   max-width: ${({ mw }) => mw || 'auto'};
