@@ -1,5 +1,9 @@
-import React from 'react'
-import { FaFacebookF, FaGithub, FaLinkedinIn, FaPhone, FaTwitter } from 'react-icons/fa'
+import { useState } from 'react'
+import { FaGithub, FaPhone } from 'react-icons/fa'
+import { MdEmail } from 'react-icons/md'
+import { useClickOutside } from '@mantine/hooks'
+
+import { ImportantInfo } from '@shared/constants/companyInfo'
 
 import {
   ButtonContent,
@@ -9,10 +13,11 @@ import {
   TooltipContainer,
   TooltipContent,
 } from '../styles'
-import { MdEmail } from 'react-icons/md'
-import { ImportantInfo } from '@shared/constants/companyInfo'
 
-const Ui: React.FC = () => {
+const Ui = () => {
+  const ref = useClickOutside(() => setActiveToolbar(false))
+
+  const [activeToolbar, setActiveToolbar] = useState(false)
   return (
     <TooltipContainer>
       <ButtonContent
@@ -22,34 +27,37 @@ const Ui: React.FC = () => {
         <ShareIcon
           className="share-icon"
           aria-label="Share"
+          onClick={() => setActiveToolbar((prev) => !prev)}
         />
       </ButtonContent>
 
-      <TooltipContent>
-        <SocialIcons>
-          <SocialLink
-            href={ImportantInfo.githubUrl}
-            className="github"
-            aria-label="reach github account"
-          >
-            <FaGithub />
-          </SocialLink>
-          <SocialLink
-            href="tel:+256755818183"
-            className="phone"
-            aria-label="reach phone"
-          >
-            <FaPhone />
-          </SocialLink>
-          <SocialLink
-            href={`mailto:${ImportantInfo.emailAddress}`}
-            className="email"
-            aria-label="reach email address"
-          >
-            <MdEmail />
-          </SocialLink>
-        </SocialIcons>
-      </TooltipContent>
+      {activeToolbar && (
+        <TooltipContent ref={ref}>
+          <SocialIcons>
+            <SocialLink
+              href={ImportantInfo.githubUrl}
+              className="github"
+              aria-label="reach github account"
+            >
+              <FaGithub />
+            </SocialLink>
+            <SocialLink
+              href="tel:+256755818183"
+              className="phone"
+              aria-label="reach phone"
+            >
+              <FaPhone />
+            </SocialLink>
+            <SocialLink
+              href={`mailto:${ImportantInfo.emailAddress}`}
+              className="email"
+              aria-label="reach email address"
+            >
+              <MdEmail />
+            </SocialLink>
+          </SocialIcons>
+        </TooltipContent>
+      )}
     </TooltipContainer>
   )
 }

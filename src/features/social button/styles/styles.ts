@@ -44,22 +44,19 @@ export const ShareIcon = styled(IoChatbox)`
 
 export const TooltipContent = styled.div`
   position: absolute;
-  bottom: 70px;
-  left: -70%;
+  bottom: 60px;
+  left: -50%;
   transform: translateX(-50%) scale(0.8);
   background: ${SavedColors.primaryBlue};
   backdrop-filter: blur(10px);
   border-radius: 15px;
   padding: 22px;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-  opacity: 0;
-  visibility: hidden;
   transition:
     opacity 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55),
     transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55),
     visibility 0.5s ease;
   z-index: 100;
-  pointer-events: none;
 
   &::before {
     content: '';
@@ -71,13 +68,6 @@ export const TooltipContent = styled.div`
     border-style: solid;
     border-color: transparent transparent ${SavedColors.primaryBlue} transparent;
     filter: drop-shadow(0 -3px 3px rgba(0, 0, 0, 0.1));
-  }
-
-  ${TooltipContainer}:hover & {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) scale(1);
-    pointer-events: auto;
   }
 
   @media (max-width: 768px) {
