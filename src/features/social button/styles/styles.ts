@@ -1,4 +1,3 @@
-import { FiShare2 } from 'react-icons/fi'
 import { IoChatbox } from 'react-icons/io5'
 import styled, { keyframes } from 'styled-components'
 
@@ -42,7 +41,7 @@ export const ButtonContent = styled.div`
   justify-content: center;
   background: linear-gradient(135deg, #6e8efb, #a777e3);
   color: white;
-  padding: 14px 28px;
+  padding: 15px;
   border-radius: 50px;
   cursor: pointer;
   transition:
@@ -146,7 +145,7 @@ export const ShareIcon = styled(IoChatbox)`
 export const TooltipContent = styled.div`
   position: absolute;
   bottom: 70px;
-  left: -20%;
+  left: -70%;
   transform: translateX(-50%) scale(0.8);
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(10px);
