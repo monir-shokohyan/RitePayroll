@@ -64,13 +64,6 @@ const Navbar = memo(() => {
 
         <MenuItems
           to="/"
-          onClick={() => navigateAndScroll('/', 'dashboard-contact-section')}
-          className={getSectionActive('dashboard-contact-section')}
-        >
-          Contact Us
-        </MenuItems>
-        <MenuItems
-          to="/"
           onClick={() => navigateAndScroll('/', 'dashboard-features-section')}
           className={getSectionActive('dashboard-features-section')}
         >
@@ -82,6 +75,14 @@ const Navbar = memo(() => {
           className={getSectionActive('dashboard-industries-section')}
         >
           Industries
+        </MenuItems>
+
+        <MenuItems
+          to="/"
+          onClick={() => navigateAndScroll('/', 'dashboard-contact-section')}
+          className={getSectionActive('dashboard-contact-section')}
+        >
+          Contact Us
         </MenuItems>
         <Menu
           width={200}
@@ -176,18 +177,6 @@ const Navbar = memo(() => {
           <MenuListItem
             to="/"
             onClick={() => {
-              navigateAndScroll('/', 'dashboard-about-section')
-              toggle()
-            }}
-            className={
-              activeSection === 'dashboard-about-section' ? 'active' : ''
-            }
-          >
-            About Us
-          </MenuListItem>
-          <MenuListItem
-            to="/"
-            onClick={() => {
               navigateAndScroll('/', 'dashboard-editions-section')
               toggle()
             }}
@@ -198,18 +187,6 @@ const Navbar = memo(() => {
             Editions
           </MenuListItem>
 
-          <MenuListItem
-            to="/"
-            onClick={() => {
-              toggle()
-              navigateAndScroll('/', 'dashboard-contact-section')
-            }}
-            className={
-              activeSection === 'dashboard-contact-section' ? 'active' : ''
-            }
-          >
-            Contact Us
-          </MenuListItem>
           <MenuListItem
             to="/"
             onClick={() => {
@@ -234,6 +211,20 @@ const Navbar = memo(() => {
           >
             Industries
           </MenuListItem>
+
+          <MenuListItem
+            to="/"
+            onClick={() => {
+              toggle()
+              navigateAndScroll('/', 'dashboard-contact-section')
+            }}
+            className={
+              activeSection === 'dashboard-contact-section' ? 'active' : ''
+            }
+          >
+            Contact Us
+          </MenuListItem>
+
           <Menu
             width={250}
             position="bottom"

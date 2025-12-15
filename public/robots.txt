@@ -1,6 +1,6 @@
 # ========================================
-#  robots.txt – Lotus Soft Ltd
-#  Website: https://lotus-soft-ltd.netlify.app/
+#  robots.txt – rite eats
+#  Website: https://rite-eats.netlify.app/
 #  Fully SEO-optimized | Static React SPA
 # ========================================
 
@@ -10,7 +10,7 @@ Allow: /
 # === ALLOW ALL PUBLIC PAGES ===
 # Your main routes are fully accessible
 Allow: /
-Allow: /products/*
+Allow: /addon/*
 Allow: /dashboard
 
 # === BLOCK DUPLICATE / SPAMMY URLS ===
@@ -21,7 +21,7 @@ Disallow: /*?*
 # You don’t have /admin, /login, /api → nothing to hide
 
 # === SITEMAP (Confirmed in root!) ===
-Sitemap: https://lotus-soft-ltd.netlify.app/sitemap.xml
+Sitemap: https://rite-eats.netlify.app/sitemap.xml
 
 # === CRAWLER NOTES ===
 # Googlebot, Bingbot: Welcome! Index all product pages.
