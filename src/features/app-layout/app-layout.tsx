@@ -1,5 +1,6 @@
 import { lazy } from 'react'
 
+import { SocialButton } from '@features/social button'
 import { ErrorSuspense } from '@shared/ui/error-suspense'
 
 import { AffixComponent } from './Affix'
@@ -18,6 +19,7 @@ export const AppLayout = () => {
       <ErrorSuspense suspenseKey="/footer">
         <Footer />
       </ErrorSuspense>
+      <SocialButton />
       <AffixComponent />
     </div>
   )
