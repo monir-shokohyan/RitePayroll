@@ -1,29 +1,7 @@
 import { IoChatbox } from 'react-icons/io5'
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 
-// Keyframes
-const pulse = keyframes`
-  0% {
-    box-shadow: 0 0 0 0 rgba(110, 142, 251, 0.4);
-  }
-  70% {
-    box-shadow: 0 0 0 20px rgba(110, 142, 251, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(110, 142, 251, 0);
-  }
-`
-
-const ripple = keyframes`
-  0% {
-    transform: scale(0);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(4);
-    opacity: 0;
-  }
-`
+import { SavedColors } from '@shared/constants'
 
 export const TooltipContainer = styled.div`
   position: fixed;
@@ -39,7 +17,7 @@ export const ButtonContent = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  background: ${SavedColors.primaryBlue};
   color: white;
   padding: 15px;
   border-radius: 50px;
@@ -52,84 +30,6 @@ export const ButtonContent = styled.div`
   position: relative;
   z-index: 10;
   overflow: hidden;
-  animation: ${pulse} 3s infinite;
-
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: linear-gradient(
-      135deg,
-      rgba(110, 142, 251, 0.4),
-      rgba(167, 119, 227, 0.4)
-    );
-    filter: blur(15px);
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    z-index: -1;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(
-      circle,
-      rgba(255, 255, 255, 0.3) 0%,
-      rgba(255, 255, 255, 0) 70%
-    );
-    transform: scale(0);
-    transition: transform 0.6s ease-out;
-    z-index: -1;
-  }
-
-  &:hover {
-    background: linear-gradient(135deg, #a777e3, #6e8efb);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-    transform: translateY(-4px) scale(1.03);
-
-    &::before {
-      opacity: 1;
-    }
-
-    &::after {
-      transform: scale(1);
-    }
-  }
-
-  &:active {
-    transform: translateY(-2px) scale(0.98);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-
-    &::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(255, 255, 255, 0.3);
-      border-radius: inherit;
-      animation: ${ripple} 0.6s linear;
-    }
-  }
-
-  &:focus {
-    outline: none;
-    box-shadow:
-      0 0 0 3px rgba(110, 142, 251, 0.5),
-      0 8px 15px rgba(0, 0, 0, 0.1);
-  }
-
-  @media (max-width: 768px) {
-    padding: 12px 24px;
-    border-radius: 40px;
-  }
-
-  @media (max-width: 480px) {
-    padding: 10px 20px;
-  }
 `
 
 export const ShareIcon = styled(IoChatbox)`
@@ -147,7 +47,7 @@ export const TooltipContent = styled.div`
   bottom: 70px;
   left: -70%;
   transform: translateX(-50%) scale(0.8);
-  background: rgba(255, 255, 255, 0.9);
+  background: ${SavedColors.primaryBlue};
   backdrop-filter: blur(10px);
   border-radius: 15px;
   padding: 22px;
@@ -169,7 +69,7 @@ export const TooltipContent = styled.div`
     transform: translateX(-50%) rotate(180deg);
     border-width: 0 10px 10px 10px;
     border-style: solid;
-    border-color: transparent transparent rgba(255, 255, 255, 0.9) transparent;
+    border-color: transparent transparent ${SavedColors.primaryBlue} transparent;
     filter: drop-shadow(0 -3px 3px rgba(0, 0, 0, 0.1));
   }
 
@@ -178,15 +78,6 @@ export const TooltipContent = styled.div`
     visibility: visible;
     transform: translateX(-50%) scale(1);
     pointer-events: auto;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    background: rgba(30, 30, 30, 0.9);
-    color: white;
-
-    &::before {
-      border-color: transparent transparent rgba(30, 30, 30, 0.9) transparent;
-    }
   }
 
   @media (max-width: 768px) {
@@ -257,30 +148,30 @@ export const SocialLink = styled.a`
   svg {
     width: 24px;
     height: 24px;
-    fill: #333;
+    fill: #ffffff;
     transition:
       transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55),
       fill 0.3s ease;
     z-index: 1;
   }
 
-  &.twitter:hover {
+  &.github:hover {
     background: linear-gradient(135deg, #1da1f2, #1a91da);
   }
 
-  &.facebook:hover {
+  &.phone:hover {
     background: linear-gradient(135deg, #1877f2, #165ed0);
   }
 
-  &.linkedin:hover {
+  &.email:hover {
     background: linear-gradient(135deg, #0077b5, #005e94);
   }
 
   @media (prefers-color-scheme: dark) {
-    background: #2a2a2a;
+    background: #ffffff;
 
     svg {
-      fill: #e0e0e0;
+      fill: ${SavedColors.primaryBlue};
     }
   }
 

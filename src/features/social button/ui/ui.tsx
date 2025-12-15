@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaFacebookF, FaLinkedinIn, FaTwitter } from 'react-icons/fa'
+import { FaFacebookF, FaGithub, FaLinkedinIn, FaPhone, FaTwitter } from 'react-icons/fa'
 
 import {
   ButtonContent,
@@ -9,6 +9,8 @@ import {
   TooltipContainer,
   TooltipContent,
 } from '../styles'
+import { MdEmail } from 'react-icons/md'
+import { ImportantInfo } from '@shared/constants/companyInfo'
 
 const Ui: React.FC = () => {
   return (
@@ -26,25 +28,25 @@ const Ui: React.FC = () => {
       <TooltipContent>
         <SocialIcons>
           <SocialLink
-            href="#"
-            className="twitter"
-            aria-label="Share on Twitter"
+            href={ImportantInfo.githubUrl}
+            className="github"
+            aria-label="reach github account"
           >
-            <FaTwitter />
+            <FaGithub />
           </SocialLink>
           <SocialLink
-            href="#"
-            className="facebook"
-            aria-label="Share on Facebook"
+            href="tel:+256755818183"
+            className="phone"
+            aria-label="reach phone"
           >
-            <FaFacebookF />
+            <FaPhone />
           </SocialLink>
           <SocialLink
-            href="#"
-            className="linkedin"
-            aria-label="Share on LinkedIn"
+            href={`mailto:${ImportantInfo.emailAddress}`}
+            className="email"
+            aria-label="reach email address"
           >
-            <FaLinkedinIn />
+            <MdEmail />
           </SocialLink>
         </SocialIcons>
       </TooltipContent>
