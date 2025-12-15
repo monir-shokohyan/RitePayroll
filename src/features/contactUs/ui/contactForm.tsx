@@ -7,8 +7,6 @@ import emailjs from '@emailjs/browser'
 import { yupResolver } from '@hookform/resolvers/yup'
 import {
   Box,
-  Button,
-  ButtonProps,
   Flex,
   Loader,
   Notification,
@@ -16,47 +14,13 @@ import {
   TextInput,
   VisuallyHidden,
 } from '@mantine/core'
-import styled from 'styled-components'
-import * as yup from 'yup'
 
-import { SavedColors } from '@shared/constants'
 import { FindByName } from '@shared/helpers'
 import { TextWithFamily } from '@shared/ui/Typography'
 
-interface ExtendedButtonProps
-  extends ButtonProps,
-    Omit<React.ComponentProps<'button'>, 'color' | 'style'> {
-  type?: 'submit' | 'button' | 'reset'
-}
-
-const HoveredButton = styled(Button)<ExtendedButtonProps>`
-  color: ${SavedColors.primaryBlue};
-  border: 1px solid ${SavedColors.primaryBlue};
-  background-color: transparent;
-  transition: all 0.5s ease-in-out;
-
-  &:hover {
-    color: ${SavedColors.PrimaryWhite};
-    background-color: ${SavedColors.primaryBlue};
-  }
-`
-
-const contactFormSchema = yup.object({
-  name: yup
-    .string()
-    .min(2, 'Name must be at least 2 characters')
-    .required('Name is required'),
-  email: yup
-    .string()
-    .email('Please enter a valid email address')
-    .required('Email is required'),
-  message: yup
-    .string()
-    .min(10, 'Message must be at least 10 characters')
-    .required('Message is required'),
-})
-
-type ContactFormData = yup.InferType<typeof contactFormSchema>
+import { contactFormSchema } from '../schema/schema'
+import { HoveredButton } from '../styles'
+import { ContactFormData } from '../types'
 
 const ContactFormMain: React.FC = () => {
   const [showSuccess, setShowSuccess] = React.useState(false)

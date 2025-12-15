@@ -23,11 +23,11 @@ const Ui = () => {
       <ButtonContent
         role="button"
         tabIndex={0}
+        onClick={() => setActiveToolbar((prev) => !prev)}
       >
         <ShareIcon
           className="share-icon"
           aria-label="Share"
-          onClick={() => setActiveToolbar((prev) => !prev)}
         />
       </ButtonContent>
 

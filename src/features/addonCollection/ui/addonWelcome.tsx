@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-pascal-case */
 import { Image } from '@mantine/core'
 import { useMediaQuery } from '@mantine/hooks'
 

@@ -1,21 +1,14 @@
-import { Flex, FlexProps } from '@mantine/core'
+import { Flex } from '@mantine/core'
 import { useMediaQuery } from '@mantine/hooks'
-import styled from 'styled-components'
 
 import { SavedColors } from '@shared/constants'
 import { FindByName } from '@shared/helpers/findByName'
 import { horWrapper as Wrapper } from '@shared/ui/horWrapper'
 import { TextResponsiveSmaller } from '@shared/ui/Typography'
 
+import { BoxForBest } from '../styles/styles'
 import { ProductsType } from '../types'
 
-interface AllowType {
-  disallowBorder: boolean
-}
-const BoxForBest = styled(Flex)<FlexProps & AllowType>`
-  border-right: ${({ disallowBorder }) =>
-    disallowBorder ? '0px' : `1px solid ${SavedColors.TextColor}`};
-`
 const BestFor = ({ page }: { page: ProductsType }) => {
   const product = FindByName(page)
   const isTableMobile = useMediaQuery('(max-width: 760px)')

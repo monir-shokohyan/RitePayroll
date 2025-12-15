@@ -30,6 +30,9 @@ export const ButtonContent = styled.div`
   position: relative;
   z-index: 10;
   overflow: hidden;
+  &:hover {
+    background-color: ${SavedColors.darkBlue};
+  }
 `
 
 export const ShareIcon = styled(IoChatbox)`

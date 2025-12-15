@@ -37,3 +37,6 @@ export interface FeatureCardProps {
   Icon: IconType
   title: string
 }
+export interface AllowType {
+  disallowBorder: boolean
+}

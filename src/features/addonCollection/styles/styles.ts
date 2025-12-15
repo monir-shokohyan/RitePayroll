@@ -1,10 +1,12 @@
 import { Link, LinkProps } from 'react-router-dom'
-import { Button } from '@mantine/core'
+import { Button, Flex, FlexProps } from '@mantine/core'
 import styled from 'styled-components'
 
 import { ButtonType } from '@features/notfound/types'
 import { SavedColors } from '@shared/constants'
 import { TextWithFamily } from '@shared/ui/Typography'
+
+import { AllowType } from '../types'
 
 const WelcomeText = styled(TextWithFamily)`
   font-size: 1.3rem;
@@ -149,4 +151,8 @@ export const DiamondCard = styled.div`
     height: 120px;
     gap: 5px;
   }
+`
+export const BoxForBest = styled(Flex)<FlexProps & AllowType>`
+  border-right: ${({ disallowBorder }) =>
+    disallowBorder ? '0px' : `1px solid ${SavedColors.TextColor}`};
 `
