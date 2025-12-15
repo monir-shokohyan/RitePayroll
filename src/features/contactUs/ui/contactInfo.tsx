@@ -28,7 +28,9 @@ const ContactInfo: React.FC = () => {
             key={feature.name}
             icon={feature.icon ?? TbFileUnknown}
             text={feature.description}
-            $hoveractive="false"
+            $hoveractive={
+              feature.name.toLowerCase() === 'address' ? 'false' : 'true'
+            }
             font="Nunito"
             allowTextRes={false}
             fontSize="14px"
@@ -40,6 +42,11 @@ const ContactInfo: React.FC = () => {
             $iconContainerSize="sm"
             iconSize={15}
             padding="8px"
+            handleClick={() => {
+              if (feature.name.toLowerCase() !== 'address') {
+                window.location.href = `${feature.target}`
+              }
+            }}
           />
         )
       })}
