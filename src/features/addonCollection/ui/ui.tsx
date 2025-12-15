@@ -2,9 +2,9 @@ import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 
 import { ProductsType } from '../types'
+import { AddonsInfo } from './addonInfo'
+import { AddonWelcome } from './addonWelcome'
 import { BestFor } from './bestFor'
-import { ProductsInfo } from './productsInfo'
-import { ProductWelcome } from './productWelcome'
 
 function Ui({ page }: { page: ProductsType }) {
   const { pathname } = useLocation()
@@ -14,8 +14,8 @@ function Ui({ page }: { page: ProductsType }) {
   }, [pathname])
   return (
     <>
-      <ProductWelcome page={page} />
-      <ProductsInfo page={page} />
+      <AddonWelcome page={page} />
+      <AddonsInfo page={page} />
       <BestFor page={page} />
     </>
   )

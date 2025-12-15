@@ -1,15 +1,8 @@
 import { BsFillGrid3X3GapFill } from 'react-icons/bs'
-import {
-  FaBoxOpen,
-  FaCashRegister,
-  FaChartBar,
-  FaDollarSign,
-  FaHeart,
-  FaUtensils,
-} from 'react-icons/fa'
 import styled, { keyframes } from 'styled-components'
 
 import { SavedColors } from '@shared/constants'
+import { TotalDataItem } from '@shared/constants/allTexts'
 import { TextResponsive } from '@shared/ui/Typography'
 
 const spin = keyframes`
@@ -158,25 +151,11 @@ const Card = styled.div`
   }
 `
 
-const features = [
-  { icon: <FaCashRegister />, label: 'Touch Screen\nPOS Billing' },
-  { icon: <FaUtensils />, label: 'Kitchen & Bar Order\nAutomation' },
-  { icon: <FaBoxOpen />, label: 'Inventory & Recipe\nCost Control' },
-  {
-    icon: <FaHeart />,
-    label: 'Loyalty, Reservations &\nEvent Management',
-  },
-  {
-    icon: <FaDollarSign />,
-    label: 'Multi-Outlet & Multi-\nCurrency Support',
-  },
-  {
-    icon: <FaChartBar />,
-    label: 'Complete Accounting &\nFinancial Reports',
-  },
-]
-
-export function RotatingFeaturesWheel() {
+export function RotatingFeaturesWheel({
+  pageInfo,
+}: {
+  pageInfo?: TotalDataItem
+}) {
   return (
     <Container>
       <RotatingBackground>
@@ -233,22 +212,23 @@ export function RotatingFeaturesWheel() {
         </TextResponsive>
       </Center>
 
-      {features.map((item, i) => {
+      {pageInfo?.features.map((item, i) => {
         const angle = i * 60
+        const IconSymbol = item.icon
         return (
           <Bubble
-            key={item.label}
+            key={item.name}
             $angle={angle}
           >
             <Card>
-              <Icon>{item.icon}</Icon>
+              <Icon>{IconSymbol && <IconSymbol />}</Icon>
               <TextResponsive
                 fontSize="10px"
                 $textalign="center"
                 fontWeight="600"
                 style={{ whiteSpace: 'pre-line', lineHeight: '1.4' }}
               >
-                {item.label}
+                {item.name}
               </TextResponsive>
             </Card>
           </Bubble>

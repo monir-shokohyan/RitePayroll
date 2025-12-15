@@ -27,7 +27,10 @@ const useManageNavbar = () => {
     const handleScroll = () => {
       const sections = [
         'dashboard-welcome-section',
-        'dashboard-about-section',
+        'dashboard-editions-section',
+        'dashboard-features-section',
+        'dashboard-addon-section',
+        'dashboard-industries-section',
         'dashboard-contact-section',
       ]
 

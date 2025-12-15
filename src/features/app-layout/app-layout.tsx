@@ -1,6 +1,5 @@
 import { lazy } from 'react'
 
-import { ChatBot } from '@features/chatBot'
 import { ErrorSuspense } from '@shared/ui/error-suspense'
 
 import { AffixComponent } from './Affix'
@@ -15,7 +14,6 @@ export const AppLayout = () => {
     <div>
       <Navbar />
       <Content />
-      <ChatBot />
 
       <ErrorSuspense suspenseKey="/footer">
         <Footer />

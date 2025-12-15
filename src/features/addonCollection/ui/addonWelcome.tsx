@@ -3,23 +3,22 @@ import { Image } from '@mantine/core'
 import { useMediaQuery } from '@mantine/hooks'
 
 import { HoveredButtonWithoutBorder } from '@features/Dashboard/styles/styles'
-import { HoveredArrow } from '@features/Dashboard/ui/welcome'
 import { SavedColors } from '@shared/constants'
 import { FindByName } from '@shared/helpers/findByName'
 import { useNavigationScroll } from '@shared/hooks/useNavigationScroll'
-import Container from '@shared/ui/Container'
+import { HoveredArrow } from '@shared/styles/arrowStyle'
+import { Container } from '@shared/ui/Container'
 import { horWrapper as Wrapper } from '@shared/ui/horWrapper'
 import { TextWithFamily } from '@shared/ui/Typography'
 
 import { WelcomeText, WelcomeTitle } from '../styles/styles'
 import { ProductsType } from '../types'
 
-const ProductWelcome = ({ page }: { page: ProductsType }) => {
+const AddonWelcome = ({ page }: { page: ProductsType }) => {
   const { navigateAndScroll } = useNavigationScroll()
   const product = FindByName(page)
 
   const isTableMobile = useMediaQuery('(max-width: 760px)')
-
   return (
     <Wrapper
       rightSection={
@@ -117,7 +116,9 @@ const ProductWelcome = ({ page }: { page: ProductsType }) => {
           </HoveredButtonWithoutBorder>
         </Container>
         <HoveredArrow
-          onClick={() => navigateAndScroll('/', 'dashboard-editions-section')}
+          onClick={() =>
+            navigateAndScroll(product?.target as string, 'addon-info-section')
+          }
         >
           <Image
             src="/arrow-down-big.png"
@@ -132,4 +133,4 @@ const ProductWelcome = ({ page }: { page: ProductsType }) => {
   )
 }
 
-export { ProductWelcome }
+export { AddonWelcome }

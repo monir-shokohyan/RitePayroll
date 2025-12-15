@@ -1,8 +1,10 @@
 import { Flex } from '@mantine/core'
 
+import { TotalDataItem } from '@shared/constants/allTexts'
+
 import { RotatingFeaturesWheel } from './RotatingFeature'
 
-const WelcomeFeature = () => {
+const WelcomeFeature = ({ pageInfo }: { pageInfo?: TotalDataItem }) => {
   return (
     <Flex
       w="100%"
@@ -10,7 +12,7 @@ const WelcomeFeature = () => {
       justify="center"
       align="center"
     >
-      <RotatingFeaturesWheel />
+      <RotatingFeaturesWheel pageInfo={pageInfo} />
     </Flex>
   )
 }

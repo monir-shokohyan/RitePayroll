@@ -36,5 +36,4 @@ const Container = styled(MantineFlex)<FlexProps>`
   border: ${({ border }) => border || 'auto'};
 `
 
-export default Container
 export { Container }

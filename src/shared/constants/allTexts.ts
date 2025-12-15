@@ -13,6 +13,7 @@ import {
   FaCalendarCheck,
   FaCalendarPlus,
   FaCashRegister,
+  FaChartBar,
   FaChartLine,
   FaChartPie,
   FaClipboardList,
@@ -24,6 +25,7 @@ import {
   FaCreditCard,
   FaCubes,
   FaCut,
+  FaDollarSign,
   FaEnvelope,
   FaExclamationTriangle,
   FaFileAlt,
@@ -33,6 +35,7 @@ import {
   FaGlassWhiskey,
   FaGlobe,
   FaHamburger,
+  FaHeart,
   FaHistory,
   FaHotel,
   FaHourglassHalf,
@@ -78,6 +81,8 @@ import {
   MdQueue,
   MdSmartphone,
 } from 'react-icons/md'
+
+import { Paths } from '@shared/api/paths'
 
 import { Addon } from './addonsMap'
 import { SavedColors } from './contant'
@@ -162,7 +167,23 @@ export const TotalData: TotalDataItem[] = [
       'RiteEats is a complete Restaurant & Bar Management Software designed to digitally transform how restaurants, cafés, bars, clubs and food chains operate. Built with deep understanding of real hospitality workflows, RiteEats integrates point of sale billing, kitchen automation, inventory control, recipe management, customer engagement and full accounting into one powerful system.',
     target: '/',
     sectionId: 'dashboard-welcome-section',
-    features: [],
+    features: [
+      { icon: FaCashRegister, name: 'Touch Screen\nPOS Billing' },
+      { icon: FaUtensils, name: 'Kitchen & Bar Order\nAutomation' },
+      { icon: FaBoxOpen, name: 'Inventory & Recipe\nCost Control' },
+      {
+        icon: FaHeart,
+        name: 'Loyalty, Reservations &\nEvent Management',
+      },
+      {
+        icon: FaDollarSign,
+        name: 'Multi-Outlet & Multi-\nCurrency Support',
+      },
+      {
+        icon: FaChartBar,
+        name: 'Complete Accounting &\nFinancial Reports',
+      },
+    ],
   },
   {
     name: 'industries',
@@ -523,7 +544,7 @@ export const TotalData: TotalDataItem[] = [
       { label: 'Hotels & Resorts', icon: FaHotel },
     ],
     brochureLink: '/brochures/Rite eats.pdf',
-    target: '/captain-waiter-app',
+    target: Paths.Waiter_App,
   },
   {
     id: 'Kitchen Display System (KDS)',
@@ -550,7 +571,7 @@ export const TotalData: TotalDataItem[] = [
       { label: 'Busy Bars', icon: FaGlassWhiskey },
     ],
     brochureLink: '/brochures/Rite eats.pdf',
-    target: '/kds',
+    target: Paths.Kds,
   },
   {
     id: 'Customer Loyalty Management',
@@ -574,7 +595,7 @@ export const TotalData: TotalDataItem[] = [
       { label: 'Multi-Outlet Brands', icon: FaCubes },
     ],
     brochureLink: '/brochures/Rite eats.pdf',
-    target: '/loyalty',
+    target: Paths.Customer_Loyalty_Management,
   },
   {
     id: 'Online Table Reservation System',
@@ -598,7 +619,7 @@ export const TotalData: TotalDataItem[] = [
       { label: 'Popular Outlets', icon: FaStar },
     ],
     brochureLink: '/brochures/Rite eats.pdf',
-    target: '/reservation',
+    target: Paths.Online_Table_Reservations,
   },
   {
     id: 'Token & Queue Management System',
@@ -622,7 +643,7 @@ export const TotalData: TotalDataItem[] = [
       { label: 'Cloud Kitchens', icon: FaKitchenSet },
     ],
     brochureLink: '/brochures/Rite eats.pdf',
-    target: '/token-queue',
+    target: Paths.Queue_Management,
   },
   {
     id: 'Event Management System',
@@ -646,6 +667,6 @@ export const TotalData: TotalDataItem[] = [
       { label: 'Catering Companies', icon: FaConciergeBell },
     ],
     brochureLink: '/brochures/Rite eats.pdf',
-    target: '/event-management',
+    target: Paths.Event_Management_System,
   },
 ]

@@ -1,3 +1,5 @@
+import { IconType } from 'react-icons'
+
 import { Addon } from '@shared/constants/addonsMap'
 
 export type ProductsType =
@@ -30,4 +32,8 @@ interface Product {
 
 export type ProductsCollectionType = {
   [key in ProductsType]: Product
+}
+export interface FeatureCardProps {
+  Icon: IconType
+  title: string
 }

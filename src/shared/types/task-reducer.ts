@@ -1,3 +1,5 @@
+import { AnyObject } from 'yup'
+
 export interface Task {
   id: number
   title: string
@@ -18,5 +20,5 @@ export interface State {
 
 export interface Action {
   type: string
-  payload?: any
+  payload?: AnyObject | string | boolean | number
 }

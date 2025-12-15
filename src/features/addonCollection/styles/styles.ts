@@ -100,3 +100,53 @@ export const MenuItemOnly = styled(Link)<StyledLinkProps>`
     transform: translateY(0);
   }
 `
+export const HoneycombGrid = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+  position: relative;
+  width: 100%;
+`
+
+export const DiamondCardWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`
+
+export const DiamondCard = styled.div`
+  background: white;
+  box-shadow:
+    0 15px 25px -4px rgba(0, 0, 0, 0.2),
+    inset 0 -3px 4px -1px rgba(0, 0, 0, 0.1),
+    0 -10px 15px -1px rgba(255, 255, 255, 0.3),
+    inset 0 3px 4px -1px rgba(255, 255, 255, 0.2),
+    inset 0 0 5px 1px rgba(255, 255, 255, 0.1),
+    inset 0 20px 30px 0 rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 220px;
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 30px;
+  position: relative;
+  @media (max-width: 998px) {
+    width: 200px;
+    height: 200px;
+    gap: 20px;
+  }
+  @media (max-width: 720px) {
+    width: 150px;
+    height: 150px;
+    gap: 10px;
+  }
+
+  @media (max-width: 480px) {
+    width: 120px;
+    height: 120px;
+    gap: 5px;
+  }
+`

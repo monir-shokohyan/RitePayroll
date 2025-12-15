@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { fadeIn, float, pulse, rotate } from '@shared/styles/animation'
 
 import { ButtonType } from '../types'
+import { SavedColors } from '@shared/constants'
 
 export const Container = styled.div`
   min-height: 100vh;
@@ -77,7 +78,7 @@ export const Number = styled.div<{ delay: string }>`
   font-family: 'Nunito', sans-serif;
   font-size: 8rem;
   font-weight: 800;
-  color: #15b3e0;
+  color: ${SavedColors.primaryBlue};
   line-height: 1;
   animation: ${float} 3s ease-in-out infinite;
   animation-delay: ${(props) => props.delay || '0s'};
@@ -93,7 +94,7 @@ export const Number = styled.div<{ delay: string }>`
 
 export const SearchIcon = styled.div`
   font-size: 8rem;
-  color: #012970;
+  color: ${SavedColors.TextColorGreen};
   animation: ${rotate} 10s linear infinite;
   display: flex;
   align-items: center;

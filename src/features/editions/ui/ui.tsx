@@ -88,6 +88,7 @@ const Ui = memo(() => {
                         fontWeight="400"
                         textColor={SavedColors.TextColor}
                         text={feature.name}
+                        allowTextRes={false}
                       />
                     )
                   })}
@@ -103,6 +104,7 @@ const Ui = memo(() => {
                       fontWeight="600"
                       textColor={SavedColors.TextColor}
                       text={edition.bestFor}
+                      allowTextRes={false}
                     />
                   </div>
                 </Flex>

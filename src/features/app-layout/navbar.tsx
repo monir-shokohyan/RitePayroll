@@ -5,7 +5,7 @@ import { Burger, Container, Image, Menu, Popover } from '@mantine/core'
 import { useMediaQuery } from '@mantine/hooks'
 
 import { SavedColors } from '@shared/constants'
-import SearchInput from '@shared/ui/searchInput/searchInput'
+import { SearchInput } from '@shared/ui/searchInput/searchInput'
 
 import { addonLinks } from './constants'
 import { useManageNavbar } from './modal/useManageNavbar'

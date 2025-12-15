@@ -27,9 +27,10 @@ const ContactInfo: React.FC = () => {
           <IconWithText
             key={feature.name}
             icon={feature.icon ?? TbFileUnknown}
-            text={feature?.description}
+            text={feature.description}
             $hoveractive="false"
             font="Nunito"
+            allowTextRes={false}
             fontSize="14px"
             fontWeight="600"
             textColor={SavedColors.TextColor}

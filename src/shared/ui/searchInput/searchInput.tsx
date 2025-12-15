@@ -1,6 +1,8 @@
-import { useEffect, useRef, useState } from 'react'
+/* eslint-disable react/no-array-index-key */
+import { ChangeEvent, useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Code, Input } from '@mantine/core'
+import { AnyObject } from 'yup'
 
 import { TotalData, TotalDataItem } from '@shared/constants/allTexts'
 import { useNavigationScroll } from '@shared/hooks/useNavigationScroll'
@@ -49,7 +51,10 @@ const SearchInput = ({
     })
   }
 
-  const searchInValue = (value: any, searchTerm: string): boolean => {
+  const searchInValue = (
+    value: AnyObject | string,
+    searchTerm: string,
+  ): boolean => {
     if (!value) return false
 
     const lowerTerm = searchTerm.toLowerCase()
@@ -69,102 +74,108 @@ const SearchInput = ({
     return false
   }
 
-  const findMatchedText = (item: any, searchTerm: string): string => {
+  const findMatchedText = (item: AnyObject, searchTerm: string): string => {
+    if (!searchTerm) {
+      return item.description || item.name || item.title || ''
+    }
+
     const lowerTerm = searchTerm.toLowerCase()
 
-    if (item.name?.toLowerCase().includes(lowerTerm)) {
-      return item.name
-    }
+    // Helper to check if a string contains the search term (case-insensitive)
+    const matches = (value?: string): boolean =>
+      typeof value === 'string' && value.toLowerCase().includes(lowerTerm)
 
-    if (item.title?.toLowerCase().includes(lowerTerm)) {
-      return item.title
-    }
+    // 1. Top-level text fields
+    if (matches(item.name)) return item.name
+    if (matches(item.title)) return item.title
+    if (matches(item.dTitle)) return item.dTitle
+    if (matches(item.description)) return item.description
+    if (matches(item.overview)) return item.overview
+    if (matches(item.descriptionSecond)) return item.descriptionSecond
 
-    if (item.description?.toLowerCase().includes(lowerTerm)) {
-      return item.description
-    }
-
-    if (item.descriptionSecond?.toLowerCase().includes(lowerTerm)) {
-      return item.descriptionSecond
-    }
-
+    // 2. Features (supports nested structure)
     if (Array.isArray(item.features)) {
       for (const feature of item.features) {
         if (typeof feature === 'object' && feature !== null) {
-          if (feature.name?.toLowerCase().includes(lowerTerm)) {
-            return feature.name
-          }
-          if (feature.description?.toLowerCase().includes(lowerTerm)) {
-            return feature.description
-          }
+          if (matches(feature.name)) return feature.name
+          if (matches(feature.description)) return feature.description
+
           if (Array.isArray(feature.features)) {
-            for (const nestedFeature of feature.features) {
-              if (
-                typeof nestedFeature === 'string' &&
-                nestedFeature.toLowerCase().includes(lowerTerm)
-              ) {
-                return nestedFeature
-              }
+            for (const nested of feature.features) {
+              if (typeof nested === 'string' && matches(nested)) return nested
             }
           }
-        }
-        if (
-          typeof feature === 'string' &&
-          feature.toLowerCase().includes(lowerTerm)
-        ) {
+        } else if (typeof feature === 'string' && matches(feature)) {
           return feature
         }
       }
     }
 
-    if (Array.isArray(item.section)) {
-      for (const sec of item.section) {
-        if (typeof sec === 'object' && sec !== null) {
-          if (sec.name?.toLowerCase().includes(lowerTerm)) {
-            return sec.name
-          }
-          if (sec.description?.toLowerCase().includes(lowerTerm)) {
-            return sec.description
-          }
-        }
-      }
-    }
-
-    if (Array.isArray(item.sectionSecond)) {
-      for (const sec of item.sectionSecond) {
-        if (typeof sec === 'object' && sec !== null) {
-          if (sec.name?.toLowerCase().includes(lowerTerm)) {
-            return sec.name
-          }
-          if (sec.description?.toLowerCase().includes(lowerTerm)) {
-            return sec.description
-          }
-        }
-      }
-    }
-
-    if (Array.isArray(item.industries)) {
-      for (const industry of item.industries) {
+    // 3. Best For
+    if (Array.isArray(item.bestFor)) {
+      for (const entry of item.bestFor) {
         if (
-          typeof industry === 'string' &&
-          industry.toLowerCase().includes(lowerTerm)
+          typeof entry === 'object' &&
+          entry !== null &&
+          matches(entry.label)
         ) {
-          return industry
+          return entry.label
+        }
+        if (typeof entry === 'string' && matches(entry)) {
+          return entry
         }
       }
     }
 
-    if (Array.isArray(item.deployment)) {
-      for (const deploy of item.deployment) {
-        if (
-          typeof deploy === 'string' &&
-          deploy.toLowerCase().includes(lowerTerm)
-        ) {
-          return deploy
+    // 4. Editions
+    if (Array.isArray(item.editions)) {
+      for (const edition of item.editions) {
+        if (typeof edition === 'object' && edition !== null) {
+          if (matches(edition.name)) return edition.name
+          if (matches(edition.description)) return edition.description
+          if (matches(edition.bestFor)) return edition.bestFor
+
+          if (Array.isArray(edition.features)) {
+            for (const feat of edition.features) {
+              if (matches(feat.name)) return feat.name
+            }
+          }
+        } else if (typeof edition === 'string' && matches(edition)) {
+          return edition
         }
       }
     }
 
+    // 5. Sections (first and second)
+    const checkSections = (sections?: AnyObject[]) => {
+      if (!Array.isArray(sections)) return false
+      for (const section of sections) {
+        if (typeof section === 'object' && section !== null) {
+          if (matches(section.name)) return section.name
+          if (matches(section.description)) return section.description
+        }
+      }
+      return false
+    }
+
+    const sectionMatch =
+      checkSections(item.section) || checkSections(item.sectionSecond)
+    if (sectionMatch) return sectionMatch as string
+
+    // 6. Simple string arrays
+    const checkStringArray = (arr?: unknown[]): string | false => {
+      if (!Array.isArray(arr)) return false
+      for (const value of arr) {
+        if (typeof value === 'string' && matches(value)) return value
+      }
+      return false
+    }
+
+    const arrayMatch =
+      checkStringArray(item.industries) || checkStringArray(item.deployment)
+    if (arrayMatch) return arrayMatch
+
+    // Fallback to primary display field
     return item.description || item.name || item.title || ''
   }
 
@@ -263,7 +274,9 @@ const SearchInput = ({
     setSelectedIndex(-1)
   }
 
-  const handleInputChange = (event: any) => {
+  ///////////////////////////////
+
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const newValue = event.currentTarget.value
     setValue(newValue)
     handleSearch(newValue)
@@ -312,6 +325,7 @@ const SearchInput = ({
       const selectedElement = resultsContainerRef.current.children[
         selectedIndex
       ] as HTMLElement
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
       if (selectedElement) {
         selectedElement.scrollIntoView({
           behavior: 'smooth',
@@ -363,7 +377,7 @@ const SearchInput = ({
           {results.map((result: SearchResult, index) => {
             return (
               <ResultItem
-                key={index}
+                key={result.name}
                 to={result.target}
                 $isSelected={index === selectedIndex}
                 onClick={() => handleResultClick(result)}
@@ -386,4 +400,4 @@ const SearchInput = ({
   )
 }
 
-export default SearchInput
+export { SearchInput }

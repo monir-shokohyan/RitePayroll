@@ -1,5 +1,7 @@
 import { MdSearch } from 'react-icons/md'
 
+import { SavedColors } from '@shared/constants'
+
 import {
   BackgroundCircle,
   ButtonGroup,
@@ -72,7 +74,7 @@ const Ui: React.FC<NotFoundPageProps> = ({ onGoHome, onGoBack }) => {
           <StyledButton
             onClick={handleGoHome}
             style={{
-              background: '#15B3E0',
+              background: SavedColors.TextColorGreen,
               color: '#ffffff',
             }}
           >
@@ -83,8 +85,8 @@ const Ui: React.FC<NotFoundPageProps> = ({ onGoHome, onGoBack }) => {
             onClick={handleGoBack}
             variant="outline"
             style={{
-              borderColor: '#012970',
-              color: '#012970',
+              borderColor: SavedColors.TextColorGreen,
+              color: SavedColors.TextColorGreen,
               borderWidth: '2px',
             }}
           >

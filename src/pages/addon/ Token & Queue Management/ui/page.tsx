@@ -7,17 +7,17 @@ export const Page = () => {
   return (
     <>
       <Helmet>
-        <title>Token & Queue Management</title>
+        <title>Token & Queue Management System</title>
         <meta
           name="description"
-          content="An Android-based accounting and POS app that provides small business owners full control from their smartphone or POS device."
+          content="Perfect for fast-service environments. Generate tokens, display serving numbers, manage multiple queues, and deliver smooth, frustration-free customer flow. Ideal for QSR, fast food, bakeries, and takeaway outlets."
         />
         <meta
           name="keywords"
-          content="ritebooks pocket, business software Uganda, ERP, POS"
+          content="token queue management system, restaurant queue software, QSR token display, fast food queue management, digital token system, multiple queues POS, takeaway queue, queue analytics restaurant, token kiosk, Uganda food service software"
         />
       </Helmet>
-      <Content title="Ritebooks Pocket">
+      <Content title="Token & Queue Management System">
         <QueueManagementWidget />
       </Content>
     </>

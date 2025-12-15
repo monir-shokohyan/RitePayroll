@@ -7,14 +7,14 @@ export const Page = () => {
   return (
     <>
       <Helmet>
-        <title> Customer Loyalty Management</title>
+        <title>Customer Loyalty Management</title>
         <meta
           name="description"
-          content="A robust ERP solution combining accounting, inventory, POS, and manufacturing features to manage every aspect of business."
+          content="Build lasting customer relationships with points, tiers, birthday rewards, and smart campaigns. Turn one-time guests into loyal regulars who spend more and visit often. Ideal for restaurants, cafés, and food chains."
         />
         <meta
           name="keywords"
-          content="Customer Loyalty Management, business software Uganda, ERP, POS"
+          content="customer loyalty management, loyalty program software, restaurant loyalty program, café rewards system, points and rewards POS, tiered loyalty benefits, birthday rewards, customer retention Uganda, POS loyalty features, ERP loyalty management"
         />
       </Helmet>
       <Content title="Customer Loyalty Management">

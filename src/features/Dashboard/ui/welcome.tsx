@@ -2,12 +2,12 @@
 import { memo } from 'react'
 import { Image } from '@mantine/core'
 import { useMediaQuery } from '@mantine/hooks'
-import styled from 'styled-components'
 
 import { SavedColors } from '@shared/constants'
 import { FindByName } from '@shared/helpers/findByName'
 import { useNavigationScroll } from '@shared/hooks/useNavigationScroll'
-import Container from '@shared/ui/Container'
+import { HoveredArrow } from '@shared/styles/arrowStyle'
+import { Container } from '@shared/ui/Container'
 import { CTC } from '@shared/ui/CTC'
 import { horWrapper as Wrapper } from '@shared/ui/horWrapper'
 import { TextWithFamily } from '@shared/ui/Typography'
@@ -19,12 +19,6 @@ import {
 } from '../styles/styles'
 import { WelcomeFeature } from './welcomeFeature'
 
-export const HoveredArrow = styled.div`
-  transition: transform 0.2s ease-in-out;
-  &:hover {
-    transform: translateY(10px);
-  }
-`
 const Welcome = memo(() => {
   const { navigateAndScroll } = useNavigationScroll()
   const pageInfo = FindByName('Welcome')
@@ -33,7 +27,7 @@ const Welcome = memo(() => {
   return (
     <section id="dashboard-welcome-section">
       <Wrapper
-        rightSection={<WelcomeFeature />}
+        rightSection={<WelcomeFeature pageInfo={pageInfo} />}
         leftWidth="45%"
         rightWidth="45%"
         doubleOption={true}

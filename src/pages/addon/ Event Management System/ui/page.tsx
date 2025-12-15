@@ -10,11 +10,11 @@ export const Page = () => {
         <title>Event Management System</title>
         <meta
           name="description"
-          content="Comprehensive restaurant and bar management software supporting fine dining, takeaway, delivery, and events."
+          content="Manage banquets, weddings, corporate events, and private parties from enquiry to final settlement — with menu costing, advances, and per-event profit reports. Perfect for hotels, banquet halls, and catering services."
         />
         <meta
           name="keywords"
-          content="Event Management System, business software Uganda, ERP, POS"
+          content="event management system, banquet management software, wedding venue software, hotel event booking, catering management POS, event profit reports, menu costing tool, banquet hall ERP, event billing system, Uganda hospitality software"
         />
       </Helmet>
       <Content title="Event Management System">
