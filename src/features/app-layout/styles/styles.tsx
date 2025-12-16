@@ -131,6 +131,7 @@ const ProductMenuTrigger = styled.div`
     display: none;
   }
   &.active {
+    border-bottom: 3px solid ${SavedColors.TextColor};
     color: ${SavedColors.TextColor};
     font-weight: 600;
   }
@@ -158,6 +159,11 @@ const ProductMenuListTrigger = styled.div`
   &:hover {
     background: ${SavedColors.primaryBlue};
     color: ${SavedColors.PrimaryWhite};
+  }
+  &.active {
+    background-color: ${SavedColors.TextColor}10;
+    color: ${SavedColors.TextColor};
+    font-weight: 600;
   }
 `
 
