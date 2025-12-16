@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { BsFillGrid3X3GapFill } from 'react-icons/bs'
 
 import { SavedColors } from '@shared/constants'
@@ -20,6 +21,7 @@ export function RotatingFeaturesWheel({
 }: {
   pageInfo?: TotalDataItem
 }) {
+  const [large, setLarge] = useState(true)
   return (
     <Container>
       <RotatingBackground>
@@ -46,14 +48,13 @@ export function RotatingFeaturesWheel({
             fill="none"
             stroke={SavedColors.TextColorGreen}
             strokeWidth="2"
-            strokeDasharray="20 40 10"
+            strokeDasharray="4 4"
             transform="rotate(-30 220 220)"
           />
         </SegmentedRing>
       </RotatingBackground>
 
-      {/* Static center */}
-      <Center>
+      <Center onClick={() => setLarge((prev) => !prev)}>
         <Icon>
           <BsFillGrid3X3GapFill
             size={32}
@@ -83,8 +84,9 @@ export function RotatingFeaturesWheel({
           <Bubble
             key={item.name}
             $angle={angle}
+            $large={large}
           >
-            <Card>
+            <Card $large={large}>
               <Icon>{IconSymbol && <IconSymbol />}</Icon>
               <TextResponsive
                 fontSize="10px"

@@ -40,7 +40,7 @@ const BestFor = ({ page }: { page: ProductsType }) => {
               gap={{ base: 10, sm: 10, md: 20, lg: 20 }}
               w={{ base: 80, sm: 80, md: 160, lg: 200 }}
               h={{ base: 80, sm: 80, md: 160, lg: 200 }}
-              disallowBorder={Number(product.bestFor?.length) - 1 === index}
+              $disallowBorder={Number(product.bestFor?.length) - 1 === index}
             >
               <Icon
                 size={isTableMobile ? 22 : 32}

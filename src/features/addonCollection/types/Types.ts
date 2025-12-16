@@ -38,5 +38,5 @@ export interface FeatureCardProps {
   title: string
 }
 export interface AllowType {
-  disallowBorder: boolean
+  $disallowBorder: boolean
 }

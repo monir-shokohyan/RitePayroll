@@ -153,6 +153,6 @@ export const DiamondCard = styled.div`
   }
 `
 export const BoxForBest = styled(Flex)<FlexProps & AllowType>`
-  border-right: ${({ disallowBorder }) =>
-    disallowBorder ? '0px' : `1px solid ${SavedColors.TextColor}`};
+  border-right: ${({ $disallowBorder }) =>
+    $disallowBorder ? '0px' : `1px solid ${SavedColors.TextColor}`};
 `

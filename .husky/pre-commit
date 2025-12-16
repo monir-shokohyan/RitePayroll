@@ -8,12 +8,6 @@ npm run format:check || {
   exit 1
 }
 
-# Run lint (optional, but recommended)
-# npm run lint || {
-#   echo "❌ Lint failed."
-#   exit 1
-# }
-
 # Run build to catch TypeScript errors
 npm run build || {
   echo "❌ Build failed."

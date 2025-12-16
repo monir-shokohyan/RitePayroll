@@ -70,6 +70,7 @@ const Icon = styled.div`
 
 const Center = styled.div`
   position: absolute;
+  cursor: pointer;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -127,7 +128,7 @@ const SegmentedRing = styled.svg`
 `
 
 // Bubbles scale with container
-const Bubble = styled.div<{ $angle: number }>`
+const Bubble = styled.div<{ $angle: number; $large: boolean }>`
   position: absolute;
   top: 50%;
   left: 50%;
@@ -136,7 +137,9 @@ const Bubble = styled.div<{ $angle: number }>`
   min-width: 100px;
   min-height: 100px;
   margin: -14% 0 0 -14%;
-  transform: rotate(${(p) => p.$angle}deg) translateX(120%)
+  transition: transform 0.5s ease-in-out;
+  transform: rotate(${(p) => p.$angle}deg)
+    translateX(${({ $large }) => ($large ? '130%' : '0%')})
     rotate(-${(p) => p.$angle}deg);
   transform-origin: center;
 
@@ -151,18 +154,15 @@ const Bubble = styled.div<{ $angle: number }>`
   }
 `
 
-const Card = styled.div`
+const Card = styled.div<{ $large: boolean }>`
   width: 100%;
   height: 100%;
   background: white;
   border-radius: 50%;
-  box-shadow:
-    0 15px 25px -4px rgba(0, 0, 0, 0.2),
-    inset 0 -3px 4px -1px rgba(0, 0, 0, 0.1),
-    0 -10px 15px -1px rgba(255, 255, 255, 0.3),
-    inset 0 3px 4px -1px rgba(255, 255, 255, 0.2),
-    inset 0 0 5px 1px rgba(255, 255, 255, 0.1),
-    inset 0 20px 30px 0 rgba(255, 255, 255, 0.2);
+  box-shadow: ${({ $large }) =>
+    $large
+      ? '0 15px 25px -4px rgba(0, 0, 0, 0.2),inset 0 -3px 4px -1px rgba(0, 0, 0, 0.1),0 -10px 15px -1px rgba(255, 255, 255, 0.3),inset 0 3px 4px -1px rgba(255, 255, 255, 0.2),inset 0 0 5px 1px rgba(255, 255, 255, 0.1),inset 0 20px 30px 0 rgba(255, 255, 255, 0.2);'
+      : 'none'};
   display: flex;
   flex-direction: column;
   align-items: center;
