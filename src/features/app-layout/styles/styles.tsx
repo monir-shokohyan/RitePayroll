@@ -167,7 +167,7 @@ const ProductMenuListTrigger = styled.div`
   }
 `
 
-const CustomMenuItem = styled(Menu.Item)`
+const CustomMenuItem = styled(Menu.Item)<any>`
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 14px;
