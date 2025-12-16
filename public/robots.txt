@@ -1,5 +1,5 @@
 # ========================================
-#  robots.txt – rite eats
+#  robots.txt – riteeats
 #  Website: https://rite-eats.netlify.app/
 #  Fully SEO-optimized | Static React SPA
 # ========================================

@@ -161,7 +161,7 @@ export interface TotalDataItem {
 export const TotalData: TotalDataItem[] = [
   {
     name: 'Welcome',
-    description: 'Welcome to the Rite Eats',
+    description: 'Welcome to the RiteEats',
     title:
       "Empowering Africa's Businesses with Smart, ScalableSoftware & Technology Solutions.",
     descriptionSecond:
@@ -264,7 +264,7 @@ export const TotalData: TotalDataItem[] = [
   {
     name: 'editions',
     dTitle: 'Discover',
-    title: 'RITE EATS SOFTWARE VERSIONS',
+    title: 'RITEEATS SOFTWARE VERSIONS',
     target: '/',
     sectionId: 'dashboard-editions-section',
     editions: [

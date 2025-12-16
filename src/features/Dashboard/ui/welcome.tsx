@@ -64,8 +64,8 @@ const Welcome = memo(() => {
             $font="Nunito"
             fontWeight="800"
           >
-            Complete <CTC text="Resturant" /> & <CTC text=" Bar " /> Management
-            <CTC text=" Software" />.
+            The <CTC text="Complete" /> Solution for <CTC text=" Resturant " />
+            & <CTC text=" Bar " />.
           </WelcomeTitle>
 
           <WelcomeText $font="Roboto">

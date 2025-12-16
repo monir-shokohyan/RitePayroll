@@ -35,7 +35,7 @@ const Ui = memo(() => {
       >
         <ResImage
           src="/screenLaptop.png"
-          alt="an laptop image to show features of Rite eats"
+          alt="an laptop image to show features of RiteEats"
         />
         <FeatureContainer
           w="100%"
