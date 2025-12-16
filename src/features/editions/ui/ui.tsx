@@ -40,6 +40,7 @@ const Ui = memo(() => {
                 <Image
                   src={edition.imageSrc}
                   w="100%"
+                  alt={edition.name}
                 />
                 <Flex
                   w="100%"

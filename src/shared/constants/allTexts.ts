@@ -127,6 +127,7 @@ interface EditionsType {
   description: string
   bestFor: string
   imageSrc: string
+  imageAlt: string
   infoSectionBg: SavedColors
   featureSectionBg: SavedColors
   features: Feature[]
@@ -274,6 +275,8 @@ export const TotalData: TotalDataItem[] = [
         bestFor:
           'Best suited for small to medium restaurants, cafés and fast-food outlets.',
         imageSrc: '/editions/left.jpeg',
+        imageAlt:
+          'RiteEats Essentials edition – front-end POS interface with touch-screen billing and kitchen coordination features',
         infoSectionBg: SavedColors.Essentials,
         featureSectionBg: SavedColors.EssentialsFeature,
         features: [
@@ -299,6 +302,8 @@ export const TotalData: TotalDataItem[] = [
         bestFor:
           'Best suited for growing restaurants, bars and multi-kitchen operations.',
         imageSrc: '/editions/center.jpeg',
+        imageAlt:
+          'RiteEats Plus edition – inventory and recipe management dashboard showing stock levels, recipes, and cost analysis',
         infoSectionBg: SavedColors.Plus,
         featureSectionBg: SavedColors.PlusFeature,
         features: [
@@ -318,6 +323,8 @@ export const TotalData: TotalDataItem[] = [
         bestFor:
           'Best suited for food chains, franchises, hotels and enterprise hospitality businesses.',
         imageSrc: '/editions/right.jpeg',
+        imageAlt:
+          'RiteEats Ultimate edition – enterprise dashboard with accounting reports, multi-branch consolidation, and financial analytics',
         infoSectionBg: SavedColors.Ultimate,
         featureSectionBg: SavedColors.UltimateFeature,
         features: [
