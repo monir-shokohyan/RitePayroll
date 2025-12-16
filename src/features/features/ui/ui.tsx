@@ -33,7 +33,10 @@ const Ui = memo(() => {
         gradientDirection="top-to-bottom"
         doubleOption={false}
       >
-        <ResImage src="/screenLaptop.png" />
+        <ResImage
+          src="/screenLaptop.png"
+          alt="an laptop image to show features of Rite eats"
+        />
         <FeatureContainer
           w="100%"
           wrap="wrap"

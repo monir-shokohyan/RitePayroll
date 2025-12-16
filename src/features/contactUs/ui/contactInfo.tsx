@@ -21,6 +21,7 @@ const ContactInfo: React.FC = () => {
         w={200}
         fit="contain"
         style={{ marginBottom: '20px' }}
+        alt="image for contact section"
       />
       {pageInfo?.features.map((feature) => {
         return (

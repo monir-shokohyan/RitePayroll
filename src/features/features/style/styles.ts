@@ -31,7 +31,7 @@ export const Line = styled.div`
   }
 `
 
-export const ResImage = styled(Image)<ImageProps>`
+export const ResImage = styled(Image)<ImageProps & { alt: string }>`
   width: 460px;
   position: absolute;
   top: 10%;
