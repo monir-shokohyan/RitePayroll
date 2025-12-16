@@ -115,7 +115,7 @@ const Navbar = memo(() => {
             {addonLinks.map((link) => (
               <CustomMenuItem
                 key={link.to}
-                component={Link}
+                as={Link}
                 to={link.to}
                 onClick={() => setDesktopProductsOpen(false)}
                 className={location.pathname === link.to ? 'active' : ''}
@@ -256,7 +256,7 @@ const Navbar = memo(() => {
               {addonLinks.map((link) => (
                 <CustomMenuItem
                   key={link.to}
-                  component={Link}
+                  as={Link}
                   to={link.to}
                   onClick={() => {
                     setMobileProductsOpen(false)
