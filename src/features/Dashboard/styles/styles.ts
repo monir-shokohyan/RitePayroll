@@ -80,6 +80,7 @@ const Center = styled.div`
   min-height: 100px;
   background: white;
   border-radius: 50%;
+  user-select: none;
   box-shadow:
     0 15px 25px -4px rgba(0, 0, 0, 0.2),
     inset 0 -3px 4px -1px rgba(0, 0, 0, 0.1),
