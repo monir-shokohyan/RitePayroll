@@ -5,55 +5,11 @@
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-  <!-- HOME PAGE -->
-  <url>
-    <loc>https://rite-eats.netlify.app/</loc>
-    <lastmod>2025-10-27T14:54:44+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
 
-  <!-- ALL ADDON PAGES (From your routes) -->
-  <url>
-    <loc>https://rite-eats.netlify.app/addon/kds</loc>
-    <lastmod>2025-10-27T14:54:44+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+<url>
+  <loc>https://rite-eats.netlify.app/</loc>
+  <lastmod>2025-12-16T06:09:24+00:00</lastmod>
+</url>
 
-  <url>
-    <loc>https://rite-eats.netlify.app/addon/Waiter_App</loc>
-    <lastmod>2025-10-27T14:54:44+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://rite-eats.netlify.app/addon/Customer_Loyalty_Management</loc>
-    <lastmod>2025-10-27T14:54:44+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://rite-eats.netlify.app/addon/Online_Table_Reservations</loc>
-    <lastmod>2025-10-27T14:54:44+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://rite-eats.netlify.app/addon/Queue_Management</loc>
-    <lastmod>2025-10-27T14:54:44+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://rite-eats.netlify.app/addon/Event_Management_System</loc>
-    <lastmod>2025-10-27T14:54:44+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
 
 </urlset>
