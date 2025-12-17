@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { SavedColors } from '@shared/constants'
 
-export const StyledCard = styled(Card)<CardProps>`
+export const StyledCard = styled(Card)<CardProps & { onClick?: () => void }>`
   position: relative;
   border-radius: 20px;
   width: 420px;

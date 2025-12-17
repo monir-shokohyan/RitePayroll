@@ -10,7 +10,7 @@ import { HoveredArrow } from '@shared/styles/arrowStyle'
 import { Container } from '@shared/ui/Container'
 import { CTC } from '@shared/ui/CTC'
 import { horWrapper as Wrapper } from '@shared/ui/horWrapper'
-import { TextWithFamily } from '@shared/ui/Typography'
+import { TextWithFamily, TitleWithFamily } from '@shared/ui/Typography'
 
 import {
   HoveredButtonWithoutBorder,
@@ -50,15 +50,15 @@ const Welcome = memo(() => {
             fit="contain"
           />
 
-          <TextWithFamily
+          <TitleWithFamily
             $font="Tangerine"
-            fontWeight="600"
-            fontSize="40px"
+            fontWeight="900"
+            fontSize="60px"
             color={SavedColors.TextColorGreen}
             $textalign="left"
           >
             {pageInfo?.description}
-          </TextWithFamily>
+          </TitleWithFamily>
 
           <WelcomeTitle
             $font="Nunito"

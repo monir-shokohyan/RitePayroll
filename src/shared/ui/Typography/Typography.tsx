@@ -40,7 +40,7 @@ const TextWithFamily = styled.div<StyledTextProps>`
 const TitleWithFamily = styled.h1<StyledTextProps>`
   ${textStyles}
   @media (max-width:1024px) {
-    font-size: 24px;
+    font-size: 34px;
   }
 `
 

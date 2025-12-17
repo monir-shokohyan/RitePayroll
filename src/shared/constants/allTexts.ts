@@ -434,6 +434,7 @@ export const TotalData: TotalDataItem[] = [
         ariaLabel: 'Kitchen Display System',
         isActive: true,
         icon: MdOutlineMonitor,
+        target: Paths.Kds,
       },
       {
         id: 2,
@@ -442,6 +443,7 @@ export const TotalData: TotalDataItem[] = [
         ariaLabel: 'Captain and Waiter App',
         isActive: true,
         icon: MdSmartphone,
+        target: Paths.Waiter_App,
       },
       {
         id: 3,
@@ -450,6 +452,7 @@ export const TotalData: TotalDataItem[] = [
         ariaLabel: 'Customer Loyalty Management',
         isActive: true,
         icon: MdCardGiftcard,
+        target: Paths.Customer_Loyalty_Management,
       },
       {
         id: 4,
@@ -458,6 +461,7 @@ export const TotalData: TotalDataItem[] = [
         ariaLabel: 'Online Table Reservations',
         isActive: true,
         icon: MdEventSeat,
+        target: Paths.Online_Table_Reservations,
       },
       {
         id: 5,
@@ -466,6 +470,7 @@ export const TotalData: TotalDataItem[] = [
         ariaLabel: 'Token and Queue Management',
         isActive: true,
         icon: MdQueue,
+        target: Paths.Queue_Management,
       },
       {
         id: 6,
@@ -475,6 +480,7 @@ export const TotalData: TotalDataItem[] = [
         ariaLabel: 'Event Management System',
         isActive: true,
         icon: MdEvent,
+        target: Paths.Event_Management_System,
       },
     ],
   },

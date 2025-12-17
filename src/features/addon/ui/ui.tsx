@@ -1,5 +1,6 @@
 import { memo } from 'react'
 import { IconType } from 'react-icons'
+import { useNavigate } from 'react-router-dom'
 import { Flex } from '@mantine/core'
 
 import { FindByName } from '@shared/helpers'
@@ -10,7 +11,7 @@ import { RibbonCard } from './ribbonCard'
 
 const Ui = memo(() => {
   const pageInfo = FindByName('addon')
-
+  const navigate = useNavigate()
   return (
     <div id="dashboard-addon-section">
       <Wrapper
@@ -37,6 +38,11 @@ const Ui = memo(() => {
               key={feature.name}
               shadow="none"
               bg="transparent"
+              onClick={() => {
+                if (feature.target) {
+                  navigate(feature.target)
+                }
+              }}
             >
               <RibbonCard
                 title={feature.name}
