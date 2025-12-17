@@ -39,3 +39,7 @@ export const pulse = keyframes`
     opacity: 0.4;
   }
 `
+export const counterSpin = keyframes`
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+`

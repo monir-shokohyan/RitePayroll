@@ -155,7 +155,6 @@ const Bubble = styled.div<{ $angle: number; $large: boolean }>`
     height: 30%;
   }
 `
-
 const Card = styled.div<{ $large: boolean }>`
   width: 100%;
   height: 100%;
@@ -182,7 +181,6 @@ const Card = styled.div<{ $large: boolean }>`
     height: clamp(16px, 6vw, 32px);
   }
 `
-
 export {
   Bubble,
   Card,

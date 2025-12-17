@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import { BsFillGrid3X3GapFill } from 'react-icons/bs'
+import styled from 'styled-components'
 
 import { SavedColors } from '@shared/constants'
 import { TotalDataItem } from '@shared/constants/allTexts'
+import { counterSpin } from '@shared/styles/animation'
 import { TextResponsive } from '@shared/ui/Typography'
 
 import {
@@ -15,6 +17,17 @@ import {
   RotatingBackground,
   SegmentedRing,
 } from '../styles'
+
+// Create a wrapper for the card content that counter-rotates
+const CardContent = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: ${counterSpin} 60s linear infinite;
+`
 
 export function RotatingFeaturesWheel({
   pageInfo,
@@ -52,6 +65,32 @@ export function RotatingFeaturesWheel({
             transform="rotate(-30 220 220)"
           />
         </SegmentedRing>
+
+        {pageInfo?.features.map((item, i) => {
+          const angle = i * 60
+          const IconSymbol = item.icon
+          return (
+            <Bubble
+              key={item.name}
+              $angle={angle}
+              $large={large}
+            >
+              <Card $large={large}>
+                <CardContent>
+                  <Icon>{IconSymbol && <IconSymbol />}</Icon>
+                  <TextResponsive
+                    fontSize="10px"
+                    $textalign="center"
+                    fontWeight="600"
+                    style={{ whiteSpace: 'pre-line', lineHeight: '1.4' }}
+                  >
+                    {item.name}
+                  </TextResponsive>
+                </CardContent>
+              </Card>
+            </Bubble>
+          )
+        })}
       </RotatingBackground>
 
       <Center onClick={() => setLarge((prev) => !prev)}>
@@ -76,30 +115,6 @@ export function RotatingFeaturesWheel({
           Highlights
         </TextResponsive>
       </Center>
-
-      {pageInfo?.features.map((item, i) => {
-        const angle = i * 60
-        const IconSymbol = item.icon
-        return (
-          <Bubble
-            key={item.name}
-            $angle={angle}
-            $large={large}
-          >
-            <Card $large={large}>
-              <Icon>{IconSymbol && <IconSymbol />}</Icon>
-              <TextResponsive
-                fontSize="10px"
-                $textalign="center"
-                fontWeight="600"
-                style={{ whiteSpace: 'pre-line', lineHeight: '1.4' }}
-              >
-                {item.name}
-              </TextResponsive>
-            </Card>
-          </Bubble>
-        )
-      })}
     </Container>
   )
 }
