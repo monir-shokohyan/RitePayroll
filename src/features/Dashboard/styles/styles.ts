@@ -68,12 +68,13 @@ const Icon = styled.div`
   justify-content: center;
 `
 
-const Center = styled.div`
+const Center = styled.button`
   position: absolute;
   cursor: pointer;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border: 0px;
   width: 32%;
   height: 32%;
   min-width: 100px;
