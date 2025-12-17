@@ -58,8 +58,8 @@ const GradientContainer = ({
         >
           <TextResponsive
             color={SavedColors.TextColorGreen}
-            fontSize="38px"
-            fontWeight="400"
+            fontSize="34px"
+            fontWeight="500"
             $font="Great Vibes"
             $textalign="center"
           >
