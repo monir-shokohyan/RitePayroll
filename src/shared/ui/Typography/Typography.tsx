@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components'
 import { SavedColors } from '@shared/constants'
 
 export interface StyledTextProps {
-  $font?: 'Roboto' | 'Nunito' | 'Tangerine'
+  $font?: 'Roboto' | 'Nunito' | 'Tangerine' | 'Great Vibes'
   fontSize?: string
   fontWeight?:
     | '100'

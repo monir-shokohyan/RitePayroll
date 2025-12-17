@@ -51,9 +51,9 @@ const Welcome = memo(() => {
           />
 
           <TitleWithFamily
-            $font="Tangerine"
-            fontWeight="900"
-            fontSize="60px"
+            $font="Great Vibes"
+            fontWeight="500"
+            fontSize="50px"
             color={SavedColors.TextColorGreen}
             $textalign="left"
           >

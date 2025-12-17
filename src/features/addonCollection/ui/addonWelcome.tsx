@@ -51,9 +51,9 @@ const AddonWelcome = ({ page }: { page: ProductsType }) => {
         />
 
         <TextWithFamily
-          $font="Tangerine"
-          fontWeight="600"
-          fontSize="40px"
+          $font="Great Vibes"
+          fontWeight="500"
+          fontSize="37px"
           color={SavedColors.TextColorGreen}
           $textalign="left"
         >
