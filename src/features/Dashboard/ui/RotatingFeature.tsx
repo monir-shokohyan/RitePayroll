@@ -54,7 +54,10 @@ export function RotatingFeaturesWheel({
         </SegmentedRing>
       </RotatingBackground>
 
-      <Center onClick={() => setLarge((prev) => !prev)}>
+      <Center
+        onClick={() => setLarge((prev) => !prev)}
+        onTouchStart={() => setLarge((prev) => !prev)}
+      >
         <Icon>
           <BsFillGrid3X3GapFill
             size={32}
