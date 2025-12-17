@@ -10,7 +10,7 @@ import { HoveredArrow } from '@shared/styles/arrowStyle'
 import { Container } from '@shared/ui/Container'
 import { CTC } from '@shared/ui/CTC'
 import { horWrapper as Wrapper } from '@shared/ui/horWrapper'
-import { TextWithFamily, TitleWithFamily } from '@shared/ui/Typography'
+import { TitleWithFamily } from '@shared/ui/Typography'
 
 import {
   HoveredButtonWithoutBorder,
@@ -65,7 +65,7 @@ const Welcome = memo(() => {
             fontWeight="800"
           >
             The <CTC text="Complete" /> Solution for <CTC text=" Resturant " />
-            & <CTC text=" Bar " />.
+            & <CTC text=" Bar" />.
           </WelcomeTitle>
 
           <WelcomeText $font="Roboto">
