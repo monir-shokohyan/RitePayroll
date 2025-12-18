@@ -42,15 +42,15 @@ const MenuItems = styled(Link)`
   transition: all 0.3s ease-in;
 
   &:hover {
-    border-bottom: 3px solid ${SavedColors.TextColor};
-    color: ${SavedColors.TextColor};
+    border-bottom: 3px solid ${SavedColors.TextColorGreen};
+    color: ${SavedColors.TextColorGreen};
   }
   @media (max-width: 1024px) {
     display: none;
   }
   &.active {
-    border-bottom: 3px solid ${SavedColors.TextColor};
-    color: ${SavedColors.TextColor};
+    border-bottom: 3px solid ${SavedColors.TextColorGreen};
+    color: ${SavedColors.TextColorGreen};
   }
 `
 
@@ -71,7 +71,7 @@ const MenuListItem = styled(Link)`
   transition: all 0.3s ease-in;
 
   &:hover {
-    background: ${SavedColors.TextColor};
+    background: ${SavedColors.TextColorGreen};
     color: ${SavedColors.PrimaryWhite};
   }
   &.active {
@@ -123,16 +123,16 @@ const ProductMenuTrigger = styled.div`
   cursor: pointer;
 
   &:hover {
-    border-bottom: 3px solid ${SavedColors.TextColor};
-    color: ${SavedColors.TextColor};
+    border-bottom: 3px solid ${SavedColors.TextColorGreen};
+    color: ${SavedColors.TextColorGreen};
     transform: scale(100%);
   }
   @media (max-width: 1024px) {
     display: none;
   }
   &.active {
-    border-bottom: 3px solid ${SavedColors.TextColor};
-    color: ${SavedColors.TextColor};
+    border-bottom: 3px solid ${SavedColors.TextColorGreen};
+    color: ${SavedColors.TextColorGreen};
     font-weight: 600;
   }
 `
@@ -157,7 +157,7 @@ const ProductMenuListTrigger = styled.div`
   cursor: pointer;
 
   &:hover {
-    background: ${SavedColors.primaryBlue};
+    background: ${SavedColors.TextColorGreen};
     color: ${SavedColors.PrimaryWhite};
   }
   &.active {
@@ -174,11 +174,11 @@ const CustomMenuItem = styled(Menu.Item)<any>`
   color: #012970 !important;
 
   &:hover {
-    background-color: ${SavedColors.primaryBlue} !important;
+    background-color: ${SavedColors.TextColorGreen} !important;
     color: white !important;
   }
   &.active {
-    background-color: ${SavedColors.primaryBlue}10;
+    background-color: ${SavedColors.TextColor}10;
     color: ${SavedColors.TextColor};
     font-weight: 600;
   }

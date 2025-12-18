@@ -8,6 +8,9 @@ import { TextWithFamily } from '@shared/ui/Typography'
 
 import { AllowType } from '../types'
 
+interface ListItemProps {
+  $index: number
+}
 const WelcomeText = styled(TextWithFamily)`
   font-size: 1.3rem;
   @media (max-width: 1000px) {
@@ -102,57 +105,111 @@ export const MenuItemOnly = styled(Link)<StyledLinkProps>`
     transform: translateY(0);
   }
 `
-export const HoneycombGrid = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0 20px;
-  position: relative;
-  width: 100%;
-`
 
-export const DiamondCardWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-`
-
-export const DiamondCard = styled.div`
-  background: white;
-  box-shadow:
-    0 15px 25px -4px rgba(0, 0, 0, 0.2),
-    inset 0 -3px 4px -1px rgba(0, 0, 0, 0.1),
-    0 -10px 15px -1px rgba(255, 255, 255, 0.3),
-    inset 0 3px 4px -1px rgba(255, 255, 255, 0.2),
-    inset 0 0 5px 1px rgba(255, 255, 255, 0.1),
-    inset 0 20px 30px 0 rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  width: 220px;
-  height: 220px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 30px;
-  position: relative;
-  @media (max-width: 998px) {
-    width: 200px;
-    height: 200px;
-    gap: 20px;
-  }
-  @media (max-width: 720px) {
-    width: 150px;
-    height: 150px;
-    gap: 10px;
-  }
-
-  @media (max-width: 480px) {
-    width: 120px;
-    height: 120px;
-    gap: 5px;
-  }
-`
 export const BoxForBest = styled(Flex)<FlexProps & AllowType>`
   border-right: ${({ $disallowBorder }) =>
     $disallowBorder ? '0px' : `1px solid ${SavedColors.TextColor}`};
+`
+
+export const List = styled.ol`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+  list-style: none;
+  counter-reset: stepnr;
+  padding: 0;
+  margin: 0;
+`
+
+export const ListItem = styled.li<ListItemProps>`
+  counter-increment: stepnr;
+  width: 13rem;
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 0;
+  position: relative;
+  --borderS: 1.8rem;
+
+  /* ${({ $index }) => {
+    const colors = [
+      '#b8df4e',
+      '#4cbccb',
+      '#7197d3',
+      '#ae78cb',
+      '#7dc7a4',
+      '#f078c2',
+    ]
+    return `--accent-color: ${colors[$index % 6]};`
+  }} */
+
+  &::before {
+    content: counter(stepnr);
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: var(--borderS) solid #f5f5f5;
+    color: var(--accent-color);
+    padding-left: 9rem;
+    font-size: 11rem;
+    font-weight: 700;
+    overflow: hidden;
+    line-height: 1.1;
+    z-index: 0;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: var(--borderS) solid #f5f5f5;
+    filter: drop-shadow(-0.25rem 0.25rem 0.075rem rgba(0, 0, 0, 0.7)) blur(5px);
+    z-index: 0;
+  }
+
+  & > * {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+
+  .icon {
+    font-size: 2rem;
+    color: var(--accent-color);
+    color: ${SavedColors.TextColorGreen};
+    margin-bottom: 0.8rem;
+  }
+`
+export const CircleCard = styled.div`
+  width: 100%;
+  height: 100%;
+  border-radius: 10%;
+  border: 1px solid ${SavedColors.TextColorGreen};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  transition: transform 0.3s ease;
+`
+
+export const InnerCircle = styled.div`
+  width: 100%;
+  height: 100%;
+  border: 1px solid ${SavedColors.TextColorGreen};
+  border-radius: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+`
+
+export const IconWrapper = styled.div<{ $isMobile: boolean }>`
+  font-size: 1.5rem;
+  color: ${SavedColors.TextColorGreen};
 `

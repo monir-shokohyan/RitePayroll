@@ -1,17 +1,16 @@
 import { Flex } from '@mantine/core'
 import { useMediaQuery } from '@mantine/hooks'
 
-import { SavedColors } from '@shared/constants'
 import { FindByName } from '@shared/helpers/findByName'
 import { horWrapper as Wrapper } from '@shared/ui/horWrapper'
-import { TextResponsiveSmaller } from '@shared/ui/Typography'
+import { TextResponsive } from '@shared/ui/Typography'
 
-import { BoxForBest } from '../styles/styles'
+import { CircleCard, IconWrapper, InnerCircle } from '../styles'
 import { ProductsType } from '../types'
 
 const BestFor = ({ page }: { page: ProductsType }) => {
   const product = FindByName(page)
-  const isTableMobile = useMediaQuery('(max-width: 760px)')
+  const isMobile = useMediaQuery('(max-width: 760px)')
 
   return (
     <Wrapper
@@ -27,32 +26,36 @@ const BestFor = ({ page }: { page: ProductsType }) => {
       isSticky={true}
       doubleOption={false}
     >
-      <Flex justify="center">
-        {product?.bestFor?.map((bestItem, index) => {
+      <Flex
+        justify="center"
+        gap={{ base: 20, sm: 30, md: 40, lg: 60 }}
+        wrap="wrap"
+      >
+        {product?.bestFor?.map((bestItem) => {
           const Icon = bestItem.icon
+
           return (
-            <BoxForBest
+            <CircleCard
               key={bestItem.label}
-              direction="column"
-              justify="flex-start"
-              pt={{ base: 20, sm: 20, md: 40, lg: 60 }}
-              align="center"
-              gap={{ base: 10, sm: 10, md: 20, lg: 20 }}
-              w={{ base: 80, sm: 80, md: 160, lg: 200 }}
-              h={{ base: 80, sm: 80, md: 160, lg: 200 }}
-              $disallowBorder={Number(product.bestFor?.length) - 1 === index}
+              style={{
+                width: '9rem',
+                height: '9rem',
+              }}
             >
-              <Icon
-                size={isTableMobile ? 22 : 32}
-                color={SavedColors.TextColorGreen}
-              />
-              <TextResponsiveSmaller
-                width="80%"
-                $textalign="center"
-              >
-                {bestItem.label}
-              </TextResponsiveSmaller>
-            </BoxForBest>
+              <InnerCircle>
+                <IconWrapper $isMobile={isMobile}>
+                  <Icon />
+                </IconWrapper>
+                <TextResponsive
+                  width="70%"
+                  $textalign="center"
+                  fontSize="12px"
+                  fontWeight="600"
+                >
+                  {bestItem.label}
+                </TextResponsive>
+              </InnerCircle>
+            </CircleCard>
           )
         })}
       </Flex>

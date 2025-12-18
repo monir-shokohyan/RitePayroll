@@ -1,12 +1,12 @@
-import { FaBatteryEmpty } from 'react-icons/fa'
+import { TbPointerFilled } from 'react-icons/tb'
 import { Flex } from '@mantine/core'
 
 import { FindByName } from '@shared/helpers/findByName'
 import { horWrapper as Wrapper } from '@shared/ui/horWrapper'
+import { TextResponsive } from '@shared/ui/Typography'
 
-import { HoneycombGrid } from '../styles/styles'
+import { List, ListItem } from '../styles/styles'
 import { ProductsType } from '../types'
-import { FeatureCard } from './featureCard'
 
 const AddonsInfo = ({ page }: { page: ProductsType }) => {
   const product = FindByName(page)
@@ -25,37 +25,35 @@ const AddonsInfo = ({ page }: { page: ProductsType }) => {
         isSticky={true}
         doubleOption={false}
       >
-        <HoneycombGrid>
-          <Flex gap={{ base: 10, sm: 10, md: 20, lg: 20 }}>
-            {product?.features.slice(0, 3).map((feature) => (
-              <FeatureCard
-                key={feature.name}
-                title={feature.name}
-                Icon={feature.icon ?? FaBatteryEmpty}
-              />
-            ))}
-          </Flex>
-
-          <Flex gap={{ base: 10, sm: 10, md: 20, lg: 20 }}>
-            {product?.features.slice(3, 5).map((feature) => (
-              <FeatureCard
-                key={feature.name}
-                title={feature.name}
-                Icon={feature.icon ?? FaBatteryEmpty}
-              />
-            ))}
-          </Flex>
-
-          <Flex>
-            {product?.features.slice(5, 6).map((feature) => (
-              <FeatureCard
-                key={feature.name}
-                title={feature.name}
-                Icon={feature.icon ?? FaBatteryEmpty}
-              />
-            ))}
-          </Flex>
-        </HoneycombGrid>
+        <Flex
+          justify="center"
+          gap={{ base: 20, sm: 30, md: 40, lg: 60 }}
+          wrap="wrap"
+        >
+          <List>
+            {product?.features.map((feature, index) => {
+              const Icon = feature.icon
+              return (
+                <ListItem
+                  key={feature.name}
+                  $index={index}
+                >
+                  <div className="icon">
+                    {Icon ? <Icon /> : <TbPointerFilled />}
+                  </div>
+                  <TextResponsive
+                    width="70%"
+                    $textalign="center"
+                    fontSize="12px"
+                    fontWeight="600"
+                  >
+                    {feature.name}
+                  </TextResponsive>
+                </ListItem>
+              )
+            })}
+          </List>
+        </Flex>
       </Wrapper>
     </div>
   )
