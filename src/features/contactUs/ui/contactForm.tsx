@@ -5,21 +5,13 @@ import { IoMdCheckmark } from 'react-icons/io'
 import { IoCloseSharp } from 'react-icons/io5'
 import emailjs from '@emailjs/browser'
 import { yupResolver } from '@hookform/resolvers/yup'
-import {
-  Box,
-  Flex,
-  Loader,
-  Notification,
-  Textarea,
-  TextInput,
-  VisuallyHidden,
-} from '@mantine/core'
+import { Box, Flex, Loader, Notification, VisuallyHidden } from '@mantine/core'
 
 import { FindByName } from '@shared/helpers'
 import { TextWithFamily } from '@shared/ui/Typography'
 
 import { contactFormSchema } from '../schema/schema'
-import { HoveredButton } from '../styles'
+import { HoveredButton, SimpleInput, SimpleTextArea } from '../styles'
 import { ContactFormData } from '../types'
 
 const ContactFormMain: React.FC = () => {
@@ -144,8 +136,9 @@ const ContactFormMain: React.FC = () => {
           {pageInfo?.description}
         </TextWithFamily>
 
-        <TextInput
+        <SimpleInput
           placeholder="Enter your full name"
+          style={{ border: '0' }}
           {...register('name')}
           error={errors.name?.message}
           required
@@ -154,7 +147,7 @@ const ContactFormMain: React.FC = () => {
           id="name"
         />
 
-        <TextInput
+        <SimpleInput
           placeholder="Enter your email address"
           type="email"
           {...register('email')}
@@ -165,7 +158,7 @@ const ContactFormMain: React.FC = () => {
           id="email"
         />
 
-        <Textarea
+        <SimpleTextArea
           placeholder="Please describe your inquiry in detail..."
           rows={5}
           {...register('message')}

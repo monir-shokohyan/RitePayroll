@@ -45,6 +45,7 @@ const Welcome = memo(() => {
               left: '0%',
               opacity: '25%',
               aspectRatio: '11/9',
+              zIndex: '-1',
             }}
             loading="eager"
             fit="contain"
@@ -131,7 +132,7 @@ const Welcome = memo(() => {
             onClick={() => navigateAndScroll('/', 'dashboard-editions-section')}
           >
             <Image
-              src="/arrow-down-big.png"
+              src="/arrow-down-big-green.webp"
               alt="background image"
               loading="eager"
               fit="contain"

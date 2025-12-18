@@ -1,4 +1,4 @@
-import { Button } from '@mantine/core'
+import { Button, Textarea, TextInput } from '@mantine/core'
 import styled from 'styled-components'
 
 import { SavedColors } from '@shared/constants'
@@ -14,5 +14,15 @@ export const HoveredButton = styled(Button)<ExtendedButtonProps>`
   &:hover {
     color: ${SavedColors.PrimaryWhite};
     background-color: ${SavedColors.primaryBlue};
+  }
+`
+export const SimpleInput = styled(TextInput)`
+  .mantine-TextInput-input {
+    border: 0px;
+  }
+`
+export const SimpleTextArea = styled(Textarea)`
+  .mantine-Textarea-input {
+    border: 0px;
   }
 `

@@ -45,6 +45,7 @@ const AddonWelcome = ({ page }: { page: ProductsType }) => {
             left: '0%',
             opacity: '25%',
             aspectRatio: '11/9',
+            zIndex: '-1',
           }}
           loading="eager"
           fit="contain"
@@ -120,7 +121,7 @@ const AddonWelcome = ({ page }: { page: ProductsType }) => {
           }
         >
           <Image
-            src="/arrow-down-big.png"
+            src="/arrow-down-big-green.webp"
             alt="background image"
             loading="eager"
             fit="contain"
