@@ -82,7 +82,7 @@ export const MenuItemOnly = styled(Link)<StyledLinkProps>`
   text-decoration: none;
   color: ${SavedColors.TextColor};
   background-color: ${(props) => (props.$isActive ? '#e7f5ff' : 'transparent')};
-  border-bottom: 1px solid ${SavedColors.lightBlue};
+  border-bottom: 1px solid ${SavedColors.primaryBlue};
   font-size: 16px;
   font-family: 'Roboto';
   transition: all 0.2s ease;
