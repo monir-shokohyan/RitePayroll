@@ -1,5 +1,5 @@
-import { Button, ButtonProps, PolymorphicComponentProps } from '@mantine/core'
-import styled, { keyframes } from 'styled-components'
+import { Button, ButtonProps } from '@mantine/core'
+import styled, { css, keyframes } from 'styled-components'
 
 import { SavedColors } from '@shared/constants'
 import { fadeIn } from '@shared/styles/animation'
@@ -20,7 +20,7 @@ const WelcomeTitle = styled(TextWithFamily)`
 `
 
 const HoveredButtonWithoutBorder = styled(Button)<
-  PolymorphicComponentProps<'button', ButtonProps>
+  ButtonProps & { onClick: () => void }
 >`
   animation: ${fadeIn} 1s ease-out 0.8s both;
 
@@ -40,7 +40,6 @@ const spin = keyframes`
   to   { transform: rotate(360deg); }
 `
 
-// Responsive container using vmin for perfect scaling
 const Container = styled.div`
   position: relative;
   width: min(90vw, 90vh, 520px);
@@ -102,7 +101,6 @@ const Center = styled.button`
   }
 `
 
-// Responsive connector lines
 const Connector = styled.div<{ $angle: number }>`
   position: absolute;
   top: 50%;
@@ -112,13 +110,13 @@ const Connector = styled.div<{ $angle: number }>`
   background: #e5e7eb;
   transform: rotate(${(p) => p.$angle}deg) translateX(100%);
   transform-origin: left center;
+  overflow: visible;
 
   @media (max-width: 480px) {
     height: 1.5px;
   }
 `
 
-// Responsive SVG ring
 const SegmentedRing = styled.svg`
   position: absolute;
   top: 50%;
@@ -129,7 +127,6 @@ const SegmentedRing = styled.svg`
   pointer-events: none;
 `
 
-// Bubbles scale with container
 const Bubble = styled.div<{ $angle: number; $large: boolean }>`
   position: absolute;
   top: 50%;
@@ -181,12 +178,71 @@ const Card = styled.div<{ $large: boolean }>`
     height: clamp(16px, 6vw, 32px);
   }
 `
+
+const ElectricPulse = styled.div<{ $active: boolean; $delay: number }>`
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  filter: brightness(1.5);
+`
+
+const ElectricTrail = styled.div<{ $active: boolean; $delay: number }>`
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    ${SavedColors.TextColorGreen},
+    ${SavedColors.TextColorGreen},
+    transparent
+  );
+  transform: translateY(-50%);
+  opacity: 0;
+  box-shadow:
+    0 0 8px ${SavedColors.TextColorGreen},
+    0 0 15px ${SavedColors.TextColorGreen};
+  filter: blur(1px);
+
+  ${({ $active, $delay }) =>
+    $active &&
+    css`
+      animation: trailExpand 1s ease-in-out ${$delay}s forwards;
+    `}
+
+  @keyframes trailExpand {
+    0% {
+      width: 0%;
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.8;
+    }
+    50% {
+      width: 100%;
+      opacity: 0.8;
+    }
+    100% {
+      width: 100%;
+      opacity: 0;
+    }
+  }
+`
 export {
   Bubble,
   Card,
   Center,
   Connector,
   Container,
+  ElectricPulse,
+  ElectricTrail,
   HoveredButtonWithoutBorder,
   Icon,
   RotatingBackground,

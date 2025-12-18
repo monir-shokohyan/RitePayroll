@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { BsFillGrid3X3GapFill } from 'react-icons/bs'
 import styled from 'styled-components'
 
@@ -13,12 +13,13 @@ import {
   Center,
   Connector,
   Container,
+  ElectricPulse,
+  ElectricTrail,
   Icon,
   RotatingBackground,
   SegmentedRing,
 } from '../styles'
 
-// Create a wrapper for the card content that counter-rotates
 const CardContent = styled.div`
   width: 100%;
   height: 100%;
@@ -27,6 +28,11 @@ const CardContent = styled.div`
   align-items: center;
   justify-content: center;
   animation: ${counterSpin} 60s linear infinite;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  will-change: transform;
 `
 
 export function RotatingFeaturesWheel({
@@ -35,14 +41,37 @@ export function RotatingFeaturesWheel({
   pageInfo?: TotalDataItem
 }) {
   const [large, setLarge] = useState(true)
+  const [pulseActive, setPulseActive] = useState(false)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPulseActive(true)
+      setTimeout(() => setPulseActive(false), 2000)
+    }, 5000)
+
+    setPulseActive(true)
+    setTimeout(() => setPulseActive(false), 2000)
+
+    return () => clearInterval(interval)
+  }, [])
+
   return (
     <Container>
       <RotatingBackground>
-        {[0, 60, 120, 180, 240, 300].map((angle) => (
+        {[0, 60, 120, 180, 240, 300].map((angle, index) => (
           <Connector
             key={angle}
             $angle={angle}
-          />
+          >
+            <ElectricTrail
+              $active={pulseActive}
+              $delay={index * 0.08}
+            />
+            <ElectricPulse
+              $active={pulseActive}
+              $delay={index * 0.08}
+            />
+          </Connector>
         ))}
 
         <SegmentedRing viewBox="0 0 440 440">
