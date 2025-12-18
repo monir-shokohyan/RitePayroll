@@ -2,7 +2,7 @@ import { Button, ButtonProps } from '@mantine/core'
 import styled, { css, keyframes } from 'styled-components'
 
 import { SavedColors } from '@shared/constants'
-import { fadeIn } from '@shared/styles/animation'
+import { counterSpin, fadeIn, trailExpand } from '@shared/styles/animation'
 import { TextWithFamily } from '@shared/ui/Typography'
 
 const WelcomeText = styled(TextWithFamily)`
@@ -214,30 +214,28 @@ const ElectricTrail = styled.div<{ $active: boolean; $delay: number }>`
   ${({ $active, $delay }) =>
     $active &&
     css`
-      animation: trailExpand 1s ease-in-out ${$delay}s forwards;
+      animation: ${trailExpand} 1s ease-in-out ${$delay}s forwards;
     `}
+`
 
-  @keyframes trailExpand {
-    0% {
-      width: 0%;
-      opacity: 0;
-    }
-    10% {
-      opacity: 0.8;
-    }
-    50% {
-      width: 100%;
-      opacity: 0.8;
-    }
-    100% {
-      width: 100%;
-      opacity: 0;
-    }
-  }
+const CardContent = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: ${counterSpin} 60s linear infinite;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  will-change: transform;
 `
 export {
   Bubble,
   Card,
+  CardContent,
   Center,
   Connector,
   Container,

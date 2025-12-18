@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react'
 import { BsFillGrid3X3GapFill } from 'react-icons/bs'
-import styled from 'styled-components'
 
 import { SavedColors } from '@shared/constants'
 import { TotalDataItem } from '@shared/constants/allTexts'
-import { counterSpin } from '@shared/styles/animation'
 import { TextResponsive } from '@shared/ui/Typography'
 
 import {
   Bubble,
   Card,
+  CardContent,
   Center,
   Connector,
   Container,
@@ -19,21 +18,6 @@ import {
   RotatingBackground,
   SegmentedRing,
 } from '../styles'
-
-const CardContent = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  animation: ${counterSpin} 60s linear infinite;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  -webkit-font-smoothing: subpixel-antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  will-change: transform;
-`
 
 export function RotatingFeaturesWheel({
   pageInfo,

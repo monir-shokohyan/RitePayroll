@@ -44,23 +44,20 @@ export const counterSpin = keyframes`
   from { transform: rotate(0deg) translateZ(0); }
   to   { transform: rotate(-360deg) translateZ(0); }
 `
-export const electricPulse = keyframes`
-  0% {
-    left: 0%;
-    opacity: 0;
-    transform: translateY(-50%) scale(0.5);
-  }
-  10% {
-    opacity: 1;
-    transform: translateY(-50%) scale(1);
-  }
-  90% {
-    opacity: 1;
-    transform: translateY(-50%) scale(1);
-  }
-  100% {
-    left: 100%;
-    opacity: 0;
-    transform: translateY(-50%) scale(0.3);
-  }
-`
+export const trailExpand = keyframes`
+    0% {
+      width: 0%;
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.8;
+    }
+    50% {
+      width: 100%;
+      opacity: 0.8;
+    }
+    100% {
+      width: 100%;
+      opacity: 0;
+    }
+    `
