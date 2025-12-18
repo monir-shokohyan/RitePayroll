@@ -6,6 +6,7 @@ export const enum SavedColors {
   TextColor = '#30323B',
   TextColorGreen = '#A1CC3A',
   primaryBlue = '#012970',
+  primaryBlueRGB = '1, 41, 112',
   Primaryblue = '#012970',
   productBlue = '#012970',
   lightBlue = '#012970',
