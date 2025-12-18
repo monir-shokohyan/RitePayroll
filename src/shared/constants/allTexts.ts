@@ -81,6 +81,7 @@ import {
   MdQueue,
   MdSmartphone,
 } from 'react-icons/md'
+import { TbToolsKitchen3 } from 'react-icons/tb'
 
 import { Paths } from '@shared/api/paths'
 
@@ -170,7 +171,7 @@ export const TotalData: TotalDataItem[] = [
     sectionId: 'dashboard-welcome-section',
     features: [
       { icon: FaCashRegister, name: 'Touch Screen\nPOS Billing' },
-      { icon: FaUtensils, name: 'Kitchen & Bar Order\nAutomation' },
+      { icon: TbToolsKitchen3, name: 'Kitchen & Bar Order\nAutomation' },
       { icon: FaBoxOpen, name: 'Inventory & Recipe\nCost Control' },
       {
         icon: FaHeart,
