@@ -111,20 +111,8 @@ export const BoxForBest = styled(Flex)<FlexProps & AllowType>`
     $disallowBorder ? '0px' : `1px solid ${SavedColors.TextColor}`};
 `
 
-export const List = styled.ol`
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 3rem;
-  list-style: none;
-  counter-reset: stepnr;
-  padding: 0;
-  margin: 0;
-`
-
 export const ListItem = styled.li<ListItemProps>`
-  counter-increment: stepnr;
-  width: 13rem;
+  width: 11rem;
   aspect-ratio: 1;
   display: flex;
   flex-direction: column;
@@ -132,34 +120,7 @@ export const ListItem = styled.li<ListItemProps>`
   align-items: center;
   padding-left: 0;
   position: relative;
-  --borderS: 1.8rem;
-
-  /* ${({ $index }) => {
-    const colors = [
-      '#b8df4e',
-      '#4cbccb',
-      '#7197d3',
-      '#ae78cb',
-      '#7dc7a4',
-      '#f078c2',
-    ]
-    return `--accent-color: ${colors[$index % 6]};`
-  }} */
-
-  &::before {
-    content: counter(stepnr);
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    border: var(--borderS) solid #f5f5f5;
-    color: var(--accent-color);
-    padding-left: 9rem;
-    font-size: 11rem;
-    font-weight: 700;
-    overflow: hidden;
-    line-height: 1.1;
-    z-index: 0;
-  }
+  --borderS: 1rem;
 
   &::after {
     content: '';
@@ -178,10 +139,10 @@ export const ListItem = styled.li<ListItemProps>`
   }
 
   .icon {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: var(--accent-color);
     color: ${SavedColors.TextColorGreen};
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
   }
 `
 
@@ -207,7 +168,7 @@ export const InnerCircle = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 0.5rem;
 `
 
 export const IconWrapper = styled.div<{ $isMobile: boolean }>`

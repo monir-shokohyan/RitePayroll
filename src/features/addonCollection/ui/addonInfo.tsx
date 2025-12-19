@@ -5,7 +5,7 @@ import { FindByName } from '@shared/helpers/findByName'
 import { horWrapper as Wrapper } from '@shared/ui/horWrapper'
 import { TextResponsive } from '@shared/ui/Typography'
 
-import { List, ListItem } from '../styles/styles'
+import { ListItem } from '../styles/styles'
 import { ProductsType } from '../types'
 
 const AddonsInfo = ({ page }: { page: ProductsType }) => {
@@ -27,32 +27,30 @@ const AddonsInfo = ({ page }: { page: ProductsType }) => {
       >
         <Flex
           justify="center"
-          gap={{ base: 20, sm: 30, md: 40, lg: 60 }}
+          gap={{ base: 10, sm: 10, md: 20, lg: 40 }}
           wrap="wrap"
         >
-          <List>
-            {product?.features.map((feature, index) => {
-              const Icon = feature.icon
-              return (
-                <ListItem
-                  key={feature.name}
-                  $index={index}
+          {product?.features.map((feature, index) => {
+            const Icon = feature.icon
+            return (
+              <ListItem
+                key={feature.name}
+                $index={index}
+              >
+                <div className="icon">
+                  {Icon ? <Icon /> : <TbPointerFilled />}
+                </div>
+                <TextResponsive
+                  width="70%"
+                  $textalign="center"
+                  fontSize="12px"
+                  fontWeight="600"
                 >
-                  <div className="icon">
-                    {Icon ? <Icon /> : <TbPointerFilled />}
-                  </div>
-                  <TextResponsive
-                    width="70%"
-                    $textalign="center"
-                    fontSize="12px"
-                    fontWeight="600"
-                  >
-                    {feature.name}
-                  </TextResponsive>
-                </ListItem>
-              )
-            })}
-          </List>
+                  {feature.name}
+                </TextResponsive>
+              </ListItem>
+            )
+          })}
         </Flex>
       </Wrapper>
     </div>

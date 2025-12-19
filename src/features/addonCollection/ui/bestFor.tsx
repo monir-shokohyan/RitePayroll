@@ -28,7 +28,7 @@ const BestFor = ({ page }: { page: ProductsType }) => {
     >
       <Flex
         justify="center"
-        gap={{ base: 20, sm: 30, md: 40, lg: 60 }}
+        gap={{ base: 10, sm: 10, md: 20, lg: 40 }}
         wrap="wrap"
       >
         {product?.bestFor?.map((bestItem) => {
