@@ -184,6 +184,7 @@ export const ListItem = styled.li<ListItemProps>`
     margin-bottom: 0.8rem;
   }
 `
+
 export const CircleCard = styled.div`
   width: 100%;
   height: 100%;

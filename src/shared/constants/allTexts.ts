@@ -532,7 +532,7 @@ export const TotalData: TotalDataItem[] = [
     name: Addon.WaiterApp,
     overview:
       'This module enables captains and waiters to take orders directly at the guest table using Android or iOS handheld devices or tablets. The app speeds up ordering, reduces errors, and enhances the guest experience by minimizing waiting time and ensuring accurate service.',
-    imageUrl: '/products/captain-app.png',
+    imageUrl: '/addons/waiter order.webp',
     features: [
       { name: 'Table-side live order entry', icon: FaTabletAlt },
       {
@@ -565,7 +565,7 @@ export const TotalData: TotalDataItem[] = [
     name: Addon.Kds,
     overview:
       'Replace paper KOTs with real-time digital screens in the kitchen and bar. Eliminate lost tickets, speed up preparation, and improve accuracy with color-coded alerts and order tracking.',
-    imageUrl: '/products/kds.png',
+    imageUrl: '/addons/kds.webp',
     features: [
       { name: 'Live digital display of all orders', icon: FaTv },
       { name: 'Auto-routing to correct kitchen/bar station', icon: FaRoute },
@@ -592,7 +592,7 @@ export const TotalData: TotalDataItem[] = [
     name: Addon.CustomerLoyaltyManagement,
     overview:
       'Build lasting customer relationships with points, tiers, birthday rewards, and smart campaigns. Turn one-time guests into loyal regulars who spend more and visit often.',
-    imageUrl: '/products/loyalty.png',
+    imageUrl: '/addons/costumer loyalty.webp',
     features: [
       { name: 'Register via mobile number or card', icon: FaUserPlus },
       { name: 'Point-based earn & redeem system', icon: FaCoins },
@@ -616,7 +616,7 @@ export const TotalData: TotalDataItem[] = [
     name: Addon.OnlineTableReservations,
     overview:
       'Let customers book tables online 24/7 with live availability. Reduce phone calls, avoid double bookings, and fill seats during peak hours intelligently.',
-    imageUrl: '/products/reservation.png',
+    imageUrl: '/addons/table.webp',
     features: [
       { name: 'Real-time table availability calendar', icon: FaCalendarCheck },
       { name: 'Booking widget for website & social media', icon: FaGlobe },
@@ -640,7 +640,7 @@ export const TotalData: TotalDataItem[] = [
     name: Addon.QueueManagement,
     overview:
       'Perfect for fast-service environments. Generate tokens, display serving numbers, manage multiple queues, and deliver smooth, frustration-free customer flow.',
-    imageUrl: '/products/token-queue.png',
+    imageUrl: '/addons/token.webp',
     features: [
       { name: 'Token generation at counter/kiosk', icon: FaTicketAlt },
       { name: 'Large digital display boards', icon: FaTv },
@@ -664,7 +664,7 @@ export const TotalData: TotalDataItem[] = [
     name: Addon.EventManagementSystem,
     overview:
       'Manage banquets, weddings, corporate events, and private parties from enquiry to final settlement — with menu costing, advances, and per-event profit reports.',
-    imageUrl: '/products/event-management.png',
+    imageUrl: '/addons/event.webp',
     features: [
       { name: 'Event enquiry & booking calendar', icon: FaCalendarPlus },
       { name: 'Custom menu planning and costing', icon: FaUtensils },

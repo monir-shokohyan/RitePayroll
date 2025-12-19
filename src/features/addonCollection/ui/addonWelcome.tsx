@@ -22,7 +22,7 @@ const AddonWelcome = ({ page }: { page: ProductsType }) => {
     <Wrapper
       rightSection={
         <Image
-          src="/girl.svg"
+          src={product?.imageUrl}
           alt={product?.id}
           h={{ base: 200, sm: 200, md: 400, lg: 500 }}
           fit="contain"
