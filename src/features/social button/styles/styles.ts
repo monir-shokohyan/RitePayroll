@@ -1,4 +1,5 @@
 import { IoChatbox } from 'react-icons/io5'
+import { motion } from 'framer-motion'
 import styled from 'styled-components'
 
 import { SavedColors } from '@shared/constants'
@@ -186,5 +187,73 @@ export const SocialLink = styled.a`
       width: 18px;
       height: 18px;
     }
+  }
+`
+
+export const Container = styled.div`
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  z-index: 50;
+`
+
+export const BackgroundCircle = styled(motion.div)`
+  position: absolute;
+  right: -125px;
+  bottom: -125px;
+  width: 300px;
+  height: 300px;
+  background: ${SavedColors.primaryBlue};
+  border-radius: 50%;
+  box-shadow:
+    0px 2px 4px rgba(0, 0, 0, 0.15),
+    0px 4px 8px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+`
+
+export const FabButton = styled.button`
+  width: 50px;
+  height: 50px;
+  background: ${SavedColors.primaryBlue};
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0px 2px 4px rgba(0, 0, 0, 0.15),
+    0px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s;
+
+  &:hover {
+    background: ${SavedColors.darkBlue};
+  }
+
+  &:focus {
+    outline: none;
+  }
+`
+interface MotionaType {
+  $delay: number
+  $translateX: number
+  $translateY: number
+  $isOpen: boolean
+}
+export const MenuItem = styled(motion.a)<MotionaType>`
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: white;
+  color: ${SavedColors.TextColorGreen};
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.5s ease-out;
+  &:hover {
+    transform: scale(1.1);
   }
 `
