@@ -37,8 +37,8 @@ const Ui = () => {
               $translateX={item.x}
               $translateY={item.y}
               $isOpen={isOpen}
-              initial={{ top: 0, right: 0 }}
-              animate={{ top: item.y, right: item.x }}
+              initial={{ scale: 0.7, top: 0, right: 0 }}
+              animate={{ scale: 1, top: item.y, right: item.x }}
               transition={{
                 duration: 0.4,
                 delay: item.delay,
