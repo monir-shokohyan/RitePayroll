@@ -143,7 +143,7 @@ const Navbar = memo(() => {
       >
         <Popover.Target>
           <Burger
-            lineSize={2}
+            lineSize={3}
             size="md"
             color={SavedColors.Primaryblue}
             opened={opened}
