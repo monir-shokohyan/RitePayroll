@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { FaPlus, FaTimes } from 'react-icons/fa'
+import { HiShare } from 'react-icons/hi'
 import { AnimatePresence, motion } from 'framer-motion'
 
 import { menuItems } from '../constant'
@@ -57,7 +57,7 @@ const Ui = () => {
         aria-label={isOpen ? 'Close menu' : 'Open menu'}
       >
         <motion.div
-          animate={{ rotate: isOpen ? 135 : 0 }}
+          animate={{ rotate: isOpen ? 360 : 0 }}
           transition={{ duration: 0.5, ease: 'easeInOut' }}
           style={{
             display: 'flex',
@@ -67,7 +67,7 @@ const Ui = () => {
             height: '100%',
           }}
         >
-          {isOpen ? <FaTimes size={26} /> : <FaPlus size={26} />}
+          <HiShare size={23} />
         </motion.div>
       </FabButton>
     </Container>
