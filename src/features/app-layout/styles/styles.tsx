@@ -27,6 +27,7 @@ const MenubarS = styled.div`
 `
 
 const MenuItems = styled(Link)`
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,19 +39,33 @@ const MenuItems = styled(Link)`
   font-family: 'Roboto', sans-serif;
   font-weight: 600;
   font-style: normal;
-  border-bottom: 3px solid transparent;
-  transition: all 0.3s ease-in;
+  transition: color 0.3s ease;
 
-  &:hover {
-    border-bottom: 3px solid ${SavedColors.TextColorGreen};
-    color: ${SavedColors.TextColorGreen};
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: ${SavedColors.TextColorGreen};
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.35s ease-out;
+    border-radius: 10px;
   }
+
+  &:hover,
+  &.active {
+    color: ${SavedColors.TextColorGreen};
+
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+
   @media (max-width: 1024px) {
     display: none;
-  }
-  &.active {
-    border-bottom: 3px solid ${SavedColors.TextColorGreen};
-    color: ${SavedColors.TextColorGreen};
   }
 `
 
@@ -115,25 +130,36 @@ const ProductMenuTrigger = styled.div`
   font-family: 'Roboto', sans-serif;
   font-weight: 600;
   font-style: normal;
-  border-bottom: 3px solid transparent;
   transition: all 0.3s ease-in;
   border: 0px;
-  border-bottom: 3px solid transparent;
   background-color: transparent;
   cursor: pointer;
+  position: relative;
 
-  &:hover {
-    border-bottom: 3px solid ${SavedColors.TextColorGreen};
-    color: ${SavedColors.TextColorGreen};
-    transform: scale(100%);
-  }
   @media (max-width: 1024px) {
     display: none;
   }
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: ${SavedColors.TextColorGreen};
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.35s ease-out;
+    border-radius: 10px;
+  }
+
+  &:hover,
   &.active {
-    border-bottom: 3px solid ${SavedColors.TextColorGreen};
     color: ${SavedColors.TextColorGreen};
-    font-weight: 600;
+
+    &::after {
+      transform: scaleX(1);
+    }
   }
 `
 
