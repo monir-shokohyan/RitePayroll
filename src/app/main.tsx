@@ -21,24 +21,33 @@ if (!container) {
 
 ReactGA.initialize(import.meta.env.VITE_GOOGLE_ANALYTICS)
 
+const isTouchDevice = () => {
+  return 'ontouchstart' in window || navigator.maxTouchPoints > 0
+}
+
+const isMobile = isTouchDevice()
+
 createRoot(container).render(
   <StrictMode>
     <Providers>
       <MantineProvider>
-        <AnimatedCursor
-          innerSize={8}
-          outerSize={35}
-          color={SavedColors.primaryGreenRGB}
-          outerAlpha={0.3}
-          innerScale={0.7}
-          outerScale={2}
-          trailingSpeed={8}
-          showSystemCursor
-          outerStyle={{
-            border: `2px solid rgba(${SavedColors.primaryGreenRGB}, 1)`,
-            backgroundColor: 'transparent',
-          }}
-        />
+        {!isMobile && (
+          <AnimatedCursor
+            innerSize={8}
+            outerSize={35}
+            color={SavedColors.primaryGreenRGB}
+            outerAlpha={0.3}
+            innerScale={0.7}
+            outerScale={2}
+            trailingSpeed={8}
+            showSystemCursor={true}
+            outerStyle={{
+              border: `2px solid rgba(${SavedColors.primaryGreenRGB}, 1)`,
+              backgroundColor: 'transparent',
+            }}
+          />
+        )}
+
         <AppRouter />
       </MantineProvider>
     </Providers>
