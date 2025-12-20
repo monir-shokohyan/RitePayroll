@@ -287,7 +287,6 @@ const Navbar = memo(() => {
           </Container>
         </Popover.Dropdown>
       </Popover>
-      {/* mobile code */}
     </NavbarS>
   )
 })

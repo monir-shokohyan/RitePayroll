@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { HiShare } from 'react-icons/hi'
+import { useClickOutside } from '@mantine/hooks'
 import { AnimatePresence, motion } from 'framer-motion'
 
 import { menuItems } from '../constant'
@@ -8,10 +9,12 @@ import { BackgroundCircle, Container, FabButton, MenuItem } from '../styles'
 const Ui = () => {
   const [isOpen, setIsOpen] = useState(false)
 
+  const ref = useClickOutside(() => setIsOpen(false))
+
   const toggleMenu = () => setIsOpen((prev) => !prev)
 
   return (
-    <Container>
+    <Container ref={ref}>
       <AnimatePresence>
         {isOpen && (
           <BackgroundCircle
