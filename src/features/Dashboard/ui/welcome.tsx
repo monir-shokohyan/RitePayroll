@@ -36,6 +36,7 @@ const Welcome = memo(() => {
         isReverseWrap={false}
       >
         <div style={{ paddingInline: '10px' }}>
+          .
           <Image
             src={isTableMobile ? 'bgNet_mobile.webp' : '/bgNet.webp'}
             alt="background image"
