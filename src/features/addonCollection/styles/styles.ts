@@ -141,7 +141,7 @@ export const ListItem = styled.li<ListItemProps>`
   .icon {
     font-size: 1.5rem;
     color: var(--accent-color);
-    color: ${SavedColors.TextColorGreen};
+    color: ${SavedColors.TextHighlite};
     margin-bottom: 0.5rem;
   }
 `
@@ -150,7 +150,7 @@ export const CircleCard = styled.div`
   width: 100%;
   height: 100%;
   border-radius: 10%;
-  border: 1px solid ${SavedColors.TextColorGreen};
+  border: 1px solid ${SavedColors.TextHighlite};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -162,7 +162,7 @@ export const CircleCard = styled.div`
 export const InnerCircle = styled.div`
   width: 100%;
   height: 100%;
-  border: 1px solid ${SavedColors.TextColorGreen};
+  border: 1px solid ${SavedColors.TextHighlite};
   border-radius: 5%;
   display: flex;
   flex-direction: column;
@@ -173,5 +173,5 @@ export const InnerCircle = styled.div`
 
 export const IconWrapper = styled.div<{ $isMobile: boolean }>`
   font-size: 1.5rem;
-  color: ${SavedColors.TextColorGreen};
+  color: ${SavedColors.TextHighlite};
 `

@@ -1,9 +1,11 @@
+/* eslint-disable unicorn/no-nested-ternary */
 import { Flex } from '@mantine/core'
 
 import { HorWrapperType } from '@shared/types/horWrapper'
 import { BgFlex } from '@shared/ui/BgFlex'
 
-import { GradientContainer } from './gradeintContainer'
+import { Background } from './background'
+import { HeroWaves } from './heroWaves'
 
 const horWrapper = ({
   isBgColor = false,
@@ -18,20 +20,32 @@ const horWrapper = ({
   isSticky = false,
   desTitle = '',
   title = '',
-  gradientDirection = 'bottom-to-top',
   doubleOption = true,
   activeHead = true,
-  $paddingTop = '130px',
   $flexGap = 20,
+  $paddingTop = '0px',
+  bgWave = false,
+  activeSticker = false,
+  $paddingLeftTop = '0px',
+  $paddingRightTop = '0px',
 }: HorWrapperType) => {
   return (
-    <GradientContainer
-      direction={gradientDirection}
+    <Background
       title={title}
       desTitle={desTitle}
       activeHead={activeHead}
-      $paddingTop={$paddingTop}
+      activeSticker={activeSticker}
     >
+      {bgWave && (
+        <HeroWaves
+          blur={20}
+          amplitude={120}
+          speed="fast"
+          waveOpacity={0.5}
+          waveWidth={90}
+          colors={['#c084fc', '#a78bfa', '#818cf8', '#60a5fa', '#93c5fd']}
+        />
+      )}
       <BgFlex
         wrap={isReverseWrap ? 'wrap-reverse' : 'wrap'}
         bg={isBgColor ? `${bgImage}` : `'${bgImage}'`}
@@ -65,6 +79,7 @@ const horWrapper = ({
               justify="center"
               align="start"
               p={{ base: '0px', lg: '0' }}
+              pt={$paddingLeftTop}
             >
               {children}
             </Flex>
@@ -74,6 +89,7 @@ const horWrapper = ({
               justify={RSJustify}
               align="center"
               p={{ base: '0px', lg: '0' }}
+              pt={$paddingRightTop}
             >
               {rightSection}
             </BgFlex>
@@ -86,12 +102,13 @@ const horWrapper = ({
             gap={$flexGap}
             justify="center"
             align="center"
+            pt={$paddingTop}
           >
             {children}
           </Flex>
         )}
       </BgFlex>
-    </GradientContainer>
+    </Background>
   )
 }
 

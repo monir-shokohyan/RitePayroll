@@ -21,7 +21,6 @@ const BestFor = ({ page }: { page: ProductsType }) => {
       rightWidth="40%"
       RSJustify="center"
       desTitle="Experience"
-      gradientDirection="top-to-bottom"
       title="BEST FOR"
       isSticky={true}
       doubleOption={false}

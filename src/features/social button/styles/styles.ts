@@ -50,7 +50,7 @@ export const MenuItem = styled(motion.a)<MotionaType>`
   width: 50px;
   height: 50px;
   background: white;
-  color: ${SavedColors.TextColorGreen};
+  color: ${SavedColors.TextHighlite};
   border-radius: 50%;
   display: flex;
   align-items: center;

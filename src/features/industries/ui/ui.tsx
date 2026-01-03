@@ -22,12 +22,11 @@ const Ui = memo(() => {
         rightWidth="50%"
         desTitle="Explore"
         title=" INDUSTRIES SERVED"
-        gradientDirection="top-to-bottom"
         doubleOption={false}
         $flexGap={0}
       >
         <StyledMarquee>
-          {pageInfo?.features.map((Mcard) => {
+          {pageInfo?.features?.map((Mcard) => {
             return (
               <StyledCard
                 key={Mcard.name}
@@ -43,7 +42,7 @@ const Ui = memo(() => {
                   {Mcard.icon && (
                     // eslint-disable-next-line react/jsx-pascal-case
                     <Mcard.icon
-                      color={SavedColors.TextColorGreen}
+                      color={SavedColors.TextHighlite}
                       size={16}
                     />
                   )}
@@ -53,8 +52,8 @@ const Ui = memo(() => {
             )
           })}
         </StyledMarquee>
-        <StyledMarquee direction="right">
-          {pageInfo?.features.map((Mcard) => {
+        <StyledMarquee >
+          {pageInfo?.features?.map((Mcard) => {
             return (
               <StyledCard
                 key={Mcard.name}
@@ -69,7 +68,7 @@ const Ui = memo(() => {
                 >
                   {Mcard.icon && (
                     <Mcard.icon
-                      color={SavedColors.TextColorGreen}
+                      color={SavedColors.TextHighlite}
                       size={16}
                     />
                   )}

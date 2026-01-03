@@ -55,7 +55,7 @@ const AddonWelcome = ({ page }: { page: ProductsType }) => {
           $font="Great Vibes"
           fontWeight="500"
           fontSize="37px"
-          color={SavedColors.TextColorGreen}
+          color={SavedColors.TextHighlite}
           $textalign="left"
         >
           Addon Module
@@ -101,7 +101,7 @@ const AddonWelcome = ({ page }: { page: ProductsType }) => {
             w={{ base: '100%', sm: 'auto', md: 'auto', lg: 'auto' }}
             color={SavedColors.Primaryblue}
             variant="transparent"
-            href="/brochures/Rite eats.pdf"
+            href="/brochures/RitePayroll.pdf"
             download
             target="_blank"
             rel="noopener noreferrer"

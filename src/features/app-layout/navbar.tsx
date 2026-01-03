@@ -39,11 +39,12 @@ const Navbar = memo(() => {
     <NavbarS>
       <MenubarS>
         <Image
-          src="/Rite eats fill.png"
-          alt="lotus logo"
-          w={{ base: '120', lg: '150px' }}
+          src="/RITE PAYROLL.png"
+          alt="RitePayroll logo"
+          w={{ base: '150', lg: '150px' }}
           h={{ base: '60px', lg: '65px' }}
           fit="contain"
+          loading="lazy"
         />
 
         <MenuItems
@@ -277,8 +278,8 @@ const Navbar = memo(() => {
             style={{ textAlign: 'center' }}
           >
             <Image
-              src="/Rite eats fill.png"
-              alt="lotus logo"
+              src="/RITE PAYROLL.png"
+              alt="RitePayroll logo"
               w={{ base: '120', lg: '150px' }}
               h={{ base: '60px', lg: '65px' }}
               fit="contain"

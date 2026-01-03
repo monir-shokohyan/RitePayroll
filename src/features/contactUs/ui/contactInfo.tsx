@@ -23,7 +23,7 @@ const ContactInfo: React.FC = () => {
         style={{ marginBottom: '20px' }}
         alt="image for contact section"
       />
-      {pageInfo?.features.map((feature) => {
+      {pageInfo?.features?.map((feature) => {
         return (
           <IconWithText
             key={feature.name}

@@ -30,7 +30,6 @@ const Ui = memo(() => {
         rightWidth="50%"
         desTitle={pageInfo?.dTitle}
         title={pageInfo?.title}
-        gradientDirection="top-to-bottom"
         doubleOption={false}
       >
         <ResImage
@@ -49,7 +48,7 @@ const Ui = memo(() => {
             align="start"
             gap={20}
           >
-            {pageInfo?.features.slice(0, 3).map((feature, index) => (
+            {pageInfo?.features?.slice(0, 3).map((feature, index) => (
               <Flex
                 key={feature.name || index}
                 align="center"
@@ -84,7 +83,7 @@ const Ui = memo(() => {
             align="end"
             gap={20}
           >
-            {pageInfo?.features.slice(3, 7).map((feature, index) => (
+            {pageInfo?.features?.slice(3, 7).map((feature, index) => (
               <Flex
                 key={feature.name || index}
                 w="100%"

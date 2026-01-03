@@ -30,7 +30,7 @@ const AddonsInfo = ({ page }: { page: ProductsType }) => {
           gap={{ base: 10, sm: 10, md: 20, lg: 40 }}
           wrap="wrap"
         >
-          {product?.features.map((feature, index) => {
+          {product?.features?.map((feature, index) => {
             const Icon = feature.icon
             return (
               <ListItem

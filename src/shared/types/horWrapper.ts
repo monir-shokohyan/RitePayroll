@@ -12,10 +12,13 @@ export interface HorWrapperType {
   isBgColor?: boolean
   isSticky?: boolean
   desTitle?: string
-  gradientDirection?: 'bottom-to-top' | 'top-to-bottom'
   doubleOption?: boolean
   activeHead?: boolean
   $paddingTop?: string
   $flexGap?: number
   $deactiveLine?: boolean
+  bgWave?: boolean
+  activeSticker?: boolean
+  $paddingLeftTop?: string
+  $paddingRightTop?: string
 }

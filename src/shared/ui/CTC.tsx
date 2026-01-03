@@ -11,7 +11,7 @@ interface CTCProps {
 }
 
 const LinkStyle = styled(Link)`
-  color: ${SavedColors.Primaryblue};
+  color: ${SavedColors.TextHighlite};
   text-decoration: underline;
   cursor: pointer;
   transition: opacity 0.2s ease;
@@ -26,7 +26,7 @@ const LinkStyle = styled(Link)`
 `
 
 const SimpleColorText = styled.span`
-  color: ${SavedColors.Primaryblue};
+  color: ${SavedColors.TextHighlite};
 `
 
 const CTC = ({ text, as = 'span', to }: CTCProps) => {

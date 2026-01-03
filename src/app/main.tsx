@@ -12,6 +12,8 @@ import { AppRouter } from './router'
 import './main.css'
 import '@mantine/core/styles.css'
 import 'react-tooltip/dist/react-tooltip.css'
+import '@gfazioli/mantine-marquee/styles.css';
+
 
 const container = document.querySelector('#root')
 

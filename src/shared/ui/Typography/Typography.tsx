@@ -4,7 +4,12 @@ import styled, { css } from 'styled-components'
 import { SavedColors } from '@shared/constants'
 
 export interface StyledTextProps {
-  $font?: 'Roboto' | 'Nunito' | 'Tangerine' | 'Great Vibes'
+  $font?:
+    | 'Roboto'
+    | 'Nunito'
+    | 'Tangerine'
+    | 'Great Vibes'
+    | 'Saira Stencil One'
   fontSize?: string
   fontWeight?:
     | '100'
@@ -40,7 +45,7 @@ const TextWithFamily = styled.div<StyledTextProps>`
 const TitleWithFamily = styled.h1<StyledTextProps>`
   ${textStyles}
   @media (max-width:1024px) {
-    font-size: 34px;
+    font-size: 16px;
   }
 `
 

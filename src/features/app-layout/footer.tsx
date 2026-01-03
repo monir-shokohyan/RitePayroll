@@ -1,8 +1,7 @@
 import { memo } from 'react'
-import { FaGithub, FaPhoneAlt } from 'react-icons/fa'
-import { HiGlobeAlt } from 'react-icons/hi'
+import { FaGithub, FaGlobe, FaPhoneAlt } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
-import { Flex } from '@mantine/core'
+import { Flex, Image } from '@mantine/core'
 
 import { SavedColors } from '@shared/constants'
 import { ImportantInfo } from '@shared/constants/companyInfo'
@@ -15,15 +14,31 @@ const Footer = memo(() => {
   return (
     <FooterContainer>
       <Flex
-        gap={10}
         align="center"
         justify="center"
+        style={{ width: '300px' }}
+      >
+        <Image
+          src="/RITE PAYROLL.png"
+          alt="RitePayroll logo"
+          w={{ base: '170', lg: '220px' }}
+          h={{ base: '40px', lg: '45px' }}
+          fit="contain"
+          loading="lazy"
+        />
+      </Flex>
+      <Flex
+        align="center"
+        justify="center"
+        miw={300}
       >
         <IconWithText
           allowText={false}
           allowTextRes={false}
           icon={FaGithub}
           iconSize={20}
+          $isActiveIconBg={false}
+          iconColor={SavedColors.DarkWhite}
           handleClick={() => window.open(ImportantInfo.githubUrl, '_blank')}
         />
         <IconWithText
@@ -31,23 +46,29 @@ const Footer = memo(() => {
           allowTextRes={false}
           icon={FaPhoneAlt}
           iconSize={20}
+          iconColor={SavedColors.DarkWhite}
           handleClick={() => (window.location.href = 'tel:+256755818183')}
+          $isActiveIconBg={false}
         />
         <IconWithText
           allowText={false}
           allowTextRes={false}
           icon={MdEmail}
           iconSize={20}
+          iconColor={SavedColors.DarkWhite}
           handleClick={() =>
             (window.location.href = `mailto:${ImportantInfo.emailAddress}`)
           }
+          $isActiveIconBg={false}
         />
         <IconWithText
           allowText={false}
           allowTextRes={false}
-          icon={HiGlobeAlt}
+          icon={FaGlobe}
           iconSize={20}
+          iconColor={SavedColors.DarkWhite}
           handleClick={() => window.open(ImportantInfo.website, '_blank')}
+          $isActiveIconBg={false}
         />
       </Flex>
       <TextWithFamily
@@ -55,6 +76,7 @@ const Footer = memo(() => {
         color={SavedColors.DarkWhite}
         fontSize="1rem"
         $font="Roboto"
+        width="300px"
       >
         © Copyright RiteEats. All right reserved.
       </TextWithFamily>

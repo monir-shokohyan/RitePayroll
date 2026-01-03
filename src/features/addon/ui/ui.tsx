@@ -23,7 +23,6 @@ const Ui = memo(() => {
         rightWidth="50%"
         desTitle={pageInfo?.dTitle}
         title={pageInfo?.title}
-        gradientDirection="bottom-to-top"
         doubleOption={false}
       >
         <Flex
@@ -33,7 +32,7 @@ const Ui = memo(() => {
           gap={32}
           px={10}
         >
-          {pageInfo?.features.map((feature) => (
+          {pageInfo?.features?.map((feature) => (
             <StyledCard
               key={feature.name}
               shadow="none"

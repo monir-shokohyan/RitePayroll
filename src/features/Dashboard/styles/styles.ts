@@ -1,9 +1,12 @@
 import { Button, ButtonProps } from '@mantine/core'
-import styled, { css, keyframes } from 'styled-components'
+import { motion } from 'framer-motion'
+import styled from 'styled-components'
 
 import { SavedColors } from '@shared/constants'
-import { counterSpin, fadeIn, trailExpand } from '@shared/styles/animation'
+import { fadeIn } from '@shared/styles/animation'
 import { TextWithFamily } from '@shared/ui/Typography'
+
+import { BubbleProps } from '../types'
 
 const WelcomeText = styled(TextWithFamily)`
   animation: ${fadeIn} 1s ease-out 0.8s both;
@@ -35,10 +38,6 @@ const HoveredButtonWithoutBorder = styled(Button)<
     text-align: center;
   }
 `
-const spin = keyframes`
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-`
 
 const Container = styled.div`
   position: relative;
@@ -53,198 +52,30 @@ const Container = styled.div`
     margin: 20px auto;
   }
 `
-
-const RotatingBackground = styled.div`
+const Bubble = styled(motion.div)<BubbleProps>`
   position: absolute;
-  inset: 0;
-  animation: ${spin} 60s linear infinite;
-`
-const Icon = styled.div`
-  color: ${SavedColors.TextColorGreen};
-  margin-bottom: 12px;
+  padding: 5px 5px;
   display: flex;
-  align-items: center;
   justify-content: center;
-`
-
-const Center = styled.button`
-  position: absolute;
-  cursor: pointer;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 0px;
-  width: 32%;
-  height: 32%;
-  min-width: 100px;
-  min-height: 100px;
-  background: white;
-  border-radius: 50%;
-  user-select: none;
-  box-shadow:
-    0 15px 25px -4px rgba(0, 0, 0, 0.2),
-    inset 0 -3px 4px -1px rgba(0, 0, 0, 0.1),
-    0 -10px 15px -1px rgba(255, 255, 255, 0.3),
-    inset 0 3px 4px -1px rgba(255, 255, 255, 0.2),
-    inset 0 0 5px 1px rgba(255, 255, 255, 0.1),
-    inset 0 20px 30px 0 rgba(255, 255, 255, 0.2);
-  display: flex;
+  align-items: center;
+  width: ${({ size }) => size || '7rem'};
+  height: ${({ size }) => size || '7rem'};
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-  color: #111;
-  padding: 16px;
-  ${Icon} svg {
-    width: clamp(16px, 6vw, 32px);
-    height: clamp(16px, 6vw, 32px);
-  }
-`
-
-const Connector = styled.div<{ $angle: number }>`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 15%;
-  height: 2px;
-  background: #e5e7eb;
-  transform: rotate(${(p) => p.$angle}deg) translateX(100%);
-  transform-origin: left center;
-  overflow: visible;
-
-  @media (max-width: 480px) {
-    height: 1.5px;
-  }
-`
-
-const SegmentedRing = styled.svg`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%;
-  height: 80%;
-  pointer-events: none;
-`
-
-const Bubble = styled.div<{ $angle: number; $large: boolean }>`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 28%;
-  height: 28%;
-  min-width: 100px;
-  min-height: 100px;
-  margin: -14% 0 0 -14%;
-  transition: transform 0.5s ease-in-out;
-  transform: rotate(${(p) => p.$angle}deg)
-    translateX(${({ $large }) => ($large ? '130%' : '0%')})
-    rotate(-${(p) => p.$angle}deg);
-  transform-origin: center;
-
-  @media (max-width: 640px) {
-    width: 30%;
-    height: 30%;
-  }
-
-  @media (max-width: 480px) {
-    width: 30%;
-    height: 30%;
-  }
-`
-const Card = styled.div<{ $large: boolean }>`
-  width: 100%;
-  height: 100%;
-  background: white;
   border-radius: 50%;
-  box-shadow: ${({ $large }) =>
-    $large
-      ? '0 15px 25px -4px rgba(0, 0, 0, 0.2),inset 0 -3px 4px -1px rgba(0, 0, 0, 0.1),0 -10px 15px -1px rgba(255, 255, 255, 0.3),inset 0 3px 4px -1px rgba(255, 255, 255, 0.2),inset 0 0 5px 1px rgba(255, 255, 255, 0.1),inset 0 20px 30px 0 rgba(255, 255, 255, 0.2);'
-      : 'none'};
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 12px;
-  text-align: center;
-  transition: all 0.4s ease;
-
-  &:hover {
-    transform: scale(1.03);
-  }
-
-  ${Icon} svg {
-    width: clamp(16px, 6vw, 32px);
-    height: clamp(16px, 6vw, 32px);
-  }
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  transform: ${({ rotate }) => `rotate(${rotate})`};
+  ${(props) => props.top && `top: ${props.top};`}
+  ${(props) => props.bottom && `bottom: ${props.bottom};`}
+  ${(props) => props.left && `left: ${props.left};`}
+  ${(props) => props.right && `right: ${props.right};`}
 `
 
-const ElectricPulse = styled.div<{ $active: boolean; $delay: number }>`
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  transform: translateY(-50%);
-  opacity: 0;
-  filter: brightness(1.5);
-`
-
-const ElectricTrail = styled.div<{ $active: boolean; $delay: number }>`
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: 0%;
-  height: 1px;
-  background: linear-gradient(
-    to right,
-    transparent,
-    ${SavedColors.TextColorGreen},
-    ${SavedColors.TextColorGreen},
-    transparent
-  );
-  transform: translateY(-50%);
-  opacity: 0;
-  box-shadow:
-    0 0 8px ${SavedColors.TextColorGreen},
-    0 0 15px ${SavedColors.TextColorGreen};
-  filter: blur(1px);
-
-  ${({ $active, $delay }) =>
-    $active &&
-    css`
-      animation: ${trailExpand} 1s ease-in-out ${$delay}s forwards;
-    `}
-`
-
-const CardContent = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  animation: ${counterSpin} 60s linear infinite;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  -webkit-font-smoothing: subpixel-antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  will-change: transform;
-`
 export {
   Bubble,
-  Card,
-  CardContent,
-  Center,
-  Connector,
   Container,
-  ElectricPulse,
-  ElectricTrail,
   HoveredButtonWithoutBorder,
-  Icon,
-  RotatingBackground,
-  SegmentedRing,
   WelcomeText,
   WelcomeTitle,
 }

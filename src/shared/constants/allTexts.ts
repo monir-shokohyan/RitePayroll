@@ -9,11 +9,11 @@ import {
   FaBirthdayCake,
   FaBookOpen,
   FaBoxOpen,
+  FaBriefcase,
   FaBullhorn,
   FaCalendarCheck,
   FaCalendarPlus,
   FaCashRegister,
-  FaChartBar,
   FaChartLine,
   FaChartPie,
   FaClipboardList,
@@ -25,7 +25,6 @@ import {
   FaCreditCard,
   FaCubes,
   FaCut,
-  FaDollarSign,
   FaEnvelope,
   FaExclamationTriangle,
   FaFileAlt,
@@ -35,7 +34,6 @@ import {
   FaGlassWhiskey,
   FaGlobe,
   FaHamburger,
-  FaHeart,
   FaHistory,
   FaHotel,
   FaHourglassHalf,
@@ -62,6 +60,7 @@ import {
   FaTasks,
   FaTicketAlt,
   FaTv,
+  FaUser,
   FaUserPlus,
   FaUsers,
   FaUsersCog,
@@ -81,7 +80,7 @@ import {
   MdQueue,
   MdSmartphone,
 } from 'react-icons/md'
-import { TbToolsKitchen3 } from 'react-icons/tb'
+import { MotionProps } from 'framer-motion'
 
 import { Paths } from '@shared/api/paths'
 
@@ -137,6 +136,34 @@ interface BestForType {
   label: string
   icon: IconType
 }
+export interface BubbleContent {
+  icon: IconType
+  iconColor: string
+  iconSize: string
+  text: string
+  textFontSize: string
+}
+
+export interface BubbleItem extends MotionProps {
+  id: number
+  top: string
+  left: string
+  size?: string
+  rotate?: string
+
+  animate: {
+    y: number[]
+    x?: number[]
+    rotate?: number[]
+    transition: {
+      duration: number
+      repeat: typeof Infinity
+      delay?: number
+    }
+  }
+
+  content: BubbleContent
+}
 export interface TotalDataItem {
   name: string
   title?: string
@@ -149,7 +176,7 @@ export interface TotalDataItem {
   section?: SectionType[]
   sectionSecond?: SectionType[]
   sectionId?: string
-  features: SectionType[]
+  features?: SectionType[]
   industries?: string[]
   deployment?: string[]
   brochureLink?: string
@@ -157,33 +184,72 @@ export interface TotalDataItem {
   editions?: EditionsType[]
   bestFor?: BestForType[]
   id?: Addon | string
+  bubbles?: BubbleItem[]
 }
 
 export const TotalData: TotalDataItem[] = [
   {
     name: 'Welcome',
-    description: 'Welcome to the RiteEats',
-    title:
-      "Empowering Africa's Businesses with Smart, ScalableSoftware & Technology Solutions.",
+    description: 'Welcome to the RitePayroll',
+    title: 'RitePayroll – Smart Payroll Software for Growing Businesses',
     descriptionSecond:
-      'RiteEats is a complete Restaurant & Bar Management Software designed to digitally transform how restaurants, cafés, bars, clubs and food chains operate. Built with deep understanding of real hospitality workflows, RiteEats integrates point of sale billing, kitchen automation, inventory control, recipe management, customer engagement and full accounting into one powerful system.',
+      'Run weekly and monthly payroll with total confidence. RitePayroll automates attendance, salary calculations, statutory deductions, loans, advances and payslips.',
     target: '/',
     sectionId: 'dashboard-welcome-section',
-    features: [
-      { icon: FaCashRegister, name: 'Touch Screen\nPOS Billing' },
-      { icon: TbToolsKitchen3, name: 'Kitchen & Bar Order\nAutomation' },
-      { icon: FaBoxOpen, name: 'Inventory & Recipe\nCost Control' },
+    bubbles: [
       {
-        icon: FaHeart,
-        name: 'Loyalty, Reservations &\nEvent Management',
+        id: 1,
+        top: '0%',
+        left: '40%',
+        rotate: '-10deg',
+        animate: {
+          y: [0, -15, 0],
+          x: [0, 10, 0],
+          rotate: [-10, -5, -10],
+          transition: {
+            duration: 4,
+            repeat: Infinity,
+          },
+        },
+        initial: { opacity: 0, scale: 0 },
+        whileInView: { opacity: 1, scale: 1 },
+        viewport: { once: true },
+        transition: { duration: 1.6, ease: 'backOut' },
+        whileHover: { scale: 1.1 },
+        content: {
+          icon: FaBriefcase,
+          iconColor: SavedColors.red,
+          iconSize: '24px',
+          text: '25+ years of experience',
+          textFontSize: '13px',
+        },
       },
       {
-        icon: FaDollarSign,
-        name: 'Multi-Outlet & Multi-\nCurrency Support',
-      },
-      {
-        icon: FaChartBar,
-        name: 'Complete Accounting &\nFinancial Reports',
+        id: 2,
+        top: '30%',
+        left: '50%',
+        size: '5rem',
+        animate: {
+          y: [0, -20, 0],
+          x: [0, -8, 0],
+          transition: {
+            duration: 3.5,
+            repeat: Infinity,
+            delay: 0.5,
+          },
+        },
+        initial: { opacity: 0, scale: 0 },
+        whileInView: { opacity: 1, scale: 1 },
+        viewport: { once: true },
+        transition: { duration: 0.6, ease: 'backOut', delay: 0.2 },
+        whileHover: { scale: 1.1 },
+        content: {
+          icon: FaUser,
+          iconColor: SavedColors.violet,
+          iconSize: '20px',
+          text: '1,000+ customers',
+          textFontSize: '11px',
+        },
       },
     ],
   },
@@ -263,89 +329,18 @@ export const TotalData: TotalDataItem[] = [
     ],
   },
   {
-    name: 'editions',
-    dTitle: 'Discover',
-    title: 'RITEEATS SOFTWARE VERSIONS',
+    name: 'aboutUs',
+    dTitle: 'Want to know more ?',
+    title: 'Read about us',
     target: '/',
-    sectionId: 'dashboard-editions-section',
-    editions: [
-      {
-        name: 'RiteEats Essentials',
-        description:
-          'Fast and accurate front-end POS with seamless kitchen coordination',
-        bestFor:
-          'Best suited for small to medium restaurants, cafés and fast-food outlets.',
-        imageSrc: '/editions/left.jpeg',
-        imageAlt:
-          'RiteEats Essentials edition – front-end POS interface with touch-screen billing and kitchen coordination features',
-        infoSectionBg: SavedColors.Essentials,
-        featureSectionBg: SavedColors.EssentialsFeature,
-        features: [
-          { name: 'Touch screen POS billing', icon: FaCashRegister },
-          { name: 'Dine-in, takeaway & delivery modes', icon: FaShoppingBag },
-          {
-            name: 'KOT generation & remote kitchen/bar printing',
-            icon: FaKitchenSet,
-          },
-          { name: 'Table & area management', icon: FaTable },
-          {
-            name: 'Multiple payment modes',
-            icon: FaCreditCard,
-          },
-          { name: 'Bill splitting & partial billing', icon: FaCut },
-          { name: 'Waiter/captain ordering support', icon: FaClipboardList },
-        ],
-      },
-      {
-        name: 'RiteEats Plus',
-        description:
-          'Everything in Essentials + complete inventory and recipe management',
-        bestFor:
-          'Best suited for growing restaurants, bars and multi-kitchen operations.',
-        imageSrc: '/editions/center.jpeg',
-        imageAlt:
-          'RiteEats Plus edition – inventory and recipe management dashboard showing stock levels, recipes, and cost analysis',
-        infoSectionBg: SavedColors.Plus,
-        featureSectionBg: SavedColors.PlusFeature,
-        features: [
-          { name: 'Multi-warehouse inventory management', icon: FaWarehouse },
-          { name: 'Multi-unit item handling', icon: FaCubes },
-          { name: 'Recipe creation and management', icon: FaBookOpen },
-          { name: 'Automatic recipe-wise stock deduction', icon: GrPowerCycle },
-          { name: 'Recipe costing & food margin control', icon: FaChartLine },
-          { name: 'Reorder level & stock alerts', icon: FaBell },
-          { name: 'Time-based menu and promotions', icon: FaClock },
-        ],
-      },
-      {
-        name: 'RiteEats Ultimate',
-        description:
-          'Enterprise-grade solution with full accounting and multi-branch control',
-        bestFor:
-          'Best suited for food chains, franchises, hotels and enterprise hospitality businesses.',
-        imageSrc: '/editions/right.jpeg',
-        imageAlt:
-          'RiteEats Ultimate edition – enterprise dashboard with accounting reports, multi-branch consolidation, and financial analytics',
-        infoSectionBg: SavedColors.Ultimate,
-        featureSectionBg: SavedColors.UltimateFeature,
-        features: [
-          { name: 'Complete accounting system', icon: FaBalanceScale },
-          { name: 'Cash and credit control', icon: FaMoneyBillWave },
-          {
-            name: 'Customer & supplier ledger management',
-            icon: FaAddressBook,
-          },
-          { name: 'VAT and tax compliance', icon: FaFileInvoiceDollar },
-          {
-            name: 'Profit & Loss, Balance Sheet & financial reporting',
-            icon: FaFileAlt,
-          },
-          { name: 'Multi-branch consolidated accounts', icon: FaNetworkWired },
-          { name: 'Advanced management dashboards', icon: FaChartPie },
-        ],
-      },
+    sectionId: 'dashboard-aboutUs-section',
+    imageUrl: '/aboutus.svg',
+    description:
+      'RitePayroll is a powerful, web-enabled payroll management software designed for small, medium, and large organizations operating across multiple branches and multiple currencies. Built to eliminate manual payroll errors and compliance risks, RitePayroll automates the entire payroll lifecycle — from attendance capture to payslip generation — with precision, security, and flexibility. Whether your organization processes daily wages or monthly salaries, manages complex allowances, statutory deductions, loans, and leave policies, or operates across locations and currencies, RitePayroll gives you total control — all from a single, centralized system.',
+    features: [
+      { name: 'Trusted by 1,000+' },
+      { name: '25+ years of experience' },
     ],
-    features: [],
   },
 
   {
@@ -557,7 +552,7 @@ export const TotalData: TotalDataItem[] = [
       { label: 'Premium Cafés', icon: FaCoffee },
       { label: 'Hotels & Resorts', icon: FaHotel },
     ],
-    brochureLink: '/brochures/Rite eats.pdf',
+    brochureLink: '/brochures/RitePayroll.pdf',
     target: Paths.Waiter_App,
   },
   {
@@ -584,7 +579,7 @@ export const TotalData: TotalDataItem[] = [
       { label: 'Cloud Kitchens', icon: FaKitchenSet },
       { label: 'Busy Bars', icon: FaGlassWhiskey },
     ],
-    brochureLink: '/brochures/Rite eats.pdf',
+    brochureLink: '/brochures/RitePayroll.pdf',
     target: Paths.Kds,
   },
   {
@@ -608,7 +603,7 @@ export const TotalData: TotalDataItem[] = [
       { label: 'Franchises', icon: FaNetworkWired },
       { label: 'Multi-Outlet Brands', icon: FaCubes },
     ],
-    brochureLink: '/brochures/Rite eats.pdf',
+    brochureLink: '/brochures/RitePayroll.pdf',
     target: Paths.Customer_Loyalty_Management,
   },
   {
@@ -632,7 +627,7 @@ export const TotalData: TotalDataItem[] = [
       { label: 'Banquet Venues', icon: MdEvent },
       { label: 'Popular Outlets', icon: FaStar },
     ],
-    brochureLink: '/brochures/Rite eats.pdf',
+    brochureLink: '/brochures/RitePayroll.pdf',
     target: Paths.Online_Table_Reservations,
   },
   {
@@ -656,7 +651,7 @@ export const TotalData: TotalDataItem[] = [
       { label: 'Takeaway Outlets', icon: FaShoppingBag },
       { label: 'Cloud Kitchens', icon: FaKitchenSet },
     ],
-    brochureLink: '/brochures/Rite eats.pdf',
+    brochureLink: '/brochures/RitePayroll.pdf',
     target: Paths.Queue_Management,
   },
   {
@@ -680,7 +675,7 @@ export const TotalData: TotalDataItem[] = [
       { label: 'Wedding Venues', icon: FaRing },
       { label: 'Catering Companies', icon: FaConciergeBell },
     ],
-    brochureLink: '/brochures/Rite eats.pdf',
+    brochureLink: '/brochures/RitePayroll.pdf',
     target: Paths.Event_Management_System,
   },
 ]

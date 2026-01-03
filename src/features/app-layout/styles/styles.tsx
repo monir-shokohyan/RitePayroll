@@ -13,8 +13,11 @@ const NavbarS = styled.nav`
   width: 100vw;
   align-items: center;
   justify-content: space-between;
-  background-color: ${SavedColors.PrimaryWhite};
   z-index: 4;
+  backdrop-filter: blur(10px);
+  @media (max-width: 1024px) {
+    height: 50px;
+  }
 `
 
 const MenubarS = styled.div`
@@ -48,7 +51,7 @@ const MenuItems = styled(Link)`
     left: 0;
     width: 100%;
     height: 3px;
-    background-color: ${SavedColors.TextColorGreen};
+    background-color: ${SavedColors.TextHighlite};
     transform: scaleX(0);
     transform-origin: center;
     transition: transform 0.35s ease-out;
@@ -57,7 +60,7 @@ const MenuItems = styled(Link)`
 
   &:hover,
   &.active {
-    color: ${SavedColors.TextColorGreen};
+    color: ${SavedColors.TextHighlite};
 
     &::after {
       transform: scaleX(1);
@@ -86,7 +89,7 @@ const MenuListItem = styled(Link)`
   transition: all 0.3s ease-in;
 
   &:hover {
-    background: ${SavedColors.TextColorGreen};
+    background: ${SavedColors.TextHighlite};
     color: ${SavedColors.PrimaryWhite};
   }
   &.active {
@@ -146,7 +149,7 @@ const ProductMenuTrigger = styled.div`
     left: 0;
     width: 100%;
     height: 3px;
-    background-color: ${SavedColors.TextColorGreen};
+    background-color: ${SavedColors.TextHighlite};
     transform: scaleX(0);
     transform-origin: center;
     transition: transform 0.35s ease-out;
@@ -155,7 +158,7 @@ const ProductMenuTrigger = styled.div`
 
   &:hover,
   &.active {
-    color: ${SavedColors.TextColorGreen};
+    color: ${SavedColors.TextHighlite};
 
     &::after {
       transform: scaleX(1);
@@ -183,7 +186,7 @@ const ProductMenuListTrigger = styled.div`
   cursor: pointer;
 
   &:hover {
-    background: ${SavedColors.TextColorGreen};
+    background: ${SavedColors.TextHighlite};
     color: ${SavedColors.PrimaryWhite};
   }
   &.active {
@@ -200,7 +203,7 @@ const CustomMenuItem = styled(Menu.Item)<any>`
   color: #012970 !important;
 
   &:hover {
-    background-color: ${SavedColors.TextColorGreen} !important;
+    background-color: ${SavedColors.TextHighlite} !important;
     color: white !important;
   }
   &.active {
@@ -220,9 +223,10 @@ const VerticalLine = styled.div`
 const FooterContainer = styled.footer`
   display: flex;
   width: 100vw;
-  justify-content: start;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
   gap: 10px;
-  flex-direction: column;
   background-color: ${SavedColors.FooterBgColor};
   position: relative;
   overflow: hidden;

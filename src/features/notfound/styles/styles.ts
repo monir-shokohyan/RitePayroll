@@ -94,7 +94,7 @@ export const Number = styled.div<{ delay: string }>`
 
 export const SearchIcon = styled.div`
   font-size: 8rem;
-  color: ${SavedColors.TextColorGreen};
+  color: ${SavedColors.TextHighlite};
   animation: ${rotate} 10s linear infinite;
   display: flex;
   align-items: center;

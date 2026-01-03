@@ -1,28 +1,22 @@
 /* eslint-disable react/jsx-pascal-case */
 import { memo } from 'react'
-import { Image } from '@mantine/core'
-import { useMediaQuery } from '@mantine/hooks'
+import { FaCalendarAlt, FaDownload } from 'react-icons/fa'
+import { Button, Flex } from '@mantine/core'
 
 import { SavedColors } from '@shared/constants'
 import { FindByName } from '@shared/helpers/findByName'
 import { useNavigationScroll } from '@shared/hooks/useNavigationScroll'
-import { HoveredArrow } from '@shared/styles/arrowStyle'
 import { Container } from '@shared/ui/Container'
 import { CTC } from '@shared/ui/CTC'
 import { horWrapper as Wrapper } from '@shared/ui/horWrapper'
 import { TitleWithFamily } from '@shared/ui/Typography'
 
-import {
-  HoveredButtonWithoutBorder,
-  WelcomeText,
-  WelcomeTitle,
-} from '../styles/styles'
+import { WelcomeText, WelcomeTitle } from '../styles/styles'
 import { WelcomeFeature } from './welcomeFeature'
 
 const Welcome = memo(() => {
   const { navigateAndScroll } = useNavigationScroll()
   const pageInfo = FindByName('Welcome')
-  const isTableMobile = useMediaQuery('(max-width: 760px)')
 
   return (
     <section id="dashboard-welcome-section">
@@ -33,47 +27,36 @@ const Welcome = memo(() => {
         doubleOption={true}
         activeHead={false}
         $paddingTop="10px"
-        isReverseWrap={false}
+        isReverseWrap={true}
+        bgWave={true}
       >
-        <div style={{ paddingInline: '10px' }}>
-          .
-          <Image
-            src={isTableMobile ? 'bgNet_mobile.webp' : '/bgNet.webp'}
-            alt="background image"
-            style={{
-              position: 'absolute',
-              top: '10%',
-              left: '0%',
-              opacity: '25%',
-              aspectRatio: '11/9',
-              zIndex: '-1',
-            }}
-            loading="eager"
-            fit="contain"
-          />
-
+        <Flex
+          px={10}
+          direction="column"
+          gap={20}
+        >
           <TitleWithFamily
-            $font="Great Vibes"
+            $font="Roboto"
             fontWeight="500"
-            fontSize="50px"
-            color={SavedColors.TextColorGreen}
+            fontSize="30px"
             $textalign="left"
           >
             {pageInfo?.description}
           </TitleWithFamily>
-
           <WelcomeTitle
-            $font="Nunito"
-            fontWeight="800"
+            $font="Roboto"
+            fontWeight="500"
           >
-            The <CTC text="Complete" /> Solution for <CTC text=" Resturant " />
-            & <CTC text=" Bar" />.
+            The <CTC text="RitePayroll" /> - Smart Payroll{' '}
+            <CTC text=" Software " />
+            for Growing Businesses.
           </WelcomeTitle>
-
-          <WelcomeText $font="Roboto">
+          <WelcomeText
+            $font="Roboto"
+            fontWeight="400"
+          >
             {pageInfo?.descriptionSecond}
           </WelcomeText>
-
           <Container
             gap={20}
             w="100%"
@@ -82,65 +65,42 @@ const Welcome = memo(() => {
             align="center"
             py={20}
           >
-            <HoveredButtonWithoutBorder
-              radius="md"
+            <Button
+              radius={20}
+              leftSection={<FaCalendarAlt />}
               size="sm"
               w={{ base: '100%', sm: 'auto', md: 'auto', lg: 'auto' }}
-              color={SavedColors.Primaryblue}
-              variant="transparent"
+              color={SavedColors.TextColor}
               onClick={() =>
                 navigateAndScroll('/', 'dashboard-contact-section')
               }
             >
               Request a live demo
-            </HoveredButtonWithoutBorder>
+            </Button>
 
-            <HoveredButtonWithoutBorder
+            <Button
+              component="a"
               radius={20}
               size="sm"
+              leftSection={<FaDownload />}
               w={{ base: '100%', sm: 'auto', md: 'auto', lg: 'auto' }}
-              color={SavedColors.Primaryblue}
-              variant="transparent"
-              onClick={() => {
-                window.location.href = 'https://wa.me/+256755818183'
-              }}
-            >
-              Speak to Sales
-            </HoveredButtonWithoutBorder>
-
-            <HoveredButtonWithoutBorder
-              as="a"
-              radius={20}
-              size="sm"
-              w={{ base: '100%', sm: 'auto', md: 'auto', lg: 'auto' }}
-              color={SavedColors.Primaryblue}
-              variant="transparent"
-              href="/brochures/Rite eats.pdf"
+              color={SavedColors.TextColor}
+              variant="outline"
+              href="/brochures/RitePayroll.pdf"
               download
               target="_blank"
               rel="noopener noreferrer"
               style={{
                 textDecoration: 'none',
-                color: SavedColors.primaryBlue,
+                color: SavedColors.TextColor,
                 fontWeight: '600',
                 fontSize: '14px',
               }}
             >
               Download product brochure
-            </HoveredButtonWithoutBorder>
+            </Button>
           </Container>
-          <HoveredArrow
-            onClick={() => navigateAndScroll('/', 'dashboard-editions-section')}
-          >
-            <Image
-              src="/arrow-down-big-green.webp"
-              alt="background image"
-              loading="eager"
-              fit="contain"
-              w={{ base: '0px', sm: '0px', md: '120px', lg: '150px' }}
-            />
-          </HoveredArrow>
-        </div>
+        </Flex>
       </Wrapper>
     </section>
   )
