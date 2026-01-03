@@ -3,7 +3,8 @@ import { Card, CardProps } from '@mantine/core'
 import styled from 'styled-components'
 
 export const StyledMarquee = styled(Marquee)<MarqueeProps>`
-  width: 100%;`
+  width: 100%;
+`
 export const StyledCard = styled(Card)<CardProps>`
   box-shadow:
     2px 2px 8px rgba(0, 0, 0, 0.2),

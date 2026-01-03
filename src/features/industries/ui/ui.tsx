@@ -52,7 +52,7 @@ const Ui = memo(() => {
             )
           })}
         </StyledMarquee>
-        <StyledMarquee >
+        <StyledMarquee>
           {pageInfo?.features?.map((Mcard) => {
             return (
               <StyledCard
