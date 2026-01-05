@@ -52,14 +52,14 @@ const Container = styled.div`
     margin: 20px auto;
   }
 `
-const Bubble = styled(motion.div)<BubbleProps>`
+const Bubble = styled(motion.div)<BubbleProps & { $size?: number }>`
   position: absolute;
   padding: 5px 5px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: ${({ size }) => size || '7rem'};
-  height: ${({ size }) => size || '7rem'};
+  width: ${({ $size }) => `${$size}rem` || '7rem'};
+  height: ${({ $size }) => `${$size}rem` || '7rem'};
   flex-direction: column;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.2);

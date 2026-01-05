@@ -1,13 +1,13 @@
-/* eslint-disable react/jsx-pascal-case */
 import { memo } from 'react'
-import { Card, Flex, Image } from '@mantine/core'
+import { Flex, Image } from '@mantine/core'
 import { useMediaQuery } from '@mantine/hooks'
 
-import { StyledMarquee } from '@features/industries/styles'
 import { SavedColors } from '@shared/constants'
 import { FindByName } from '@shared/helpers'
 import { horWrapper as Wrapper } from '@shared/ui/horWrapper'
 import { TextWithFamily } from '@shared/ui/Typography'
+
+import { AboutRightSection } from './aboutRightSection'
 
 const Ui = memo(() => {
   const pageInfo = FindByName('aboutUs')
@@ -19,44 +19,10 @@ const Ui = memo(() => {
         isReverseWrap={false}
         fullHeight={false}
         rightSection={
-          <Flex
-            align="center"
-            justify="center"
-            h="100%"
-            pt={isMobile ? 0 : 150}
-            direction="column"
-            gap={isMobile ? 20 : 80}
-            px={10}
-            w="100%"
-          >
-            <TextWithFamily
-              $font="Roboto"
-              fontWeight="400"
-            >
-              {pageInfo?.description}
-            </TextWithFamily>
-            <StyledMarquee bg={SavedColors.highlite}>
-              {pageInfo?.features?.map((Mcard) => {
-                return (
-                  <Card
-                    key={Mcard.name}
-                    padding="sm"
-                    radius="md"
-                    ml={20}
-                    bg="transparent"
-                  >
-                    <TextWithFamily
-                      $font="Roboto"
-                      fontWeight="400"
-                      style={{ textWrap: 'nowrap' }}
-                    >
-                      {Mcard.name}
-                    </TextWithFamily>
-                  </Card>
-                )
-              })}
-            </StyledMarquee>
-          </Flex>
+          <AboutRightSection
+            pageInfo={pageInfo}
+            isMobile={isMobile}
+          />
         }
         RSJustify="center"
         leftWidth="40%"

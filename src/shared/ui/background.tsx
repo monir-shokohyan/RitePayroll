@@ -93,6 +93,7 @@ const Background = ({
                 position: 'relative',
                 zIndex: 2,
               }}
+              color={SavedColors.DemWhite}
             >
               Developed by
             </TextWithFamily>
@@ -105,6 +106,7 @@ const Background = ({
                 position: 'relative',
                 zIndex: 2,
               }}
+              color={SavedColors.DemWhite}
             >
               Lotus Soft Technologies Ltd
             </TextWithFamily>

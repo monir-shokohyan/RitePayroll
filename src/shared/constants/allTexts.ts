@@ -1,13 +1,9 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 import { IconType } from 'react-icons'
 import {
-  FaAddressBook,
   FaArchway,
-  FaBalanceScale,
   FaBan,
-  FaBell,
   FaBirthdayCake,
-  FaBookOpen,
   FaBoxOpen,
   FaBriefcase,
   FaBullhorn,
@@ -16,7 +12,6 @@ import {
   FaCashRegister,
   FaChartLine,
   FaChartPie,
-  FaClipboardList,
   FaClock,
   FaClone,
   FaCoffee,
@@ -24,10 +19,8 @@ import {
   FaConciergeBell,
   FaCreditCard,
   FaCubes,
-  FaCut,
   FaEnvelope,
   FaExclamationTriangle,
-  FaFileAlt,
   FaFileInvoice,
   FaFileInvoiceDollar,
   FaGift,
@@ -40,7 +33,6 @@ import {
   FaLayerGroup,
   FaList,
   FaMapMarkedAlt,
-  FaMoneyBillWave,
   FaMoneyCheckAlt,
   FaMusic,
   FaNetworkWired,
@@ -66,10 +58,8 @@ import {
   FaUsersCog,
   FaUtensils,
   FaVolumeUp,
-  FaWarehouse,
 } from 'react-icons/fa'
 import { FaKitchenSet, FaLocationDot } from 'react-icons/fa6'
-import { GrPowerCycle } from 'react-icons/gr'
 import { LuGlobe } from 'react-icons/lu'
 import {
   MdCardGiftcard,
@@ -148,7 +138,7 @@ export interface BubbleItem extends MotionProps {
   id: number
   top: string
   left: string
-  size?: string
+  size?: number
   rotate?: string
 
   animate: {
@@ -202,6 +192,7 @@ export const TotalData: TotalDataItem[] = [
         top: '0%',
         left: '40%',
         rotate: '-10deg',
+        size: 6,
         animate: {
           y: [0, -15, 0],
           x: [0, 10, 0],
@@ -221,14 +212,14 @@ export const TotalData: TotalDataItem[] = [
           iconColor: SavedColors.red,
           iconSize: '24px',
           text: '25+ years of experience',
-          textFontSize: '13px',
+          textFontSize: '12px',
         },
       },
       {
         id: 2,
         top: '30%',
         left: '50%',
-        size: '5rem',
+        size: 5,
         animate: {
           y: [0, -20, 0],
           x: [0, -8, 0],

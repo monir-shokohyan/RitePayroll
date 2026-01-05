@@ -70,10 +70,11 @@ const Welcome = memo(() => {
               leftSection={<FaCalendarAlt />}
               size="sm"
               w={{ base: '100%', sm: 'auto', md: 'auto', lg: 'auto' }}
-              color={SavedColors.TextColor}
+              color={SavedColors.DemWhite}
               onClick={() =>
                 navigateAndScroll('/', 'dashboard-contact-section')
               }
+              bg={SavedColors.highlite}
             >
               Request a live demo
             </Button>
@@ -84,7 +85,6 @@ const Welcome = memo(() => {
               size="sm"
               leftSection={<FaDownload />}
               w={{ base: '100%', sm: 'auto', md: 'auto', lg: 'auto' }}
-              color={SavedColors.TextColor}
               variant="outline"
               href="/brochures/RitePayroll.pdf"
               download
@@ -92,7 +92,7 @@ const Welcome = memo(() => {
               rel="noopener noreferrer"
               style={{
                 textDecoration: 'none',
-                color: SavedColors.TextColor,
+                color: SavedColors.highlite,
                 fontWeight: '600',
                 fontSize: '14px',
               }}

@@ -1,4 +1,5 @@
 import { Flex, Image } from '@mantine/core'
+import { useMediaQuery } from '@mantine/hooks'
 
 import { SavedColors } from '@shared/constants'
 import { TotalDataItem } from '@shared/constants/allTexts'
@@ -7,6 +8,7 @@ import { TextWithFamily } from '@shared/ui/Typography'
 import { Bubble, Container } from '../styles'
 
 const WelcomeLeftSection = ({ pageInfo }: { pageInfo?: TotalDataItem }) => {
+  const isMobile = useMediaQuery('(max-width: 768px)')
   return (
     <Container>
       <Image
@@ -33,6 +35,7 @@ const WelcomeLeftSection = ({ pageInfo }: { pageInfo?: TotalDataItem }) => {
             viewport={Buble.viewport}
             transition={Buble.transition}
             whileHover={Buble.whileHover}
+            $size={isMobile ? 5 : Buble.size}
           >
             <Flex
               align="center"
