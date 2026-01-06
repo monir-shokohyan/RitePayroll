@@ -154,7 +154,7 @@ const Background = ({
             <TextResponsive
               color={SavedColors.TextHighlite}
               fontSize="30px"
-              fontWeight="500"
+              fontWeight="300"
               $font="Roboto"
               $textalign={headTextAlign}
             >

@@ -52,7 +52,7 @@ const Ui = memo(() => {
         >
           <TextResponsive
             $font="Roboto"
-            fontWeight="500"
+            fontWeight="300"
             fontSize="18px"
             color={SavedColors.TextHighlite}
             $textalign="left"

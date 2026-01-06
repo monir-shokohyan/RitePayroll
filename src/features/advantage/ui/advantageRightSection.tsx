@@ -27,7 +27,7 @@ const AdvantageRightSection = ({
     >
       <TextWithFamily
         $font="Roboto"
-        fontWeight="400"
+        fontWeight="300"
         width={isMobile ? '100%' : '50%'}
       >
         {pageInfo?.description}

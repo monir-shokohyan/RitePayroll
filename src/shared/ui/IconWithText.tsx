@@ -60,7 +60,7 @@ const IconWithText = ({
   padding = '10px',
   $hoveractive = 'true',
   fontSize = '18px',
-  fontWeight = '600',
+  fontWeight = '300',
   $isActiveIconBg = true,
   $border,
   $iconContainerSize = 'md',

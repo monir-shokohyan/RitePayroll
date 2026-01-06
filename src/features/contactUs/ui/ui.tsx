@@ -1,4 +1,5 @@
 import { memo } from 'react'
+import { useMediaQuery } from '@mantine/hooks'
 
 import { horWrapper as Wrapper } from '@shared/ui/horWrapper'
 
@@ -6,19 +7,23 @@ import { ContactFormMain } from './contactForm'
 import { ContactInfo } from './contactInfo'
 
 const Ui = memo(() => {
+  const isMobile = useMediaQuery('(max-width: 760px)')
+
   return (
     <div id="dashboard-contact-section">
       <Wrapper
         isReverseWrap={false}
         fullHeight={false}
-        rightSection={<ContactInfo />}
+        rightSection={<ContactFormMain />}
         RSJustify="center"
-        leftWidth="50%"
-        rightWidth="45%"
-        desTitle="Have a Question ?"
-        title="CONTACT US"
+        leftWidth="35%"
+        rightWidth="60%"
+        paddingToTopLayer={isMobile ? '10px' : '80px'}
+        activeHead={false}
+        $paddingLeftTop={isMobile ? '80px' : '120px'}
+        $paddingRightTop={isMobile ? '80px' : '120px'}
       >
-        <ContactFormMain />
+        <ContactInfo />
       </Wrapper>
 
       <div

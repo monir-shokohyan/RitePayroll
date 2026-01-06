@@ -1,23 +1,25 @@
-import React from 'react'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { CiMail } from 'react-icons/ci'
+import { FaArrowRight } from 'react-icons/fa'
 import { IoMdCheckmark } from 'react-icons/io'
 import { IoCloseSharp } from 'react-icons/io5'
 import emailjs from '@emailjs/browser'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { Box, Flex, Loader, Notification, VisuallyHidden } from '@mantine/core'
 
+import { SavedColors } from '@shared/constants'
 import { FindByName } from '@shared/helpers'
-import { TextWithFamily } from '@shared/ui/Typography'
+import { RadialHoverEffect } from '@shared/ui/ripple'
+import { TextResponsive, TextWithFamily } from '@shared/ui/Typography'
 
 import { contactFormSchema } from '../schema/schema'
 import { HoveredButton, SimpleInput, SimpleTextArea } from '../styles'
 import { ContactFormData } from '../types'
 
-const ContactFormMain: React.FC = () => {
-  const [showSuccess, setShowSuccess] = React.useState(false)
-  const [showError, setShowError] = React.useState(false)
-  const [errorMessage, setErrorMessage] = React.useState('')
+const ContactFormMain = () => {
+  const [showSuccess, setShowSuccess] = useState(false)
+  const [showError, setShowError] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
   const pageInfo = FindByName('contact us')
 
   const {
@@ -128,10 +130,10 @@ const ContactFormMain: React.FC = () => {
           </Notification>
         )}
         <TextWithFamily
-          $font="Nunito"
+          $font="Roboto"
           fontSize="16px"
-          fontWeight="600"
-          style={{ marginBottom: '10px' }}
+          fontWeight="300"
+          style={{ marginBottom: '10px', width: '50%' }}
         >
           {pageInfo?.description}
         </TextWithFamily>
@@ -171,16 +173,33 @@ const ContactFormMain: React.FC = () => {
 
         <HoveredButton
           type="submit"
-          size="sm"
-          loading={isSubmitting}
           disabled={isSubmitting}
-          leftSection={
-            isSubmitting ? <Loader size="sm" /> : <CiMail size={20} />
-          }
-          fullWidth
           variant="outline"
         >
-          {isSubmitting ? 'Sending...' : 'Send Message'}
+          <RadialHoverEffect color={SavedColors.darkBlue}>
+            {isSubmitting ? (
+              <Loader size="sm" />
+            ) : (
+              <Flex
+                justify="center"
+                align="center"
+                gap={20}
+                pos="absolute"
+                top="50%"
+                left="50%"
+                style={{ transform: 'translate(-50%, -50%)' }}
+              >
+                <TextResponsive
+                  fontWeight="300"
+                  width="50px"
+                  color="gray"
+                >
+                  Submit Request
+                </TextResponsive>
+                <FaArrowRight />
+              </Flex>
+            )}
+          </RadialHoverEffect>
         </HoveredButton>
       </Box>
     </Flex>

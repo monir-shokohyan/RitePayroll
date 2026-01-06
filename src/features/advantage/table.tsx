@@ -25,7 +25,14 @@ const TableComponent = ({
       <Table.Td>
         <TextResponsive fontSize="1.3rem">{item.name}</TextResponsive>
       </Table.Td>
-      <Table.Td>{item.description}</Table.Td>
+      <Table.Td>
+        <TextResponsive
+          fontSize="1rem"
+          fontWeight="300"
+        >
+          {item.description}
+        </TextResponsive>
+      </Table.Td>
       {!isMobile && (
         <Table.Td
           onMouseEnter={() => changeImage(item.id || 0)}

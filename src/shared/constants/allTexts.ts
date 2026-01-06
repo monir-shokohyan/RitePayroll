@@ -2,6 +2,7 @@
 import { IconType } from 'react-icons'
 import {
   FaArchway,
+  FaBalanceScale,
   FaBan,
   FaBirthdayCake,
   FaBriefcase,
@@ -23,6 +24,7 @@ import {
   FaEnvelope,
   FaExchangeAlt,
   FaExclamationTriangle,
+  FaEye,
   FaFileAlt,
   FaFileInvoice,
   FaFileInvoiceDollar,
@@ -35,6 +37,7 @@ import {
   FaHourglassHalf,
   FaLayerGroup,
   FaList,
+  FaLock,
   FaMapMarkedAlt,
   FaMoneyBillAlt,
   FaMoneyCheckAlt,
@@ -476,11 +479,40 @@ export const TotalData: TotalDataItem[] = [
     ],
   },
   {
+    name: 'benefits',
+    dTitle: 'Find out how RitePayroll can benefit your organization',
+    title: 'Benefits of using RitePayroll software',
+    target: '/',
+    sectionId: 'dashboard-benefits-section',
+    features: [
+      {
+        name: 'Reduced payroll errors',
+        icon: FaChartLine,
+      },
+      {
+        name: 'Faster processing cycles',
+        icon: FaTachometerAlt,
+      },
+      {
+        name: 'Improved statutory compliance',
+        icon: FaBalanceScale,
+      },
+      {
+        name: 'Better HR and finance visibility',
+        icon: FaEye,
+      },
+      {
+        name: 'Secure and auditable payroll data',
+        icon: FaLock,
+      },
+    ],
+  },
+  {
     name: 'contact us',
-    dTitle: 'Have a Question ?',
-    title: 'CONTACT US',
+    dTitle: 'What features does RitePayroll have?',
+    title: 'Here, check out our features',
     description:
-      'To request a quote or want to meet up for coffee. contact us directly or fill up the form and we will get back to you promptly.',
+      "We'd love to hear from you and start something special together. Call us with any questions.",
     target: '/',
     sectionId: 'dashboard-contact-section',
     features: [

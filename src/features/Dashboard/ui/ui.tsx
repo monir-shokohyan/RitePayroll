@@ -1,6 +1,7 @@
 import { AboutUsSection } from '@features/aboutUs'
 import { ActionSection } from '@features/actionSection'
 import { AdvantageSection } from '@features/advantage'
+import { BenefitsSection } from '@features/benefits'
 import { ContactUsSection } from '@features/contactUs'
 import { FeaturesSection } from '@features/featureSection'
 import { GrowthSection } from '@features/growth'
@@ -18,6 +19,7 @@ function Ui() {
       <FeaturesSection />
       <GrowthSection />
       <IndustriesSection />
+      <BenefitsSection />
       <ContactUsSection />
     </>
   )

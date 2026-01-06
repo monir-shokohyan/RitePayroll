@@ -66,12 +66,6 @@ const horWrapper = ({
           lg: isBgColor ? '60vh' : fullHeight ? '90vh' : 'auto',
         }}
         py={paddingBottom}
-        px={{
-          base: '0px',
-          sm: '0px',
-          md: '30px',
-          lg: '50px',
-        }}
         gap="5%"
         justify="center"
         align="flex-start"

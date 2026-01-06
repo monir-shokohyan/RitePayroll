@@ -25,11 +25,11 @@ const AboutRightSection = ({
     >
       <TextWithFamily
         $font="Roboto"
-        fontWeight="400"
+        fontWeight="300"
       >
         {pageInfo?.description}
       </TextWithFamily>
-      <Marquee bg={SavedColors.highlite}>
+      <Marquee bg={SavedColors.darkBlue}>
         {pageInfo?.features?.map((Mcard) => {
           return (
             <Card
@@ -43,7 +43,7 @@ const AboutRightSection = ({
                 $font="Roboto"
                 fontWeight="400"
                 style={{ textWrap: 'nowrap' }}
-                color={SavedColors.DemWhite}
+                color="white"
               >
                 {Mcard.name}
               </TextWithFamily>
