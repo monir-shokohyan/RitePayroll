@@ -41,7 +41,8 @@ const Welcome = memo(() => {
             fontSize="30px"
             $textalign="left"
           >
-            {pageInfo?.description}
+            <CTC text="Welcome" /> to the
+            <CTC text=" RitePayroll " />
           </TitleWithFamily>
           <WelcomeTitle
             $font="Roboto"

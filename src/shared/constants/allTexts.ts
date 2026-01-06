@@ -525,7 +525,7 @@ export const TotalData: TotalDataItem[] = [
     name: Features.AccurateSalaryProcessing,
     overview:
       'Ensure precise and error-free salary calculations with fully customizable salary structures, user-defined heads, and automated processing that adapts to your organization’s policies.',
-    imageUrl: '/features/payroll-processing.webp', // Update with actual image path
+    imageUrl: '/features/ASP.svg',
     features: [
       { name: 'User-Defined Salary Heads', icon: FaCalculator },
       { name: 'Custom Salary Structures', icon: FaUserCog },
@@ -540,7 +540,7 @@ export const TotalData: TotalDataItem[] = [
     name: Features.AttendanceBiometricIntegration,
     overview:
       'Accurately track employee attendance with seamless biometric device integration, shift management, and real-time monitoring of overtime, late arrivals, and early departures.',
-    imageUrl: '/features/attendance-biometric.webp',
+    imageUrl: '/features/ABI.svg',
     features: [
       { name: 'Daily or Monthly Attendance Processing', icon: FaCalendarAlt },
       { name: 'Shift Management', icon: FaClock },
@@ -556,7 +556,7 @@ export const TotalData: TotalDataItem[] = [
     name: Features.LeaveManagementSystem,
     overview:
       'Streamline leave requests, approvals, and tracking with customizable leave types, balance management, encashment options, and carry-forward rules.',
-    imageUrl: '/features/leave-management.webp',
+    imageUrl: '/features/LMS.svg',
     features: [
       { name: 'User-Defined Leave Types', icon: FaCalendarAlt },
       { name: 'Leave Balances & Real-Time Tracking', icon: FaHistory },
@@ -572,7 +572,7 @@ export const TotalData: TotalDataItem[] = [
     name: Features.LoansAdvancesManagement,
     overview:
       'Efficiently manage employee loans and advances with automated EMI-based recovery, custom allowances, and deductions directly integrated into payroll.',
-    imageUrl: '/features/loans-advances.webp',
+    imageUrl: '/features/LAM.svg',
     features: [
       { name: 'User-Defined Allowances & Deductions', icon: FaPercentage },
       { name: 'Employee Loans & Advances', icon: FaMoneyBillWave },
@@ -586,7 +586,7 @@ export const TotalData: TotalDataItem[] = [
     name: Features.PayslipsPayrollRegisters,
     overview:
       'Generate professional payslips and detailed payroll registers automatically, with secure employee self-service access to view and download payslips anytime.',
-    imageUrl: '/features/payslips-registers.webp',
+    imageUrl: '/features/PPR.svg',
     features: [
       { name: 'Automated Payslip Generation', icon: FaFileInvoice },
       { name: 'Detailed Salary Registers', icon: FaFileAlt },
@@ -600,7 +600,7 @@ export const TotalData: TotalDataItem[] = [
     name: Features.StatutoryComplianceAutomation,
     overview:
       'Stay fully compliant with automated handling of PAYE (Resident/Non-Resident), NSSF, statutory deductions, tax returns, and comprehensive audit trails.',
-    imageUrl: '/features/statutory-compliance.webp',
+    imageUrl: '/features/SCA.svg',
     features: [
       { name: 'PAYE Calculation (Resident / Non-Resident)', icon: FaGavel },
       { name: 'NSSF & Statutory Deductions', icon: FaPercentage },
@@ -615,7 +615,7 @@ export const TotalData: TotalDataItem[] = [
     name: Features.WeeklyMonthlyPayrollCycles,
     overview:
       'Run payroll on weekly or monthly cycles with full flexibility. Seamlessly integrate attendance data for accurate processing and timely salary disbursements.',
-    imageUrl: '/features/payroll-cycles.webp',
+    imageUrl: '/features/WMPC.svg',
     features: [
       { name: 'Support for Weekly Payroll Cycles', icon: FaCalendarAlt },
       { name: 'Support for Monthly Payroll Cycles', icon: FaClock },
