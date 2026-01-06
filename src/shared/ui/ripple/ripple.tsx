@@ -10,6 +10,7 @@ interface RadialHoverEffectProps {
   borderRadius?: string
   className?: string
   style?: CSSProperties
+  shape?: boolean
 }
 
 interface RippleState {
@@ -41,6 +42,7 @@ const RadialHoverEffect: React.FC<RadialHoverEffectProps> = ({
   borderRadius = '50%',
   className,
   style,
+  shape = false,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null)
   const [rippleState, setRippleState] = useState<RippleState>({
@@ -101,6 +103,9 @@ const RadialHoverEffect: React.FC<RadialHoverEffectProps> = ({
           backgroundColor: color,
           opacity,
           borderRadius,
+          clipPath: shape
+            ? 'polygon(30% 0%,70% 0%,100% 30%,100% 70%,70% 100%,30% 100%,0% 70%,0% 30%)'
+            : '',
         }}
         animate={{
           scale: rippleState.isActive ? 1 : 0,

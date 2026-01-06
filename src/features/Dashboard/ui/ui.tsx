@@ -2,8 +2,9 @@ import { AboutUsSection } from '@features/aboutUs'
 import { ActionSection } from '@features/actionSection'
 import { AdvantageSection } from '@features/advantage'
 import { ContactUsSection } from '@features/contactUs'
-import { FeaturesSection } from '@features/features'
-import { IndustriesSection } from '@features/industries'
+import { FeaturesSection } from '@features/featureSection'
+import { GrowthSection } from '@features/growth'
+import { IndustriesSection } from '@features/industriesSection'
 
 import { Welcome } from './welcome'
 
@@ -15,6 +16,7 @@ function Ui() {
       <AdvantageSection />
       <ActionSection />
       <FeaturesSection />
+      <GrowthSection />
       <IndustriesSection />
       <ContactUsSection />
     </>

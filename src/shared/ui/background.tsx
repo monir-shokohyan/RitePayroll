@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { Card, Container, Flex, Image } from '@mantine/core'
+import { Card, Flex, Image } from '@mantine/core'
 import { useMediaQuery } from '@mantine/hooks'
 
 import { SavedColors } from '@shared/constants'
@@ -14,6 +14,7 @@ const Background = ({
   activeSticker = false,
   secondSticker = false,
   paddingToTopLayer = '0px',
+  headTextAlign = 'center',
 }: {
   children: ReactNode
   desTitle: string
@@ -22,6 +23,7 @@ const Background = ({
   activeSticker?: boolean
   secondSticker?: boolean
   paddingToTopLayer?: string
+  headTextAlign?: 'left' | 'center' | 'right'
 }) => {
   const isMobile = useMediaQuery('(max-width: 760px)')
   return (
@@ -146,14 +148,15 @@ const Background = ({
             direction="column"
             align="center"
             pt={isMobile ? '80px' : '120px'}
-            gap={40}
+            gap={20}
+            px={20}
           >
             <TextResponsive
               color={SavedColors.TextHighlite}
               fontSize="30px"
               fontWeight="500"
               $font="Roboto"
-              $textalign="center"
+              $textalign={headTextAlign}
             >
               {desTitle}
             </TextResponsive>
@@ -161,7 +164,7 @@ const Background = ({
               color={SavedColors.TextColor}
               fontSize="16px"
               fontWeight="400"
-              $textalign="center"
+              $textalign={headTextAlign}
             >
               {title}
             </TextResponsive>

@@ -12,11 +12,11 @@ import { TextResponsive } from '@shared/ui/Typography'
 import { StyledCard } from '../styles'
 
 const Ui = memo(() => {
-  const pageInfo = FindByName('action')
+  const pageInfo = FindByName('growth')
   const isMobile = useMediaQuery('(max-width: 760px)')
 
   return (
-    <div id="dashboard-action-section">
+    <div id="dashboard-growth-section">
       <Wrapper
         isReverseWrap={false}
         fullHeight={false}

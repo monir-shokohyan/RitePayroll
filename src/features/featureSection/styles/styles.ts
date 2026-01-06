@@ -8,7 +8,8 @@ export const StyledCard = styled(Card)<CardProps & { onClick?: () => void }>`
   border: 1px solid lightgray;
   width: 20%;
   aspect-ratio: 1 / 1;
-  border-radius: 50%;
   min-width: 150px;
   padding: 0%;
+  border-radius: 0%;
+  cursor: pointer;
 `

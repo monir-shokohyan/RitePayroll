@@ -1,6 +1,6 @@
+import { Marquee } from '@gfazioli/mantine-marquee'
 import { Card, Flex } from '@mantine/core'
 
-import { StyledMarquee } from '@features/industries/styles'
 import { SavedColors } from '@shared/constants'
 import { TotalDataItem } from '@shared/constants/allTexts'
 import { TextWithFamily } from '@shared/ui/Typography'
@@ -29,7 +29,7 @@ const AboutRightSection = ({
       >
         {pageInfo?.description}
       </TextWithFamily>
-      <StyledMarquee bg={SavedColors.highlite}>
+      <Marquee bg={SavedColors.highlite}>
         {pageInfo?.features?.map((Mcard) => {
           return (
             <Card
@@ -50,7 +50,7 @@ const AboutRightSection = ({
             </Card>
           )
         })}
-      </StyledMarquee>
+      </Marquee>
     </Flex>
   )
 }

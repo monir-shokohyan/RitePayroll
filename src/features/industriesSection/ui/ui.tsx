@@ -12,11 +12,11 @@ import { TextResponsive } from '@shared/ui/Typography'
 import { StyledCard } from '../styles'
 
 const Ui = memo(() => {
-  const pageInfo = FindByName('action')
+  const pageInfo = FindByName('industries')
   const isMobile = useMediaQuery('(max-width: 760px)')
 
   return (
-    <div id="dashboard-action-section">
+    <div id="dashboard-industries-section">
       <Wrapper
         isReverseWrap={false}
         fullHeight={false}
@@ -26,6 +26,7 @@ const Ui = memo(() => {
         title={pageInfo?.title}
         doubleOption={false}
         paddingToTopLayer={isMobile ? '10px' : '80px'}
+        headTextAlign="left"
       >
         <Flex
           wrap="wrap"
@@ -38,11 +39,13 @@ const Ui = memo(() => {
             return (
               <StyledCard
                 key={feature.name}
-                bg="white"
+                bg="transparent"
               >
                 <RadialHoverEffect
                   style={{ width: '100%', height: '100%' }}
                   color={SavedColors.darkBlue}
+                  borderRadius="0px"
+                  shape={true}
                 >
                   <TextResponsive
                     $textalign="center"

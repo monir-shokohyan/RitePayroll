@@ -24,4 +24,5 @@ export interface HorWrapperType {
   secondSticker?: boolean
   paddingBottom?: string
   paddingToTopLayer?: string
+  headTextAlign?: 'left' | 'center' | 'right'
 }
