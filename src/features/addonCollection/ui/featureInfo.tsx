@@ -44,7 +44,7 @@ const FeatureInfo = ({ page }: { page: ProductsType }) => {
               >
                 <RadialHoverEffect
                   style={{ width: '100%', height: '100%' }}
-                  color={SavedColors.darkBlue}
+                  color={SavedColors.highlite}
                   borderRadius="0px"
                   shape={true}
                 >
@@ -58,7 +58,6 @@ const FeatureInfo = ({ page }: { page: ProductsType }) => {
                       zIndex: 4,
                       paddingInline: '10px',
                     }}
-                    color="gray"
                   >
                     {feature.name}
                   </TextResponsive>
@@ -72,7 +71,7 @@ const FeatureInfo = ({ page }: { page: ProductsType }) => {
                       zIndex: 2,
                       opacity: 0.2,
                     }}
-                    color="lightgray"
+                    color={SavedColors.highlite}
                   />
                 </RadialHoverEffect>
               </StyledCard>

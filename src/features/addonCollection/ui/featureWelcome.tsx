@@ -93,6 +93,7 @@ const FeatureWelcome = ({ page }: { page: ProductsType }) => {
               color: SavedColors.highlite,
               fontWeight: '600',
               fontSize: '14px',
+              border: `1px solid ${SavedColors.highlite}`,
             }}
           >
             Download product brochure

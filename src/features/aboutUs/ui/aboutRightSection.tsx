@@ -29,7 +29,7 @@ const AboutRightSection = ({
       >
         {pageInfo?.description}
       </TextWithFamily>
-      <Marquee bg={SavedColors.darkBlue}>
+      <Marquee bg={SavedColors.highlite}>
         {pageInfo?.features?.map((Mcard) => {
           return (
             <Card

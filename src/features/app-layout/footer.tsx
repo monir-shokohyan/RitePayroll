@@ -78,7 +78,7 @@ const Footer = memo(() => {
         $font="Roboto"
         width="300px"
       >
-        © Copyright RiteEats. All right reserved.
+        © Copyright RitePayroll. All right reserved.
       </TextWithFamily>
     </FooterContainer>
   )

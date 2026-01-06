@@ -25,7 +25,7 @@ const Ui = memo(() => {
         paddingToTopLayer={isMobile ? '10px' : '80px'}
         headTextAlign="left"
       >
-        <Marquee bg={SavedColors.darkBlue}>
+        <Marquee bg={SavedColors.highlite}>
           {pageInfo?.features?.map((Mcard) => {
             return (
               <Card

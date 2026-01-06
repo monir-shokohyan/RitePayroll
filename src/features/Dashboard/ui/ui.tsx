@@ -16,7 +16,7 @@ function Ui() {
       <AboutUsSection />
       <AdvantageSection />
       <ActionSection />
-      {/* <FeaturesSection /> */}
+      <FeaturesSection />
       <GrowthSection />
       <IndustriesSection />
       <BenefitsSection />

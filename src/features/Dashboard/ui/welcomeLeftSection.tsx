@@ -14,6 +14,7 @@ const WelcomeLeftSection = ({ pageInfo }: { pageInfo?: TotalDataItem }) => {
       <Image
         src="/welcome.svg"
         alt="Welcome"
+        c={SavedColors.highlite}
       />
       {pageInfo?.bubbles?.map((Buble) => {
         const {

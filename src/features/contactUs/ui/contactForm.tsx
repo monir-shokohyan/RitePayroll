@@ -176,7 +176,7 @@ const ContactFormMain = () => {
           disabled={isSubmitting}
           variant="outline"
         >
-          <RadialHoverEffect color={SavedColors.darkBlue}>
+          <RadialHoverEffect color={SavedColors.highlite}>
             {isSubmitting ? (
               <Loader size="sm" />
             ) : (
@@ -192,11 +192,10 @@ const ContactFormMain = () => {
                 <TextResponsive
                   fontWeight="300"
                   width="50px"
-                  color="gray"
                 >
                   Submit Request
                 </TextResponsive>
-                <FaArrowRight />
+                <FaArrowRight color="black" />
               </Flex>
             )}
           </RadialHoverEffect>
