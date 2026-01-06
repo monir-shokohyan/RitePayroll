@@ -7,7 +7,7 @@ import { useMediaQuery } from '@mantine/hooks'
 import { SavedColors } from '@shared/constants'
 import { SearchInput } from '@shared/ui/searchInput/searchInput'
 
-import { addonLinks } from './constants'
+import { featuresLink } from './constants'
 import { useManageNavbar } from './modal/useManageNavbar'
 import {
   CustomMenuItem,
@@ -57,18 +57,18 @@ const Navbar = memo(() => {
 
         <MenuItems
           to="/"
-          onClick={() => navigateAndScroll('/', 'dashboard-editions-section')}
-          className={getSectionActive('dashboard-editions-section')}
+          onClick={() => navigateAndScroll('/', 'dashboard-aboutUs-section')}
+          className={getSectionActive('dashboard-aboutUs-section')}
         >
-          Editions
+          About us
         </MenuItems>
 
         <MenuItems
           to="/"
-          onClick={() => navigateAndScroll('/', 'dashboard-features-section')}
-          className={getSectionActive('dashboard-features-section')}
+          onClick={() => navigateAndScroll('/', 'dashboard-benefits-section')}
+          className={getSectionActive('dashboard-benefits-section')}
         >
-          Features
+          Benefits
         </MenuItems>
         <MenuItems
           to="/"
@@ -99,12 +99,12 @@ const Navbar = memo(() => {
               as="button"
               role="button"
               className={isProductsActive ? 'active' : ''}
-              aria-label="Toggle addon menu"
+              aria-label="Toggle feature menu"
               aria-haspopup="menu"
               aria-expanded={desktopProductsOpen}
-              aria-controls="addon-menu"
+              aria-controls="feature-menu"
             >
-              Addon
+              Features
               {desktopProductsOpen ? (
                 <IoChevronUp style={{ marginLeft: '5px' }} />
               ) : (
@@ -113,7 +113,7 @@ const Navbar = memo(() => {
             </ProductMenuTrigger>
           </Menu.Target>
           <Menu.Dropdown>
-            {addonLinks.map((link) => (
+            {featuresLink.map((link) => (
               <CustomMenuItem
                 key={link.to}
                 component={Link}
@@ -178,27 +178,27 @@ const Navbar = memo(() => {
           <MenuListItem
             to="/"
             onClick={() => {
-              navigateAndScroll('/', 'dashboard-editions-section')
+              navigateAndScroll('/', 'dashboard-aboutUs-section')
               toggle()
             }}
             className={
-              activeSection === 'dashboard-editions-section' ? 'active' : ''
+              activeSection === 'dashboard-aboutUs-section' ? 'active' : ''
             }
           >
-            Editions
+            about us
           </MenuListItem>
 
           <MenuListItem
             to="/"
             onClick={() => {
               toggle()
-              navigateAndScroll('/', 'dashboard-features-section')
+              navigateAndScroll('/', 'dashboard-benefits-section')
             }}
             className={
-              activeSection === 'dashboard-features-section' ? 'active' : ''
+              activeSection === 'dashboard-benefits-section' ? 'active' : ''
             }
           >
-            Features
+            Benefits
           </MenuListItem>
           <MenuListItem
             to="/"
@@ -245,7 +245,7 @@ const Navbar = memo(() => {
                 aria-expanded={mobileProductsOpen}
                 aria-controls="mobile-products-menu"
               >
-                Addon
+                Features
                 {mobileProductsOpen ? (
                   <IoChevronUp style={{ marginLeft: '5px' }} />
                 ) : (
@@ -254,7 +254,7 @@ const Navbar = memo(() => {
               </ProductMenuListTrigger>
             </Menu.Target>
             <Menu.Dropdown id="mobile-products-menu">
-              {addonLinks.map((link) => (
+              {featuresLink.map((link) => (
                 <CustomMenuItem
                   key={link.to}
                   component={Link}

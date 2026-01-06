@@ -1,0 +1,16 @@
+export enum Features {
+  AccurateSalaryProcessing = 'AccurateSalaryProcessing',
+  ASP = 'Accurate Salary Processing',
+  WeeklyMonthlyPayrollCycles = 'WeeklyMonthlyPayrollCycles',
+  WMPC = 'Weekly Monthly Payroll Cycles',
+  AttendanceBiometricIntegration = 'AttendanceBiometricIntegration',
+  ABI = 'Attendance Biometric Integration',
+  LeaveManagementSystem = 'LeaveManagementSystem',
+  LMS = 'Leave Management System',
+  StatutoryComplianceAutomation = 'StatutoryComplianceAutomation',
+  SCA = 'Statutory Compliance Automation',
+  LoansAdvancesManagement = 'LoansAdvancesManagement',
+  LAM = 'Loans Advances Management',
+  PayslipsPayrollRegisters = 'PayslipsPayrollRegisters',
+  PPR = 'Payslips Payroll Registers',
+}

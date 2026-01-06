@@ -1,14 +1,15 @@
 import { IconType } from 'react-icons'
 
-import { Addon } from '@shared/constants/addonsMap'
+import { Features } from '@shared/constants/featuresMap'
 
 export type ProductsType =
-  | Addon.EventManagementSystem
-  | Addon.CustomerLoyaltyManagement
-  | Addon.Kds
-  | Addon.OnlineTableReservations
-  | Addon.QueueManagement
-  | Addon.WaiterApp
+  | Features.AccurateSalaryProcessing
+  | Features.AttendanceBiometricIntegration
+  | Features.LeaveManagementSystem
+  | Features.LoansAdvancesManagement
+  | Features.PayslipsPayrollRegisters
+  | Features.StatutoryComplianceAutomation
+  | Features.WeeklyMonthlyPayrollCycles
 
 interface DeploymentOption {
   title: string

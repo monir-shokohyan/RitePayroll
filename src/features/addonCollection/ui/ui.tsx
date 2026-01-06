@@ -3,9 +3,8 @@ import { useLocation } from 'react-router-dom'
 import { useLenis } from 'lenis/react'
 
 import { ProductsType } from '../types'
-import { AddonsInfo } from './addonInfo'
-import { AddonWelcome } from './addonWelcome'
-import { BestFor } from './bestFor'
+import { FeatureInfo } from './featureInfo'
+import { FeatureWelcome } from './featureWelcome'
 
 function Ui({ page }: { page: ProductsType }) {
   const { pathname } = useLocation()
@@ -19,9 +18,8 @@ function Ui({ page }: { page: ProductsType }) {
 
   return (
     <>
-      <AddonWelcome page={page} />
-      <AddonsInfo page={page} />
-      <BestFor page={page} />
+      <FeatureWelcome page={page} />
+      <FeatureInfo page={page} />
     </>
   )
 }

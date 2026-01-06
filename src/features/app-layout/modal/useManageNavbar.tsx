@@ -4,7 +4,7 @@ import { useDisclosure } from '@mantine/hooks'
 
 import { useNavigationScroll } from '@shared/hooks/useNavigationScroll'
 
-import { addonLinks } from '../constants'
+import { featuresLink } from '../constants'
 
 const useManageNavbar = () => {
   const [desktopProductsOpen, setDesktopProductsOpen] = useState(false)
@@ -27,11 +27,11 @@ const useManageNavbar = () => {
     const handleScroll = () => {
       const sections = [
         'dashboard-welcome-section',
-        'dashboard-editions-section',
-        'dashboard-features-section',
-        'dashboard-addon-section',
+        'dashboard-aboutUs-section',
+        'dashboard-benefits-section',
         'dashboard-industries-section',
         'dashboard-contact-section',
+        'dashboard-features-section',
       ]
 
       for (const sectionId of sections) {
@@ -57,7 +57,7 @@ const useManageNavbar = () => {
   const getSectionActive = (sectionId: string) =>
     isHomePage && activeSection === sectionId ? 'active' : ''
 
-  const isProductsActive = addonLinks.some(
+  const isProductsActive = featuresLink.some(
     (link) => location.pathname === link.to,
   )
   return {

@@ -1,25 +1,34 @@
 import { Paths } from '@shared/api/paths'
 
-export const addonLinks = [
-  { to: Paths.Kds, label: 'Kitchen Display System' },
-  { to: Paths.Waiter_App, label: ' Captain/Waiter App' },
+export const featuresLink = [
+  { to: Paths.AccurateSalaryProcessing, label: 'Accurate Salary Processing' },
   {
-    to: Paths.Customer_Loyalty_Management,
-    label: ' Customer Loyalty Management',
+    to: Paths.AttendanceBiometricIntegration,
+    label: 'Attendance Biometric Integration',
   },
-  { to: Paths.Online_Table_Reservations, label: ' Online Table Reservations' },
-  { to: Paths.Queue_Management, label: ' Token & Queue Management' },
-  { to: Paths.Event_Management_System, label: ' Event Management System' },
+  {
+    to: Paths.LeaveManagementSystem,
+    label: ' Leave Management System',
+  },
+  { to: Paths.LoansAdvancesManagement, label: 'Loans Advances Management' },
+  { to: Paths.PayslipsPayrollRegisters, label: 'Payslips Payroll Registers' },
+  {
+    to: Paths.StatutoryComplianceAutomation,
+    label: 'Statutory Compliance Automation',
+  },
+  {
+    to: Paths.WeeklyMonthlyPayrollCycles,
+    label: 'Weekly Monthly Payroll Cycles',
+  },
 ]
 
 export const NavigationLinks = [
   { to: '/', label: 'Home', scrollToSection: 'dashboard-welcome-section' },
-  { to: '/', label: 'About Us', scrollToSection: 'dashboard-about-section' },
-  { to: '/', label: 'Editions', scrollToSection: 'dashboard-editions-section' },
-  { to: '/', label: 'Features', scrollToSection: 'dashboard-features-section' },
+  { to: '/', label: 'About Us', scrollToSection: 'dashboard-aboutUs-section' },
+  { to: '/', label: 'Benefits', scrollToSection: 'dashboard-benefits-section' },
   {
     to: '/',
-    label: 'Industries',
+    label: 'industries',
     scrollToSection: 'dashboard-industries-section',
   },
   {
@@ -27,5 +36,5 @@ export const NavigationLinks = [
     label: 'Contact Us',
     scrollToSection: 'dashboard-contact-section',
   },
-  { to: '/', label: 'Addon', scrollToSection: 'dashboard-addon-section' },
+  { to: '/', label: 'Features', scrollToSection: 'dashboard-features-section' },
 ]

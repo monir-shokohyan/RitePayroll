@@ -1,80 +1,44 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 import { IconType } from 'react-icons'
 import {
-  FaArchway,
   FaBalanceScale,
-  FaBan,
-  FaBirthdayCake,
   FaBriefcase,
-  FaBullhorn,
+  FaCalculator,
   FaCalendarAlt,
-  FaCalendarCheck,
-  FaCalendarPlus,
   FaChartLine,
-  FaChartPie,
   FaClock,
-  FaClone,
   FaCodeBranch,
-  FaCoffee,
-  FaCoins,
-  FaConciergeBell,
-  FaCreditCard,
-  FaCubes,
   FaDollarSign,
-  FaEnvelope,
   FaExchangeAlt,
-  FaExclamationTriangle,
   FaEye,
   FaFileAlt,
   FaFileInvoice,
   FaFileInvoiceDollar,
   FaFingerprint,
-  FaGlassWhiskey,
-  FaGlobe,
-  FaHamburger,
+  FaGavel,
   FaHistory,
-  FaHotel,
-  FaHourglassHalf,
-  FaLayerGroup,
-  FaList,
   FaLock,
-  FaMapMarkedAlt,
   FaMoneyBillAlt,
-  FaMoneyCheckAlt,
-  FaMusic,
-  FaNetworkWired,
-  FaPaperPlane,
+  FaMoneyBillWave,
   FaPercent,
+  FaPercentage,
   FaPhoneAlt,
-  FaRing,
-  FaRoute,
-  FaShoppingBag,
-  FaSmileBeam,
-  FaStar,
-  FaStoreAlt,
   FaSyncAlt,
-  FaTabletAlt,
   FaTachometerAlt,
-  FaTasks,
-  FaTicketAlt,
-  FaTv,
   FaUser,
+  FaUserCheck,
+  FaUserCog,
   FaUserLock,
-  FaUserPlus,
-  FaUsers,
-  FaUsersCog,
-  FaUtensils,
-  FaVolumeUp,
 } from 'react-icons/fa'
-import { FaKitchenSet, FaLocationDot } from 'react-icons/fa6'
+import { FaLocationDot } from 'react-icons/fa6'
 import { LuFileClock, LuFileText, LuGlobe } from 'react-icons/lu'
-import { MdCalendarViewMonth, MdEmail, MdEvent } from 'react-icons/md'
+import { MdCalendarViewMonth, MdEmail } from 'react-icons/md'
 import { MotionProps } from 'framer-motion'
 
 import { Paths } from '@shared/api/paths'
 
-import { Addon } from './addonsMap'
 import { SavedColors } from './contant'
+import { Features } from './featuresMap'
 
 export interface EditionType {
   name: string
@@ -172,7 +136,7 @@ export interface TotalDataItem {
   edition?: EditionType
   editions?: EditionsType[]
   bestFor?: BestForType[]
-  id?: Addon | string
+  id?: Feature | string
   bubbles?: BubbleItem[]
   imageUrlSet?: { id: number; url: string }[]
 }
@@ -389,6 +353,7 @@ export const TotalData: TotalDataItem[] = [
         ariaLabel: 'Accurate Salary Processing',
         isActive: true,
         icon: FaClock,
+        target: Paths.AccurateSalaryProcessing,
       },
       {
         id: 2,
@@ -396,6 +361,7 @@ export const TotalData: TotalDataItem[] = [
         ariaLabel: 'Weekly & Monthly Payroll Cycles',
         isActive: true,
         icon: FaDollarSign,
+        target: Paths.WeeklyMonthlyPayrollCycles,
       },
       {
         id: 3,
@@ -403,6 +369,7 @@ export const TotalData: TotalDataItem[] = [
         ariaLabel: 'Attendance & Biometric Integration',
         isActive: true,
         icon: FaFingerprint,
+        target: Paths.AttendanceBiometricIntegration,
       },
       {
         id: 4,
@@ -410,6 +377,7 @@ export const TotalData: TotalDataItem[] = [
         ariaLabel: 'Leave Management System',
         isActive: true,
         icon: FaCalendarAlt,
+        target: Paths.LeaveManagementSystem,
       },
       {
         id: 5,
@@ -417,6 +385,7 @@ export const TotalData: TotalDataItem[] = [
         ariaLabel: 'Statutory Compliance Automation',
         isActive: true,
         icon: FaFileAlt,
+        target: Paths.StatutoryComplianceAutomation,
       },
       {
         id: 6,
@@ -424,6 +393,7 @@ export const TotalData: TotalDataItem[] = [
         ariaLabel: 'Loans & Advances Management',
         isActive: true,
         icon: FaMoneyBillAlt,
+        target: Paths.LoansAdvancesManagement,
       },
       {
         id: 7,
@@ -431,6 +401,7 @@ export const TotalData: TotalDataItem[] = [
         ariaLabel: 'Payslips & Payroll Registers',
         isActive: true,
         icon: FaFileInvoiceDollar,
+        target: Paths.PayslipsPayrollRegisters,
       },
     ],
   },
@@ -550,159 +521,108 @@ export const TotalData: TotalDataItem[] = [
     ],
   },
   {
-    id: 'Captain / Waiter Ordering & Billing App',
-    name: Addon.WaiterApp,
+    id: Features.ASP,
+    name: Features.AccurateSalaryProcessing,
     overview:
-      'This module enables captains and waiters to take orders directly at the guest table using Android or iOS handheld devices or tablets. The app speeds up ordering, reduces errors, and enhances the guest experience by minimizing waiting time and ensuring accurate service.',
-    imageUrl: '/addons/waiter order.webp',
+      'Ensure precise and error-free salary calculations with fully customizable salary structures, user-defined heads, and automated processing that adapts to your organization’s policies.',
+    imageUrl: '/features/payroll-processing.webp', // Update with actual image path
     features: [
-      { name: 'Table-side live order entry', icon: FaTabletAlt },
-      {
-        name: 'Instant KOT transmission to kitchen and bar',
-        icon: FaPaperPlane,
-      },
-      { name: 'Real-time table status and order updates', icon: FaSyncAlt },
-      { name: 'Reduced manual rewriting or re-entry of orders', icon: FaBan },
-      {
-        name: 'Optional table-side bill preview and confirmation',
-        icon: FaFileInvoiceDollar,
-      },
-      {
-        name: 'Improved coordination between service staff and kitchen',
-        icon: FaUsersCog,
-      },
-    ],
-    bestFor: [
-      { label: 'Fine Dining Restaurants', icon: FaUtensils },
-      { label: 'Lounges & Bars', icon: FaGlassWhiskey },
-      { label: 'Clubs & Nightlife', icon: FaMusic },
-      { label: 'Premium Cafés', icon: FaCoffee },
-      { label: 'Hotels & Resorts', icon: FaHotel },
+      { name: 'User-Defined Salary Heads', icon: FaCalculator },
+      { name: 'Custom Salary Structures', icon: FaUserCog },
+      { name: 'Automated Payslip Generation', icon: FaFileInvoice },
+      { name: 'Comprehensive Salary Registers', icon: FaFileAlt },
     ],
     brochureLink: '/brochures/RitePayroll.pdf',
-    target: Paths.Waiter_App,
+    target: Paths.AccurateSalaryProcessing,
   },
   {
-    id: 'Kitchen Display System (KDS)',
-    name: Addon.Kds,
+    id: Features.ABI,
+    name: Features.AttendanceBiometricIntegration,
     overview:
-      'Replace paper KOTs with real-time digital screens in the kitchen and bar. Eliminate lost tickets, speed up preparation, and improve accuracy with color-coded alerts and order tracking.',
-    imageUrl: '/addons/kds.webp',
+      'Accurately track employee attendance with seamless biometric device integration, shift management, and real-time monitoring of overtime, late arrivals, and early departures.',
+    imageUrl: '/features/attendance-biometric.webp',
     features: [
-      { name: 'Live digital display of all orders', icon: FaTv },
-      { name: 'Auto-routing to correct kitchen/bar station', icon: FaRoute },
-      {
-        name: 'Color-coded priority & delay alerts',
-        icon: FaExclamationTriangle,
-      },
-      { name: 'Preparation time and order aging', icon: FaHourglassHalf },
-      { name: 'Status: Preparing to Ready to Served', icon: FaTasks },
-      { name: 'Supports multiple kitchen screens', icon: FaClone },
-    ],
-    bestFor: [
-      { label: 'High-Volume Restaurants', icon: FaUtensils },
-      { label: 'Quick Service Restaurants', icon: FaClock },
-      { label: 'Food Courts', icon: FaStoreAlt },
-      { label: 'Cloud Kitchens', icon: FaKitchenSet },
-      { label: 'Busy Bars', icon: FaGlassWhiskey },
+      { name: 'Daily or Monthly Attendance Processing', icon: FaCalendarAlt },
+      { name: 'Shift Management', icon: FaClock },
+      { name: 'Overtime, Late Coming & Early Going Tracking', icon: FaHistory },
+      { name: 'Manual Attendance with Approval Workflow', icon: FaUserCheck },
+      { name: 'Biometric Device Integration', icon: FaSyncAlt },
     ],
     brochureLink: '/brochures/RitePayroll.pdf',
-    target: Paths.Kds,
+    target: Paths.AttendanceBiometricIntegration,
   },
   {
-    id: 'Customer Loyalty Management',
-    name: Addon.CustomerLoyaltyManagement,
+    id: Features.LMS,
+    name: Features.LeaveManagementSystem,
     overview:
-      'Build lasting customer relationships with points, tiers, birthday rewards, and smart campaigns. Turn one-time guests into loyal regulars who spend more and visit often.',
-    imageUrl: '/addons/costumer loyalty.webp',
+      'Streamline leave requests, approvals, and tracking with customizable leave types, balance management, encashment options, and carry-forward rules.',
+    imageUrl: '/features/leave-management.webp',
     features: [
-      { name: 'Register via mobile number or card', icon: FaUserPlus },
-      { name: 'Point-based earn & redeem system', icon: FaCoins },
-      { name: 'Tiered benefits and reward slabs', icon: FaLayerGroup },
-      { name: 'Auto birthday & anniversary offers', icon: FaBirthdayCake },
-      { name: 'Visit & spend history tracking', icon: FaHistory },
-      { name: 'Targeted promotions for VIPs', icon: FaBullhorn },
-    ],
-    bestFor: [
-      { label: 'Restaurants', icon: FaUtensils },
-      { label: 'Cafés & Bakeries', icon: FaCoffee },
-      { label: 'Food Chains', icon: FaStoreAlt },
-      { label: 'Franchises', icon: FaNetworkWired },
-      { label: 'Multi-Outlet Brands', icon: FaCubes },
+      { name: 'User-Defined Leave Types', icon: FaCalendarAlt },
+      { name: 'Leave Balances & Real-Time Tracking', icon: FaHistory },
+      { name: 'Online Leave Applications & Approvals', icon: FaFileAlt },
+      { name: 'Leave Encashment Options', icon: FaMoneyBillWave },
+      { name: 'Configurable Carry Forward Rules', icon: FaSyncAlt },
     ],
     brochureLink: '/brochures/RitePayroll.pdf',
-    target: Paths.Customer_Loyalty_Management,
+    target: Paths.LeaveManagementSystem,
   },
   {
-    id: 'Online Table Reservation System',
-    name: Addon.OnlineTableReservations,
+    id: Features.LAM,
+    name: Features.LoansAdvancesManagement,
     overview:
-      'Let customers book tables online 24/7 with live availability. Reduce phone calls, avoid double bookings, and fill seats during peak hours intelligently.',
-    imageUrl: '/addons/table.webp',
+      'Efficiently manage employee loans and advances with automated EMI-based recovery, custom allowances, and deductions directly integrated into payroll.',
+    imageUrl: '/features/loans-advances.webp',
     features: [
-      { name: 'Real-time table availability calendar', icon: FaCalendarCheck },
-      { name: 'Booking widget for website & social media', icon: FaGlobe },
-      { name: 'Auto SMS/email confirmations', icon: FaEnvelope },
-      { name: 'Peak hour & capacity controls', icon: FaTachometerAlt },
-      { name: 'Integrated with floor plan', icon: FaMapMarkedAlt },
-      { name: 'Pre-payment & no-show management', icon: FaCreditCard },
-    ],
-    bestFor: [
-      { label: 'Fine Dining', icon: FaUtensils },
-      { label: 'Rooftop & View Restaurants', icon: FaArchway },
-      { label: 'Lounges', icon: FaGlassWhiskey },
-      { label: 'Banquet Venues', icon: MdEvent },
-      { label: 'Popular Outlets', icon: FaStar },
+      { name: 'User-Defined Allowances & Deductions', icon: FaPercentage },
+      { name: 'Employee Loans & Advances', icon: FaMoneyBillWave },
+      { name: 'EMI-Based Automatic Recovery', icon: FaSyncAlt },
     ],
     brochureLink: '/brochures/RitePayroll.pdf',
-    target: Paths.Online_Table_Reservations,
+    target: Paths.LoansAdvancesManagement,
   },
   {
-    id: 'Token & Queue Management System',
-    name: Addon.QueueManagement,
+    id: Features.PPR,
+    name: Features.PayslipsPayrollRegisters,
     overview:
-      'Perfect for fast-service environments. Generate tokens, display serving numbers, manage multiple queues, and deliver smooth, frustration-free customer flow.',
-    imageUrl: '/addons/token.webp',
+      'Generate professional payslips and detailed payroll registers automatically, with secure employee self-service access to view and download payslips anytime.',
+    imageUrl: '/features/payslips-registers.webp',
     features: [
-      { name: 'Token generation at counter/kiosk', icon: FaTicketAlt },
-      { name: 'Large digital display boards', icon: FaTv },
-      { name: 'Voice announcement & SMS alerts', icon: FaVolumeUp },
-      { name: 'Separate queues: dine-in, takeaway, delivery', icon: FaList },
-      { name: 'Real-time queue analytics', icon: FaChartLine },
-      { name: 'Reduced crowding and wait anger', icon: FaSmileBeam },
-    ],
-    bestFor: [
-      { label: 'QSR & Fast Food', icon: FaHamburger },
-      { label: 'Food Courts', icon: FaStoreAlt },
-      { label: 'Bakeries & Sweet Shops', icon: FaBirthdayCake },
-      { label: 'Takeaway Outlets', icon: FaShoppingBag },
-      { label: 'Cloud Kitchens', icon: FaKitchenSet },
+      { name: 'Automated Payslip Generation', icon: FaFileInvoice },
+      { name: 'Detailed Salary Registers', icon: FaFileAlt },
+      { name: 'Employee Self-Service Portal Access', icon: FaUserCheck },
     ],
     brochureLink: '/brochures/RitePayroll.pdf',
-    target: Paths.Queue_Management,
+    target: Paths.PayslipsPayrollRegisters,
   },
   {
-    id: 'Event Management System',
-    name: Addon.EventManagementSystem,
+    id: Features.SCA,
+    name: Features.StatutoryComplianceAutomation,
     overview:
-      'Manage banquets, weddings, corporate events, and private parties from enquiry to final settlement — with menu costing, advances, and per-event profit reports.',
-    imageUrl: '/addons/event.webp',
+      'Stay fully compliant with automated handling of PAYE (Resident/Non-Resident), NSSF, statutory deductions, tax returns, and comprehensive audit trails.',
+    imageUrl: '/features/statutory-compliance.webp',
     features: [
-      { name: 'Event enquiry & booking calendar', icon: FaCalendarPlus },
-      { name: 'Custom menu planning and costing', icon: FaUtensils },
-      { name: 'Guest count & seating allocation', icon: FaUsers },
-      { name: 'Advance/deposit/balance tracking', icon: FaMoneyCheckAlt },
-      { name: 'Separate event billing & taxation', icon: FaFileInvoice },
-      { name: 'Profit & loss report per event', icon: FaChartPie },
-    ],
-    bestFor: [
-      { label: 'Banquet Halls', icon: FaArchway },
-      { label: 'Hotels & Resorts', icon: FaHotel },
-      { label: 'Clubs & Lounges', icon: FaMusic },
-      { label: 'Wedding Venues', icon: FaRing },
-      { label: 'Catering Companies', icon: FaConciergeBell },
+      { name: 'PAYE Calculation (Resident / Non-Resident)', icon: FaGavel },
+      { name: 'NSSF & Statutory Deductions', icon: FaPercentage },
+      { name: 'Automated Tax Returns & Reports', icon: FaFileAlt },
+      { name: 'Complete Audit Trails', icon: FaHistory },
     ],
     brochureLink: '/brochures/RitePayroll.pdf',
-    target: Paths.Event_Management_System,
+    target: Paths.StatutoryComplianceAutomation,
+  },
+  {
+    id: Features.WMPC,
+    name: Features.WeeklyMonthlyPayrollCycles,
+    overview:
+      'Run payroll on weekly or monthly cycles with full flexibility. Seamlessly integrate attendance data for accurate processing and timely salary disbursements.',
+    imageUrl: '/features/payroll-cycles.webp',
+    features: [
+      { name: 'Support for Weekly Payroll Cycles', icon: FaCalendarAlt },
+      { name: 'Support for Monthly Payroll Cycles', icon: FaClock },
+      { name: 'Automatic Integration with Attendance Data', icon: FaSyncAlt },
+      { name: 'Flexible Processing Schedules', icon: FaMoneyBillWave },
+    ],
+    brochureLink: '/brochures/RitePayroll.pdf',
+    target: Paths.WeeklyMonthlyPayrollCycles,
   },
 ]

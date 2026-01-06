@@ -1,10 +1,10 @@
 import { Button, Group, Paper, Text } from '@mantine/core'
 import styled from 'styled-components'
 
+import { SavedColors } from '@shared/constants'
 import { fadeIn, float, pulse, rotate } from '@shared/styles/animation'
 
 import { ButtonType } from '../types'
-import { SavedColors } from '@shared/constants'
 
 export const Container = styled.div`
   min-height: 100vh;

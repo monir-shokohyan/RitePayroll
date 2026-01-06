@@ -1,6 +1,6 @@
 # ========================================
-#  robots.txt – riteeats
-#  Website: https://rite-eats.netlify.app/
+#  robots.txt – ritepayroll
+#  Website: https://ritepayroll.netlify.app/
 #  Fully SEO-optimized | Static React SPA
 # ========================================
 
@@ -21,7 +21,7 @@ Disallow: /*?*
 # You don’t have /admin, /login, /api → nothing to hide
 
 # === SITEMAP (Confirmed in root!) ===
-Sitemap: https://rite-eats.netlify.app/sitemap.xml
+Sitemap: https://ritepayroll.netlify.app/sitemap.xml
 
 # === CRAWLER NOTES ===
 # Googlebot, Bingbot: Welcome! Index all product pages.
