@@ -28,6 +28,9 @@ const horWrapper = ({
   activeSticker = false,
   $paddingLeftTop = '0px',
   $paddingRightTop = '0px',
+  secondSticker = false,
+  paddingBottom = '20px',
+  paddingToTopLayer = '0px',
 }: HorWrapperType) => {
   return (
     <Background
@@ -35,6 +38,8 @@ const horWrapper = ({
       desTitle={desTitle}
       activeHead={activeHead}
       activeSticker={activeSticker}
+      secondSticker={secondSticker}
+      paddingToTopLayer={paddingToTopLayer}
     >
       {bgWave && (
         <HeroWaves
@@ -58,7 +63,7 @@ const horWrapper = ({
           md: 'auto',
           lg: isBgColor ? '60vh' : fullHeight ? '90vh' : 'auto',
         }}
-        py={20}
+        py={paddingBottom}
         px={{
           base: '0px',
           sm: '0px',

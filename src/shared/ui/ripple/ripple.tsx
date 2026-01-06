@@ -37,7 +37,7 @@ const RadialHoverEffect: React.FC<RadialHoverEffectProps> = ({
   children,
   color = 'rgba(59, 130, 246, 1)',
   opacity = 1,
-  duration = 1.2,
+  duration = 1.5,
   borderRadius = '50%',
   className,
   style,
@@ -90,7 +90,7 @@ const RadialHoverEffect: React.FC<RadialHoverEffectProps> = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className={className}
-      style={style}
+      style={{ ...style, borderRadius }}
     >
       <RippleCircle
         style={{

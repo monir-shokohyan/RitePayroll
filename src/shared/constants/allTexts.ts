@@ -19,6 +19,7 @@ import {
   FaConciergeBell,
   FaCreditCard,
   FaCubes,
+  FaDollarSign,
   FaEnvelope,
   FaExclamationTriangle,
   FaFileInvoice,
@@ -37,6 +38,7 @@ import {
   FaMusic,
   FaNetworkWired,
   FaPaperPlane,
+  FaPercent,
   FaPhoneAlt,
   FaRing,
   FaRoute,
@@ -60,8 +62,9 @@ import {
   FaVolumeUp,
 } from 'react-icons/fa'
 import { FaKitchenSet, FaLocationDot } from 'react-icons/fa6'
-import { LuGlobe } from 'react-icons/lu'
+import { LuFileClock, LuFileText, LuGlobe } from 'react-icons/lu'
 import {
+  MdCalendarViewMonth,
   MdCardGiftcard,
   MdEmail,
   MdEvent,
@@ -175,6 +178,7 @@ export interface TotalDataItem {
   bestFor?: BestForType[]
   id?: Addon | string
   bubbles?: BubbleItem[]
+  imageUrlSet?: { id: number; url: string }[]
 }
 
 export const TotalData: TotalDataItem[] = [
@@ -241,6 +245,135 @@ export const TotalData: TotalDataItem[] = [
           text: '1,000+ customers',
           textFontSize: '11px',
         },
+      },
+    ],
+  },
+  {
+    name: 'aboutUs',
+    dTitle: 'Want to know more ?',
+    title: 'Read about us',
+    target: '/',
+    sectionId: 'dashboard-aboutUs-section',
+    imageUrl: '/aboutus.svg',
+    description:
+      'RitePayroll is a powerful, web-enabled payroll management software designed for small, medium, and large organizations operating across multiple branches and multiple currencies. Built to eliminate manual payroll errors and compliance risks, RitePayroll automates the entire payroll lifecycle — from attendance capture to payslip generation — with precision, security, and flexibility. Whether your organization processes daily wages or monthly salaries, manages complex allowances, statutory deductions, loans, and leave policies, or operates across locations and currencies, RitePayroll gives you total control — all from a single, centralized system.',
+    features: [
+      { name: 'Trusted by 1,000+' },
+      { name: '25+ years of experience' },
+    ],
+  },
+  {
+    name: 'advantage',
+    dTitle: 'Is Your Payroll Process Costing You More Than Money?',
+    title:
+      "Payroll errors don't just affect finances—they impact trust, compliance, and productivity",
+    target: '/',
+    sectionId: 'dashboard-advantage-section',
+    imageUrlSet: [
+      { id: 1, url: '/advantage/advantage.svg' },
+      { id: 2, url: '/advantage/calculation.svg' },
+      { id: 3, url: '/advantage/instant.svg' },
+      { id: 4, url: '/advantage/realTime.svg' },
+      { id: 5, url: '/advantage/zeroError.svg' },
+    ],
+    description:
+      'Our automated, end-to-end payroll solution ensures accuracy, compliance, and efficiency - giving you peace of mind and more time to focus on growing your business.',
+    features: [
+      {
+        id: 1,
+        name: 'Automated Calculations',
+        description:
+          'Say goodbye to time-consuming manual calculations and human errors in salaries, overtime, and allowances.',
+      },
+      {
+        id: 2,
+        name: 'Real-time Compliance',
+        description:
+          'RitePayroll automatically applies updated PAYE, NSSF, and tax rules, removing compliance risks and penalties.',
+      },
+      {
+        id: 3,
+        name: 'Instant Processing',
+        description:
+          'RitePayroll processes weekly or monthly payroll in minutes, ending delays and ensuring accurate, on-time payments.',
+      },
+      {
+        id: 4,
+        name: 'Zero Errors',
+        description:
+          'RitePayroll guarantees 100% accurate payslips and reports through full automation and built-in validation.',
+      },
+    ],
+  },
+  {
+    name: 'features',
+    dTitle: 'Standard',
+    title: 'CORE FEATURES',
+    target: '/',
+    sectionId: 'dashboard-features-section',
+    features: [
+      {
+        name: 'Smart POS Billing & Ordering',
+        description:
+          'Fast touch screen billing with multiple payment modes, modifiers, discounts and complimentary tracking.',
+        icon: FaCashRegister,
+        ariaLabel: 'Smart POS Billing and Ordering',
+        isActive: true,
+        distance: 0,
+      },
+      {
+        name: 'Kitchen & Bar Automation',
+        description:
+          'Integrated KOT handling, multi-kitchen/bar printing and optimized order flow.',
+        icon: FaKitchenSet,
+        ariaLabel: 'Kitchen and Bar Automation',
+        isActive: true,
+        distance: 15,
+      },
+      {
+        name: 'Table & Area Management',
+        description:
+          'Live floor management with table split, merge and shift operations.',
+        icon: FaTable,
+        ariaLabel: 'Table and Area Management',
+        isActive: true,
+        distance: 0,
+      },
+      {
+        name: 'Inventory & Recipe Control',
+        description:
+          'Multi-warehouse stock, automatic recipe deduction and accurate food costing.',
+        icon: FaBoxOpen,
+        ariaLabel: 'Inventory and Recipe Control',
+        isActive: true,
+        distance: 60,
+      },
+      {
+        name: 'Multi-Outlet & Multi-Currency',
+        description:
+          'Centralized system for multiple branches with consolidated reporting.',
+        icon: FaStoreAlt,
+        ariaLabel: 'Multi-Outlet and Multi-Currency Support',
+        isActive: true,
+        distance: 20,
+      },
+      {
+        name: 'Promotions & Loyalty',
+        description:
+          'Time-based offers, discounts and customer reward programs.',
+        icon: FaGift,
+        ariaLabel: 'Promotions and Loyalty Programs',
+        isActive: true,
+        distance: 90,
+      },
+      {
+        name: 'Security & Compliance',
+        description:
+          'Role-based access, till security, audit trails and VAT/tax compliant billing.',
+        icon: FaShieldAlt,
+        ariaLabel: 'Security and Compliance',
+        isActive: true,
+        distance: 30,
       },
     ],
   },
@@ -320,154 +453,47 @@ export const TotalData: TotalDataItem[] = [
     ],
   },
   {
-    name: 'aboutUs',
-    dTitle: 'Want to know more ?',
-    title: 'Read about us',
+    name: 'action',
+    dTitle: ' What RitePayroll Does ?',
+    title:
+      ' RitePayroll is a centralized payroll management software designed to automate weekly and monthly payroll processing.',
     target: '/',
-    sectionId: 'dashboard-aboutUs-section',
-    imageUrl: '/aboutus.svg',
-    description:
-      'RitePayroll is a powerful, web-enabled payroll management software designed for small, medium, and large organizations operating across multiple branches and multiple currencies. Built to eliminate manual payroll errors and compliance risks, RitePayroll automates the entire payroll lifecycle — from attendance capture to payslip generation — with precision, security, and flexibility. Whether your organization processes daily wages or monthly salaries, manages complex allowances, statutory deductions, loans, and leave policies, or operates across locations and currencies, RitePayroll gives you total control — all from a single, centralized system.',
-    features: [
-      { name: 'Trusted by 1,000+' },
-      { name: '25+ years of experience' },
-    ],
-  },
-
-  {
-    name: 'features',
-    dTitle: 'Standard',
-    title: 'CORE FEATURES',
-    target: '/',
-    sectionId: 'dashboard-features-section',
-    features: [
-      {
-        name: 'Smart POS Billing & Ordering',
-        description:
-          'Fast touch screen billing with multiple payment modes, modifiers, discounts and complimentary tracking.',
-        icon: FaCashRegister,
-        ariaLabel: 'Smart POS Billing and Ordering',
-        isActive: true,
-        distance: 0,
-      },
-      {
-        name: 'Kitchen & Bar Automation',
-        description:
-          'Integrated KOT handling, multi-kitchen/bar printing and optimized order flow.',
-        icon: FaKitchenSet,
-        ariaLabel: 'Kitchen and Bar Automation',
-        isActive: true,
-        distance: 15,
-      },
-      {
-        name: 'Table & Area Management',
-        description:
-          'Live floor management with table split, merge and shift operations.',
-        icon: FaTable,
-        ariaLabel: 'Table and Area Management',
-        isActive: true,
-        distance: 0,
-      },
-      {
-        name: 'Inventory & Recipe Control',
-        description:
-          'Multi-warehouse stock, automatic recipe deduction and accurate food costing.',
-        icon: FaBoxOpen,
-        ariaLabel: 'Inventory and Recipe Control',
-        isActive: true,
-        distance: 60,
-      },
-      {
-        name: 'Multi-Outlet & Multi-Currency',
-        description:
-          'Centralized system for multiple branches with consolidated reporting.',
-        icon: FaStoreAlt,
-        ariaLabel: 'Multi-Outlet and Multi-Currency Support',
-        isActive: true,
-        distance: 20,
-      },
-      {
-        name: 'Promotions & Loyalty',
-        description:
-          'Time-based offers, discounts and customer reward programs.',
-        icon: FaGift,
-        ariaLabel: 'Promotions and Loyalty Programs',
-        isActive: true,
-        distance: 90,
-      },
-      {
-        name: 'Security & Compliance',
-        description:
-          'Role-based access, till security, audit trails and VAT/tax compliant billing.',
-        icon: FaShieldAlt,
-        ariaLabel: 'Security and Compliance',
-        isActive: true,
-        distance: 30,
-      },
-    ],
-  },
-  {
-    name: 'addon',
-    dTitle: 'Enhance with',
-    title: 'ADVANCED ADD-ON MODULES',
-    target: '/',
-    sectionId: 'dashboard-addon-section',
+    sectionId: 'dashboard-action-section',
     features: [
       {
         id: 1,
-        name: 'Kitchen Display System (KDS)',
-        description:
-          'Real-time paperless digital order display in kitchens and bars.',
-        ariaLabel: 'Kitchen Display System',
+        name: 'Salary calculation based on attendance',
+        ariaLabel: 'Salary calculation based on attendance',
         isActive: true,
-        icon: MdOutlineMonitor,
-        target: Paths.Kds,
+        icon: LuFileClock,
       },
       {
         id: 2,
-        name: 'Captain/Waiter App',
-        description: 'Mobile table-side ordering on Android & iOS.',
-        ariaLabel: 'Captain and Waiter App',
+        name: 'Allowances, deductions, loans, and advances',
+        ariaLabel: 'Allowances, deductions, loans, and advances',
         isActive: true,
-        icon: MdSmartphone,
-        target: Paths.Waiter_App,
+        icon: FaDollarSign,
       },
       {
         id: 3,
-        name: 'Customer Loyalty Management',
-        description: 'Reward programs, points, visits and targeted promotions.',
-        ariaLabel: 'Customer Loyalty Management',
+        name: 'Leave management and encashments',
+        ariaLabel: 'Leave management and encashments',
         isActive: true,
-        icon: MdCardGiftcard,
-        target: Paths.Customer_Loyalty_Management,
+        icon: MdCalendarViewMonth,
       },
       {
         id: 4,
-        name: 'Online Table Reservations',
-        description: 'Digital advance bookings with real-time table control.',
-        ariaLabel: 'Online Table Reservations',
+        name: 'PAYE, NSSF, and statutory deductions',
+        ariaLabel: 'PAYE, NSSF, and statutory deductions',
         isActive: true,
-        icon: MdEventSeat,
-        target: Paths.Online_Table_Reservations,
+        icon: FaPercent,
       },
       {
         id: 5,
-        name: 'Token & Queue Management',
-        description: 'High-speed queue handling for fast service counters.',
-        ariaLabel: 'Token and Queue Management',
+        name: 'Payslips, payroll registers, and compliance reports',
+        ariaLabel: 'Payslips, payroll registers, and compliance reports',
         isActive: true,
-        icon: MdQueue,
-        target: Paths.Queue_Management,
-      },
-      {
-        id: 6,
-        name: 'Event Management System',
-        description:
-          'Banquet, party and corporate event billing and profitability control.',
-        ariaLabel: 'Event Management System',
-        isActive: true,
-        icon: MdEvent,
-        target: Paths.Event_Management_System,
+        icon: LuFileText,
       },
     ],
   },

@@ -21,4 +21,7 @@ export interface HorWrapperType {
   activeSticker?: boolean
   $paddingLeftTop?: string
   $paddingRightTop?: string
+  secondSticker?: boolean
+  paddingBottom?: string
+  paddingToTopLayer?: string
 }

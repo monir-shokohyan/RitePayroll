@@ -1,27 +1,36 @@
-import { memo } from 'react'
+import { memo, useRef } from 'react'
+import { Carousel } from '@mantine/carousel'
 import { Flex, Image } from '@mantine/core'
 import { useMediaQuery } from '@mantine/hooks'
+import { EmblaCarouselType } from 'embla-carousel'
 
 import { SavedColors } from '@shared/constants'
 import { FindByName } from '@shared/helpers'
 import { horWrapper as Wrapper } from '@shared/ui/horWrapper'
-import { TextWithFamily } from '@shared/ui/Typography'
+import { TextResponsive } from '@shared/ui/Typography'
 
-import { AboutRightSection } from './aboutRightSection'
+import { AdvantageRightSection } from './advantageRightSection'
 
 const Ui = memo(() => {
-  const pageInfo = FindByName('aboutUs')
+  const pageInfo = FindByName('advantage')
   const isMobile = useMediaQuery('(max-width: 760px)')
 
+  const emblaRef = useRef<EmblaCarouselType | null>(null)
+
+  const changeImage = (id: number) => {
+    emblaRef.current?.scrollTo(id)
+  }
+
   return (
-    <div id="dashboard-aboutUs-section">
+    <div id="dashboard-advantage-section">
       <Wrapper
         isReverseWrap={false}
         fullHeight={false}
         rightSection={
-          <AboutRightSection
+          <AdvantageRightSection
             pageInfo={pageInfo}
             isMobile={isMobile}
+            changeImage={(id) => changeImage(id)}
           />
         }
         RSJustify="center"
@@ -30,7 +39,8 @@ const Ui = memo(() => {
         activeHead={false}
         $paddingLeftTop={isMobile ? '80px' : '120px'}
         $paddingRightTop={isMobile ? '20px' : '50px'}
-        activeSticker={true}
+        activeSticker={false}
+        secondSticker={true}
       >
         <Flex
           w="100%"
@@ -40,7 +50,7 @@ const Ui = memo(() => {
           px={20}
           gap={30}
         >
-          <TextWithFamily
+          <TextResponsive
             $font="Roboto"
             fontWeight="500"
             fontSize="18px"
@@ -48,8 +58,8 @@ const Ui = memo(() => {
             $textalign="left"
           >
             {pageInfo?.dTitle}
-          </TextWithFamily>
-          <TextWithFamily
+          </TextResponsive>
+          <TextResponsive
             $font="Roboto"
             fontWeight="500"
             fontSize="32px"
@@ -57,13 +67,25 @@ const Ui = memo(() => {
             $textalign="left"
           >
             {pageInfo?.title}
-          </TextWithFamily>
-          <Image
-            src={pageInfo?.imageUrl || '/aboutUs.png'}
-            alt="about us image"
-            h={{ base: 200, sm: 200, md: 400, lg: 500 }}
-            fit="contain"
-          />
+          </TextResponsive>
+
+          <Carousel
+            withControls={false}
+            height="100%"
+            initialSlide={0}
+            getEmblaApi={(embla) => (emblaRef.current = embla)}
+          >
+            {pageInfo?.imageUrlSet?.map((img) => (
+              <Carousel.Slide key={img.id}>
+                <Image
+                  src={img.url}
+                  alt="about us image"
+                  h={{ base: 200, sm: 200, md: 400, lg: 500 }}
+                  fit="contain"
+                />
+              </Carousel.Slide>
+            ))}
+          </Carousel>
         </Flex>
       </Wrapper>
     </div>
