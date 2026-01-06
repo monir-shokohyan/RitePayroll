@@ -86,7 +86,6 @@ const Navbar = memo(() => {
           Contact Us
         </MenuItems>
         <Menu
-          width={200}
           position="bottom"
           withArrow
           shadow="md"
