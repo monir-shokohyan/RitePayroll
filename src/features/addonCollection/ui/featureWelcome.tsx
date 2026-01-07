@@ -66,7 +66,7 @@ const FeatureWelcome = ({ page }: { page: ProductsType }) => {
           py={20}
         >
           <Button
-            radius={20}
+            radius={10}
             leftSection={<FaCalendarAlt />}
             size="sm"
             w={{ base: '100%', sm: 'auto', md: 'auto', lg: 'auto' }}
@@ -79,7 +79,7 @@ const FeatureWelcome = ({ page }: { page: ProductsType }) => {
 
           <Button
             component="a"
-            radius={20}
+            radius={10}
             size="sm"
             leftSection={<FaDownload />}
             w={{ base: '100%', sm: 'auto', md: 'auto', lg: 'auto' }}

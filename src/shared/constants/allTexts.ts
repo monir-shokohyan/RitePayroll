@@ -226,7 +226,7 @@ export const TotalData: TotalDataItem[] = [
     name: 'advantage',
     dTitle: 'Is Your Payroll Process Costing You More Than Money?',
     title:
-      "Payroll errors don't just affect finances—they impact trust, compliance, and productivity",
+      "Payroll errors don't just affect finances they impact trust, compliance, and productivity",
     target: '/',
     sectionId: 'dashboard-advantage-section',
     imageUrlSet: [

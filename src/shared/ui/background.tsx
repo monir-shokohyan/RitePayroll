@@ -32,6 +32,7 @@ const Background = ({
         borderBottom: `1px solid ${SavedColors.DarkWhite}`,
         position: 'relative',
         paddingInline: `${paddingToTopLayer}`,
+        paddingBottom: '20px',
       }}
     >
       <Flex

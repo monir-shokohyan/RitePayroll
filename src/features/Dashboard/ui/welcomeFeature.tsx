@@ -12,7 +12,10 @@ const WelcomeFeature = ({ pageInfo }: { pageInfo?: TotalDataItem }) => {
       justify="center"
       align="center"
     >
-      <WelcomeLeftSection pageInfo={pageInfo} />
+      <WelcomeLeftSection
+        pageInfo={pageInfo}
+        activeBubble={false}
+      />
     </Flex>
   )
 }

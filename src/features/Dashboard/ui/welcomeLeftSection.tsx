@@ -7,59 +7,73 @@ import { TextWithFamily } from '@shared/ui/Typography'
 
 import { Bubble, Container } from '../styles'
 
-const WelcomeLeftSection = ({ pageInfo }: { pageInfo?: TotalDataItem }) => {
+const WelcomeLeftSection = ({
+  pageInfo,
+  activeBubble = false,
+}: {
+  pageInfo?: TotalDataItem
+  activeBubble?: boolean
+}) => {
   const isMobile = useMediaQuery('(max-width: 768px)')
+  const Style = isMobile
+    ? {}
+    : {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }
   return (
-    <Container>
+    <Container style={Style}>
       <Image
-        src="/welcome.svg"
+        src="/dashboard.svg"
         alt="Welcome"
         c={SavedColors.highlite}
       />
-      {pageInfo?.bubbles?.map((Buble) => {
-        const {
-          icon: Icon,
-          iconColor,
-          iconSize,
-          text,
-          textFontSize,
-        } = Buble.content
-        return (
-          <Bubble
-            key={Buble.id}
-            top={Buble.top}
-            left={Buble.left}
-            rotate={Buble.rotate}
-            animate={Buble.animate}
-            initial={Buble.initial}
-            whileInView={Buble.whileInView}
-            viewport={Buble.viewport}
-            transition={Buble.transition}
-            whileHover={Buble.whileHover}
-            $size={isMobile ? 5 : Buble.size}
-          >
-            <Flex
-              align="center"
-              gap={8}
-              direction="column"
+      {activeBubble &&
+        pageInfo?.bubbles?.map((Buble) => {
+          const {
+            icon: Icon,
+            iconColor,
+            iconSize,
+            text,
+            textFontSize,
+          } = Buble.content
+          return (
+            <Bubble
+              key={Buble.id}
+              top={Buble.top}
+              left={Buble.left}
+              rotate={Buble.rotate}
+              animate={Buble.animate}
+              initial={Buble.initial}
+              whileInView={Buble.whileInView}
+              viewport={Buble.viewport}
+              transition={Buble.transition}
+              whileHover={Buble.whileHover}
+              $size={isMobile ? 5 : Buble.size}
             >
-              <Icon
-                color={iconColor}
-                size={iconSize}
-              />
-              <TextWithFamily
-                $font="Roboto"
-                fontWeight="500"
-                fontSize={textFontSize}
-                color={SavedColors.TextColor}
-                $textalign="center"
+              <Flex
+                align="center"
+                gap={8}
+                direction="column"
               >
-                {text}
-              </TextWithFamily>
-            </Flex>
-          </Bubble>
-        )
-      })}
+                <Icon
+                  color={iconColor}
+                  size={iconSize}
+                />
+                <TextWithFamily
+                  $font="Roboto"
+                  fontWeight="500"
+                  fontSize={textFontSize}
+                  color={SavedColors.TextColor}
+                  $textalign="center"
+                >
+                  {text}
+                </TextWithFamily>
+              </Flex>
+            </Bubble>
+          )
+        })}
     </Container>
   )
 }
