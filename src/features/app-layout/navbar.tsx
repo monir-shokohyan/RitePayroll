@@ -65,17 +65,18 @@ const Navbar = memo(() => {
 
         <MenuItems
           to="/"
-          onClick={() => navigateAndScroll('/', 'dashboard-benefits-section')}
-          className={getSectionActive('dashboard-benefits-section')}
-        >
-          Benefits
-        </MenuItems>
-        <MenuItems
-          to="/"
           onClick={() => navigateAndScroll('/', 'dashboard-industries-section')}
           className={getSectionActive('dashboard-industries-section')}
         >
           Industries
+        </MenuItems>
+
+        <MenuItems
+          to="/"
+          onClick={() => navigateAndScroll('/', 'dashboard-benefits-section')}
+          className={getSectionActive('dashboard-benefits-section')}
+        >
+          Benefits
         </MenuItems>
 
         <MenuItems
@@ -191,18 +192,6 @@ const Navbar = memo(() => {
             to="/"
             onClick={() => {
               toggle()
-              navigateAndScroll('/', 'dashboard-benefits-section')
-            }}
-            className={
-              activeSection === 'dashboard-benefits-section' ? 'active' : ''
-            }
-          >
-            Benefits
-          </MenuListItem>
-          <MenuListItem
-            to="/"
-            onClick={() => {
-              toggle()
               navigateAndScroll('/', 'dashboard-industries-section')
             }}
             className={
@@ -210,6 +199,19 @@ const Navbar = memo(() => {
             }
           >
             Industries
+          </MenuListItem>
+
+          <MenuListItem
+            to="/"
+            onClick={() => {
+              toggle()
+              navigateAndScroll('/', 'dashboard-benefits-section')
+            }}
+            className={
+              activeSection === 'dashboard-benefits-section' ? 'active' : ''
+            }
+          >
+            Benefits
           </MenuListItem>
 
           <MenuListItem
