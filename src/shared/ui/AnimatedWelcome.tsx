@@ -34,17 +34,18 @@ const growBar = keyframes`
 const ChartWrapper = styled.div`
   border-radius: 16px;
   position: absolute;
-  width: 45%;
-  height: 30%;
+  width: 65%;
+  height: 40%;
   top: 50%;
-  left: 21%;
-  transform: translateY(-95%);
+  left: 9.5%;
+  transform: translateY(-77%);
+  z-index: 1;
 `
 
 const BarsContainer = styled.div`
   display: flex;
   align-items: flex-end;
-  gap: 11%;
+  gap: 2%;
   height: 100%;
   width: 100%;
 `
@@ -53,7 +54,7 @@ const Bar = styled.div<BarProps>`
   flex: 1;
   max-width: 80px;
   height: ${(props) => props.height}%;
-  border-radius: 5px 5px 0px 0px;
+  border-radius: 2px 2px 0px 0px;
   background: ${SavedColors.highlite};
   transform-origin: bottom;
   transform: scaleY(0);
@@ -67,14 +68,31 @@ const Bar = styled.div<BarProps>`
       animation-delay: ${props.delay}s;
     `}
 `
+const data = [
+  { id: 1, value: 45 },
+  { id: 2, value: 68 },
+  { id: 3, value: 52 },
+  { id: 4, value: 78 },
+  { id: 5, value: 88 },
+  { id: 6, value: 45 },
+  { id: 7, value: 68 },
+  { id: 8, value: 92 },
+  { id: 9, value: 28 },
+  { id: 10, value: 68 },
+  { id: 11, value: 10 },
+  { id: 12, value: 68 },
+  { id: 13, value: 59 },
+  { id: 14, value: 28 },
+  { id: 15, value: 18 },
+  { id: 16, value: 95 },
+  { id: 17, value: 68 },
+  { id: 18, value: 32 },
+  { id: 19, value: 98 },
+  { id: 20, value: 58 },
+  { id: 22, value: 75 },
+  { id: 21, value: 100 },
+]
 const AnimatedChartComponent: React.FC<AnimatedChartProps> = ({
-  data = [
-    { value: 45 },
-    { value: 68 },
-    { value: 52 },
-    { value: 78 },
-    { value: 88 },
-  ],
   animationDuration = 3000,
   loopDelay = 2000,
 }) => {
@@ -99,7 +117,7 @@ const AnimatedChartComponent: React.FC<AnimatedChartProps> = ({
       <BarsContainer>
         {data.map((item, index) => (
           <Bar
-            key={`${item.value}-${animate}`}
+            key={`${item.id}-${animate}`}
             height={item.value}
             animate={animate}
             delay={index * 0.15}

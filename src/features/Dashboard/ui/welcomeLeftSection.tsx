@@ -27,6 +27,7 @@ const WelcomeLeftSection = ({
         src="/dashboard.svg"
         alt="Welcome"
         c={SavedColors.highlite}
+        style={{ zIndex: 12 }}
       />
       <AnimatedChartComponent />
       {activeBubble &&
