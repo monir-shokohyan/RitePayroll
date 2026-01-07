@@ -17,7 +17,7 @@ const AffixComponent = () => {
             style={transitionStyles}
             onClick={() => scrollTo({ y: 0 })}
             size="xl"
-            color={SavedColors.Primaryblue}
+            color={SavedColors.highlite}
           >
             <FaArrowUp size={16} />
           </ActionIcon>

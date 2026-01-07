@@ -37,10 +37,10 @@ const MenuItems = styled(Link)`
   height: 73px;
   width: 101px;
   text-decoration: none;
-  color: #012970;
+  color: ${SavedColors.TextColor};
   font-size: 15px;
   font-family: 'Roboto', sans-serif;
-  font-weight: 600;
+  font-weight: 500;
   font-style: normal;
   transition: color 0.3s ease;
 
@@ -76,14 +76,14 @@ const MenuListItem = styled(Link)`
   display: flex;
   justify-content: start;
   align-items: center;
-  height: 50px;
+  height: 40px;
   width: 100%;
   padding-left: 20px;
   text-decoration: none;
-  color: #012970;
-  font-size: 15px;
+  color: ${SavedColors.TextColor};
+  font-size: 13px;
   font-family: 'Roboto', sans-serif;
-  font-weight: 600;
+  font-weight: 500;
   font-style: normal;
   border-bottom: 3px solid transparent;
   transition: all 0.3s ease-in;
@@ -95,7 +95,7 @@ const MenuListItem = styled(Link)`
   &.active {
     background-color: ${SavedColors.TextColor}10;
     color: ${SavedColors.TextColor};
-    font-weight: 600;
+    font-weight: 500;
   }
 `
 
@@ -128,10 +128,10 @@ const ProductMenuTrigger = styled.div`
   height: 73px;
   width: 101px;
   text-decoration: none;
-  color: #012970;
+  color: ${SavedColors.TextColor};
   font-size: 15px;
   font-family: 'Roboto', sans-serif;
-  font-weight: 600;
+  font-weight: 500;
   font-style: normal;
   transition: all 0.3s ease-in;
   border: 0px;
@@ -170,14 +170,14 @@ const ProductMenuListTrigger = styled.div`
   display: flex;
   justify-content: start;
   align-items: center;
-  height: 50px;
+  height: 40px;
   width: 100%;
   padding-left: 20px;
   text-decoration: none;
-  color: #012970;
-  font-size: 15px;
+  color: ${SavedColors.TextColor};
+  font-size: 13px;
   font-family: 'Roboto', sans-serif;
-  font-weight: 600;
+  font-weight: 500;
   font-style: normal;
   border-bottom: 3px solid transparent;
   transition: all 0.3s ease-in;
@@ -199,8 +199,8 @@ const ProductMenuListTrigger = styled.div`
 const CustomMenuItem = styled(Menu.Item)<any>`
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
-  font-size: 14px;
-  color: #012970 !important;
+  font-size: 13px;
+  color: ${SavedColors.TextColor} !important;
 
   &:hover {
     background-color: ${SavedColors.TextHighlite} !important;
@@ -217,7 +217,7 @@ const VerticalLine = styled.div`
   width: 154px;
   height: 4px;
   border-radius: 2px;
-  background: ${SavedColors.TextColor};
+  background: ${SavedColors.highlite};
 `
 
 const FooterContainer = styled.footer`

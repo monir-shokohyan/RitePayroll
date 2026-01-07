@@ -37,14 +37,14 @@ createRoot(container).render(
           <AnimatedCursor
             innerSize={8}
             outerSize={35}
-            color={SavedColors.primaryGreenRGB}
+            color={SavedColors.CursorHighlite}
             outerAlpha={0.3}
             innerScale={0.7}
             outerScale={2}
             trailingSpeed={8}
             showSystemCursor={true}
             outerStyle={{
-              border: `2px solid rgba(${SavedColors.primaryGreenRGB}, 1)`,
+              border: `2px solid rgba(${SavedColors.CursorHighlite}, 1)`,
               backgroundColor: 'transparent',
             }}
           />

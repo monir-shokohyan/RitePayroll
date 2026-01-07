@@ -60,7 +60,7 @@ const Navbar = memo(() => {
           onClick={() => navigateAndScroll('/', 'dashboard-aboutUs-section')}
           className={getSectionActive('dashboard-aboutUs-section')}
         >
-          About us
+          About Us
         </MenuItems>
 
         <MenuItems
@@ -145,7 +145,7 @@ const Navbar = memo(() => {
           <Burger
             lineSize={3}
             size="md"
-            color={SavedColors.Primaryblue}
+            color={SavedColors.TextColor}
             opened={opened}
             onClick={toggle}
             aria-label={
@@ -184,7 +184,7 @@ const Navbar = memo(() => {
               activeSection === 'dashboard-aboutUs-section' ? 'active' : ''
             }
           >
-            about us
+            About Us
           </MenuListItem>
 
           <MenuListItem

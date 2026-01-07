@@ -5,6 +5,7 @@ export const enum SavedColors {
   DarkWhite = '#ADB5BD',
   TextColor = '#30323B',
   TextHighlite = '#5bc142',
+  CursorHighlite = '91, 193, 66',
   highlite = '#5bc142',
   // TextHighlite = '#A1CC3A',
   // highlite = '#C9F31D',

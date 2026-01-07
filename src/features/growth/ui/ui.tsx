@@ -43,6 +43,7 @@ const Ui = memo(() => {
                 <RadialHoverEffect
                   style={{ width: '100%', height: '100%' }}
                   color={SavedColors.highlite}
+                  opacity={0.2}
                 >
                   <TextResponsive
                     $textalign="center"
@@ -53,8 +54,10 @@ const Ui = memo(() => {
                       transform: 'translate(-50%, -50%)',
                       zIndex: 4,
                       paddingInline: '10px',
+                      width: '90%',
                     }}
-                    fontSize="20px"
+                    fontSize="17px"
+                    fontWeight="500"
                   >
                     {feature.name}
                   </TextResponsive>
@@ -66,7 +69,7 @@ const Ui = memo(() => {
                       left: '50%',
                       transform: 'translate(-50%,-50%)',
                       zIndex: 2,
-                      opacity: 0.1,
+                      opacity: 0.07,
                     }}
                     color={SavedColors.highlite}
                   />

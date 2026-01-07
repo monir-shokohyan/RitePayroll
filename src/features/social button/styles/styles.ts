@@ -29,7 +29,7 @@ export const BackgroundCircle = styled(motion.div)`
 export const FabButton = styled.button`
   width: 50px;
   height: 50px;
-  background: ${SavedColors.primaryBlue};
+  background: ${SavedColors.highlite};
   border: none;
   border-radius: 50%;
   color: white;
@@ -41,7 +41,8 @@ export const FabButton = styled.button`
   position: relative;
 
   &:hover {
-    background: ${SavedColors.darkBlue};
+    background: ${SavedColors.highlite};
+    opacity: 0.8;
   }
 `
 

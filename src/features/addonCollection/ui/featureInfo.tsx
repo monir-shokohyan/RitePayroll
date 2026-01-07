@@ -47,6 +47,7 @@ const FeatureInfo = ({ page }: { page: ProductsType }) => {
                   color={SavedColors.highlite}
                   borderRadius="0px"
                   shape={true}
+                  opacity={0.2}
                 >
                   <TextResponsive
                     $textalign="center"
@@ -57,7 +58,10 @@ const FeatureInfo = ({ page }: { page: ProductsType }) => {
                       transform: 'translate(-50%, -50%)',
                       zIndex: 4,
                       paddingInline: '10px',
+                      width: '90%',
                     }}
+                    fontSize="17px"
+                    fontWeight="500"
                   >
                     {feature.name}
                   </TextResponsive>
@@ -69,7 +73,7 @@ const FeatureInfo = ({ page }: { page: ProductsType }) => {
                       left: '50%',
                       transform: 'translate(-50%,-50%)',
                       zIndex: 2,
-                      opacity: 0.2,
+                      opacity: 0.07,
                     }}
                     color={SavedColors.highlite}
                   />

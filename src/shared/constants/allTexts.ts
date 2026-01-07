@@ -457,22 +457,27 @@ export const TotalData: TotalDataItem[] = [
     sectionId: 'dashboard-benefits-section',
     features: [
       {
+        id: 1,
         name: 'Reduced payroll errors',
         icon: FaChartLine,
       },
       {
+        id: 2,
         name: 'Faster processing cycles',
         icon: FaTachometerAlt,
       },
       {
+        id: 3,
         name: 'Improved statutory compliance',
         icon: FaBalanceScale,
       },
       {
+        id: 4,
         name: 'Better HR and finance visibility',
         icon: FaEye,
       },
       {
+        id: 5,
         name: 'Secure and auditable payroll data',
         icon: FaLock,
       },
