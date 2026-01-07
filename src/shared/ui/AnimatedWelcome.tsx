@@ -45,7 +45,7 @@ const ChartWrapper = styled.div`
 const BarsContainer = styled.div`
   display: flex;
   align-items: flex-end;
-  gap: 2%;
+  gap: 2.3%;
   height: 100%;
   width: 100%;
 `
