@@ -27,7 +27,7 @@ const growBar = keyframes`
   }
   100% {
     transform: scaleY(1);
-    opacity: 1;
+    opacity: 0.5;
   }
 `
 

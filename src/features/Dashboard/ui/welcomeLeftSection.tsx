@@ -24,7 +24,7 @@ const WelcomeLeftSection = ({
   return (
     <Container style={Style}>
       <Image
-        src="/dashboard.svg"
+        src="/dashboard5.svg"
         alt="Welcome"
         c={SavedColors.highlite}
         style={{ zIndex: 12 }}
