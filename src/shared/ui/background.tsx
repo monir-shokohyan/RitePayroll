@@ -29,10 +29,9 @@ const Background = ({
   return (
     <div
       style={{
-        borderBottom: `1px solid ${SavedColors.DarkWhite}`,
+        borderBottom: `1px solid lightgray`,
         position: 'relative',
         paddingInline: `${paddingToTopLayer}`,
-        paddingBottom: '20px',
       }}
     >
       <Flex
@@ -172,6 +171,7 @@ const Background = ({
           </Flex>
         )}
         {children}
+        <div style={{ paddingBlock: '20px' }} />
       </Flex>
     </div>
   )
