@@ -57,6 +57,7 @@ const Ui = memo(() => {
                       zIndex: 4,
                       paddingInline: '10px',
                     }}
+                    fontSize="20px"
                   >
                     {feature.name}
                   </TextResponsive>
@@ -68,7 +69,7 @@ const Ui = memo(() => {
                       left: '50%',
                       transform: 'translate(-50%,-50%)',
                       zIndex: 2,
-                      opacity: 0.2,
+                      opacity: 0.1,
                     }}
                     color={SavedColors.highlite}
                   />

@@ -45,7 +45,7 @@ const TextWithFamily = styled.div<StyledTextProps>`
 const TitleWithFamily = styled.h1<StyledTextProps>`
   ${textStyles}
   @media (max-width:1024px) {
-    font-size: 16px;
+    font-size: 20px;
   }
 `
 
@@ -84,15 +84,14 @@ const TextResponsive = styled.h1<StyledTextProps>`
 
     return `
       // Mobile (base)
-      font-size: ${baseSize * 0.8}${unit};
+      font-size: ${baseSize * 0.6}${unit};
       
       // Small tablets
       @media (min-width: 480px) {
         font-size: ${baseSize * 0.85}${unit};
       }
-      
-      // Tablets
-      @media (min-width: 768px) {
+        }
+            @media (min-width: 768px) {
         font-size: ${baseSize * 0.9}${unit};
       }
       

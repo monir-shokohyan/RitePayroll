@@ -1,6 +1,7 @@
 import { memo } from 'react'
 import { IconType } from 'react-icons'
-import { Flex } from '@mantine/core'
+import { useNavigate } from 'react-router-dom'
+import { Flex, Tooltip } from '@mantine/core'
 import { useMediaQuery } from '@mantine/hooks'
 
 import { SavedColors } from '@shared/constants'
@@ -14,7 +15,7 @@ import { StyledCard } from '../styles'
 const Ui = memo(() => {
   const pageInfo = FindByName('features')
   const isMobile = useMediaQuery('(max-width: 760px)')
-
+  const navigate = useNavigate()
   return (
     <div id="dashboard-features-section">
       <Wrapper
@@ -37,42 +38,48 @@ const Ui = memo(() => {
           {pageInfo?.features?.map((feature) => {
             const Icon = feature.icon as IconType
             return (
-              <StyledCard
+              <Tooltip
                 key={feature.name}
-                bg="white"
+                label={`Learn more about ${feature.name}`}
               >
-                <RadialHoverEffect
-                  style={{ width: '100%', height: '100%' }}
-                  color={SavedColors.highlite}
-                  borderRadius="0px"
+                <StyledCard
+                  bg="white"
+                  onClick={() => navigate(feature.target || '/')}
                 >
-                  <TextResponsive
-                    $textalign="center"
-                    style={{
-                      position: 'absolute',
-                      top: '50%',
-                      left: '50%',
-                      transform: 'translate(-50%, -50%)',
-                      zIndex: 4,
-                      paddingInline: '10px',
-                    }}
-                  >
-                    {feature.name}
-                  </TextResponsive>
-                  <Icon
-                    size="60%"
-                    style={{
-                      position: 'absolute',
-                      top: '50%',
-                      left: '50%',
-                      transform: 'translate(-50%,-50%)',
-                      zIndex: 2,
-                      opacity: 0.2,
-                    }}
+                  <RadialHoverEffect
+                    style={{ width: '100%', height: '100%' }}
                     color={SavedColors.highlite}
-                  />
-                </RadialHoverEffect>
-              </StyledCard>
+                    borderRadius="0px"
+                  >
+                    <TextResponsive
+                      $textalign="center"
+                      style={{
+                        position: 'absolute',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        zIndex: 4,
+                        paddingInline: '10px',
+                      }}
+                      fontSize="20px"
+                    >
+                      {feature.name}
+                    </TextResponsive>
+                    <Icon
+                      size="60%"
+                      style={{
+                        position: 'absolute',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%,-50%)',
+                        zIndex: 2,
+                        opacity: 0.1,
+                      }}
+                      color={SavedColors.highlite}
+                    />
+                  </RadialHoverEffect>
+                </StyledCard>
+              </Tooltip>
             )
           })}
         </Flex>

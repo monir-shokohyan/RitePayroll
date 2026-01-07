@@ -38,7 +38,7 @@ const Ui = memo(() => {
           justify="center"
           direction="column"
           px={20}
-          gap={30}
+          gap={20}
         >
           <TextWithFamily
             $font="Roboto"
