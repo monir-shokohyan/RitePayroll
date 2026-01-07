@@ -153,7 +153,7 @@ const Background = ({
             px={20}
           >
             <TextResponsive
-              color={SavedColors.TextHighlite}
+              color={SavedColors.highlite}
               fontSize="30px"
               fontWeight="300"
               $font="Roboto"

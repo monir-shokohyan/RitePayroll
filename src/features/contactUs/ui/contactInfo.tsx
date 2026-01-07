@@ -22,7 +22,7 @@ const ContactInfo: React.FC = () => {
         $font="Roboto"
         fontWeight="500"
         fontSize="18px"
-        color={SavedColors.TextHighlite}
+        color={SavedColors.highlite}
         $textalign="left"
       >
         {pageInfo?.dTitle}

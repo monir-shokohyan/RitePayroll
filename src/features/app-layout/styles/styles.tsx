@@ -51,7 +51,7 @@ const MenuItems = styled(Link)`
     left: 0;
     width: 100%;
     height: 3px;
-    background-color: ${SavedColors.TextHighlite};
+    background-color: ${SavedColors.highlite};
     transform: scaleX(0);
     transform-origin: center;
     transition: transform 0.35s ease-out;
@@ -60,7 +60,7 @@ const MenuItems = styled(Link)`
 
   &:hover,
   &.active {
-    color: ${SavedColors.TextHighlite};
+    color: ${SavedColors.highlite};
 
     &::after {
       transform: scaleX(1);
@@ -89,7 +89,7 @@ const MenuListItem = styled(Link)`
   transition: all 0.3s ease-in;
 
   &:hover {
-    background: ${SavedColors.TextHighlite};
+    background: ${SavedColors.highlite};
     color: ${SavedColors.PrimaryWhite};
   }
   &.active {
@@ -149,7 +149,7 @@ const ProductMenuTrigger = styled.div`
     left: 0;
     width: 100%;
     height: 3px;
-    background-color: ${SavedColors.TextHighlite};
+    background-color: ${SavedColors.highlite};
     transform: scaleX(0);
     transform-origin: center;
     transition: transform 0.35s ease-out;
@@ -158,7 +158,7 @@ const ProductMenuTrigger = styled.div`
 
   &:hover,
   &.active {
-    color: ${SavedColors.TextHighlite};
+    color: ${SavedColors.highlite};
 
     &::after {
       transform: scaleX(1);
@@ -186,7 +186,7 @@ const ProductMenuListTrigger = styled.div`
   cursor: pointer;
 
   &:hover {
-    background: ${SavedColors.TextHighlite};
+    background: ${SavedColors.highlite};
     color: ${SavedColors.PrimaryWhite};
   }
   &.active {
@@ -203,7 +203,7 @@ const CustomMenuItem = styled(Menu.Item)<any>`
   color: ${SavedColors.TextColor} !important;
 
   &:hover {
-    background-color: ${SavedColors.TextHighlite} !important;
+    background-color: ${SavedColors.highlite} !important;
     color: white !important;
   }
   &.active {

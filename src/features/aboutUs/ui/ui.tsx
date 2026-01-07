@@ -44,7 +44,7 @@ const Ui = memo(() => {
             $font="Roboto"
             fontWeight="300"
             fontSize="18px"
-            color={SavedColors.TextHighlite}
+            color={SavedColors.highlite}
             $textalign="left"
           >
             {pageInfo?.dTitle}
@@ -59,7 +59,7 @@ const Ui = memo(() => {
             {pageInfo?.title}
           </TextWithFamily>
           <Image
-            src={pageInfo?.imageUrl || '/aboutUs.png'}
+            src={pageInfo?.imageUrl || '/aboutus.png'}
             alt="about us image"
             h={{ base: 200, sm: 200, md: 400, lg: 500 }}
             fit="contain"

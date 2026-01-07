@@ -74,7 +74,7 @@ const Ui: React.FC<NotFoundPageProps> = ({ onGoHome, onGoBack }) => {
           <StyledButton
             onClick={handleGoHome}
             style={{
-              background: SavedColors.TextHighlite,
+              background: SavedColors.highlite,
               color: '#ffffff',
             }}
           >
@@ -85,8 +85,8 @@ const Ui: React.FC<NotFoundPageProps> = ({ onGoHome, onGoBack }) => {
             onClick={handleGoBack}
             variant="outline"
             style={{
-              borderColor: SavedColors.TextHighlite,
-              color: SavedColors.TextHighlite,
+              borderColor: SavedColors.highlite,
+              color: SavedColors.highlite,
               borderWidth: '2px',
             }}
           >
