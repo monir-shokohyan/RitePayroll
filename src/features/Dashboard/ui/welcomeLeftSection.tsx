@@ -3,6 +3,7 @@ import { useMediaQuery } from '@mantine/hooks'
 
 import { SavedColors } from '@shared/constants'
 import { TotalDataItem } from '@shared/constants/allTexts'
+import { AnimatedChartComponent } from '@shared/ui/AnimatedWelcome'
 import { TextWithFamily } from '@shared/ui/Typography'
 
 import { Bubble, Container } from '../styles'
@@ -15,13 +16,11 @@ const WelcomeLeftSection = ({
   activeBubble?: boolean
 }) => {
   const isMobile = useMediaQuery('(max-width: 768px)')
-  const Style = isMobile
-    ? {}
-    : {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }
+  const Style = {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
   return (
     <Container style={Style}>
       <Image
@@ -29,6 +28,7 @@ const WelcomeLeftSection = ({
         alt="Welcome"
         c={SavedColors.highlite}
       />
+      <AnimatedChartComponent />
       {activeBubble &&
         pageInfo?.bubbles?.map((Buble) => {
           const {
