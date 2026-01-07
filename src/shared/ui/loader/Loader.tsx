@@ -11,7 +11,7 @@ const Loader = () => {
       h="80vh"
     >
       <Loading
-        color={SavedColors.Primaryblue}
+        color={SavedColors.highlite}
         size="md"
       />
     </Flex>

@@ -177,27 +177,32 @@ const ContactFormMain = () => {
           variant="outline"
         >
           <RadialHoverEffect color={SavedColors.highlite}>
-            {isSubmitting ? (
-              <Loader size="sm" />
-            ) : (
-              <Flex
-                justify="center"
-                align="center"
-                gap={20}
-                pos="absolute"
-                top="50%"
-                left="50%"
-                style={{ transform: 'translate(-50%, -50%)' }}
-              >
-                <TextResponsive
-                  fontWeight="300"
-                  width="50px"
-                >
-                  Submit Request
-                </TextResponsive>
-                <FaArrowRight color="black" />
-              </Flex>
-            )}
+            <Flex
+              justify="center"
+              align="center"
+              gap={20}
+              pos="absolute"
+              top="50%"
+              left="50%"
+              style={{ transform: 'translate(-50%, -50%)' }}
+            >
+              {!isSubmitting ? (
+                <>
+                  <TextResponsive
+                    fontWeight="300"
+                    width="50px"
+                  >
+                    Submit Request
+                  </TextResponsive>
+                  <FaArrowRight color="black" />
+                </>
+              ) : (
+                <Loader
+                  size="sm"
+                  color="gray"
+                />
+              )}
+            </Flex>
           </RadialHoverEffect>
         </HoveredButton>
       </Box>
