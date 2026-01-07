@@ -8,7 +8,7 @@ import { MotionaType } from '../types'
 export const Container = styled.div`
   position: fixed;
   right: 25px;
-  bottom: 30px;
+  bottom: 25px;
   z-index: 50;
 `
 
