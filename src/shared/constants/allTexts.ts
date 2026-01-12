@@ -485,8 +485,8 @@ export const TotalData: TotalDataItem[] = [
   },
   {
     name: 'contact us',
-    dTitle: 'What features does RitePayroll have?',
-    title: 'Here, check out our features',
+    dTitle: 'Get in Touch',
+    title: 'We’re here to assist you — choose your preferred way to connect',
     description:
       "We'd love to hear from you and start something special together. Call us with any questions.",
     target: '/',
