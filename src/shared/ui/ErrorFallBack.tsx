@@ -150,7 +150,7 @@ const ErrorFallback = () => {
         >
           <MdError
             size={45}
-            color="#15B3E0"
+            color="#5bc142"
           />
         </StyledThemeIcon>
       </IconWrapper>
@@ -169,7 +169,7 @@ const ErrorFallback = () => {
             leftIcon={<MdRefresh size={18} />}
             onClick={resetErrorBoundary}
             style={{
-              background: '#15B3E0',
+              background: '#5bc142',
               color: '#ffffff',
             }}
           >
@@ -182,7 +182,7 @@ const ErrorFallback = () => {
             variant="light"
             style={{
               background: 'rgba(21, 179, 224, 0.1)',
-              color: '#15B3E0',
+              color: '#5bc142',
             }}
           >
             Contact Support

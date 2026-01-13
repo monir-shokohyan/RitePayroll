@@ -17,7 +17,6 @@ import { WelcomeFeature } from './welcomeFeature'
 const Welcome = memo(() => {
   const { navigateAndScroll } = useNavigationScroll()
   const pageInfo = FindByName('Welcome')
-
   return (
     <section id="dashboard-welcome-section">
       <Wrapper
